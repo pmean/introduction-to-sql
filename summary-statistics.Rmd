@@ -1,0 +1,39 @@
+---
+title: "Simple SQL examples within R"
+author: "Steve Simon"
+date: "September 12, 2017"
+output: html_document
+---
+
+SQL can produce a handful of summary statistics. It will not replace your favorite statistical package, but sometimes calculating a few of these statistics in SQL can greatly simplify your life.
+
+We will work with the database fat.sqlite again. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
+
+```{r list-tables}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="fat.sqlite")
+dbListTables(conn=db)
+```
+
+The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer
+
+```{r count}
+fd <- dbGetQuery(conn=db,
+ "SELECT COUNT(case_number) FROM fat")
+fd
+```
+
+The max and min functions compute the largest and smallest values.
+
+```{r max-and-min}
+fd <- dbGetQuery(conn=db,
+ "SELECT MAX(age) FROM fat")
+fd
+fd <- dbGetQuery(conn=db,
+ "SELECT MIN(bmi) FROM fat")
+fd
+```
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
