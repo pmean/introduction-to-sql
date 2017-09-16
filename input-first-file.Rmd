@@ -1,0 +1,51 @@
+---
+title: "Simple SQL examples within R"
+author: "Steve Simon"
+date: "September 12, 2017"
+output: html_document
+---
+
+There are several ways to access SQL databases in R. I'm following an example that appears at 
+
+https://www.r-bloggers.com/r-and-sqlite-part-1/
+
+Run this install.packages function once.
+
+```{r install-packages, eval=FALSE}
+install.packages("sqldf")
+```
+
+The sqldf package allows you to use SQL queries on an existing data frame in addition to running SQL queries on a SQL database.
+
+When you install sqldf, you also end up installing rsqlite and dbi. 
+
+Run the database creation steps once.
+
+The dbConnect command will connect you to an existing database, but if the dbname argument refers to a file that has not yet been created, dbConnect will create a new SQLite database.
+
+Normally we will focus on getting data out of a SQL database rather than getting data into a SQL database. But here's a quick example of how you might create a table in an existing database. The "official" SQL approach would use the CREATE TABLE and INSERT INTO commands, but you can combine both of these into a single function call to the dbWriteTable function.
+
+I had to tweak the original field names slightly. The field case_number was originally called case, but case is a reserved word in sql. The fields fat_b and fat_s were originally called fat.b and fat.s, but the dot is reserved for sql queries involving multiple tables to help resolve ambiguities when some of the field names are the same across multiple tables.
+
+```{r create a new database}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="fat.sqlite")
+dbWriteTable(conn=db, name="fat", value="fat.csv",
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
+dbDisconnect(conn=db)
+```
+
+The dbListTables function will list the names of all the tables in your database.
+
+There is also a nice function for reading an entire table into R, dbReadTable, but I would encourage you to access the entire table using the SQL statement "select * from fat".
+
+```{r test access}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="fat.sqlite")
+dbListTables(conn=db)
+fd <- dbReadTable(conn=db, name="fat")
+head(fd)
+fd <- dbGetQuery(conn=db, "select * from fat")
+head(fd)
+dbDisconnect(conn=db)
+```

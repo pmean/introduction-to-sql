@@ -1,4 +1,4 @@
-# repository-title-goes-here
+# sql-and-r
 
 This is a single file stand-alone application using R Markdown.
 

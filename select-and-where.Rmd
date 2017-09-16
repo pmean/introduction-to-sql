@@ -1,0 +1,117 @@
+---
+title: "Simple SQL examples within R"
+author: "Steve Simon"
+date: "September 12, 2017"
+output: html_document
+---
+
+We will work with the database fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
+
+The dbListTables function will list the names of all the tables in your database.
+
+```{r list-tables}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="fat.sqlite")
+dbListTables(conn=db)
+```
+
+There is also a nice function for reading an entire table into R, dbReadTable, ...
+
+```{r dbReadTable}
+fd <- dbReadTable(conn=db, name="fat")
+head(fd)
+
+```
+
+..., but I would encourage you to access the entire table instead using the SQL statement "select *". The asterisk tells SQL to select every field in the table.
+
+```{r select-star}
+fd <- dbGetQuery(conn=db,
+ "SELECT * FROM fat")
+dim(fd)
+head(fd)
+```
+
+```{r select-single-field}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number FROM fat")
+dim(fd)
+head(fd)
+```
+
+To select more than one field from a table, separate the field names with commas.
+
+```{r select-multiple-fields}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat")
+dim(fd)
+head(fd)
+```
+
+To select a limited number of rows, use the LIMIT command. Different databases will have different syntaxes for this. For details, see https://www.w3schools.com/sql/sql_top.asp.
+
+```{r select-rows}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+  LIMIT 10")
+dim(fd)
+head(fd)
+```
+
+You can select specific cases using the WHERE statement.
+
+```{r specific-cases}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+  WHERE case_number=3")
+dim(fd)
+head(fd)
+```
+
+You can select a range of case_numbers.
+
+```{r range-of-cases}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+ WHERE case_number BETWEEN 110 and 113")
+dim(fd)
+head(fd)
+```
+
+Or multiple values
+
+```{r multiple-values}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+  WHERE case_number IN (207, 209, 214, 218, 219)")
+dim(fd)
+head(fd)
+```
+
+You can select on any variable, not just the case_number
+
+```{r select-senior-citizens}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+  WHERE age >= 65")
+dim(fd)
+head(fd)
+```
+
+You can combine selections using Boolean logic (AND, OR, NOT)
+
+```{r select-obese-senior-citizens}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number, age, bmi FROM fat
+  WHERE age >= 65 AND
+    bmi >= 30")
+dim(fd)
+head(fd)
+```
+
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
+
+```
