@@ -133,12 +133,19 @@ $(document).ready(function () {
 <pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;fat.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;fat&quot;</code></pre>
-<p>The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query.</p>
+<p>The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer.</p>
 <pre class="r"><code>fd &lt;- dbGetQuery(conn=db,
  &quot;SELECT COUNT(case_number) FROM fat&quot;)
 fd</code></pre>
 <pre><code>##   COUNT(case_number)
 ## 1                252</code></pre>
+<p>You can combine the COUNT function with the WHERE statement to get the number of records in a subset of your table.</p>
+<pre class="r"><code>fd &lt;- dbGetQuery(conn=db,
+ &quot;SELECT COUNT(case_number) FROM fat
+  WHERE age &gt;= 65&quot;)
+fd</code></pre>
+<pre><code>##   COUNT(case_number)
+## 1                 21</code></pre>
 <p>The max and min functions compute the largest and smallest values.</p>
 <pre class="r"><code>fd &lt;- dbGetQuery(conn=db,
  &quot;SELECT MAX(age) FROM fat&quot;)

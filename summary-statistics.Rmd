@@ -15,13 +15,24 @@ db <- dbConnect(SQLite(), dbname="fat.sqlite")
 dbListTables(conn=db)
 ```
 
-The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer
+The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer.
 
 ```{r count}
 fd <- dbGetQuery(conn=db,
  "SELECT COUNT(case_number) FROM fat")
 fd
 ```
+
+You can combine the COUNT function with the WHERE statement to get the number of records in a subset of your table.
+
+```{r count-subset}
+fd <- dbGetQuery(conn=db,
+ "SELECT COUNT(case_number) FROM fat
+  WHERE age >= 65")
+fd
+```
+
+
 
 The max and min functions compute the largest and smallest values.
 
