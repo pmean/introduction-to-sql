@@ -1,5 +1,5 @@
 ---
-title: "Simple SQL examples within R"
+title: "Simple SQL examples within R: summary statistics"
 author: "Steve Simon"
 date: "September 12, 2017"
 output: html_document
