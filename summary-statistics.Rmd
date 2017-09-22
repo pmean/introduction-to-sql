@@ -32,8 +32,6 @@ fd <- dbGetQuery(conn=db,
 fd
 ```
 
-
-
 The max and min functions compute the largest and smallest values.
 
 ```{r max-and-min}
@@ -44,6 +42,18 @@ fd <- dbGetQuery(conn=db,
  "SELECT MIN(bmi) FROM fat")
 fd
 ```
+
+Two other useful summary functions are MEAN and SUM.
+
+In all of the examples so far, the summary functions produce a table with a single row. But you can use the GROUP BY statement to get summary functions for each level of a categorical variable.
+
+```{r group-by}
+db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+dbListTables(conn=db)
+ti <- dbGetQuery(conn=db,
+  "select * from ti")
+```
+
 
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)

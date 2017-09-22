@@ -109,6 +109,15 @@ dim(fd)
 head(fd)
 ```
 
+You can change the names of your fields with the AS statement.
+
+```{r as-statement}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number AS id, age AS age_in_years, bmi FROM fat")
+dim(fd)
+head(fd)
+```
+
 
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)
