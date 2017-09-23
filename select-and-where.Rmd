@@ -20,7 +20,6 @@ There is also a nice function for reading an entire table into R, dbReadTable, .
 ```{r dbReadTable}
 fd <- dbReadTable(conn=db, name="fat")
 head(fd)
-
 ```
 
 ..., but I would encourage you to access the entire table instead using the SQL statement "select *". The asterisk tells SQL to select every field in the table.

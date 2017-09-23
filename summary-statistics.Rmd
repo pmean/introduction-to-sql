@@ -23,11 +23,19 @@ fd <- dbGetQuery(conn=db,
 fd
 ```
 
+The name chosen by SQL for the result of COUNT is not a legal R name,so you would normally use the AS statement to create a better name.summary function
+
+```{r rename-count}
+fd <- dbGetQuery(conn=db,
+ "SELECT COUNT(case_number) AS case_count FROM fat")
+fd
+```
+
 You can combine the COUNT function with the WHERE statement to get the number of records in a subset of your table.
 
 ```{r count-subset}
 fd <- dbGetQuery(conn=db,
- "SELECT COUNT(case_number) FROM fat
+ "SELECT COUNT(case_number) AS subset_count FROM fat
   WHERE age >= 65")
 fd
 ```
@@ -36,10 +44,10 @@ The max and min functions compute the largest and smallest values.
 
 ```{r max-and-min}
 fd <- dbGetQuery(conn=db,
- "SELECT MAX(age) FROM fat")
+ "SELECT MAX(age) AS oldest_age FROM fat")
 fd
 fd <- dbGetQuery(conn=db,
- "SELECT MIN(bmi) FROM fat")
+ "SELECT MIN(bmi) AS lowest_bmi FROM fat")
 fd
 ```
 
@@ -52,8 +60,22 @@ db <- dbConnect(SQLite(), dbname="titanic.sqlite")
 dbListTables(conn=db)
 ti <- dbGetQuery(conn=db,
   "select * from ti")
+ti <- dbGetQuery(conn=db,
+  "select Sex, MIN(age) AS min_age from ti
+  GROUP BY Sex")
+dim(ti)
+ti
 ```
 
+You can put two or more categorical variables in the GROUP BY statement.
+
+```{r group-by-two}
+ti <- dbGetQuery(conn=db,
+  "select Sex, PClass, MIN(age) AS min_age from ti
+  GROUP BY Sex, PClass")
+dim(ti)
+ti
+```
 
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)

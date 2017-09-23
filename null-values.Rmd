@@ -1,0 +1,25 @@
+---
+title: "Simple SQL examples within R: select and where"
+author: "Steve Simon"
+date: "September 12, 2017"
+output: html_document
+---
+
+SQL uses the term NULL to refer to missing values.
+
+
+```{r list-tables}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+dbListTables(conn=db)
+ti <- dbGetQuery(conn=db,
+ "SELECT * FROM ti")
+dim(ti)
+head(ti)
+```
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
+
+```

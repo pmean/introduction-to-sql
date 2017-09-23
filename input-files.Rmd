@@ -60,6 +60,9 @@ ti <- read.table(file=fn, sep="\t", header=TRUE)
 db <- dbConnect(SQLite(), dbname="titanic.sqlite")
 dbWriteTable(conn=db, name="ti", value=ti,
   overwrite=TRUE, row.names=FALSE, header=TRUE)
+Survived_codes <- data.frame(code=c(0, 1), Survived_label=c("Yes", "No"))
+dbWriteTable(conn=db, name="survived_codes", value=Survived_codes,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
 dbDisconnect(conn=db)
 ```
 
@@ -68,6 +71,8 @@ db <- dbConnect(SQLite(), dbname="titanic.sqlite")
 dbListTables(conn=db)
 ti <- dbGetQuery(conn=db, "select * from ti")
 head(ti)
+sc <- dbGetQuery(conn=db, "select * from survived_codes")
+sc
 dbDisconnect(conn=db)
 ```
 
