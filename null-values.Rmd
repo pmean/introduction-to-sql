@@ -5,17 +5,33 @@ date: "September 12, 2017"
 output: html_document
 ---
 
-SQL uses the term NULL to refer to missing values.
+SQL uses the term NULL to refer to missing values. In R, these NULL values are converted to NA, the R code for missing values.
 
+You can select records with missing values by specifying IS NULL in the WHERE statement.
 
-```{r list-tables}
+```{r is-null}
 library(sqldf)
 db <- dbConnect(SQLite(), dbname="titanic.sqlite")
-dbListTables(conn=db)
-ti <- dbGetQuery(conn=db,
- "SELECT * FROM ti")
-dim(ti)
-head(ti)
+dbGetQuery(conn=db,
+ "SELECT COUNT(Name) AS n_missing FROM ti
+ WHERE Age IS NULL")
+```
+
+You can exclude missing values using IS NOT NULL.
+
+```{r is-not-null}
+dbGetQuery(conn=db,
+ "SELECT COUNT(Name) AS n_valid FROM ti
+ WHERE Age IS NOT NULL")
+```
+
+In SQL, statistical summary functions will remove missing values and calculate based only on the non-missing values. This is similar to the default options in SAS and SPSS, which also exclude missing values by default in most summary statistics. In R, however, the default option is to return a missing value for a summary statistic anytime that one or more values are missing.
+
+```{r statistical-summary-of-nulls}
+dbGetQuery(conn=db,
+ "SELECT COUNT(Age) AS n_valid FROM ti")
+dbGetQuery(conn=db,
+ "SELECT AVG(Age) AS mean_age FROM ti")
 ```
 
 ```{r shut-down-gracefully}
