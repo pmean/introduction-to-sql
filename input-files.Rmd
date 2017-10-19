@@ -93,3 +93,97 @@ pu <- dbGetQuery(conn=db, "select * from pu")
 head(pu)
 dbDisconnect(conn=db)
 ```
+
+The two files below have the following variables:
+
+aaup.dat.txt
+
+* FICE (Federal ID number)
+* College name
+* State (postal code)
+* Type  (I, IIA, or IIB)
+
+vnames1 <- c("fice", "college", "state", "type")
+
+* Average salary - full professors
+* Average salary - associate professors
+* Average salary - assistant professors
+* Average salary - all ranks
+* Average compensation - full professors
+* Average compensation - associate professors
+* Average compensation - assistant professors
+* Average compensation - all ranks
+* Number of full professors
+* Number of associate professors
+* Number of assistant professors
+* Number of instructors
+* Number of faculty - all ranks
+
+vnames2 <- c("salary_full", "salary_assoc", "salary_asst", "salary_all")
+vnames3 <- c("compensation_full", "compensation_assoc", "compensation_asst", "compensation_all")
+vnames4 <- c("number_full", "number_assoc", "number_asst", "number_instructors", "number_all")
+
+
+
+usnews.dat.txt
+
+* FICE (Federal ID number)
+* College name
+* State (postal code)
+
+vnames5 <- c("fice", "college", "state")
+
+* Public/private indicator (public=1, private=2)
+* Average Math SAT score
+* Average Verbal SAT score
+* Average Combined SAT score
+* Average ACT score
+* First quartile - Math SAT
+* Third quartile - Math SAT
+* First quartile - Verbal SAT
+* Third quartile - Verbal SAT
+* First quartile - ACT
+* Third quartile - ACT
+* Number of applications received
+* Number of applicants accepted
+* Number of new students enrolled
+* Pct. new students from top 10% of H.S. class
+* Pct. new students from top 25% of H.S. class
+
+vnames6 <- c("support", "math_sat", "verbal_sat", "combined_sat", "act")
+vnames7 <- c("avg_math_sat", "avg_verbal_sat", "avg_combined_sat", "avg_act")
+vnames8 <- c("q1_math_sat", "q1_verbal_sat", "q1_combined_sat", "q1_act")
+vnames9 <- c("q3_math_sat", "q3_verbal_sat", "q3_combined_sat", "q3_act")
+
+* Number of full-time undergraduates
+* Number of part-time undergraduates
+* In-state tuition
+* Out-of-state tuition
+* Room and board costs
+* Room costs
+* Board costs
+* Additional fees
+* Estimated book costs
+* Estimated personal spending
+* Pct. of faculty with Ph.D.'s
+* Pct. of faculty with terminal degree
+* Student/faculty ratio
+* Pct. alumni who donate
+* Instructional expenditure per student
+* Graduation rate
+
+```{r aaup-data}
+fn <- "http://ww2.amstat.org/publications/jse/datasets/aaup.dat.txt"
+u1 <- read.csv(file=fn, header=FALSE, as.is=TRUE)
+head(u1)
+fn <- "http://ww2.amstat.org/publications/jse/datasets/usnews.dat.txt"
+u2 <- read.csv(file=fn, header=FALSE, as.is=TRUE)
+head(u2)
+dim(u1)
+dim(u2)
+length(setdiff(u1$V1, u2$V1))
+length(setdiff(u2$V1, u1$V1))
+length(intersect(u1$V1, u2$V1))
+```
+
+```{r save-everything}
