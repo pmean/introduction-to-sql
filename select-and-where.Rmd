@@ -1,5 +1,5 @@
 ---
-title: "Simple SQL examples within R"
+title: "Simple SQL examples within R: select and where"
 author: "Steve Simon"
 date: "September 12, 2017"
 output: html_document
@@ -20,7 +20,6 @@ There is also a nice function for reading an entire table into R, dbReadTable, .
 ```{r dbReadTable}
 fd <- dbReadTable(conn=db, name="fat")
 head(fd)
-
 ```
 
 ..., but I would encourage you to access the entire table instead using the SQL statement "select *". The asterisk tells SQL to select every field in the table.
@@ -105,6 +104,15 @@ fd <- dbGetQuery(conn=db,
  "SELECT case_number, age, bmi FROM fat
   WHERE age >= 65 AND
     bmi >= 30")
+dim(fd)
+head(fd)
+```
+
+You can change the names of your fields with the AS statement.
+
+```{r as-statement}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number AS id, age AS age_in_years, bmi FROM fat")
 dim(fd)
 head(fd)
 ```

@@ -1,9 +1,11 @@
 ---
-title: "Simple SQL examples within R"
+title: "Simple SQL examples within R: input files"
 author: "Steve Simon"
 date: "September 12, 2017"
 output: html_document
 ---
+
+The emphasis in this class will be on getting information OUT of a SQL database, not getting information INTO a database. But I am showing the code here just for the sake of completeness.
 
 There are several ways to access SQL databases in R. I'm following an example that appears at 
 
@@ -55,17 +57,39 @@ This is how to read in the Titanic data set.
 ```{r read-titanic}
 fn <- "http://www.statsci.org/data/general/titanic.txt"
 ti <- read.table(file=fn, sep="\t", header=TRUE)
-library(sqldf)
 db <- dbConnect(SQLite(), dbname="titanic.sqlite")
-write.csv(ti[, -1], file="titanic.csv", row.names=FALSE)
 dbWriteTable(conn=db, name="ti", value=ti,
   overwrite=TRUE, row.names=FALSE, header=TRUE)
+Survived_codes <- data.frame(code=c(0, 1), Survived_label=c("Yes", "No"))
+dbWriteTable(conn=db, name="survived_codes", value=Survived_codes,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
 dbDisconnect(conn=db)
+```
+
+```{r test-titanic}
 db <- dbConnect(SQLite(), dbname="titanic.sqlite")
 dbListTables(conn=db)
-ti <- dbReadTable(conn=db, name="ti")
-head(ti)
 ti <- dbGetQuery(conn=db, "select * from ti")
 head(ti)
+sc <- dbGetQuery(conn=db, "select * from survived_codes")
+sc
+dbDisconnect(conn=db)
+```
+
+```{r pulmonary-data}
+fn <- "http://www.amstat.org/publications/jse/datasets/fev.dat.txt"
+pu <- read.table(file=fn)
+head(pu)
+db <- dbConnect(SQLite(), dbname="pulmonary.sqlite")
+dbWriteTable(conn=db, name="pu", value=pu,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
+dbDisconnect(conn=db)
+```
+
+```{r test-pulmonary}
+db <- dbConnect(SQLite(), dbname="pulmonary.sqlite")
+dbListTables(conn=db)
+pu <- dbGetQuery(conn=db, "select * from pu")
+head(pu)
 dbDisconnect(conn=db)
 ```
