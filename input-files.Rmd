@@ -186,4 +186,12 @@ length(setdiff(u2$V1, u1$V1))
 length(intersect(u1$V1, u2$V1))
 ```
 
+```{r ctsib}
+fn <- "http://www.statsci.org/data/oz/ctsibuni.txt"
+ct <- read.table(file=fn, header=TRUE, as.is=TRUE)
+head(ct)
+tail(ct)
+table(ct$Subject)
+```
+
 ```{r save-everything}

@@ -7,7 +7,7 @@ output: html_document
 
 SQL can produce a handful of summary statistics. It will not replace your favorite statistical package, but sometimes calculating a few of these statistics in SQL can greatly simplify your life.
 
-We will work with the database fat.sqlite again. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
+We will work with the database fat.sqlite again.
 
 ```{r list-tables}
 library(sqldf)
@@ -15,7 +15,7 @@ db <- dbConnect(SQLite(), dbname="fat.sqlite")
 dbListTables(conn=db)
 ```
 
-The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer.
+The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer, with one exception, which you will see in the section on NULL values.
 
 ```{r count}
 fd <- dbGetQuery(conn=db,
@@ -26,7 +26,7 @@ fd
 The name chosen by SQL for the result of COUNT is not a legal R name,so you would normally use the AS statement to create a better name.summary function
 
 ```{r rename-count}
-fd <- dbGetQuery(conn=db,
+fd <- dbGetQuery(conn=db, 
  "SELECT COUNT(case_number) AS case_count FROM fat")
 fd
 ```

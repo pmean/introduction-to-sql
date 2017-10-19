@@ -24,11 +24,11 @@ were created.
 2. select-and-where.Rmd, shows how to select all rows, some rows,
 and all fields, some fields.
 
-3. null-values.Rmd, shows how to select NULL and non-NULL values.
-
-4. summary-statistics.Rmd, shows how to use the COUNT and AVERAGE
+3. summary-statistics.Rmd, shows how to use the COUNT and AVERAGE
 functions for a single summary row, and how to use GROUP BY to
 get summary statistics for each level of a categorical variable.
+
+4. null-values.Rmd, shows how to select NULL and non-NULL values.
 
 5. category-labels.Rmd, shows how to access category labels that
 are stored in a second table in the database.
