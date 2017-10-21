@@ -31,8 +31,8 @@ I had to tweak the original field names slightly. The field case_number was orig
 
 ```{r create a new database}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="fat.sqlite")
-dbWriteTable(conn=db, name="fat", value="fat.csv",
+db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
+dbWriteTable(conn=db, name="fat", value="../data/fat.csv",
   overwrite=TRUE, row.names=FALSE, header=TRUE)
 dbDisconnect(conn=db)
 ```
@@ -43,7 +43,7 @@ There is also a nice function for reading an entire table into R, dbReadTable, b
 
 ```{r test access}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="fat.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
 dbListTables(conn=db)
 fd <- dbReadTable(conn=db, name="fat")
 head(fd)
@@ -57,7 +57,7 @@ This is how to read in the Titanic data set.
 ```{r read-titanic}
 fn <- "http://www.statsci.org/data/general/titanic.txt"
 ti <- read.table(file=fn, sep="\t", header=TRUE)
-db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
 dbWriteTable(conn=db, name="ti", value=ti,
   overwrite=TRUE, row.names=FALSE, header=TRUE)
 Survived_codes <- data.frame(code=c(0, 1), Survived_label=c("Yes", "No"))
@@ -67,7 +67,7 @@ dbDisconnect(conn=db)
 ```
 
 ```{r test-titanic}
-db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
 dbListTables(conn=db)
 ti <- dbGetQuery(conn=db, "select * from ti")
 head(ti)
@@ -80,14 +80,14 @@ dbDisconnect(conn=db)
 fn <- "http://www.amstat.org/publications/jse/datasets/fev.dat.txt"
 pu <- read.table(file=fn)
 head(pu)
-db <- dbConnect(SQLite(), dbname="pulmonary.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/pulmonary.sqlite")
 dbWriteTable(conn=db, name="pu", value=pu,
   overwrite=TRUE, row.names=FALSE, header=TRUE)
 dbDisconnect(conn=db)
 ```
 
 ```{r test-pulmonary}
-db <- dbConnect(SQLite(), dbname="pulmonary.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/pulmonary.sqlite")
 dbListTables(conn=db)
 pu <- dbGetQuery(conn=db, "select * from pu")
 head(pu)
@@ -195,3 +195,5 @@ table(ct$Subject)
 ```
 
 ```{r save-everything}
+save.image(file="../data/input-files.RData")
+```
