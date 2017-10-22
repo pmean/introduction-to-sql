@@ -11,7 +11,7 @@ We will work with the database fat.sqlite again.
 
 ```{r list-tables}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="fat.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
 dbListTables(conn=db)
 ```
 
@@ -56,7 +56,7 @@ Two other useful summary functions are MEAN and SUM.
 In all of the examples so far, the summary functions produce a table with a single row. But you can use the GROUP BY statement to get summary functions for each level of a categorical variable.
 
 ```{r group-by}
-db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
 dbListTables(conn=db)
 ti <- dbGetQuery(conn=db,
   "select * from ti")

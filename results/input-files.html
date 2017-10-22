@@ -135,12 +135,9 @@ $(document).ready(function () {
 <p>The dbConnect command will connect you to an existing database, but if the dbname argument refers to a file that has not yet been created, dbConnect will create a new SQLite database.</p>
 <p>Normally we will focus on getting data out of a SQL database rather than getting data into a SQL database. But here’s a quick example of how you might create a table in an existing database. The “official” SQL approach would use the CREATE TABLE and INSERT INTO commands, but you can combine both of these into a single function call to the dbWriteTable function.</p>
 <p>I had to tweak the original field names slightly. The field case_number was originally called case, but case is a reserved word in sql. The fields fat_b and fat_s were originally called fat.b and fat.s, but the dot is reserved for sql queries involving multiple tables to help resolve ambiguities when some of the field names are the same across multiple tables.</p>
-<pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;fat.sqlite&quot;)
-dbWriteTable(conn=db, name=&quot;fat&quot;, value=&quot;fat.csv&quot;,
+<pre class="r"><code>library(sqldf)
+db &lt;- dbConnect(SQLite(), dbname=&quot;../data/fat.sqlite&quot;)
+dbWriteTable(conn=db, name=&quot;fat&quot;, value=&quot;../data/fat.csv&quot;,
   overwrite=TRUE, row.names=FALSE, header=TRUE)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>dbDisconnect(conn=db)</code></pre>
@@ -148,7 +145,7 @@ dbWriteTable(conn=db, name=&quot;fat&quot;, value=&quot;fat.csv&quot;,
 <p>The dbListTables function will list the names of all the tables in your database.</p>
 <p>There is also a nice function for reading an entire table into R, dbReadTable, but I would encourage you to access the entire table using the SQL statement “select * from fat”.</p>
 <pre class="r"><code>library(sqldf)
-db &lt;- dbConnect(SQLite(), dbname=&quot;fat.sqlite&quot;)
+db &lt;- dbConnect(SQLite(), dbname=&quot;../data/fat.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;fat&quot;</code></pre>
 <pre class="r"><code>fd &lt;- dbReadTable(conn=db, name=&quot;fat&quot;)
@@ -188,7 +185,7 @@ head(fd)</code></pre>
 <p>This is how to read in the Titanic data set.</p>
 <pre class="r"><code>fn &lt;- &quot;http://www.statsci.org/data/general/titanic.txt&quot;
 ti &lt;- read.table(file=fn, sep=&quot;\t&quot;, header=TRUE)
-db &lt;- dbConnect(SQLite(), dbname=&quot;titanic.sqlite&quot;)
+db &lt;- dbConnect(SQLite(), dbname=&quot;../data/titanic.sqlite&quot;)
 dbWriteTable(conn=db, name=&quot;ti&quot;, value=ti,
   overwrite=TRUE, row.names=FALSE, header=TRUE)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -198,7 +195,7 @@ dbWriteTable(conn=db, name=&quot;survived_codes&quot;, value=Survived_codes,
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>dbDisconnect(conn=db)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;titanic.sqlite&quot;)
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;../data/titanic.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;survived_codes&quot; &quot;ti&quot;</code></pre>
 <pre class="r"><code>ti &lt;- dbGetQuery(conn=db, &quot;select * from ti&quot;)
@@ -234,13 +231,13 @@ head(pu)</code></pre>
 ## 4  9 1.558 53.0  1  0
 ## 5  9 1.895 57.0  1  0
 ## 6  8 2.336 61.0  0  0</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;pulmonary.sqlite&quot;)
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;../data/pulmonary.sqlite&quot;)
 dbWriteTable(conn=db, name=&quot;pu&quot;, value=pu,
   overwrite=TRUE, row.names=FALSE, header=TRUE)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>dbDisconnect(conn=db)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;pulmonary.sqlite&quot;)
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;../data/pulmonary.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;pu&quot;</code></pre>
 <pre class="r"><code>pu &lt;- dbGetQuery(conn=db, &quot;select * from pu&quot;)
@@ -398,6 +395,7 @@ head(ct)</code></pre>
 ## 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 
 ## 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 
 ## 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12</code></pre>
+<pre class="r"><code>save.image(file=&quot;../data/input-files.RData&quot;)</code></pre>
 
 
 

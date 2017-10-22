@@ -125,26 +125,19 @@ $(document).ready(function () {
 
 
 <p>SQL can produce a handful of summary statistics. It will not replace your favorite statistical package, but sometimes calculating a few of these statistics in SQL can greatly simplify your life.</p>
-<p>We will work with the database fat.sqlite again. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.</p>
-<pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Warning: package 'sqldf' was built under R version 3.3.3</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Warning: package 'gsubfn' was built under R version 3.3.3</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Warning: package 'proto' was built under R version 3.3.2</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre><code>## Warning: package 'RSQLite' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;fat.sqlite&quot;)
+<p>We will work with the database fat.sqlite again.</p>
+<pre class="r"><code>library(sqldf)
+db &lt;- dbConnect(SQLite(), dbname=&quot;../data/fat.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;fat&quot;</code></pre>
-<p>The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer.</p>
+<p>The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer, with one exception, which you will see in the section on NULL values.</p>
 <pre class="r"><code>fd &lt;- dbGetQuery(conn=db,
  &quot;SELECT COUNT(case_number) FROM fat&quot;)
 fd</code></pre>
 <pre><code>##   COUNT(case_number)
 ## 1                252</code></pre>
 <p>The name chosen by SQL for the result of COUNT is not a legal R name,so you would normally use the AS statement to create a better name.summary function</p>
-<pre class="r"><code>fd &lt;- dbGetQuery(conn=db,
+<pre class="r"><code>fd &lt;- dbGetQuery(conn=db, 
  &quot;SELECT COUNT(case_number) AS case_count FROM fat&quot;)
 fd</code></pre>
 <pre><code>##   case_count
@@ -169,20 +162,20 @@ fd</code></pre>
 ## 1       18.1</code></pre>
 <p>Two other useful summary functions are MEAN and SUM.</p>
 <p>In all of the examples so far, the summary functions produce a table with a single row. But you can use the GROUP BY statement to get summary functions for each level of a categorical variable.</p>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;titanic.sqlite&quot;)
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;../data/titanic.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
-<pre><code>## [1] &quot;ti&quot;</code></pre>
+<pre><code>## [1] &quot;survived_codes&quot; &quot;ti&quot;</code></pre>
 <pre class="r"><code>ti &lt;- dbGetQuery(conn=db,
   &quot;select * from ti&quot;)
 ti &lt;- dbGetQuery(conn=db,
-  &quot;select Sex, MIN(age) from ti
+  &quot;select Sex, MIN(age) AS min_age from ti
   GROUP BY Sex&quot;)
 dim(ti)</code></pre>
 <pre><code>## [1] 2 2</code></pre>
 <pre class="r"><code>ti</code></pre>
-<pre><code>##      Sex MIN(age)
-## 1 female     0.17
-## 2   male     0.33</code></pre>
+<pre><code>##      Sex min_age
+## 1 female    0.17
+## 2   male    0.33</code></pre>
 <p>You can put two or more categorical variables in the GROUP BY statement.</p>
 <pre class="r"><code>ti &lt;- dbGetQuery(conn=db,
   &quot;select Sex, PClass, MIN(age) AS min_age from ti

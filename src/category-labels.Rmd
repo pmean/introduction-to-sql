@@ -9,7 +9,7 @@ When you have categorical variables, you can store a descriptive label for each 
 
 ```{r list-tables}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
 dbListTables(conn=db)
 ```
 

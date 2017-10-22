@@ -126,15 +126,8 @@ $(document).ready(function () {
 
 <p>We will work with the database fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.</p>
 <p>The dbListTables function will list the names of all the tables in your database.</p>
-<pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Warning: package 'sqldf' was built under R version 3.3.3</code></pre>
-<pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Warning: package 'gsubfn' was built under R version 3.3.3</code></pre>
-<pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Warning: package 'proto' was built under R version 3.3.2</code></pre>
-<pre><code>## Loading required package: RSQLite</code></pre>
-<pre><code>## Warning: package 'RSQLite' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;fat.sqlite&quot;)
+<pre class="r"><code>library(sqldf)
+db &lt;- dbConnect(SQLite(), dbname=&quot;../data/fat.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;fat&quot;</code></pre>
 <p>There is also a nice function for reading an entire table into R, dbReadTable, …</p>
