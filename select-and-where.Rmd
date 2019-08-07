@@ -1,9 +1,17 @@
 ---
-title: "Simple SQL examples within R: select and where"
+title: "Retrieving data using the SQL SELECT statement"
 author: "Steve Simon"
 date: "September 12, 2017"
-output: html_document
+output: powerpoint_presentation
 ---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Working with the fat dataset
+
+
 
 We will work with the database fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
 
