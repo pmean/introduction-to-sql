@@ -194,6 +194,36 @@ tail(ct)
 table(ct$Subject)
 ```
 
+```{r cigarettes}
+fn <- "http://jse.amstat.org/datasets/cigarettes.dat.txt"
+cig <- read.table(file=fn, header=FALSE, as.is=TRUE)
+names(cig) <- c("brand", "tar", "nicotine", "weight", "co")
+head(cig)
+db <- dbConnect(SQLite(), dbname="../data/cigarettes.sqlite")
+dbWriteTable(conn=db, name="cigarettes", value=cig,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
+dbDisconnect(conn=db)
+
+db <- dbConnect(SQLite(), dbname="../data/cigarettes.sqlite")
+dbReadTable(db, "cigarettes")
+dbDisconnect(conn=db)
+write.csv(cig, "../data/cigarettes.csv", row.names=FALSE)
+```
+
+```{r airlines}
+fn <- "../data/airlines.csv"
+airlines <- read.csv(file=fn, header=TRUE, as.is=TRUE)
+head(airlines)
+db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
+dbWriteTable(conn=db, name="airlines_table", value=airlines,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
+dbDisconnect(conn=db)
+
+db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
+dbReadTable(db, "airlines_table")
+dbDisconnect(conn=db)
+```
+
 ```{r save-everything}
 save.image(file="../data/input-files.RData")
 ```

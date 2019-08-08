@@ -1,0 +1,77 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+513  
+514  ods pdf
+515    file="select.pdf";
+NOTE: Writing ODS PDF output to DISK destination 
+      "C:\Users\simons\Documents\SASUniversityEdition\myfolders\
+      sql-and-r\src\select.pdf", printer "PDF".
+516  
+517  * select.sas
+518    written by Steve Simon
+519    2019-08-08;
+520  
+521  ********* ********* ********* *********
+522  1. Introduction
+523  
+524  This program shows how to use the
+525  SELECT statement for SQL within a SAS
+526  program. The first example shows how
+527  to select an entire table (all records
+528  and all fields).
+529  ********* ********* ********* *********;
+530  
+531  libname sql_lib odbc
+532    datasrc='sqlite3';
+NOTE: Libref SQL_LIB was successfully assigned as follows: 
+      Engine:        ODBC 
+      Physical Name: sqlite3
+533  proc sql;
+534    select * from sql_lib.airlines_table;
+535  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+536  
+537  ********* ********* ********* *********
+538  2. This is how you select a single
+539  field.
+540  ********* ********* ********* *********;
+541  
+542  proc sql;
+543    select Airline from sql_lib.airlines_table;
+544  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+545  
+546  ********* ********* ********* *********
+547  3. This is how you select a multiple
+548  fieldsw.
+549  ********* ********* ********* *********;
+550  
+551  proc sql;
+552    select r2017, r2016 from sql_lib.cigarettes;
+ERROR: CLI prepare error: no such table: cigarettes (1)
+SQL statement: SELECT * FROM cigarettes.
+553  quit;
+NOTE: The SAS System stopped processing this step because of 
+      errors.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+554  
+555  ********* ********* ********* *********;
+556  
+
+
+557  proc printto; run;
+

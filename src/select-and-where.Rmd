@@ -11,32 +11,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Working with the fat dataset
 
-
-
-We will work with the database fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
-
-The dbListTables function will list the names of all the tables in your database.
-
-```{r list-tables}
-library(sqldf)
-db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
-dbListTables(conn=db)
-```
-
-There is also a nice function for reading an entire table into R, dbReadTable, ...
-
-```{r dbReadTable}
-fd <- dbReadTable(conn=db, name="fat")
-head(fd)
-```
-
-..., but I would encourage you to access the entire table instead using the SQL statement "select *". The asterisk tells SQL to select every field in the table.
+We will work with the database cigarette. It is stored as a sqlite database with one table, fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
 
 ```{r select-star}
-fd <- dbGetQuery(conn=db,
- "SELECT * FROM fat")
-dim(fd)
-head(fd)
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+ "SELECT * FROM airline_table")
 ```
 
 ```{r select-single-field}

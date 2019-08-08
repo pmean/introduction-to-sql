@@ -1,0 +1,87 @@
+---
+title: "Retrieving data using the SQL SELECT statement"
+author: "Steve Simon"
+date: "September 12, 2017"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+### Working with the fat dataset
+
+We will work with the database cigarette. It is stored as a sqlite database with one table, fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
+
+### Getting an entire table
++ SQL code
+```{}
+select * from airlines_table
+```
+
+### Implementation in R (1/2)
++ R code
+```{}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+ "select * from airlines_table")
+airlines_data
+```
+
+### Implementation in R (2/2)
+
+```{r select-star}
+db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+ "select * from airlines_table")
+airlines_data
+```
+
+### Selecting a single field (1/2)
++ SQL code
+```{}
+select airline from airlines_table
+```
+
+### Selecting a single field (2/2)
+```{r select-single-field}
+airline_names <- dbGetQuery(conn=db,
+ "select Airline from airlines_table")
+airline_names
+```
+
+### Selecting multiple fields (1/2)
++ SQL code
+```{}
+select r2016, r2017 from airlines_table
+```
+
+### Selecting multiple fields (2/2)
+
+```{r select-multiple-fields}
+airline_bump_rates <- dbGetQuery(conn=db,
+ "select r2016, r2017 from airlines_table")
+airline_bump_rates
+```
+
+### Changing field names
++ SQL code
+```{}
+select r2017 as current_bump_rate, r2016 as previous_bump_rate from airlines_table
+```
+
+### Changing field names (2/2)
+
+```{r as-statement}
+changed_names <- dbGetQuery(conn=db,
+ "select r2017 as current_bump_rate, r2016 as previous_bump_rate from airlines_table")
+changed_names
+```
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
+
+
