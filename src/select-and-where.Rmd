@@ -11,33 +11,47 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Working with the fat dataset
 
-
++ The fat database
+  + Single table, fat
+  + Two measures of percentage body fat
+  + Compare to various body dimensions
++ You can find a description of this data set at
+  + http://jse.amstat.org/datasets/body.txt
+  
+<div class="notes">
 
 We will work with the database fat.sqlite. If you do not have this database, you can download it from the github site or you can create it using the program, input-first-file.Rmd.
 
-The dbListTables function will list the names of all the tables in your database.
+</div>
 
-```{r list-tables}
+### Getting everything (not recommended)
++ SQL code
+```{}
+select * from fat
+```
+
+<div class="notes">
+
+The asterisk is shorthand for every field (variable).
+
+This is not recommended. Getting an entire table will, for many large databases, take too long and produce more output than you would want to look at. I am illustrating it here because you have to start somewhere, and this is about as simple as it gets.
+
+For future work (not this module), try your best to limit your output to a maximum of 20 records and 10 variables. Hallf that many would be ideal. There may be a few examples where you need to display more than this amount of data, so consider this a general guideline and not an absolute requirement.
+
+</div>
+
+### Output
+
+```{r get-everything}
 library(sqldf)
 db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
-dbListTables(conn=db)
-```
 
-There is also a nice function for reading an entire table into R, dbReadTable, ...
-
-```{r dbReadTable}
-fd <- dbReadTable(conn=db, name="fat")
-head(fd)
-```
-
-..., but I would encourage you to access the entire table instead using the SQL statement "select *". The asterisk tells SQL to select every field in the table.
-
-```{r select-star}
 fd <- dbGetQuery(conn=db,
  "SELECT * FROM fat")
-dim(fd)
-head(fd)
+fd
 ```
+
+### Single field
 
 ```{r select-single-field}
 fd <- dbGetQuery(conn=db,
@@ -45,6 +59,8 @@ fd <- dbGetQuery(conn=db,
 dim(fd)
 head(fd)
 ```
+
+### Multiple fields
 
 To select more than one field from a table, separate the field names with commas.
 
@@ -54,6 +70,19 @@ fd <- dbGetQuery(conn=db,
 dim(fd)
 head(fd)
 ```
+
+### Rename a field
+
+You can change the names of your fields with the AS statement.
+
+```{r as-statement}
+fd <- dbGetQuery(conn=db,
+ "SELECT case_number AS id, age AS age_in_years, bmi FROM fat")
+dim(fd)
+head(fd)
+```
+
+### Limit
 
 To select a limited number of rows, use the LIMIT command. Different databases will have different syntaxes for this. For details, see https://www.w3schools.com/sql/sql_top.asp.
 
@@ -65,6 +94,8 @@ dim(fd)
 head(fd)
 ```
 
+### Specific cases
+
 You can select specific cases using the WHERE statement.
 
 ```{r specific-cases}
@@ -74,6 +105,8 @@ fd <- dbGetQuery(conn=db,
 dim(fd)
 head(fd)
 ```
+
+### Range
 
 You can select a range of case_numbers.
 
@@ -85,6 +118,8 @@ dim(fd)
 head(fd)
 ```
 
+### Multiple values
+
 Or multiple values
 
 ```{r multiple-values}
@@ -94,6 +129,8 @@ fd <- dbGetQuery(conn=db,
 dim(fd)
 head(fd)
 ```
+
+### On any variable
 
 You can select on any variable, not just the case_number
 
@@ -105,6 +142,8 @@ dim(fd)
 head(fd)
 ```
 
+### Combine selections
+
 You can combine selections using Boolean logic (AND, OR, NOT)
 
 ```{r select-obese-senior-citizens}
@@ -112,15 +151,6 @@ fd <- dbGetQuery(conn=db,
  "SELECT case_number, age, bmi FROM fat
   WHERE age >= 65 AND
     bmi >= 30")
-dim(fd)
-head(fd)
-```
-
-You can change the names of your fields with the AS statement.
-
-```{r as-statement}
-fd <- dbGetQuery(conn=db,
- "SELECT case_number AS id, age AS age_in_years, bmi FROM fat")
 dim(fd)
 head(fd)
 ```
