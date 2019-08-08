@@ -1,5 +1,5 @@
 ---
-title: "Simple SQL examples within R: select and where"
+title: "Simple SQL examples within R: NULL values"
 author: "Steve Simon"
 date: "September 12, 2017"
 output: html_document
@@ -11,7 +11,7 @@ You can select records with missing values by specifying IS NULL in the WHERE st
 
 ```{r is-null}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="titanic.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
 dbGetQuery(conn=db,
  "SELECT COUNT(Name) AS n_missing FROM ti
  WHERE Age IS NULL")

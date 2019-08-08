@@ -19,7 +19,7 @@ The dbListTables function will list the names of all the tables in your database
 
 ```{r list-tables}
 library(sqldf)
-db <- dbConnect(SQLite(), dbname="fat.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
 dbListTables(conn=db)
 ```
 

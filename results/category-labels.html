@@ -126,14 +126,10 @@ $(document).ready(function () {
 
 <p>When you have categorical variables, you can store a descriptive label for each category value as a separate table.</p>
 <pre class="r"><code>library(sqldf)</code></pre>
-<pre><code>## Warning: package 'sqldf' was built under R version 3.3.3</code></pre>
 <pre><code>## Loading required package: gsubfn</code></pre>
-<pre><code>## Warning: package 'gsubfn' was built under R version 3.3.3</code></pre>
 <pre><code>## Loading required package: proto</code></pre>
-<pre><code>## Warning: package 'proto' was built under R version 3.3.2</code></pre>
 <pre><code>## Loading required package: RSQLite</code></pre>
-<pre><code>## Warning: package 'RSQLite' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;titanic.sqlite&quot;)
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=&quot;../data/titanic.sqlite&quot;)
 dbListTables(conn=db)</code></pre>
 <pre><code>## [1] &quot;survived_codes&quot; &quot;ti&quot;</code></pre>
 <pre class="r"><code>ti &lt;- dbGetQuery(conn=db,
