@@ -17,7 +17,8 @@ We will work with the database cigarette. It is stored as a sqlite database with
 ### Getting an entire table
 + SQL code
 ```{}
-select * from airlines_table
+select * 
+  from airlines_table
 ```
 
 ### Implementation in R (1/2)
@@ -42,7 +43,8 @@ airlines_data
 ### Selecting a single field (1/2)
 + SQL code
 ```{}
-select airline from airlines_table
+select airline
+  from airlines_table
 ```
 
 ### Selecting a single field (2/2)
@@ -55,28 +57,33 @@ airline_names
 ### Selecting multiple fields (1/2)
 + SQL code
 ```{}
-select r2016, r2017 from airlines_table
+select Airline, r2016, r2017
+  from airlines_table
 ```
 
 ### Selecting multiple fields (2/2)
 
 ```{r select-multiple-fields}
 airline_bump_rates <- dbGetQuery(conn=db,
- "select r2016, r2017 from airlines_table")
+ "select Airline, r2016, r2017 from airlines_table")
 airline_bump_rates
 ```
 
 ### Changing field names
 + SQL code
 ```{}
-select r2017 as current_bump_rate, r2016 as previous_bump_rate from airlines_table
+select 
+  Airline, 
+  r2017 as current_rate, 
+  r2016 as previous_rate
+  from airlines_table
 ```
 
 ### Changing field names (2/2)
 
 ```{r as-statement}
 changed_names <- dbGetQuery(conn=db,
- "select r2017 as current_bump_rate, r2016 as previous_bump_rate from airlines_table")
+ "select Airline, r2017 as current_rate, r2016 as previous_rate from airlines_table")
 changed_names
 ```
 
