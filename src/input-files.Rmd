@@ -11,10 +11,11 @@ There are several ways to access SQL databases in R. I'm following an example th
 
 https://www.r-bloggers.com/r-and-sqlite-part-1/
 
-Run this install.packages function once.
+Run this install.packages function once. Run the library function at the top of every program.
 
-```{r install-packages, eval=FALSE}
-install.packages("sqldf")
+```{r install-packages}
+# install.packages("sqldf")
+library(sqldf)
 ```
 
 The sqldf package allows you to use SQL queries on an existing data frame in addition to running SQL queries on a SQL database.
@@ -30,7 +31,6 @@ Normally we will focus on getting data out of a SQL database rather than getting
 I had to tweak the original field names slightly. The field case_number was originally called case, but case is a reserved word in sql. The fields fat_b and fat_s were originally called fat.b and fat.s, but the dot is reserved for sql queries involving multiple tables to help resolve ambiguities when some of the field names are the same across multiple tables.
 
 ```{r create a new database}
-library(sqldf)
 db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
 dbWriteTable(conn=db, name="fat", value="../data/fat.csv",
   overwrite=TRUE, row.names=FALSE, header=TRUE)
@@ -195,9 +195,8 @@ table(ct$Subject)
 ```
 
 ```{r cigarettes}
-fn <- "http://jse.amstat.org/datasets/cigarettes.dat.txt"
-cig <- read.table(file=fn, header=FALSE, as.is=TRUE)
-names(cig) <- c("brand", "tar", "nicotine", "weight", "co")
+fn <- "../data/cigarettes.csv"
+cig <- read.csv(file=fn, header=TRUE, as.is=TRUE)
 head(cig)
 db <- dbConnect(SQLite(), dbname="../data/cigarettes.sqlite")
 dbWriteTable(conn=db, name="cigarettes", value=cig,
@@ -206,8 +205,9 @@ dbDisconnect(conn=db)
 
 db <- dbConnect(SQLite(), dbname="../data/cigarettes.sqlite")
 dbReadTable(db, "cigarettes")
+dbGetQuery(db, "select * from cigarettes where brand like '%&%'")
+dbGetQuery(db, "select * from cigarettes where brand not like '% %'")
 dbDisconnect(conn=db)
-write.csv(cig, "../data/cigarettes.csv", row.names=FALSE)
 ```
 
 ```{r airlines}
@@ -221,6 +221,20 @@ dbDisconnect(conn=db)
 
 db <- dbConnect(SQLite(), dbname="../data/airlines_db.sqlite")
 dbReadTable(db, "airlines_table")
+dbDisconnect(conn=db)
+```
+
+```{r crawling}
+fn <- "../data/crawling.csv"
+crawling_data <- read.csv(file=fn, header=TRUE, as.is=TRUE)
+head(crawling_data)
+db <- dbConnect(SQLite(), dbname="../data/crawling_db.sqlite")
+dbWriteTable(conn=db, name="crawling_table", value=crawling_data,
+  overwrite=TRUE, row.names=FALSE, header=TRUE)
+dbDisconnect(conn=db)
+
+db <- dbConnect(SQLite(), dbname="../data/crawling_db.sqlite")
+dbReadTable(db, "crawling_table")
 dbDisconnect(conn=db)
 ```
 
