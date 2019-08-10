@@ -1,7 +1,7 @@
 ---
 title: "Retrieving data using the SQL SELECT statement"
-author: "Steve Simon"
-date: "September 12, 2017"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2017-09-12"
 output: powerpoint_presentation
 ---
 
@@ -59,7 +59,7 @@ select *
 
 <div class="notes">
 
-To select an entire table in SQL use the wild card symbol, asterisk. If you are working directly with your database, you do not need any extra code, but in R and SAS there's just a bit more to it.
+To select an entire table in SQL use the wild card symbol, asterisk. The asterisk is shorthand for "every field in the table." If you are working directly with your database, you do not need any extra code, but in R and SAS there's just a bit more to it.
 
 For most of the lectures, I will not show the extra SAS and R code, but I wanted to illustrate it at least for the very first lecture.
 
@@ -75,6 +75,7 @@ airlines_data <- dbGetQuery(conn=db,
  "select * 
     from airlines_table")
 airlines_data
+dbDisconnect(conn=db)
 ```
 
 <div class="notes">
@@ -84,6 +85,8 @@ In R, you need a third party extension. There are several that will work. I've h
 You also need to connect to the database before you can extract any information. use the dbConnect function for this. For a password protected database, you would need extra arguments for the user name and password.
 
 Finally, enclose your SQL code in quotes and pass it to the dbGetQuery function. This function produces a data frame which I have stored in airlines_data.
+
+Always remember to disconnect when you are done. This doesn't have to be right away, but you should disconnect somewhere rather than leaving the connection open when your program is done.
 
 </div>
 
@@ -98,7 +101,7 @@ Here's what the data frame looks like.
 
 </div>
 
-<!---select-star--->`r j <- 1`
+<!---sas-select-star--->`r j <- 1`
 `r ppt_head[j]` (1/2)
 + SAS code
 ```
@@ -120,14 +123,28 @@ select airline
   from airlines_table
 ```
 
+<div class="notes">
+
+To select a single field, list that field's name after the select statement.
+
+</div>
+
 ### Selecting a single field in R (1/2)
 + R code
 ```{r select-single-field, echo=TRUE, eval=FALSE}
+db <- dbConnect(SQLite(), 
+  dbname="../data/airlines_db.sqlite")
 airline_names <- dbGetQuery(conn=db,
  "select Airline
     from airlines_table")
 airline_names
 ```
+
+<div class="notes">
+
+In R, you need to connect again (skip this step if you didn't disconnect earlier). Then call the dbGetQuery function with the SQL code inserted. Keep the connection open for now to save time with the next couple of queries.
+
+</div>
 
 ### Selecting a single field in R (2/2)
 ```{r select-single-field}
@@ -136,7 +153,7 @@ airline_names
 Here's what the output looks like.
 </div>
 
-<!---select-single-field--->`r j <- j+1`
+<!---sas-select-single-field--->`r j <- j+1`
 `r ppt_head[j]` (1/2)
 + SAS code
 ```
@@ -158,6 +175,12 @@ select Airline, r2016, r2017
   from airlines_table
 ```
 
+<div class="notes">
+
+To select multiple fields, list them after the select statement separated by commas. Don't leave out the commas. I usually do, and it inevitably leads to a cryptic error message.
+
+</div>
+
 ### Selecting multiple fields in R (1/2)
 
 ```{r select-multiple-fields, echo=TRUE, eval=FALSE}
@@ -168,15 +191,24 @@ airline_bump_rates <- dbGetQuery(conn=db,
 airline_bump_rates
 ```
 
+<div class="notes">
+
+Here's the code in R.
+
+</div>
+
 ### Selecting multiple fields in R (2/2)
 
 ```{r select-multiple-fields}
 ```
+
 <div class="notes">
+
 Here's what the output looks like.
+
 </div>
 
-<!---select-single-field--->`r j <- j+1`
+<!---sas-select-multiple-fields--->`r j <- j+1`
 `r ppt_head[j]` (1/2)
 + SAS code
 ```
@@ -201,6 +233,12 @@ select
   from airlines_table
 ```
 
+<div class="notes">
+
+Use the AS keyword to change the name of a field. Notice where the commas go. This code renames the fields in the output, but the names in the original database remain the same.
+
+</div>
+
 ### Changing field names in R (1/2)
 
 ```{r as-statement, echo=TRUE, eval=FALSE}
@@ -211,7 +249,14 @@ changed_names <- dbGetQuery(conn=db,
     r2016 as previous_rate
     from airlines_table")
 changed_names
+dbDisconnect(conn=db)
 ```
+
+<div class="notes">
+
+Here's the R code. Since this is the last query in R, you need to disconnect here.
+
+</div>
 
 ### Changing field names in R (2/2)
 
@@ -221,7 +266,7 @@ changed_names
 Here's what the output looks like.
 </div>
 
-<!---select-single-field--->`r j <- j+1`
+<!---sas-change-field-names--->`r j <- j+1`
 `r ppt_head[j]` (1/2)
 + SAS code
 ```
@@ -235,10 +280,6 @@ Here's what the output looks like.
 <div class="notes">
 Here's what the output looks like.
 </div>
-
-```{r shut-down-gracefully}
-dbDisconnect(conn=db)
-```
 
 ### Your homework
 
@@ -257,10 +298,6 @@ dbDisconnect(conn=db)
 The database for your first homework assignment is also very small. It has three fields and twelve records. This data came from a research publication in Infant Behavior and Development. The original data set included 414 infants, but the results were averaged by birth month. The hypothesis is that the colder temperature around the time when infants might start to crawl might adversely influence the age at which the infants started crawling because the bulky clothes needed in cold weather might restrict movement and interfere with their normal development.
 
 You can check out the original source on the data description website.
-
-<div class="notes">
-
-
 
 </div>
 

@@ -13,9 +13,10 @@ Select entire table in SAS
 
 This program shows how to use the 
 SELECT statement for SQL within a SAS
-program. The first example shows how
-to select an entire table (all records
-and all fields).
+program. This code shows all the steps
+that you need for a simple query that
+selects every record and all fields 
+within a single table.
 
 First you need to point
 to the database with a libname 
@@ -70,7 +71,8 @@ run;
 ********* ********* ********* *********
 Select a multiple fields in SAS
 
-This is how you select multiple fields.
+This is how you select multiple fields
+in SAS.
 ********* ********* ********* *********;
 
 proc sql;
