@@ -15,6 +15,7 @@ Run this install.packages function once. Run the library function at the top of 
 
 ```{r install-packages}
 # install.packages("sqldf")
+library(magrittr)
 library(sqldf)
 ```
 
@@ -96,7 +97,6 @@ table_name <- "fev"
 
 pu <- read.table(file=internet_name)
 names(pu) <- c("age", "fev", "ht", "sex", "smoke")
-head(pu)
 write.csv(pu, file=csv_name)
 
 add_to_sqlite(pu, sqlite_name, table_name)
@@ -136,6 +136,28 @@ table_name <- "crawling_table"
 crawl <- read.csv(file=csv_name, header=TRUE, as.is=TRUE)
 
 add_to_sqlite(crawl, sqlite_name, table_name)
+```
+
+Read additional data from a PDF file.
+
+```{r pdf}
+csv_name <- "../data/pdf.csv"
+pdf_name <- "../data/connecting.pdf"
+sqlite_name <- "hospital"
+table_name <- "hospital"
+
+library(pdftools)
+txt <- pdf_text("../data/connecting.pdf")
+txt[5] %>%
+  strsplit("\r\n") %>%
+  unlist %>%
+  gsub("^\\s+", "", .) %>%
+  gsub("\\s+", ",", .) %>%
+  writeLines(csv_name)
+pdf <- read.csv(csv_name, header=FALSE, skip=2, as.is=TRUE)
+names(pdf) <- c("I", "HOSP_ID", "CENSUS_REG", "BED_SIZE", "TEACHING_IND", "RURAL_URBAN", "ACUTE_NONACUTE")
+
+add_to_sqlite(pdf[-1, ], sqlite_name, table_name)
 ```
 
 ```{r save-everything}

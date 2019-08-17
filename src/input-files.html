@@ -376,6 +376,7 @@ summary {
 <p><a href="https://www.r-bloggers.com/r-and-sqlite-part-1/" class="uri">https://www.r-bloggers.com/r-and-sqlite-part-1/</a></p>
 <p>Run this install.packages function once. Run the library function at the top of every program.</p>
 <pre class="r"><code># install.packages(&quot;sqldf&quot;)
+library(magrittr)
 library(sqldf)</code></pre>
 <pre><code>## Loading required package: gsubfn</code></pre>
 <pre><code>## Loading required package: proto</code></pre>
@@ -474,15 +475,7 @@ table_name &lt;- &quot;fev&quot;
 
 pu &lt;- read.table(file=internet_name)
 names(pu) &lt;- c(&quot;age&quot;, &quot;fev&quot;, &quot;ht&quot;, &quot;sex&quot;, &quot;smoke&quot;)
-head(pu)</code></pre>
-<pre><code>##   age   fev   ht sex smoke
-## 1   9 1.708 57.0   0     0
-## 2   8 1.724 67.5   0     0
-## 3   7 1.720 54.5   0     0
-## 4   9 1.558 53.0   1     0
-## 5   9 1.895 57.0   1     0
-## 6   8 2.336 61.0   0     0</code></pre>
-<pre class="r"><code>write.csv(pu, file=csv_name)
+write.csv(pu, file=csv_name)
 
 add_to_sqlite(pu, sqlite_name, table_name)</code></pre>
 <pre><code>## [1] &quot;fev&quot;
@@ -537,6 +530,31 @@ add_to_sqlite(crawl, sqlite_name, table_name)</code></pre>
 ## 3       March          72            29.70
 ## 4       April          63            31.84
 ## 5         May          52            28.58</code></pre>
+<p>Read additional data from a PDF file.</p>
+<pre class="r"><code>csv_name &lt;- &quot;../data/pdf.csv&quot;
+pdf_name &lt;- &quot;../data/connecting.pdf&quot;
+sqlite_name &lt;- &quot;hospital&quot;
+table_name &lt;- &quot;hospital&quot;
+
+library(pdftools)
+txt &lt;- pdf_text(&quot;../data/connecting.pdf&quot;)
+txt[5] %&gt;%
+  strsplit(&quot;\r\n&quot;) %&gt;%
+  unlist %&gt;%
+  gsub(&quot;^\\s+&quot;, &quot;&quot;, .) %&gt;%
+  gsub(&quot;\\s+&quot;, &quot;,&quot;, .) %&gt;%
+  writeLines(csv_name)
+pdf &lt;- read.csv(csv_name, header=FALSE, skip=2, as.is=TRUE)
+names(pdf) &lt;- c(&quot;I&quot;, &quot;HOSP_ID&quot;, &quot;CENSUS_REG&quot;, &quot;BED_SIZE&quot;, &quot;TEACHING_IND&quot;, &quot;RURAL_URBAN&quot;, &quot;ACUTE_NONACUTE&quot;)
+
+add_to_sqlite(pdf[-1, ], sqlite_name, table_name)</code></pre>
+<pre><code>## [1] &quot;hospital&quot;
+##   I HOSP_ID CENSUS_REG BED_SIZE TEACHING_IND RURAL_URBAN ACUTE_NONACUTE
+## 1 2     493      South       &lt;5            0       Rural      Non-Acute
+## 2 3     966       West     6-99           NA       Urban          Acute
+## 3 4     775      South       &lt;5           NA       Urban          Acute
+## 4 5     668       West  100-199            0       Urban          Acute
+## 5 6   14246       West       &lt;5           NA       Urban      Non-Acute</code></pre>
 <pre class="r"><code>save.image(file=&quot;../data/input-files.RData&quot;)</code></pre>
 
 
