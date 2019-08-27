@@ -2,16 +2,54 @@
 title: "Simple SQL examples within R: NULL values"
 author: "Steve Simon"
 date: "September 12, 2017"
-output: html_document
+output: powerpoint_presentation
 ---
 
-SQL uses the term NULL to refer to missing values. In R, these NULL values are converted to NA, the R code for missing values.
+### NULL values in SQL
++ NULL is a special value in SQL
+  + Typically intended to represent unknown or missing values
+  + Always ask "why?"
++ Database designer may forbid use of NULL
+
+<div class="notes">
+
+
+
+</div>
+
+### Example of NULL values in a database
+
+![List of selected rows of a database in SQLite Studio](../images/sql-missing.png)
+
+<div class="notes">
+
+Here's a peek at several rows of a database where there are some NULL values.
+
+</div>
+
+### SAS translation of NULL
+
+![List of selected rows of a database after import into SAS](../images/sas-missing.png)
+
+<div class="notes">
+
+SQL uses the term NULL to refer to missing values. In R, these NULL values are converted to NA, the R code for missing values. In SAS, these are converted to ., the SAS code for missing values.
 
 You can select records with missing values by specifying IS NULL in the WHERE statement.
 
-```{r is-null}
+</div>
+
+```{r}
 library(sqldf)
 db <- dbConnect(SQLite(), dbname="../data/titanic.sqlite")
+
+dbGetQuery(conn=db,
+ "select PClass, Age
+    FROM ti
+    where name like 'Bar%'")
+```
+
+```{r is-null}
 dbGetQuery(conn=db,
  "SELECT COUNT(Name) AS n_missing FROM ti
  WHERE Age IS NULL")

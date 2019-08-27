@@ -1,0 +1,32 @@
+---
+title: "Basic SQLite access"
+author: "Steve Simon"
+date: "8/18/2019"
+output: html_document
+---
+
+This shows you how to access SQLite within an R program.
+
+```{r}
+library(sqldf)
+db <- dbConnect(SQLite(),
+  dbname="../data//airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+  "select *
+     from airlines_table")
+airlines_data
+dbDisconnect(conn=db)
+```
+
+Here is how to select only two fields.
+
+```{r}
+library(sqldf)
+db <- dbConnect(SQLite(),
+  dbname="../data//airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+  "select airline, r2017
+     from airlines_table")
+airlines_data
+dbDisconnect(conn=db)
+```
