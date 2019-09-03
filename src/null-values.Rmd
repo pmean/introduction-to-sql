@@ -1,5 +1,5 @@
 ---
-title: "Simple SQL examples within R: NULL values"
+title: "Simple SQL examples: NULL values"
 author: "Steve Simon"
 date: "September 12, 2017"
 output: powerpoint_presentation
