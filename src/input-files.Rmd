@@ -143,8 +143,8 @@ Read additional data from a PDF file.
 ```{r pdf}
 csv_name <- "../data/pdf.csv"
 pdf_name <- "../data/connecting.pdf"
-sqlite_name <- "hospital"
-table_name <- "hospital"
+sqlite_name <- "../data/hospital_db.sqlite"
+table_name <- "hospital_table"
 
 library(pdftools)
 txt <- pdf_text("../data/connecting.pdf")
