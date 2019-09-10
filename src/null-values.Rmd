@@ -1,6 +1,6 @@
 ---
-title: "Simple SQL examples within R: NULL values"
-author: "Steve Simon"
+title: "Simple SQL examples with null values"
+author: "Suman Sahil, Steve Simon"
 date: "September 12, 2017"
 output: powerpoint_presentation
 ---
@@ -9,54 +9,54 @@ output: powerpoint_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### NULL values in SQL
-+ NULL is a special value in SQL
+### Null values in SQL
++ Null is a special value in SQL
   + Typically intended to represent unknown or missing values
   + Always ask "why?"
-+ Database designer may forbid use of NULL
++ Database designer may forbid use of null
   + Primary/foreign keys
 + Alternative, use special codes (-1 or 99)
   + Multiple codes for multiple reasons
 
 <div class="notes">
 
-It is with a bit of trepidation that I talk about NULL values. You might think "much ado about nothing" but that's not true.
+It is with a bit of trepidation that I talk about null values. You might think "much ado about nothing" but that's not true.
 
-The NULL value is a special value in SQL that is intended to represent unknown or missing values. You should always ask yourself why a value is missing because the reason it is missing will influence how you analyze the data. It is well beyond the scope of this course to discuss handling of missing values. I can make just one recommendation. Track missing values obsessively. 
+The null value is a special value in SQL that is intended to represent unknown or missing values. You should always ask yourself why a value is missing because the reason it is missing will influence how you analyze the data. It is well beyond the scope of this course to discuss handling of missing values. I can make just one recommendation. Track missing values obsessively. 
 
-Database designers will often forbid the use of NULL values for some or all of the fields in a database. We will talk a bit more about this when we discuss primary and foreign keys.
+Database designers will often forbid the use of null values for some or all of the fields in a database. We will talk a bit more about this when we discuss primary and foreign keys.
 
 An alternative commonly used by database designers is the use of special codes to stand in for unknown or missing values. This is especially common for settings where there may be more than one reason why a value is missing.
 
 </div>
 
-### Example of NULL values in a database
+### Example of null values in a database
 
 ![List of selected rows of a database in SQLite Studio](../images/sql-missing.png)
 
 <div class="notes">
 
-Here's a peek at several rows of a database where there are some NULL values.
+Here's a peek at several rows of a database where there are some null values.
 
 </div>
 
-### SAS translation of NULL
+### SAS translation of null
 
 ![List of selected rows of a database after import into SAS](../images/sas-missing.png)
 
 <div class="notes">
 
-When you import the data into SAS, SAS will convert numeric NULL values to a dot, which is the SAS code for missing values. For character values, SAS will convert NULL values to an empty string, a string of length zero. This may or may not be what you want.
+When you import the data into SAS, SAS will convert numeric null values to a dot, which is the SAS code for missing values. For character values, SAS will convert null values to an empty string, a string of length zero. This may or may not be what you want.
 
 </div>
 
-### R translation of NULL
+### R translation of null
 
 ![List of selected rows of a database after import into SAS](../images/r-missing.png) 
 
 <div class="notes">
 
-R will convert NULL values to NA if the field is numeric. It will convert to <NA> if the field is character.
+R will convert null values to NA if the field is numeric. It will convert to <NA> if the field is character.
 
 </div>
 
@@ -156,6 +156,37 @@ You can exclude missing values using is not null.
 
 </div>
 
+### Your homework
++ Use the hospital database
+  + Verify that HOSP_ID has no missing vales
+  + Count the number of missing values for TEACHING_IND
+  + Find the id of the hospital where BED_SIZE is null.
++ Place your results in a single pdf file
+
+<div class="notes">
+
+For your homework, use the hospital database that I mentioned briefly earlier in this lecture. Verify that the hospital id code (HOSP_ID) has no missing values. There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND). There is only one hospital where the number of beds (BED_SIZE) is unknown. Find the id of that hospital.
+
+</div>
+
+### End of Part 1
++ What have you learned
+  + Null represents missing or unknown
+  + Translated to . (SAS) or NA (R)
+  + is null
+  + is not null
++ What's next (optional)
+  + Statistical summaries for null values
+  + Three valued logic
+  
+<div class="notes">
+
+Let's take a break here. You've learned quite a bit in a few minutes. First, the null value in SQL is typically used to represent a missing or unknown value. When you import null values into SAS or R, these systems convert null values to the codes that they use for missing or unknown. You can't find null values with the equal sign (we'll explore this a bit more). Rather, you have to use the phrase "is null" or "is not null."
+
+The next section is optional, but it's a lot of fun.
+
+</div>
+
 ### Statistical summary functions
 
 In SQL, statistical summary functions will remove missing values and calculate based only on the non-missing values. This is similar to the default options in SAS and SPSS, which also exclude missing values by default in most summary statistics. In R, however, the default option is to return a missing value for a summary statistic anytime that one or more values are missing.
@@ -249,20 +280,37 @@ There is something unusual going on here. It is known as three valued logic.
 
 ### Three valued logic
 + What happens with a logic statement involving a null value?
-  + Is NULL <= 18?
+  + Is null <= 18?
 + Unknown is a third logic value
   + Neither true nor false
   
 <div class="notes">
 
-A logic statement chokes when it encounters a null value. Is the value of NULL <= 18? Is it > 18? Well, it is neither. If age is NULL, that means that it is unknown, so maybe it is <= 18 and maybe it is not. Maybe doesn't fit well in a world of logic where statements are either true or false.
+A logic statement chokes when it encounters a null value. Is the value of null <= 18? Is it > 18? Well, it is neither. If age is null, that means that it is unknown, so maybe it is <= 18 and maybe it is not. Maybe doesn't fit well in a world of logic where statements are either true or false.
 
 The folks at SQL developed a third logical value, unknown.
 
 </div>
 
-### Paradoxes of three valued logic
-+ Three valued logic system applied to the logic statement age<=18
+### Paradoxes of three valued logic (1/2)
++ Three valued logic system applied to the logic statement Age<=18
+```
+  Age  Age<=18?
+   12      TRUE
+   14      TRUE
+   24     FALSE
+ NULL   UNKNOWN
+ ```
++ In a three valued logic system, comparisons to null are unknown
+
+ <div class="notes">
+ 
+The three valued logic assigns true to the logic statement age<=18 for the 12 and 14 year olds. It assigns false to that statement for the 24 year old. It assigns UNKNOWN to the null age.
+ 
+</div>
+
+### Paradoxes of three valued logic (2/2)
++ Three valued logic system applied to the logic statement not Age<=18
 ```
   Age  Age<=18?   not Age<=18
    12      TRUE         FALSE
@@ -276,7 +324,7 @@ The folks at SQL developed a third logical value, unknown.
  
  <div class="notes">
  
-The three valued logic assigns true to the logic statement age<=18 for the 12 and 14 year olds. It assigns false to that statement for the 24 year old. It assigns UNKNOWN to the NULL age.
+The three valued logic assigns true to the logic statement age<=18 for the 12 and 14 year olds. It assigns false to that statement for the 24 year old. It assigns UNKNOWN to the null age.
  
 The negation of Age<=18 flips true to false and false to true, but it leaves unknown alone. In other words, not unknown is unknown. If you don't know if a passenger is a child, you don't know if a passenger is not a child.
 
@@ -287,7 +335,7 @@ So the logic statement age<=18 or age>18 evaluates to true for almost everybody,
 </div>
 
 ### Another paradox of three valued logic
-+ Three valued logic system applied to the logic statement age<=18
++ Three valued logic system applied to the logic statement Age1=Age2
 ```
   Age1     Age2   Age1=Age2?
    12        18        FALSE
@@ -297,7 +345,7 @@ So the logic statement age<=18 or age>18 evaluates to true for almost everybody,
  NULL        15      UNKNOWN
  NULL      NULL      UNKNOWN
  ```
-+ Two NULL values could or could not be equal
++ Two null values could or could not be equal
   + Evaluates to unknown
  
 <div class="notes">
@@ -357,7 +405,29 @@ If you have to add in the unknowns, that creates five more cases.
 
 </div>
 
+### Do you really want all this hassle?
++ Debate about whether you should use null values at all
+  + Never use them for identification codes
+  + Replace them with extreme values (-1, 99)
++ Whatever your choice, tread carefully
+
+<div class="notes">
+
+There is a strong debate about whether you should use null values at all in databases. The potential for confusion is great. There is a general consensus that you should not use null values for identification codes. For other settings, you can use extreme codes like -1 and 99. Then you can track those codes explicitly because =-1 or =99 does not invoke the monster of three valued logic.
+
+It is still tricky though. If the missing value code for age is -1 then you can't say age <= 18, you have to say age <=18 and age >= 0.
+
+Now as an end user, you don't get to make this call. The lesson for you is that whenever you have missing or unknown values, you have to be alert to the troubles that they may cause.
+
+</div>
+
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)
 ```
 
+### Conclusion
++ What have you learned.
+  + SQL uses null values
+  + is null, is not null
+  + How statistical summaries handle null values
+  + Three valued logic systems
