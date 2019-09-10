@@ -533,8 +533,8 @@ add_to_sqlite(crawl, sqlite_name, table_name)</code></pre>
 <p>Read additional data from a PDF file.</p>
 <pre class="r"><code>csv_name &lt;- &quot;../data/pdf.csv&quot;
 pdf_name &lt;- &quot;../data/connecting.pdf&quot;
-sqlite_name &lt;- &quot;hospital&quot;
-table_name &lt;- &quot;hospital&quot;
+sqlite_name &lt;- &quot;../data/hospital_db.sqlite&quot;
+table_name &lt;- &quot;hospital_table&quot;
 
 library(pdftools)
 txt &lt;- pdf_text(&quot;../data/connecting.pdf&quot;)
@@ -548,7 +548,7 @@ pdf &lt;- read.csv(csv_name, header=FALSE, skip=2, as.is=TRUE)
 names(pdf) &lt;- c(&quot;I&quot;, &quot;HOSP_ID&quot;, &quot;CENSUS_REG&quot;, &quot;BED_SIZE&quot;, &quot;TEACHING_IND&quot;, &quot;RURAL_URBAN&quot;, &quot;ACUTE_NONACUTE&quot;)
 
 add_to_sqlite(pdf[-1, ], sqlite_name, table_name)</code></pre>
-<pre><code>## [1] &quot;hospital&quot;
+<pre><code>## [1] &quot;hospital_table&quot;
 ##   I HOSP_ID CENSUS_REG BED_SIZE TEACHING_IND RURAL_URBAN ACUTE_NONACUTE
 ## 1 2     493      South       &lt;5            0       Rural      Non-Acute
 ## 2 3     966       West     6-99           NA       Urban          Acute

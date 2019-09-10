@@ -1,6 +1,6 @@
 ---
-title: "Simple SQL examples with null values"
-author: "Suman Sahil, Steve Simon"
+title: "Simple SQL examples: NULL values"
+author: "Steve Simon"
 date: "September 12, 2017"
 output: powerpoint_presentation
 ---
