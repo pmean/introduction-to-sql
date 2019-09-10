@@ -160,6 +160,14 @@ names(pdf) <- c("I", "HOSP_ID", "CENSUS_REG", "BED_SIZE", "TEACHING_IND", "RURAL
 add_to_sqlite(pdf[-1, ], sqlite_name, table_name)
 ```
 
+```{r load}
+load("q:/sql files/data/input-files.RData")
+sqlite_name <- "../data/hospital_db.sqlite"
+table_name <- "patient_type"
+add_to_sqlite(pt, sqlite_name, table_name)
+```
+
 ```{r save-everything}
+rm(db)
 save.image(file="../data/input-files.RData")
 ```
