@@ -1,6 +1,6 @@
 ---
 title: "Simple SQL examples: NULL values"
-author: "Steve Simon"
+author: "Suman Sahil, Steve Simon"
 date: "September 12, 2017"
 output: powerpoint_presentation
 ---
@@ -402,6 +402,25 @@ Here's a logic table for the "or" and "and" functions with just the two logic va
 <div class="notes">
 
 If you have to add in the unknowns, that creates five more cases.
+
+</div>
+
+### Special cases
++ FALSE and UNKNOWN
+  + Both FALSE and FALSE, FALSE and TRUE evaluate to FALSE
++ TRUE or UKNOWN
+  + Both TRUE or TRUE, TRUE or FALSE evaluate to TRUE
++ Arithmetic analogy 0*NULL
+
+<div class="notes">
+
+You might think that any Boolean logic statement with one of the two conditions being UNKNOWN would end up helpless. But not always. 
+
+Consider the statement FALSE and UNKNOWN. It doesn't really matter what the second condition is, because you already know based on the first condition that the entire Boolean statement has to evaluate to FALSE.
+
+The other case is a statement TRUE or UNKNOWN. Once you know that one of the two conditions in an OR statement is TRUE, you don't have to bother evaluating the second.
+
+It's kind of like multiplying an unknown number by zero. Any possible value for the unknown would end up being zeroed out.
 
 </div>
 
