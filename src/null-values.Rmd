@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
   + Always ask "why?"
 + Database designer may forbid use of null
   + Primary/foreign keys
-+ Alternative, use special codes (-1 or 99)
++ Alternative, use special codes (-1 or 999)
   + Multiple codes for multiple reasons
 
 <div class="notes">
@@ -361,7 +361,7 @@ What is interesting is when both ages are null. This also evaluates to unknown. 
        X   not X
     TRUE   FALSE 
    FALSE    TRUE
- UNKNOWN  UNKOWN
+ UNKNOWN UNKNOWN
 ```
 
 <div class="notes">
@@ -427,12 +427,12 @@ It's kind of like multiplying an unknown number by zero. Any possible value for 
 ### Do you really want all this hassle?
 + Debate about whether you should use null values at all
   + Never use them for identification codes
-  + Replace them with extreme values (-1, 99)
+  + Replace them with extreme values (-1, 999)
 + Whatever your choice, tread carefully
 
 <div class="notes">
 
-There is a strong debate about whether you should use null values at all in databases. The potential for confusion is great. There is a general consensus that you should not use null values for identification codes. For other settings, you can use extreme codes like -1 and 99. Then you can track those codes explicitly because =-1 or =99 does not invoke the monster of three valued logic.
+There is a strong debate about whether you should use null values at all in databases. The potential for confusion is great. There is a general consensus that you should not use null values for identification codes. For other settings, you can use extreme codes like -1 and 999. Then you can track those codes explicitly because =-1 or =999 does not invoke the monster of three valued logic.
 
 It is still tricky though. If the missing value code for age is -1 then you can't say age <= 18, you have to say age <=18 and age >= 0.
 
