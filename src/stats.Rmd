@@ -1,0 +1,218 @@
+---
+title: "Statistical summary functions"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2019-09-24"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment="")
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+
+```
+
+### Statistical summary functions
+
++ SQL can produce a handful of summary statistics.
++ Common to all versions of SQL
+  + count, avg, sum, min, max
++ Standard deviation function is not consistent
+  + Not available in SQLite
+  + stddev, stdev, stdevp, stdev_samp
+  
+<div class="notes">
+
+It will not replace your favorite statistical package, but sometimes calculating a few of these statistics in SQL can greatly simplify your life.
+
+The count, average, sum, min, and max functions are identical across all versions of SQL, but the standard deviation function is not. It is just not available at all in SQLite. Depending on which version of SQL you are using, you might use stddev with two "d"'s or stdev with only one "d" and you might have two different versions of the standard deviation in the same version of SQL. One would use n-1 in the denominator and the other would use n in the denominator.
+
+I would recommend that you avoid the use of a standard deviation calculation in SQL, if you can.
+
+</div>
+
+### Count funtion
+
+```{r connect}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
+```
+
+```{r counting}
+sql_code <- 
+ "select count(case_number)
+  from  fat"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+The COUNT function is, in my opinion, one of the most useful summary functions. It allows you to quickly identify the number of records in your query. You can use COUNT on any field in your database and you should get the same answer, with one exception, which you will see in the section on NULL values.
+
+</div>
+
+### Always rename your functions
+
+```{r count-as}
+sql_code <- 
+ "select count(case_number) as n_rows
+  from fat"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+The name chosen by SQL for the result of COUNT is not a legal R name,so you would normally use the AS statement to create a better name.
+
+</div>
+ssssss
+### Use where to count subset
+
+```{r count-subset}
+sql_code <- 
+ "select count(case_number) as subset_count
+  from fat
+  where age >= 65"
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+### Min and max functions
+
+The max and min functions compute the largest and smallest values.
+
+```{r max-and-min}
+fd <- dbGetQuery(conn=db,
+ "SELECT MAX(age) AS oldest_age FROM fat")
+fd
+fd <- dbGetQuery(conn=db,
+ "SELECT MIN(bmi) AS lowest_bmi FROM fat")
+fd
+```
+
+
+```{r}
+dbDisconnect(conn=db)
+```
+
+<div class="notes">
+
+You can combine the COUNT function with the WHERE statement to get the number of records in a subset of your table.
+
+</div>
+
+### The group by keywords
+
+```{r group-by}
+db <- dbConnect(SQLite(), dbname="../data/titanic_db.sqlite")
+sql_code <-
+ "select PClass, count(Name) as n
+  from titanic_table
+  group by PClass"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+
+### Mean and sum functions
+
+Two other useful summary functions are MEAN and SUM.
+
+In all of the examples so far, the summary functions produce a table with a single row. But you can use the GROUP BY statement to get summary functions for each level of a categorical variable.
+
+```{r group}
+db <- dbConnect(SQLite(), dbname="../data/titanic_db.sqlite")
+ti <- dbGetQuery(conn=db,
+  "select * from titanic_table")
+ti <- dbGetQuery(conn=db,
+  "select Sex, min(age) AS min_age from titanic_table
+  group by Sex")
+dim(ti)
+ti
+```
+
+### Multiple categories
+
+You can put two or more categorical variables in the GROUP BY statement.
+
+```{r group-by-two}
+ti <- dbGetQuery(conn=db,
+  "select Sex, PClass, min(age) AS min_age from titanic_table
+  group by Sex, PClass")
+dim(ti)
+ti
+```
+
+### Description of the Titanic database
+
++ The Titanic database
+
+<div class="notes">
+
+
+</div>
+
+### Computing the average age of all passengers
+
++ SQL code
+
+```
+select average(age) 
+  from titanic
+```
+
+<div class="notes">
+
+The average function
+
+</div>
+
+### Selecting a limited number of records (2/2)
+
+```{r limit}
+library(sqldf)
+db <- dbConnect(SQLite(), 
+  dbname="../data/titanic_db.sqlite")
+average_age <- dbGetQuery(conn=db,
+  "select avg(age)
+     from titanic_table")
+average_age
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
