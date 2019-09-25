@@ -80,7 +80,7 @@ dbGetQuery(conn=db, sql_code)
 The name chosen by SQL for the result of COUNT is not a legal R name,so you would normally use the AS statement to create a better name.
 
 </div>
-ssssss
+
 ### Use where to count subset
 
 ```{r count-subset}
