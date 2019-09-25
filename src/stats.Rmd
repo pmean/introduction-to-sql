@@ -10,7 +10,6 @@ knitr::opts_chunk$set(echo = FALSE, comment="")
 suppressMessages(suppressWarnings(library(knitr)))
 suppressMessages(suppressWarnings(library(magrittr)))
 suppressMessages(suppressWarnings(library(sqldf)))
-
 ```
 
 ```{r connect}
@@ -24,8 +23,8 @@ db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
 + Common to all versions of SQL
   + count, avg, sum, min, max
 + Standard deviation function is not consistent
-  + Not available in SQLite
   + stddev, stdev, stdevp, stdev_samp
+  + Not available in SQLite
   
 <div class="notes">
 
@@ -104,7 +103,7 @@ You can combine these functions with a subtraction operator to get a range.
 
 </div>
 
-### computing an average
+### Computing an average
 
 ```{r average}
 sql_code <- 
@@ -352,32 +351,7 @@ You can put two or more categorical variables in the GROUP BY statement.
 
 </div>
 
-
-### The having keyword
-
-```{r group-by-age}
-sql_code <- 
- "select Age, count(Age) as n
-  from titanic_table
-  group by Age
-  having n >= 30"
-```
-+ SQL code
-```
-`r sql_code`
-```
-+ SQL output
-```{r}
-dbGetQuery(conn=db, sql_code)
-```
-
-<div class="notes">
-
-If you want to filter on a value of the summary statistic, you need to use the having keyword. This code selects those ages with only one passenger. You cannot use the where keyword because where is run BEFORE the data is summarized. You use the having keyword to filter AFTER the data is summarized.
-
-</div>
-
-### The having keyword (2/2)
+### The having keyword (1/4)
 
 ```{r select-minimum-age}
 sql_code <- 
@@ -398,10 +372,134 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
-Here's another example. You are selecting only female passengers.
+If you want to filter on a value of the summary statistic, you need to use the having keyword. This code selects those ages with only one passenger. You cannot use the where keyword because where is run BEFORE the data is summarized. You use the having keyword to filter AFTER the data is summarized.
+
+This code selects only female passengers and it does this before calculating the summary statistic. So the minimum age that you get is computed from the ages of only female passengers. We does this for the three passenger classes. Then we only keep the results if the youngest female passenger in that age group is less than a year old. You can see that only third class has a baby girl under a year old.
+
+</div>
+
+### The having keyword (2/4)
+
+```{r group-by-age}
+sql_code <- 
+ "select Age, count(Age) as n
+  from titanic_table
+  group by Age
+  having n >= 30
+  order by n desc"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's a second example. There are 1,313 passengers on the Titanic, so many of them will have the same age. Which ages occur at least 30 times? That's what this query tells you.
+
+There's one problem here. The most common value for age is null, which occurs 756 times. Why didn't this show up when you asked for ages with counts of 30 or more? Let's investigate.
+
+</div>
+
+### The having keyword (3/4)
+
+```{r group-by-age-1}
+sql_code <- 
+ "select Age, count(Age) as n
+  from titanic_table
+  group by Age
+  having Age is null"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+There are 756 passengers with an unknown age. So why do we get a count of zero? 
+
+The count function, like all other statistical functions ignores any missing values. So it refuses to count any of the 756 null values associated with age is null. There's an easy fix here, if you want to count missing values.
+
+</div>
+
+### The having keyword (4/4)
+
+```{r group-by-age-2}
+sql_code <- 
+ "select Age, count(*) as n
+  from titanic_table
+  group by Age
+  having n >= 30
+  order by n desc"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+If you do a count on a variable that does not have missing values like Name, or if you do a generic count (count(*)) then you will see that the null values for age are counted properly.
+
+This is proof that missing values are the bane of every statistician's existence. If you ever get weird and unexpected results, consider undertaking a hunt of null values and see if that may explain what is going on.
+
+</div>
+
+### Summary
++ Statistical functions
+  + count, min, max, avg, sum
++ group by summarizes for each category
++ The having keyword filters your data after the summarization
++ The count and other statistical functions ignore null values
+
+<div class="notes">
+
+This lecture talked about the statistical functions: count, min, max, avg, and sum. These produce a single row summary. If you include the group by keyword, you get a row for every category. The having keyword filters your data after summarization. The count function and all the other statistical functions ignore missing values.
+
+</div>
+
+### Homework (1/2)
+
++ For your homework, use the titanic database. 
+  + This is available in Oracle using schema='simons'. 
+  + In SQLite, it is a standalone file named titanic_db.sqlite.
++ count the number of passengers with the title "Mr" somewhere in their name.
++ Run a query that counts the number of male and female children (Age <= 18)
++ Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
+
+<div class="notes">
+
+Here is your homework assignment.
+
+</div>
+
+### Homework (2/2)
+
++ The Survived field has values of 0 (died) and 1 (alive) and an average of this value provides a probability of survival.
+  + Calculate this probability for six categories representing the combination of passenger class and sex.
+  + Include only those groups where the survival probability is greater than 30%.
++ Place the SQL code and the results of all your queries in a single PDF file.
+
+<div class="notes">
+
+One more thing for you to do.
 
 </div>
 
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)
 ```
+
