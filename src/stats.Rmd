@@ -353,6 +353,55 @@ You can put two or more categorical variables in the GROUP BY statement.
 </div>
 
 
+### The having keyword
+
+```{r group-by-age}
+sql_code <- 
+ "select Age, count(Age) as n
+  from titanic_table
+  group by Age
+  having n >= 30"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+If you want to filter on a value of the summary statistic, you need to use the having keyword. This code selects those ages with only one passenger. You cannot use the where keyword because where is run BEFORE the data is summarized. You use the having keyword to filter AFTER the data is summarized.
+
+</div>
+
+### The having keyword (2/2)
+
+```{r select-minimum-age}
+sql_code <- 
+ "select PClass, min(Age) as youngest_female
+  from titanic_table
+  where Sex='female'
+  group by PClass
+  having youngest_female < 1"
+```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's another example. You are selecting only female passengers.
+
+</div>
+
 ```{r shut-down-gracefully}
 dbDisconnect(conn=db)
 ```
