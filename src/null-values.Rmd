@@ -136,7 +136,7 @@ You can (and should) get counts of all the null values.
 
 ```{r is-not-null}
 sql_code <-
-"select count(name) as n_valid
+"select count(Name) as n_valid
   from titanic_table
   where Age is not null"
 ```
@@ -153,6 +153,24 @@ dbGetQuery(conn=db, sql_code)
 <div class="notes">
 
 You can exclude missing values using is not null.
+
+</div>
+
+### Count that is independent of null values
++ My examples work
+  + Only because Name is never missing.
+  + You should not rely on this
++ Alternative code
+  + count(*)
+  + The wild card is never null
+
+<div class="notes">
+
+One of my students from a previous semester noted a problem here. I am making an assumption that Name is never null. That's a safe assumption, but only because I have some inside knowledge of the database. It is bad form to rely on this.
+
+A better alternative is to use count(*).
+
+This does not rely on inside knowledge about the database. count(*) will never ignore a row with null values because the widlcard symbol for everything is never missing.
 
 </div>
 
