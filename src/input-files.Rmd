@@ -71,6 +71,8 @@ add_to_sqlite <- function(rawdata, sqlite_name, table_name) {
 
 Here are some additoinal files that I need to read in SQLite.
 
+### Titanic
+
 This is how to read in the Titanic data set.
 
 ```{r titanic}
@@ -84,6 +86,8 @@ write.csv(ti[-1, ], file=csv_name, row.names=FALSE)
 
 add_to_sqlite(ti, sqlite_name, table_name)
 ```
+
+### Pulmonary
 
 This is the pulmonary data set. A description of the files is at
 
@@ -102,6 +106,8 @@ write.csv(pu, file=csv_name)
 add_to_sqlite(pu, sqlite_name, table_name)
 ```
 
+### Cigarettes
+
 The cigarettes file was downloaded from the Data Description website.
 
 ```{r cigarettes}
@@ -113,6 +119,8 @@ cig <- read.csv(file=csv_name, header=TRUE, as.is=TRUE)
 
 add_to_sqlite(cig, sqlite_name, table_name)
 ```
+
+### Airlines
 
 The airlines file was also found at the Data Description website.
 
@@ -126,6 +134,8 @@ air <- read.csv(file=csv_name, header=TRUE, as.is=TRUE)
 add_to_sqlite(air, sqlite_name, table_name)
 ```
 
+### Crawling
+
 The crawling file was also found at the Data Description website.
 
 ```{r crawling}
@@ -137,6 +147,29 @@ crawl <- read.csv(file=csv_name, header=TRUE, as.is=TRUE)
 
 add_to_sqlite(crawl, sqlite_name, table_name)
 ```
+
+### Acupuncture
+
+```{r acupuncture}
+r_name <- "../data/acupuncture/acupuncture_data_reduced.RData"
+sqlite_name <- "../data/acupuncture/acupuncture_db.sqlite"
+load(r_name)
+write.csv(data, file="../data/acupuncture/results_table.csv", row.names=FALSE)
+add_to_sqlite(data, sqlite_name, "results_table")
+sex_codes <- data.frame(sex_code=0:1, sex_label=c("Male", "Female"))
+write.csv(sex_codes, file="../data/acupuncture/sex_table.csv", row.names=FALSE)
+add_to_sqlite(sex_codes, sqlite_name, "sex_table")
+# migraine (1) vs. tension-type (0)
+migraine_codes <- data.frame(migraine_code=0:1, migraine_label=c("Migraine", "Tension-type"))
+write.csv(migraine_codes, file="../data/acupuncture/migraine_table.csv", row.names=FALSE)
+add_to_sqlite(migraine_codes, sqlite_name, "migraine_table")
+# treatment group; acupuncture (1) vs. control (0)
+group_codes <- data.frame(group_code=0:1, group_label=c("Control", "Treatment"))
+write.csv(group_codes, file="../data/acupuncture/group_table.csv", row.names=FALSE)
+add_to_sqlite(group_codes, sqlite_name, "group_table")
+```
+
+### Hospital
 
 Read additional data from a PDF file.
 
