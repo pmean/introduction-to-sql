@@ -1,0 +1,190 @@
+---
+title: "Simple joins"
+author: "Suman Sahil, Steve Simon"
+date: "October 13, 2017"
+output: powerpoint_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Database with multiple tables (1)
+
+```{r}
+suppressMessages(suppressWarnings(library(sqldf)))
+db <- dbConnect(SQLite(), dbname="../data/acupuncture/acupuncture_db.sqlite")
+
+sql_code <- 
+"select tbl_name
+  from sqlite_master"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's a database with multiple tables. Your first step is to list all the table names.
+
+</div>
+
+### Database with multiple tables (2)
+
+```{r}
+sql_code <- 
+"select id, sex, migraine, grp 
+  from results_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the first five rows of results_table.
+
+</div>
+
+### Database with multiple tables (3)
+
+```{r}
+sql_code <- 
+"select *
+  from sex_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the data from sex_table.
+
+</div>
+
+### Database with multiple tables (4)
+
+```{r}
+sql_code <- 
+"select *
+  from migraine_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the data from migraine_table.
+
+</div>
+
+### Database with multiple tables (5)
+
+```{r}
+sql_code <- 
+"select *
+  from group_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the data from group_table.
+
+</div>
+
+### Database with multiple tables (6)
+
+```{r}
+sql_code <- 
+"select r.id, r.sex, r.migraine, g.group_label 
+  from results_table as r, group_table as g
+  where r.grp=g.group_code
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the first five rows of results_table.
+
+</div>
+
+### Database with multiple tables (6a)
+
+```{r}
+sql_code <- 
+"select r.id, r.sex, r.migraine, g.group_label 
+  from results_table as r
+  join group_table as g
+  on r.grp=g.group_code
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's the first five rows of results_table.
+
+</div>
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
+
+### Conclusion
++ What have you learned.

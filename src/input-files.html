@@ -443,6 +443,8 @@ head(fd)</code></pre>
   dbDisconnect(conn=db)
 }</code></pre>
 <p>Here are some additoinal files that I need to read in SQLite.</p>
+<div id="titanic" class="section level3">
+<h3>Titanic</h3>
 <p>This is how to read in the Titanic data set.</p>
 <pre class="r"><code>internet_name &lt;- &quot;http://www.statsci.org/data/general/titanic.txt&quot;
 csv_name &lt;- &quot;../data/titanic.csv&quot;
@@ -466,6 +468,9 @@ add_to_sqlite(ti, sqlite_name, table_name)</code></pre>
 ## 3        0
 ## 4        0
 ## 5        1</code></pre>
+</div>
+<div id="pulmonary" class="section level3">
+<h3>Pulmonary</h3>
 <p>This is the pulmonary data set. A description of the files is at</p>
 <p><a href="http://jse.amstat.org/datasets/fev.txt" class="uri">http://jse.amstat.org/datasets/fev.txt</a></p>
 <pre class="r"><code>internet_name &lt;- &quot;http://www.amstat.org/publications/jse/datasets/fev.dat.txt&quot;
@@ -485,6 +490,9 @@ add_to_sqlite(pu, sqlite_name, table_name)</code></pre>
 ## 3   7 1.720 54.5   0     0
 ## 4   9 1.558 53.0   1     0
 ## 5   9 1.895 57.0   1     0</code></pre>
+</div>
+<div id="cigarettes" class="section level3">
+<h3>Cigarettes</h3>
 <p>The cigarettes file was downloaded from the Data Description website.</p>
 <pre class="r"><code>csv_name &lt;- &quot;../data/cigarettes.csv&quot;
 sqlite_name &lt;- &quot;../data/cigarettes_db.sqlite&quot;
@@ -500,6 +508,9 @@ add_to_sqlite(cig, sqlite_name, table_name)</code></pre>
 ## 3     Bull Durham 29.8     2.03 1.1650 23.5
 ## 4    Camel Lights  8.0     0.67 0.9280 10.2
 ## 5         Carlton  4.1     0.40 0.9462  5.4</code></pre>
+</div>
+<div id="airlines" class="section level3">
+<h3>Airlines</h3>
 <p>The airlines file was also found at the Data Description website.</p>
 <pre class="r"><code>csv_name &lt;- &quot;../data/airlines.csv&quot;
 sqlite_name &lt;- &quot;../data/airlines_db.sqlite&quot;
@@ -515,6 +526,9 @@ add_to_sqlite(air, sqlite_name, table_name)</code></pre>
 ## 3  JETBLUE  1475  2140  0.54  0.82
 ## 4   UNITED  2067  2874  0.30  0.45
 ## 5 HAWAIIAN    92    30  0.11  0.04</code></pre>
+</div>
+<div id="crawling" class="section level3">
+<h3>Crawling</h3>
 <p>The crawling file was also found at the Data Description website.</p>
 <pre class="r"><code>csv_name &lt;- &quot;../data/crawling.csv&quot;
 sqlite_name &lt;- &quot;../data/crawling_db.sqlite&quot;
@@ -530,6 +544,57 @@ add_to_sqlite(crawl, sqlite_name, table_name)</code></pre>
 ## 3       March          72            29.70
 ## 4       April          63            31.84
 ## 5         May          52            28.58</code></pre>
+</div>
+<div id="acupuncture" class="section level3">
+<h3>Acupuncture</h3>
+<pre class="r"><code>r_name &lt;- &quot;../data/acupuncture/acupuncture_data_reduced.RData&quot;
+r_name &lt;- &quot;../data/acupuncture/headache.RData&quot;
+sqlite_name &lt;- &quot;../data/acupuncture/acupuncture_db.sqlite&quot;
+load(r_name)
+vnames &lt;- names(data)
+vnames &lt;- gsub(&quot;group&quot;, &quot;grp&quot;, vnames)
+names(data) &lt;- vnames
+write.csv(data, file=&quot;../data/acupuncture/results_table.csv&quot;, row.names=FALSE)
+add_to_sqlite(data, sqlite_name, &quot;results_table&quot;)</code></pre>
+<pre><code>## [1] &quot;group_table&quot;    &quot;migraine_table&quot; &quot;results_table&quot;  &quot;sex_table&quot;     
+##    id age sex migraine chronicity acupuncturist practice_id grp   pk1  pk2
+## 1 100  47   1        1         35            12          35   1 10.75   NA
+## 2 101  52   1        1          8            12          35   0  9.50   NA
+## 3 104  32   1        1         14            12          35   0 16.00   NA
+## 4 105  53   1        1         10             9          25   0 32.50 44.0
+## 5 108  56   1        1         40             9          25   0 16.50 17.5
+##        pk5 f1 f2    f5
+## 1       NA  8  0  0.00
+## 2       NA  4  0  0.00
+## 3 15.33333 12  0 13.33
+## 4       NA 21 18  0.00
+## 5 23.25000 14 19 15.00</code></pre>
+<pre class="r"><code>sex_codes &lt;- data.frame(sex_code=0:1, sex_label=c(&quot;Male&quot;, &quot;Female&quot;))
+write.csv(sex_codes, file=&quot;../data/acupuncture/sex_table.csv&quot;, row.names=FALSE)
+add_to_sqlite(sex_codes, sqlite_name, &quot;sex_table&quot;)</code></pre>
+<pre><code>## [1] &quot;group_table&quot;    &quot;migraine_table&quot; &quot;results_table&quot;  &quot;sex_table&quot;     
+##   sex_code sex_label
+## 1        0      Male
+## 2        1    Female</code></pre>
+<pre class="r"><code># migraine (1) vs. tension-type (0)
+migraine_codes &lt;- data.frame(migraine_code=0:1, migraine_label=c(&quot;Migraine&quot;, &quot;Tension-type&quot;))
+write.csv(migraine_codes, file=&quot;../data/acupuncture/migraine_table.csv&quot;, row.names=FALSE)
+add_to_sqlite(migraine_codes, sqlite_name, &quot;migraine_table&quot;)</code></pre>
+<pre><code>## [1] &quot;group_table&quot;    &quot;migraine_table&quot; &quot;results_table&quot;  &quot;sex_table&quot;     
+##   migraine_code migraine_label
+## 1             0       Migraine
+## 2             1   Tension-type</code></pre>
+<pre class="r"><code># treatment group; acupuncture (1) vs. control (0)
+group_codes &lt;- data.frame(group_code=0:1, group_label=c(&quot;Control&quot;, &quot;Treatment&quot;))
+write.csv(group_codes, file=&quot;../data/acupuncture/group_table.csv&quot;, row.names=FALSE)
+add_to_sqlite(group_codes, sqlite_name, &quot;group_table&quot;)</code></pre>
+<pre><code>## [1] &quot;group_table&quot;    &quot;migraine_table&quot; &quot;results_table&quot;  &quot;sex_table&quot;     
+##   group_code group_label
+## 1          0     Control
+## 2          1   Treatment</code></pre>
+</div>
+<div id="hospital" class="section level3">
+<h3>Hospital</h3>
 <p>Read additional data from a PDF file.</p>
 <pre class="r"><code>csv_name &lt;- &quot;../data/pdf.csv&quot;
 pdf_name &lt;- &quot;../data/connecting.pdf&quot;
@@ -548,14 +613,20 @@ pdf &lt;- read.csv(csv_name, header=FALSE, skip=2, as.is=TRUE)
 names(pdf) &lt;- c(&quot;I&quot;, &quot;HOSP_ID&quot;, &quot;CENSUS_REG&quot;, &quot;BED_SIZE&quot;, &quot;TEACHING_IND&quot;, &quot;RURAL_URBAN&quot;, &quot;ACUTE_NONACUTE&quot;)
 
 add_to_sqlite(pdf[-1, ], sqlite_name, table_name)</code></pre>
-<pre><code>## [1] &quot;hospital_table&quot;
+<pre><code>## [1] &quot;hospital_table&quot; &quot;patient_type&quot;  
 ##   I HOSP_ID CENSUS_REG BED_SIZE TEACHING_IND RURAL_URBAN ACUTE_NONACUTE
 ## 1 2     493      South       &lt;5            0       Rural      Non-Acute
 ## 2 3     966       West     6-99           NA       Urban          Acute
 ## 3 4     775      South       &lt;5           NA       Urban          Acute
 ## 4 5     668       West  100-199            0       Urban          Acute
 ## 5 6   14246       West       &lt;5           NA       Urban      Non-Acute</code></pre>
-<pre class="r"><code>save.image(file=&quot;../data/input-files.RData&quot;)</code></pre>
+<pre class="r"><code>load(&quot;q:/sql files/data/input-files.RData&quot;)
+sqlite_name &lt;- &quot;../data/hospital_db.sqlite&quot;
+table_name &lt;- &quot;patient_type&quot;
+add_to_sqlite(pt, sqlite_name, table_name)</code></pre>
+<pre class="r"><code>rm(db)
+save.image(file=&quot;../data/input-files.RData&quot;)</code></pre>
+</div>
 
 
 

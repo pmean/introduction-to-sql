@@ -1,4 +1,4 @@
-"id","age","sex","migraine","chronicity","acupuncturist","practice_id","group","pk1","pk2","pk5","f1","f2","f5"
+"id","age","sex","migraine","chronicity","acupuncturist","practice_id","grp","pk1","pk2","pk5","f1","f2","f5"
 100,47,1,1,35,12,35,1,10.75,NA,NA,8,0,0
 101,52,1,1,8,12,35,0,9.5,NA,NA,4,0,0
 104,32,1,1,14,12,35,0,16,NA,15.33333,12,0,13.33

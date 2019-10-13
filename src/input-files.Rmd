@@ -152,8 +152,12 @@ add_to_sqlite(crawl, sqlite_name, table_name)
 
 ```{r acupuncture}
 r_name <- "../data/acupuncture/acupuncture_data_reduced.RData"
+r_name <- "../data/acupuncture/headache.RData"
 sqlite_name <- "../data/acupuncture/acupuncture_db.sqlite"
 load(r_name)
+vnames <- names(data)
+vnames <- gsub("group", "grp", vnames)
+names(data) <- vnames
 write.csv(data, file="../data/acupuncture/results_table.csv", row.names=FALSE)
 add_to_sqlite(data, sqlite_name, "results_table")
 sex_codes <- data.frame(sex_code=0:1, sex_label=c("Male", "Female"))
@@ -193,7 +197,7 @@ names(pdf) <- c("I", "HOSP_ID", "CENSUS_REG", "BED_SIZE", "TEACHING_IND", "RURAL
 add_to_sqlite(pdf[-1, ], sqlite_name, table_name)
 ```
 
-```{r load}
+```{r load, eval=FALSE}
 load("q:/sql files/data/input-files.RData")
 sqlite_name <- "../data/hospital_db.sqlite"
 table_name <- "patient_type"
