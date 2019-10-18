@@ -1,0 +1,25 @@
+Page01c, Plagiarism
+Plagiarism
+Every day in classrooms all around the world teachers and students are confronted with the issue of plagiarism. With the ideas and words of so many people being used, it is imperative that students give proper acknowledgement to their sources. By using the correct techniques of quoting, paraphrasing, and summarizing, avoiding plagiarism becomes simple.
+
+The Definition of Plagiarism
+According to Webster’s New World College Dictionary, plagiarizing is “to take (ideas, writings, etc.) from (another) and pass them off as one’s own." The UMKC conduct standards expand this to include:
+
+(i) use by paraphrase or direct quotation of the published or unpublished work of another person without fully and properly crediting the author with footnotes, citations or bibliographical reference;
+
+(ii) unacknowledged use of materials prepared by another person or agency engaged in the selling of term papers or other academic materials, or unacknowledged use of original work/material that has been produced through collaboration with others without release in writing collaborators. 
+
+Plagiarism Prevention
+
+<iframe src="https://www.youtube.com/embed/A1_xOCQzwCo" width="560" height="315" allowfullscreen="allowfullscreen" allow="autoplay; encrypted-media" data-mce-fragment="1"></iframe>
+
+
+To help prevent plagiarism and to maintain the University’s policy on academic integrity, UMKC purchased the internet-based plagiarism-prevention resource TurnItIn.com (TurnItIn) (Links to an external site.). This site allows faculty and students to submit papers online to examine a paper’s originality. This site compares submitted papers with several proprietary algorithm databases to check for plagiarism.
+
+You can submit Turnitin assignments directly in Canvas (Links to an external site.). Turnitin measures assignment originality and indicates what percent of your assignment matches internet sources. Submitting a Turnitin assignment is similar to submitting a regular online assignment. However, the Turnitin LTI for Canvas only supports file uploads and text entry submissions; in file uploads, you can only upload one file per assignment.
+
+Additionally, you may not be able to resubmit your assignment or submit the assignment past the due date. Be sure to view the assignment summary before submitting your assignment. If you are allowed to resubmit an assignment, all marks and comments associated with the original submission will be deleted. Turnitin resubmissions may take up to 24 hours to process.
+
+You can submit your assignment as a text entry or upload any supported file type: Text (.txt), Microsoft Word (.doc/.docx), Microsoft PowerPoint (.ppt/.pptx), Postcript (.ps), Portable Document Format (.pdf), Rich Text Format (.rtf), HyperText Markup Language (.html), WordPerfect (.wp), Hangul (.hwp), or Open Office (.odt/.ods/.odp). You can also upload an assignment from Google Drive or Dropbox. Turnitin submissions require a minimum of 20 words, a maximum of 400 pages, and a file size maximum of 40 MB.
+
+After submitting your assignment, your instructor may allow you to view your Turnitin results (Links to an external site.). If your instructor has added a Canvas rubric to your Turnitin assignment, it can only be viewed on the Submission Details page for that assignment (at any time) or your Grades page (after the rubric has been scored). You can access the Submission Details page by clicking on the name of the assignment in your Grades page.
