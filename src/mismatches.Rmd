@@ -1,0 +1,72 @@
+---
+title: "Mismatches"
+author: "Suman Sahil, Steve Simon"
+date: "October 16, 2019"
+output: powerpoint_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### How to handle mismatches
++ Labels in small table without matching codes in big table
++ Codes in big table without matching label in small table
+
+<div class="notes">
+
+In the previous module, I mentioned a simple case: every label in the small table has a code in the big table and vice versa. In this lecture, I'll discuss cases where you have mismatches.
+
+</div>
+
+### Four types of joins
++ Inner join
+  + Remove mismatches in either direction
+    + No null values created
++ Left join
+  + Removes mismatches from second database
+  + Keeps mismatches from first database
+    + Second database fields filled with null values
++ Right join
+  + Removes mismatches from the first database
+  + Keeps mismatches from the second database
+    + First database fields filled with null values
++ Full join, outerjoin
+  + Keeps mismatches from first database
+    + Second database fields filled with null values
+  + Keeps mismatches from the second database
+    + First database fields filled with null values
+
+<div class="notes">
+
+
+
+</div>
+
+### Unmatched label, the individual tables
+
+```{r}
+id <- 101:105
+sex <- c(0, 1, 1, 0, 0)
+sex_labels <- c("Male", "Female", "Did not answer")
+
+big_table <- data.frame(id, sex)
+small_table <- data.frame(sex=c(0, 1, 9), sex_labels)
+
+big_table
+small_table
+```
+
+### Unmatched label, 
+
+```{r}
+big_table %>%
+  inner_join
+```
+
+```{r shut-down-gracefully, eval=FALSE}
+dbDisconnect(conn=db)
+```
+
+### Conclusion
++ What have you learned.
