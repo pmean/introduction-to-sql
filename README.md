@@ -1,4 +1,4 @@
-# sql-and-r
+# Introduction-to-sql
 
 This is a series of short programs using R Markdown. It 
 requires the use of the RSQLite package.
