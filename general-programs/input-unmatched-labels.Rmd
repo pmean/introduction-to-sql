@@ -5,63 +5,38 @@ date: "Created October 16, 2019"
 output: html_document
 ---
 
-
-```{r install-packages}
-library(magrittr)
-library(sqldf)
-```
-
-```{r create a new database}
-db <- dbConnect(SQLite(), dbname="../data/fat.sqlite")
-dbWriteTable(conn=db, name="fat", value="../data/fat.csv",
-  overwrite=TRUE, row.names=FALSE, header=TRUE)
-dbDisconnect(conn=db)
-```
-
-```{r function}
-add_to_sqlite <- function(rawdata, sqlite_name, table_name) {
-  db <- dbConnect(SQLite(), dbname=sqlite_name)
-  dbWriteTable(conn=db, name=table_name, value=rawdata,
-    overwrite=TRUE, row.names=FALSE, header=TRUE)
-  dbDisconnect(conn=db)
-  
-  db <- dbConnect(SQLite(), dbname=sqlite_name)
-  print(dbListTables(conn=db))
-  print(dbGetQuery(conn=db, paste0("select * from ", table_name, " limit 5")))
-  dbDisconnect(conn=db)
-}
+```{r setup}
+source("input-functions.R")
 ```
 
 ### Unmatched labels
 
-This is how to read in the Titanic data set.
+This code creates an artificial database to illustrate what happens when a label is mismatched.
 
-```{r titanic}
-csv_name <- "../data/unmatched_labels.csv"
-sqlite_name <- "../data/unmatched_labels_db.sqlite"
-table_name <- "results_table"
+```{r unmatched-labels}
+nam <- "unmatched_labels"
+cs1_name <- paste0("../data/", nam, "1.csv")
+cs2_name <- paste0("../data/", nam, "2.csv")
+sql_name <- paste0("../data/", nam, "_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
+tb1_name <- "results_table"
+tb2_name <- "sex_table"
 
 id <- 101:105
 sex <- c(0, 1, 1, 0, 0)
 sex_labels <- c("Male", "Female", "Did not answer")
 
-big_table <- data.frame(id, sex)
-small_table <- data.frame(sex=c(0, 1, 9), sex_labels)
+df1 <- data.frame(id, sex)
+df2 <- data.frame(sex=c(0, 1, 9), sex_labels)
 
-write.csv(big_table, file=csv_name, row.names=FALSE)
-add_to_sqlite(big_table, sqlite_name, table_name)
-
-table_name <- "results_table"
+write.csv(df1, file=cs1_name, row.names=FALSE)
+add_to_sqlite(df1, sql_name, tb1_name)
 
 sex_labels <- c("Male", "Female", "Did not answer")
+df2 <- data.frame(sex=c(0, 1, 9), sex_labels)
 
-small_table <- data.frame(sex=c(0, 1, 9), sex_labels)
+write.csv(df2, file=cs2_name, row.names=FALSE)
+add_to_sqlite(df2, sql_name, tb2_name)
 
-write.csv(small_table, file=csv_name, row.names=FALSE)
-add_to_sqlite(small_table, sqlite_name, table_name)
-```
-
-```{r save-everything}
-rm(db)
-save.image(file="../data/input-unmatched-labels.RData")
+save.image(file=dat_name)
 ```
