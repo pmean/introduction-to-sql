@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r connect}
-library(sqldf)
-db <- dbConnect(SQLite(), dbname="../data/unmatched-labels.sqlite")
+suppressMessages(suppressWarnings(library(sqldf)))
+db <- dbConnect(SQLite(), dbname="../data/unmatched_labels_db.sqlite")
 ```
 
 ### How to handle mismatches
@@ -24,19 +24,157 @@ In the previous module, I mentioned a simple case: every label in the small tabl
 
 </div>
 
-### Four types of joins
-+ Inner join
-  + Remove mismatches in either direction
-    + No null values created
-+ Left join
-  + Removes mismatches from second database
-  + Keeps mismatches from first database
-    + Second database fields filled with null values
-+ Right join
-  + Removes mismatches from the first database
-  + Keeps mismatches from the second database
+### The inner join
++ SQL code
+```
+select * 
+  from first_table as a
+  inner join second_table as b
+  on a.first_key=b.second_key
+```
++ Remove mismatches in either direction
+  + No null values created
++ Join order is not too important  
+
+<div class="notes">
+
+We'll describe this in more detail, but here's a quick overview of the four basic types of joins. 
+
+The inner join removes any mismatches. If a key in the first table is not found in the second table, sorry but you're gone. If a key in the second table is not found in the first table, sorry but you're gone also.
+
+Note that the order is not important here. If you swapped the first table and the second table, maybe the arrangement of the columns might change, and maybe the arrangement of the rows might change, but the table would be the same size and would effectively contain the same information.
+
+</div>
+
+### Simple inner join example
+
++ Original tables
+```
+first_key first_value 
+B         Benjamin    
+C         Charles
+
+second_key second_value
+A          Amsterdam
+C          Casablanca
+```
++ Results after inner join
+```
+first_key first_value second_key second_value
+C         Charles      C          Casablanca
+```
+
+<div class="notes">
+
+Here's a simple example of an inner join with mismatches going in both directions. The first table has Benjamin and Charles with keys of B and C. The second table has Amsterdam and Casablanca with keys of A and C.
+
+Benjamin doesn't make it because B has no matching key in the second table. Amsterdam doesn't make it because A has no matching key in the first table. But you can match Charles with Casablanca because the C in the first table has a match in the second table. So the inner join has only one record.
+
+</div>
+
+### The left join
++ SQL code
+```
+select * 
+  from first_table as a
+  left join second_table as b
+  on a.first_key=b.second_key
+```
++ Removes mismatches from second database
++ Keeps mismatches from first database
+  + Second database fields filled with null values
++ Join order is very important  
+
+<div class="notes">
+
+The left join will remove mismatches from the second database. If a key in the second database is not found in the first database, then sorry by you're gone.
+
+Mismatches from the first database will not get tossed, however. If a key in the first database is not found in the second database, that's okay. Keep the record in the database. The fields that you couldn't find in the second database because of the mismatch? Let's set them to null.
+
+Join order is very important for a left join.
+
+</div>
+
+### Simple left join example
+
++ Original tables
+```
+first_key first_value 
+B         Benjamin    
+C         Charles
+
+second_key second_value
+A          Amsterdam
+C          Casablanca
+```
++ Results after left join
+```
+first_key first_value second_key second_value
+B         Benjamin    null       null
+C         Charles      C          Casablanca
+```
+
+<div class="notes">
+
+Here's the same simple example, but now with a left join. Benjamin in the first table has no match in the second table, but he's lucky because the left join will keep him in the final database, even without a match. The second key and second value fields are set to null.
+
+Amersterdam, however, is not so lucky. The left join will toss out any mismatches in the second table.
+
+Charles and Casablanca get matched, of course, just like before.
+
+</div>
+
+
+### The right join
++ SQL code
+```
+select * 
+  from first_table as a
+  left join second_table as b
+  on a.first_key=b.second_key
+```
++ Removes mismatches from the first database
++ Keeps mismatches from the second database
     + First database fields filled with null values
-+ Full join, outerjoin
++ Join order is very important
+
+<div class="notes">
+
+The right join will remove mismatches from the first database. If a key in the first database is not found in the second database, then sorry but you're gone.
+
+Mismatches from the second database will not get tossed, however. If a key in the second database is not found in the first database, that's okay. Keep the record in the database. The fields that you couldn't find in the first database because of the mismatch? Let's set them to null.
+
+Join order is very important for a left join.
+
+</div>
+
+### Simple right join example
+
++ Original tables
+```
+first_key first_value 
+B         Benjamin    
+C         Charles
+
+second_key second_value
+A          Amsterdam
+C          Casablanca
+```
++ Results after right join
+```
+first_key first_value second_key second_value
+null      null         A          Amsterdam
+C         Charles      C          Casablanca
+```
+
+<div class="notes">
+
+Here's that same set of tables with a right join. Benjamin gets the boot because he has no match in the second table. But Amsterdam makes the cut on a right join. Charles and Casablanca get matched, of course.
+
+</div>
+
+### Outer join, full join
++ Full join, outer join
   + Keeps mismatches from first database
     + Second database fields filled with null values
   + Keeps mismatches from the second database
@@ -44,23 +182,69 @@ In the previous module, I mentioned a simple case: every label in the small tabl
 
 <div class="notes">
 
+A full join let's everyone join the party. A key in the first database that doesn't have a match in the second database? Come on it. We'll patch things up by using null values for the fields in the second database.
 
+A key in the second database that doesn't have a match in the first database? Why, you're welcome too. We'll use null values for the fields in the first database.
 
 </div>
 
-### Unmatched label, the individual tables
+### Simple outer join example
+
++ Original tables
+```
+first_key first_value 
+B         Benjamin    
+C         Charles
+
+second_key second_value
+A          Amsterdam
+C          Casablanca
+```
++ Results after outer join
+```
+first_key first_value second_key second_value
+null      null        A          Amsterdam
+B         Benjamin    null       null
+C         Charles     C          Casablanca
+```
+
+<div class="notes">
+
+Here's an example of an outer join. Benjamin gets in and Amsterdam gets in, in spite of their mismatches. Charles and Casablanca? They get in for any join--inner, left, right, or outer.
+
+</div>
+
+
+### unmatched_labels_db, listing of both tables
+
++ Listing of results_table
+```{r}
+dbGetQuery(conn=db, "select * from results_table")
+```
+
++ Listing of sex_table
+```{r}
+dbGetQuery(conn=db, "select * from sex_table")
+```
+
+<div class="notes">
+
+Let's look at an example with joining using labels. This is similar to the example you saw in an earlier video, but I've stripped it down so there are onle five records in the results table and we are only worried about labels for the sex variable.
+
+There's a change here, though. There is a label "Did not answer" in the sex table, but the code of 9 associated with that label never appears in the results_table. This is not a surprise. There are many studies where everyone answers this question.
+
+</div>
+
+### unmatched_labels_db, exclude mismatch
 
 ```{r}
 sql_code <- 
-"select * 
-  from sex_table"
-```
-+ SQL code
-```
-`r sql_code`
-```
-+ SQL output
-```{r}
+"select r.id, r.sex, s.sex_code, s.sex_label
+  from results_table as r
+  left join
+  sex_table as s
+  on r.sex=s.sex_code
+  order by r.id"
 dbGetQuery(conn=db, sql_code)
 ```
 
@@ -70,15 +254,111 @@ dbGetQuery(conn=db, sql_code)
 
 </div>
 
-### Unmatched label, 
+### unmatched_labels_db, include mismatch
 
 ```{r}
-dbListTables(conn=db)
+sql_code <- 
+"select r.id, r.sex, s.sex_code, s.sex_label
+  from sex_table as s
+  left join
+  results_table as r
+  on r.sex=s.sex_code
+  order by r.id"
+dbGetQuery(conn=db, sql_code)
 ```
 
-```{r shut-down-gracefully, eval=FALSE}
+<div class="notes">
+
+
+
+</div>
+
+```{r switch-connections}
+dbDisconnect(conn=db)
+db <- dbConnect(SQLite(), dbname="../data/unmatched_codes_db.sqlite")
+```
+### unmatched_codes_db, listing of both tables
+
++ Listing of results_table
+```{r}
+dbGetQuery(conn=db, "select * from results_table")
+```
+
++ Listing of sex_table
+```{r}
+dbGetQuery(conn=db, "select * from sex_table")
+```
+
+<div class="notes">
+
+
+
+</div>
+
+### unmatched_codes_db, exclude mismatch
+
+```{r}
+sql_code <- 
+"select r.id, r.sex, s.sex_code, s.sex_label
+  from sex_table as s
+  left join
+  results_table as r
+  on r.sex=s.sex_code
+  order by r.id"
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+
+
+</div>
+
+### unmatched_codes_db, include mismatch
+
+```{r}
+sql_code <- 
+"select r.id, r.sex, s.sex_code, s.sex_label
+  from results_table as r
+  left join
+  sex_table as s
+  on r.sex=s.sex_code
+  order by r.id"
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+
+
+</div>
+
+### Practical recommendations (1/2)
++ Unmatched labels
+  + Fairly common occurence
+  + Usually best to exclude mismatches
++ Unmatched codes
+  + Violation of database integrity
+  + Usually best to include mismatches
+    + Convert null label to number code
+    + Convert null label to "Unlabeled"
++ Left join results_table to sex_table
+<div class="notes">
+
+
+
+</div>
+
+### Practical recommendations (2/2)
++ Left join results_table to sex_table
+  + Keeps size of results_table unchanged
+<div class="notes">
+
+
+
+</div>
+
+```{r shut-down-gracefully}
 dbDisconnect(conn=db)
 ```
 
-### Conclusion
-+ What have you learned.
