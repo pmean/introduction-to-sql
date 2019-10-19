@@ -46,22 +46,13 @@ In the previous module, I mentioned a simple case: every label in the small tabl
 ### Unmatched label, the individual tables
 
 ```{r}
-id <- 101:105
-sex <- c(0, 1, 1, 0, 0)
-sex_labels <- c("Male", "Female", "Did not answer")
 
-big_table <- data.frame(id, sex)
-small_table <- data.frame(sex=c(0, 1, 9), sex_labels)
-
-big_table
-small_table
 ```
 
 ### Unmatched label, 
 
 ```{r}
-big_table %>%
-  inner_join
+
 ```
 
 ```{r shut-down-gracefully, eval=FALSE}
