@@ -1,12 +1,17 @@
 ---
 title: "Mismatches"
 author: "Suman Sahil, Steve Simon"
-date: "October 16, 2019"
+date: "Creation date: 2019-10-16"
 output: powerpoint_presentation
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r connect}
+library(sqldf)
+db <- dbConnect(SQLite(), dbname="../data/unmatched-labels.sqlite")
 ```
 
 ### How to handle mismatches
@@ -46,22 +51,26 @@ In the previous module, I mentioned a simple case: every label in the small tabl
 ### Unmatched label, the individual tables
 
 ```{r}
-id <- 101:105
-sex <- c(0, 1, 1, 0, 0)
-sex_labels <- c("Male", "Female", "Did not answer")
-
-big_table <- data.frame(id, sex)
-small_table <- data.frame(sex=c(0, 1, 9), sex_labels)
-
-big_table
-small_table
+sql_code <- 
+"select * 
+  from sex_table"
 ```
++ SQL code
+```
+`r sql_code`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
 
 ### Unmatched label, 
 
 ```{r}
-big_table %>%
-  inner_join
+dbListTables(conn=db)
 ```
 
 ```{r shut-down-gracefully, eval=FALSE}

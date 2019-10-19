@@ -1,7 +1,7 @@
 ---
 title: "Managing multiple tables in SQL"
 author: "Suman Sahil, Steve Simon"
-date: "Creation date: 2017-09-30"
+date: "Creation date: 2019-09-30"
 output: powerpoint_presentation
 ---
 
