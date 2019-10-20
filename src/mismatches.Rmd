@@ -15,12 +15,15 @@ db <- dbConnect(SQLite(), dbname="../data/unmatched_labels_db.sqlite")
 ```
 
 ### How to handle mismatches
-+ Labels in small table without matching codes in big table
-+ Codes in big table without matching label in small table
+
++ Quick overview of the four types of joins
++ Two specific cases
+  + Labels in small table without matching codes in big table
+  + Codes in big table without matching label in small table
 
 <div class="notes">
 
-In the previous module, I mentioned a simple case: every label in the small table has a code in the big table and vice versa. In this lecture, I'll discuss cases where you have mismatches.
+In the previous module, I mentioned a simple case: every label in the small table has a code in the big table and vice versa. In this lecture, I'll discuss cases where you have mismatches. Before I do that, let me talk briefly about the four major types of joins.
 
 </div>
 
@@ -38,7 +41,7 @@ select *
 
 <div class="notes">
 
-We'll describe this in more detail, but here's a quick overview of the four basic types of joins. 
+We'll describe this in more detail in a different video, but here's a quick overview of the four basic types of joins. 
 
 The inner join removes any mismatches. If a key in the first table is not found in the second table, sorry but you're gone. If a key in the second table is not found in the first table, sorry but you're gone also.
 
@@ -87,9 +90,9 @@ select *
 
 <div class="notes">
 
-The left join will remove mismatches from the second database. If a key in the second database is not found in the first database, then sorry by you're gone.
+The left join will remove mismatches from the second database. If a key in the second database is not found in the first database, then sorry but you're gone.
 
-Mismatches from the first database will not get tossed, however. If a key in the first database is not found in the second database, that's okay. Keep the record in the database. The fields that you couldn't find in the second database because of the mismatch? Let's set them to null.
+Mismatches from the first database will not get tossed, however. If a key in the first database is not found in the second database, that's okay. Keep the record in the join. The fields that you couldn't find in the second database because of the mismatch? Let's set them to null.
 
 Join order is very important for a left join.
 
@@ -111,12 +114,12 @@ C          Casablanca
 ```
 first_key first_value second_key second_value
 B         Benjamin    null       null
-C         Charles      C          Casablanca
+C         Charles     C          Casablanca
 ```
 
 <div class="notes">
 
-Here's the same simple example, but now with a left join. Benjamin in the first table has no match in the second table, but he's lucky because the left join will keep him in the final database, even without a match. The second key and second value fields are set to null.
+Here's the same simple example, but now with a left join. Benjamin in the first table has no match in the second table, but he's lucky because the left join will keep him in the final database, even without a match. The second key and second value fields are both set to null.
 
 Amersterdam, however, is not so lucky. The left join will toss out any mismatches in the second table.
 
@@ -124,19 +127,20 @@ Charles and Casablanca get matched, of course, just like before.
 
 </div>
 
-
 ### The right join
 + SQL code
 ```
 select * 
   from first_table as a
-  left join second_table as b
+  right join second_table as b
   on a.first_key=b.second_key
 ```
 + Removes mismatches from the first database
 + Keeps mismatches from the second database
     + First database fields filled with null values
 + Join order is very important
++ Important note: SQLite does not do right joins.
+  + There is an easy work-around
 
 <div class="notes">
 
@@ -144,7 +148,39 @@ The right join will remove mismatches from the first database. If a key in the f
 
 Mismatches from the second database will not get tossed, however. If a key in the second database is not found in the first database, that's okay. Keep the record in the database. The fields that you couldn't find in the first database because of the mismatch? Let's set them to null.
 
-Join order is very important for a left join.
+Join order is very important for a right join.
+
+Note that SQLite cannot do a right join. It can only do an inner join and a left join. There is an easy work around for the right join. Just swap the order of the tables and do a left join.
+
+</div>
+
+### Equivalent joins
++ SQL code
+```
+select * 
+  from first_table as a
+  right join second_table as b
+  on a.first_key=b.second_key
+```
++ Swap order and change right to left
+```
+select * 
+  from second_table as b
+  left join first_table as a
+  on b.second_key=a.first_key
+```
+
+<div class="notes">
+
+It's not too hard to see how the second set of SQL commands will produce the same effective results as the first set of commands.
+
+The order of the fields will be different, and the order of the records might or might not be different, but you get the same effective results.
+
+Let me elaborate a bit on order. When you say "select *", you will get back all the fields in the table mentioned in the "from" statement followed by all the fields in the table mentioned in the "join" statement.
+
+Order in SQL is often arbitrary, but what typically happens is that the join starts with the first record of the table mentioned in the "from" statement. That would be "Benjamin" if you coded things as "from table_one, but it would be "Amsterdam" if you coded things as "from table_two".
+
+Of course, you can control the order in which fields appear by specifying that order in the "select" statement and you can control the order in which records appear by using an "order by" statement.
 
 </div>
 
@@ -163,8 +199,8 @@ C          Casablanca
 + Results after right join
 ```
 first_key first_value second_key second_value
-null      null         A          Amsterdam
-C         Charles      C          Casablanca
+null      null        A          Amsterdam
+C         Charles     C          Casablanca
 ```
 
 <div class="notes">
@@ -214,7 +250,6 @@ Here's an example of an outer join. Benjamin gets in and Amsterdam gets in, in s
 
 </div>
 
-
 ### unmatched_labels_db, listing of both tables
 
 + Listing of results_table
@@ -250,7 +285,7 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
-
+If you exclude the record in sex_table that does not have a match in the results_table, you get these results. You get five records total and you don't see a "9" or a "Did not answer" anywhere.
 
 </div>
 
@@ -269,7 +304,9 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
+This is what the results look like if you allow the mismatched table to get in. There are six rows now, one more than the earlier result and you have a missing value for id.
 
+There may be times when this is okay, but adding an extra phantom subject seems like a bad idea to me. Having a null value for the id variable seems like a bad idea to me. If a label is unmatched, you alomst always want to leave it out.
 
 </div>
 
@@ -277,6 +314,7 @@ dbGetQuery(conn=db, sql_code)
 dbDisconnect(conn=db)
 db <- dbConnect(SQLite(), dbname="../data/unmatched_codes_db.sqlite")
 ```
+
 ### unmatched_codes_db, listing of both tables
 
 + Listing of results_table
@@ -291,7 +329,7 @@ dbGetQuery(conn=db, "select * from sex_table")
 
 <div class="notes">
 
-
+Here is a different case. In these two tables, there is a code in results_table that does not have a match in sex_table.
 
 </div>
 
@@ -310,7 +348,7 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
-
+If you exclude the mismatch, one of the five subjects gets tossed out. From a data analysis perspective, this is almost always a bad idea.
 
 </div>
 
@@ -329,7 +367,7 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
-
+Here are the results where you leave the mismatch in. It has the same number of subjects as the original results_table has. This seems like a better approach. You could replace the null value for label with the number code, or you could replace the null value with a string such as "Unlabeled."
 
 </div>
 
@@ -342,19 +380,29 @@ dbGetQuery(conn=db, sql_code)
   + Usually best to include mismatches
     + Convert null label to number code
     + Convert null label to "Unlabeled"
-+ Left join results_table to sex_table
+
 <div class="notes">
 
+Here's some practical advice that applies only to the setting where your extra tables include labels to match number codes in the main table.
 
+Unmatched labels are a fairly common occurence. If you have 68,000 codes for diagnosis, it would be unrealistic to expect each of those codes to appear in the main table. You are usually best off ignoring the unmatched labels.
+
+Unmatched codes, however, should almost never be ignored. There's a technical term associated with this, and I am not the one to talk about it, but the codes in the large table are foreign keys and a foreign key should always have a match in the table with the labels. A mismatch here is a violation of a fundamental rule of database integrity.
+
+It is usually best to allow mismatches. Having a null value for the label is a small problem, but tossing out a legitimate record in the larger database is a bigger problem. Almost always, you want to include these types of mismatches.
 
 </div>
 
 ### Practical recommendations (2/2)
 + Left join results_table to sex_table
   + Keeps size of results_table unchanged
+  + Quickly convert null labels to something else
+  
 <div class="notes">
 
+With these two rules in mind, ignoring unmatched labels but including unmatched codes, you should use a left join of results_table to the sex_table. This guarantees that no one in the results_table gets removed and also insures that you don't add extra "phantom" records with null id values.
 
+It is usually good practice to quickly convert the null label back to the code number or to a generic term like "unlabeled."
 
 </div>
 
