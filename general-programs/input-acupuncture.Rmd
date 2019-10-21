@@ -1,0 +1,48 @@
+---
+title: "Input acupuncture database"
+author: "Steve Simon"
+date: "Creation date: 2019-10-21"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+```
+
+### Acupuncture
+
+The source for this data set is
+
+[TSHS Resources Portal](https://www.causeweb.org/tshs/acupuncture/)
+
+```{r acupuncture}
+# nam <- "unmatched_labels"
+# cs1_name <- paste0("../data/", nam, "1.csv")
+# cs2_name <- paste0("../data/", nam, "2.csv")
+# sql_name <- paste0("../data/", nam, "_db.sqlite")
+# dat_name <- paste0("../data/", nam, ".RData")
+# tb1_name <- "results_table"
+# tb2_name <- "sex_table"
+
+r_name <- "../data/acupuncture/acupuncture_data_reduced.RData"
+r_name <- "../data/acupuncture/headache.RData"
+sqlite_name <- "../data/acupuncture/acupuncture_db.sqlite"
+load(r_name)
+vnames <- names(data)
+vnames <- gsub("group", "grp", vnames)
+names(data) <- vnames
+write.csv(data, file="../data/acupuncture/results_table.csv", row.names=FALSE)
+add_to_sqlite(data, sqlite_name, "results_table")
+sex_codes <- data.frame(sex_code=0:1, sex_label=c("Male", "Female"))
+write.csv(sex_codes, file="../data/acupuncture/sex_table.csv", row.names=FALSE)
+add_to_sqlite(sex_codes, sqlite_name, "sex_table")
+# migraine (1) vs. tension-type (0)
+migraine_codes <- data.frame(migraine_code=0:1, migraine_label=c("Migraine", "Tension-type"))
+write.csv(migraine_codes, file="../data/acupuncture/migraine_table.csv", row.names=FALSE)
+add_to_sqlite(migraine_codes, sqlite_name, "migraine_table")
+# treatment group; acupuncture (1) vs. control (0)
+group_codes <- data.frame(group_code=0:1, group_label=c("Control", "Treatment"))
+write.csv(group_codes, file="../data/acupuncture/group_table.csv", row.names=FALSE)
+add_to_sqlite(group_codes, sqlite_name, "group_table")
+rm(db)
+save.image(file="../data/input-acupuncture.RData")
+```

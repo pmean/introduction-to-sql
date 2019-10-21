@@ -1,0 +1,58 @@
+---
+title: "Input longitudinal structure for acupuncture database"
+author: "Steve Simon"
+date: "Creation date: 2019-10-21"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+```
+
+### Acupuncture
+
+```{r acupuncture}
+nam <- "longitudinal_example"
+cs1_name <- paste0("../data/", nam, "1.csv")
+cs2_name <- paste0("../data/", nam, "2.csv")
+cs3_name <- paste0("../data/", nam, "3.csv")
+sql_name <- paste0("../data/", nam, "_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
+tb0_name <- "demog_table"
+tb1_name <- "baseline_table"
+tb2_name <- "three_month_table"
+tb3_name <- "one_year_table"
+
+r_name <- "../data/acupuncture/acupuncture_data_reduced.RData"
+load(r_name)
+vnames <- names(data)
+vnames <- gsub("group", "grp", vnames)
+names(data) <- vnames
+
+if (file.remove(sql_name)) cat(paste0(sql_name, " rewritten."))
+
+data %>%
+  select(id:grp) %>%
+  add_to_sqlite(sql_name, tb0_name)
+
+data %>%
+  select(id, pk1) %>%
+  filter(is.finite(pk1)) %>%
+  add_to_sqlite(sql_name, tb1_name)
+
+data %>%
+  select(id, pk2) %>%
+  filter(is.finite(pk2)) %>%
+  add_to_sqlite(sql_name, tb2_name)
+
+data %>%
+  select(id, pk5) %>%
+  filter(is.finite(pk5)) %>%
+  add_to_sqlite(sql_name, tb3_name)
+
+table(is.finite(data$pk1), is.finite(data$pk2))
+table(is.finite(data$pk1), is.finite(data$pk5))
+table(is.finite(data$pk2), is.finite(data$pk5))
+
+rm(db)
+save.image(file=dat_name)
+```
