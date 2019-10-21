@@ -40,7 +40,7 @@ I would recommend that you avoid the use of a standard deviation calculation in 
 ```{r min-and-max}
 sql_code <- 
  "select max(age), min(age)
-  from  fat"
+  from fat"
 ```
 + SQL code
 ```

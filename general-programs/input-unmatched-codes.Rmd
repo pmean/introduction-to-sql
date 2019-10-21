@@ -1,5 +1,5 @@
 ---
-title: "Input unmatched label database"
+title: "Input unmatched code database"
 author: "Steve Simon"
 date: "Created October 16, 2019"
 output: html_document
@@ -9,12 +9,12 @@ output: html_document
 source("input-functions.R")
 ```
 
-### Unmatched labels
+### Unmatched codes
 
-This code creates an artificial database to illustrate what happens when a label is mismatched.
+This program creates an artificial database to illustrate what happens when a code is mismatched.
 
-```{r unmatched-labels}
-nam <- "unmatched_labels"
+```{r unmatched-codes}
+nam <- "unmatched_codes"
 cs1_name <- paste0("../data/", nam, "1.csv")
 cs2_name <- paste0("../data/", nam, "2.csv")
 sql_name <- paste0("../data/", nam, "_db.sqlite")
@@ -25,11 +25,11 @@ tb2_name <- "sex_table"
 file.remove(sql_name)
 
 id <- 101:105
-sex <- c(1, 0, 0, 1, 1)
-sex_label <- c("Male", "Female", "Did not answer")
+sex <- c(1, 0, 0, 9, 1)
+sex_label <- c("Male", "Female")
 
 df1 <- data.frame(id, sex)
-df2 <- data.frame(sex_code=c(0, 1, 9), sex_label)
+df2 <- data.frame(sex_code=c(0, 1), sex_label)
 
 write.csv(df1, file=cs1_name, row.names=FALSE)
 add_to_sqlite(df1, sql_name, tb1_name)
