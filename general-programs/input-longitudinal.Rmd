@@ -53,6 +53,5 @@ table(is.finite(data$pk1), is.finite(data$pk2))
 table(is.finite(data$pk1), is.finite(data$pk5))
 table(is.finite(data$pk2), is.finite(data$pk5))
 
-rm(db)
 save.image(file=dat_name)
 ```
