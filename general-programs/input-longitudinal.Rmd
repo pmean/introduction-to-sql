@@ -10,17 +10,21 @@ source("input-functions.R")
 
 ### Acupuncture
 
+The source for this data set is
+
+[TSHS Resources Portal](https://www.causeweb.org/tshs/acupuncture/)
+
 ```{r acupuncture}
 nam <- "longitudinal_example"
-cs1_name <- paste0("../data/", nam, "1.csv")
-cs2_name <- paste0("../data/", nam, "2.csv")
-cs3_name <- paste0("../data/", nam, "3.csv")
-sql_name <- paste0("../data/", nam, "_db.sqlite")
-dat_name <- paste0("../data/", nam, ".RData")
 tb0_name <- "demog_table"
 tb1_name <- "baseline_table"
 tb2_name <- "three_month_table"
 tb3_name <- "one_year_table"
+tb4_name <- "sex_table"
+tb5_name <- "migraine_table"
+tb6_name <- "group_table"
+sql_name <- paste0("../data/", nam, "_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
 
 r_name <- "../data/acupuncture/acupuncture_data_reduced.RData"
 load(r_name)
@@ -48,6 +52,21 @@ data %>%
   select(id, pk5) %>%
   filter(is.finite(pk5)) %>%
   add_to_sqlite(sql_name, tb3_name)
+
+data.frame(
+  sex_code=c(0, 1, 99), 
+  sex_label=c("Male", "Female", "Unknown")) %>%
+  add_to_sqlite(sql_name, tb4_name)
+
+data.frame(
+  migraine_code=c(0, 1, 98, 99), 
+  migraine_label=c("Migraine", "Tension-type", "Other", "Unknown")) %>%
+  add_to_sqlite(sql_name, tb5_name)
+
+data.frame(
+  group_code=c(0, 1), 
+  group_label=c("Control", "Treatment")) %>%
+  add_to_sqlite(sql_name, tb6_name)
 
 table(is.finite(data$pk1), is.finite(data$pk2))
 table(is.finite(data$pk1), is.finite(data$pk5))

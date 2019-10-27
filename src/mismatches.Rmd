@@ -150,7 +150,7 @@ Mismatches from the second database will not get tossed, however. If a key in th
 
 Join order is very important for a right join.
 
-Note that SQLite cannot do a right join. It can only do an inner join and a left join. There is an easy work around for the right join. Just swap the order of the tables and do a left join.
+Note that SQLite cannot do a right join. It can only do an inner join and a left join. This is the only SQL database, as far as I know, that cannot do a right join. There is an easy work around for the right join. Just swap the order of the tables and do a left join.
 
 </div>
 
@@ -215,12 +215,15 @@ Here's that same set of tables with a right join. Benjamin gets the boot because
     + Second database fields filled with null values
   + Keeps mismatches from the second database
     + First database fields filled with null values
-
+  + SQLite does not do an outer join
+ 
 <div class="notes">
 
 A full join let's everyone join the party. A key in the first database that doesn't have a match in the second database? Come on it. We'll patch things up by using null values for the fields in the second database.
 
 A key in the second database that doesn't have a match in the first database? Why, you're welcome too. We'll use null values for the fields in the first database.
+
+SQLite does not do an outer join. This is a surprising limitation, and it does cause problems. There are ways to work around this limitation, but they are complex and awkward to code. As far as I know, SQLite is the only SQL database with this limitation.
 
 </div>
 
@@ -410,3 +413,221 @@ It is usually good practice to quickly convert the null label back to the code n
 dbDisconnect(conn=db)
 ```
 
+```{r connect-again}
+db <- dbConnect(SQLite(), dbname="../data/longitudinal_example_db.sqlite")
+```
+
+### A second example
++ Longitudinal measurements in the same data set
+  + Baseline
+  + Three months
+  + One year
++ Some subjects dropped out
+  + How to handle this depends on statistical analysis plan
+  
+<div class="notes">
+
+There is a second example, using different variables in the same acupuncture database that was discussed earlier.
+
+I have rearranged the data into four tables.
+
+</div>
+
+### List of tables
+
+```{r list-tables}
+dbGetQuery(conn=db, "select tbl_name from sqlite_master")
+```
+
+<div class="notes">
+
+Here is a list of the tables in this database.
+
+</div>
+
+### List of fields in demog_table
+
+```{r demog-table}
+options(width=46)
+dbGetQuery(conn=db, "select * from demog_table limit 4")
+```
+
+<div class="notes">
+
+The demographics table has eight fields.
+
+</div>
+
+### List of fields in baseline_table
+
+```{r baseline-table}
+dbGetQuery(conn=db, "select * from baseline_table limit 10")
+```
+
+<div class="notes">
+
+Here are first few rows of baseline_table
+
+</div>
+
+### List of fields in three_month_table
+
+```{r three-month-table}
+dbGetQuery(conn=db, "select * from three_month_table limit 10")
+```
+
+<div class="notes">
+
+Here are first few rows of three_month_table
+
+</div>
+
+### List of fields in one year table
+
+```{r one_year_table}
+dbGetQuery(conn=db, "select * from one_year_table limit 10")
+```
+
+<div class="notes">
+
+Here are first few rows of one_year_table
+
+</div>
+
+### List of fields in remaining tables
+
+```{r remaining_tables}
+dbGetQuery(conn=db, "select * from sex_table limit 10")
+dbGetQuery(conn=db, "select * from migraine_table limit 10")
+dbGetQuery(conn=db, "select * from group_table limit 10")
+```
+
+<div class="notes">
+
+Here are the remaining tables, used for assigning labels to number codes.
+
+</div>
+
+### Reasons for splitting longitudinal data into separate tables
++ Data may come from different sources
++ Data may be entered at different times
+  + Problem with null values as placeholders
++ Data may be stored more efficiently
+  + No need to store null values for dropouts
+  + Easier to review data
++ There are, however, no hard and fast rules
+  
+<div class="notes">
+
+Now if you took the time to look at the original data set, you would see that it is stored as a single worksheet in Excel. It would be very easy to read this entire worksheet into a single table in a SQL database. I took the extra time and trouble to split it into separate tables because it made for an interesting teaching example, but there is more to it than just that. 
+
+You will often find longitudinal data stored in separate tables out in the real world. There are several reasons for this.
+
+First, the data may come from separate sources. The demographic data, for example, might come from a REDCap survey while the measurements at baseline, three months, and one year might come from the electronic health records. It is simpler in this case to import data from separate sources into separate tables and do the joining later.
+
+The data might be completed at different times. That's very likely because of the nature of longitudinal data. So you might have a database that starts out with the demographics and baseline values. When the three month data arrives, rather than trying to link the data up and possibly get things misaligned, you may prefer to put that in a fresh table. Then you might do the same for the one year data. It seems simpler to enter the new data fresh rather than trying to update the existing table that has demographics and baseline values.
+
+If you put everything in a single table, then partway through the study, you would have null values that could simultaneously represent two different things. They could be placeholders that tell you that this data has not arrived yet or has arrived but has not been entered. But it could also represent patients who have dropped out. Having a null value possibly represeting two very different cases is asking for trouble.
+
+There is also an efficiency issue. When a patient drops out of the study, you don't have to keep storing information for that patient. With a dropout rate of 50%, your later tables would be half the size. Now that's not quite accurate, because you need to keep the keys that link the tables together and they take up a bit of extra space. Also, as cheap as computer storage is these days, there is less need to worry about storage issues.
+
+But efficiency here could mean efficiency in reviewing your data. The "holes" that dropouts create in your database make it harder to scan through your data.
+
+Now, there are no right or wrong answers here. The choices on how to store data are very much dependent on the context of the data itself. Two very intelligent people might chose two very different database designs and neither one would be wrong. Choices like this are sometimes informed by rules relating to efficiency, but these rules are very flexible.
+
+</div>
+
+### Discard mismatches
+
+```{r discard}
+sql_query <- 
+"select * 
+  from baseline_table as bas
+  inner join three_month_table as mo3
+  on bas.id=mo3.id
+  inner join one_year_table as yr1
+  on bas.id=yr1.id
+  limit 10"
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+If you discarded any mismatches, this is what your data would look like. Notice that the subject id starts at 108 because ids for 100, 101, 104, and 105 have mismatch either at three months or at one year.
+
+There is a term in statistics, complete case analysis, that represents this situation. If a patient drops out at any point in the study, even if they change their mind and come back, you exclude them from the analysis. From a research perspective, this is usually a bad idea because it is likely to produce a biased sample. It does have the advantage of simpllcity.
+
+How you analyze longitudinal data with dropouts, of course, is beyond the scope of this class.
+
+</div>
+
+### Retain mismatches
+
+```{r retain}
+dbGetQuery(conn=db, 
+"select * 
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id
+  left join one_year_table as yr1
+  on bas.id=yr1.id
+  limit 10")
+```
+
+<div class="notes">
+
+Here is the data where unmatched data is kept in, and the missing values caused by dropouts is represented by null values. Notice that subjects 100 and 101 drop out before the three month measurement. Subject 105 drops out after the three month measurement but before the one year measurement. Subject 104 is not really a drop out. There were in the study at the end of one year, but they must have missed their three month evaluation for some reason.
+
+</div>
+
+### Practical recommendations
++ Better to see dropouts at first
+  + Examine patterns of dropouts
+  + Look for evidence of biases among dropouts
+  + Discard them later if at all
++ Left join baseline table (demographic table?) to further longitudinal measures
+  + Discards subjects with no baseline
+  + Keeps subjects with missing follow-up visits
+
+<div class="notes">
+
+If you have longitudinal data, you almost certainly will have dropouts. Maybe a few, maybe a lot. It is generally best to see who the dropouts are, at least at first. You often want to examine patterns of dropouts. Are there, for example, patients who drop out for part of the study but then return, or is it the case that once you drop out, you never come back. The difference between these two cases has important implications on how you analyze your data.
+
+Having the data on dropouts also allows for interesting investigations. Are there differences, for example, between the baseline values of those who dropped out and those who stayed in? Could it be that the dropouts were a lot sicker at baseline than those who stayed in? Are younger patients more likely to drop out?
+
+If you decide to discard patients who dropped out, it is generally better to do so after you have carefully examined things. This means that you exclude not in the SQL code but in the R or SAS program.
+
+In general, left joins from the baseline table to the other tables are better than other types of joins. A left join will insure that anyone who was in the study at baseline will be in your final query. Now a left join would exclude a patient who had no baseline, but did have a later visit. This would be unusual and it would be hard to justify keeping such a patient in the study. A patient who had no baseline values, for exmaple, would probably not have data in your demographics table and would probably not have information about what treatment group there were in.
+
+In the rare case where you have demographics on a patient with no baseline values, you might do a left join on the demographic table. The important point, however, is that you almost always want to keep information about dropouts, and a left join guarantees that drop outs will not be discarded from your query.
+
+</div>
+
+```{r shut-down-gracefully-again}
+dbDisconnect(conn=db)
+```
+
+### Summary
++ Inner join discards all mismatches
++ Left, right, and outer joins includes mismatches
+  + Left and right join include mismatches in one direction
+  + Outer join includes all mismatches
+  + Data from unmatched table replaced with null values
+  + SQLite does not have right or full joins
++ Example using longitudinal data
+  
+<div class="notes">
+
+In this video, you saw simple examples of inner, left, right, and outer joins. Inner joins will discard any mismatched values. Left right and outer joins will include mismatches. Left and right joins are directional. A left join includes mismatches where you have data in the first database but not the second. A right join includes mismatches where you have data in the second database but not the first. A full join includes all mismatches. SQL will fill in null values for fields from the table without a match.
+
+SQLite does not have a right join or a full join. The lack of a right join is not too troubling because you can always switch the order of the tables, but lack of a full join is a major limitation. As far as I know, SQLite is the only SQL database that does not have an outer join.
+
+</div>
+
+
+### Homework
++ Use the same database used in this video. It is available as longitudinal_example_db.sqlite on the Canvas website or you can find it on the Insights platform.
+
++ Do an inner join of baseline_table and one_year_table. Display the first ten rows of data only.
+
++ Explain why id 104 included in this inner join, but not the inner join shown in the video?

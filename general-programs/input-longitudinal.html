@@ -270,7 +270,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -373,16 +372,18 @@ summary {
 <pre class="r"><code>source(&quot;input-functions.R&quot;)</code></pre>
 <div id="acupuncture" class="section level3">
 <h3>Acupuncture</h3>
+<p>The source for this data set is</p>
+<p><a href="https://www.causeweb.org/tshs/acupuncture/">TSHS Resources Portal</a></p>
 <pre class="r"><code>nam &lt;- &quot;longitudinal_example&quot;
-cs1_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;1.csv&quot;)
-cs2_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;2.csv&quot;)
-cs3_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;3.csv&quot;)
-sql_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;_db.sqlite&quot;)
-dat_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;.RData&quot;)
 tb0_name &lt;- &quot;demog_table&quot;
 tb1_name &lt;- &quot;baseline_table&quot;
 tb2_name &lt;- &quot;three_month_table&quot;
 tb3_name &lt;- &quot;one_year_table&quot;
+tb4_name &lt;- &quot;sex_table&quot;
+tb5_name &lt;- &quot;migraine_table&quot;
+tb6_name &lt;- &quot;group_table&quot;
+sql_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;_db.sqlite&quot;)
+dat_name &lt;- paste0(&quot;../data/&quot;, nam, &quot;.RData&quot;)
 
 r_name &lt;- &quot;../data/acupuncture/acupuncture_data_reduced.RData&quot;
 load(r_name)
@@ -444,6 +445,43 @@ if (file.remove(sql_name)) cat(paste0(sql_name, &quot; rewritten.&quot;))</code>
 ## 5 114 25.25000
 ##     n
 ## 1 301</code></pre>
+<pre class="r"><code>data.frame(
+  sex_code=c(0, 1, 99), 
+  sex_label=c(&quot;Male&quot;, &quot;Female&quot;, &quot;Unknown&quot;)) %&gt;%
+  add_to_sqlite(sql_name, tb4_name)</code></pre>
+<pre><code>## [1] &quot;baseline_table&quot;    &quot;demog_table&quot;       &quot;one_year_table&quot;   
+## [4] &quot;sex_table&quot;         &quot;three_month_table&quot;
+##   sex_code sex_label
+## 1        0      Male
+## 2        1    Female
+## 3       99   Unknown
+##   n
+## 1 3</code></pre>
+<pre class="r"><code>data.frame(
+  migraine_code=c(0, 1, 98, 99), 
+  migraine_label=c(&quot;Migraine&quot;, &quot;Tension-type&quot;, &quot;Other&quot;, &quot;Unknown&quot;)) %&gt;%
+  add_to_sqlite(sql_name, tb5_name)</code></pre>
+<pre><code>## [1] &quot;baseline_table&quot;    &quot;demog_table&quot;       &quot;migraine_table&quot;   
+## [4] &quot;one_year_table&quot;    &quot;sex_table&quot;         &quot;three_month_table&quot;
+##   migraine_code migraine_label
+## 1             0       Migraine
+## 2             1   Tension-type
+## 3            98          Other
+## 4            99        Unknown
+##   n
+## 1 4</code></pre>
+<pre class="r"><code>data.frame(
+  group_code=c(0, 1), 
+  group_label=c(&quot;Control&quot;, &quot;Treatment&quot;)) %&gt;%
+  add_to_sqlite(sql_name, tb6_name)</code></pre>
+<pre><code>## [1] &quot;baseline_table&quot;    &quot;demog_table&quot;       &quot;group_table&quot;      
+## [4] &quot;migraine_table&quot;    &quot;one_year_table&quot;    &quot;sex_table&quot;        
+## [7] &quot;three_month_table&quot;
+##   group_code group_label
+## 1          0     Control
+## 2          1   Treatment
+##   n
+## 1 2</code></pre>
 <pre class="r"><code>table(is.finite(data$pk1), is.finite(data$pk2))</code></pre>
 <pre><code>##       
 ##        FALSE TRUE
@@ -457,8 +495,6 @@ if (file.remove(sql_name)) cat(paste0(sql_name, &quot; rewritten.&quot;))</code>
 ##         FALSE TRUE
 ##   FALSE    69    6
 ##   TRUE     31  295</code></pre>
-<pre class="r"><code>rm(db)</code></pre>
-<pre><code>## Warning in rm(db): object &#39;db&#39; not found</code></pre>
 <pre class="r"><code>save.image(file=dat_name)</code></pre>
 </div>
 

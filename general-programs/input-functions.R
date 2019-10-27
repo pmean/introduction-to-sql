@@ -13,4 +13,6 @@ add_to_sqlite <- function(rawdata, sqlite_name, table_name) {
   print(dbGetQuery(conn=db, paste0("select * from ", table_name, " limit 5")))
   print(dbGetQuery(conn=db, paste0("select count(*) as n from ", table_name)))
   dbDisconnect(conn=db)
+  csv_name <- sub(".sqlite", paste0("_", table_name, ".csv"), sqlite_name)
+  write.csv(rawdata, file=csv_name, row.names=FALSE)
 }
