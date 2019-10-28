@@ -1,0 +1,378 @@
+---
+title: "Counting mismatches"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2019-10-16"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+### Counting mismatches
+
++ Summary statistics (like count) are tricky with joins
+  + Default statistics computed before merge
+  + Solution: use nested queries
++ Nested queries use parentheses to control the order of execution
+  + Many applications beyond the ones shown in this video
+
+<div class="notes">
+
+In the previous lecture, I showed that there are two ways to account for mismatches in a join. The inner join discards any records where you cannot find a match between the two tables. The left, right, and outer join will include mismatches and add null values as needed.
+
+You should always take the time to get counts before and after a join to help assure that the work is being done correctly. But the default in SQL is to calculate summary statistics before joining. You can fix this using nested queries.
+
+A nested query sounds tricky, but it is just the use of parentheses to control to order of operations. You'll see a few basic examples here, but there are lots of other applications of nested queries in quite different areas.
+
+</div>
+
+```{r connect}
+db <- dbConnect(SQLite(), dbname="../data/longitudinal_example_db.sqlite")
+```
+
+### List of tables
+
+```{r list-tables}
+dbGetQuery(conn=db, "select tbl_name from sqlite_master")
+```
+
+<div class="notes">
+
+The examples shown here will use the database longitudinal_examples_db. Here is a list of the tables in this database.
+
+</div>
+
+### Count of baseline_table
+```{r baseline_count}
+sql_query <- 
+"select count(*) as n_baseline
+  from baseline_table"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here's the count of the number of records in baseline_table.
+
+</div>
+
+### Count of three_month_table
+```{r three_month_count}
+sql_query <- 
+"select count(*) as n_mo3
+  from three_month_table"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+And here's the count of the number of records in three_month_table.
+
+</div>
+
+### Count inner join
+```{r inner-join-count}
+sql_query <- 
+"select count(*) as n_inner_join
+  from baseline_table as bas
+  inner join three_month_table as mo3
+  on bas.id=mo3.id"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+HEre is the count of the inner join.
+
+</div>
+
+
+### Count left join
+```{r left-join-count}
+sql_query <- 
+"select count(*) as n_left_join
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here is the count of the left join.
+
+</div>
+
+### Count by gender (1/3)
+```{r sex-count-1}
+sql_query <- 
+"select sex, count(*) as n_sex
+  from demog_table
+  group by sex"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here is the count of males and females, but it uses the number code.
+
+</div>
+
+### Count by gender (2/3)
+```{r sex-count-2}
+sql_query <- 
+"select sex_label, count(*) as n_sex
+  from demog_table
+  left join sex_table
+  on sex=sex_code
+  group by sex_label"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here is the count of males and females, using the sex_label field that is only available after the merge.
+
+</div>
+
+### Count by gender (3/3)
+```{r sex-count-3}
+sql_query <- 
+"select sex_label, count(sex) as n_sex
+  from sex_table
+  left join demog_table
+  on sex=sex_code
+  group by sex_label"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+There is an unmatched label (9=unknown) and if you wanted to include that in the table of counts, switch the order of tables and use count(sex) rather than count(*). There will be one row in the database for the mismatch, but since that will have a missing value for sex, the count function will not register for that record, producing a count of 0.
+
+</div>
+
+### Who, exactly, is mismatched?
+```{r mismatched-ids}
+sql_query <- 
+"select bas.id as mismatched_id
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id
+  where mo3.id is null
+  limit 4"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+If you want a list of ids where two tables fail to match, look for a null value in one of the tables. There are 75 ids, so I could not print out all of them on this slide.
+
+</div>
+
+### Compute change score
+```{r change-score}
+sql_query <- 
+"select pk1, pk2, pk2-pk1 as change_score
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id
+  limit 5"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+You can compute values across different tables. This example shows a change score. Notice that the change score is null if either value is null.
+
+</div>
+
+### Compute average change score
+```{r average-change-score}
+sql_query <- 
+"select 
+  round(avg(pk1), 1) as bas_mean, 
+  round(avg(pk2), 1) as mo3_mean, 
+  round(avg(pk2-pk1), 1) as mean_change
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+You can even average these values. Notice that the mean change is not exactly equal to the difference in the two means. That would normally be the case, but remember that the baseline average is an average that includes 75 patients wihtout a corresponding three month value. You could restrict the data so that the baseline average is only computed for those patients who have a matching three month value. You could do this using an inner join or by restricting the data to cases where pk2 is not null.
+
+</div>
+
+### Compare drop outs (1/3)
+```{r baseline-mean-1}
+sql_query <- 
+"select avg(pk1) as mean_baseline, count(*) as n
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+An important comparison is what the baseline values look like for the drop outs compared to those who stay in the study. This code shows how to get an overall mean baseline score.
+
+</div>
+
+### Compare drop outs (2/3)
+```{r baseline-mean-2}
+sql_query <- 
+"select avg(pk1) as mean_baseline, count(*) as n
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id
+  where mo3.id is null"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here is the mean for those who dropped out.
+
+</div>
+
+### Compare drop outs (3/3)
+```{r baseline-mean-3}
+sql_query <- 
+"select avg(pk1) as mean_baseline, count(*) as n
+  from baseline_table as bas
+  left join three_month_table as mo3
+  on bas.id=mo3.id
+  where mo3.id is not null"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+Here is the mean for those who did not drop out.
+
+</div>
+
+
+
+
+### Summary
+
+
+### Homework
++ Use the same database used in this video. It is available as longitudinal_example_db.sqlite on the Canvas website or you can find it on the Insights platform.
+
+```{r shut-down-gracefully-again}
+dbDisconnect(conn=db)
+```
