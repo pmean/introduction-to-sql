@@ -238,6 +238,56 @@ If you want a list of ids where two tables fail to match, look for a null value 
 
 </div>
 
+### Listing unmatched labels
+```{r unmatched-labels}
+sql_query <- 
+"select sex_label as umatched_label
+  from sex_table
+  left join demog_table
+  on sex=sex_code
+  where sex is null"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+You can use the same approach to look for unmatched labels or unmatched codes. Here is ab example of looking for unmatched labels.
+
+</div>
+
+### Listing unmatched codes
+```{r unmatched-codes}
+sql_query <- 
+"select sex as umatched_code
+  from demog_table
+  left join sex_table
+  on sex=sex_code
+  where sex_code is null"
+```
+
++ SQL code
+```
+`r sql_query`
+```
++ SQL output
+```{r}
+dbGetQuery(conn=db, sql_query)
+```
+
+<div class="notes">
+
+By swapping the order of tables (or changing to a right join) and making a few other small changes, you can find codes in the demography database that do not have a corresponding label.
+
+</div>
+
 ### Compute change score
 ```{r change-score}
 sql_query <- 
@@ -364,14 +414,22 @@ Here is the mean for those who did not drop out.
 
 </div>
 
-
-
-
 ### Summary
++ Counts are very important
+  + Before AND after joins
++ How to select ids of mismatched values
++ How to find mismatched category labels
++ How to compute change scores
++ Comparing averages of drop outs to others
 
-
-### Homework
+### Homework (1/2)
 + Use the same database used in this video. It is available as longitudinal_example_db.sqlite on the Canvas website or you can find it on the Insights platform.
++ Count the number of records after an inner join of baseline_table and year_one_table. Compare this to the number of records in the year_one_table.
+
+### Homework (2/2)
++ Compute the average pk score at baseline, the average score at one year, and the average change score.
++ Find and list the two labels in migraine_table that do not correspond to any codes in demog_table.
++ Show that there are no unmatched labels or unmatched codes for group_table.
 
 ```{r shut-down-gracefully-again}
 dbDisconnect(conn=db)
