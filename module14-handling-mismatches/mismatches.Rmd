@@ -219,7 +219,7 @@ Here's that same set of tables with a right join. Benjamin gets the boot because
  
 <div class="notes">
 
-A full join let's everyone join the party. A key in the first database that doesn't have a match in the second database? Come on it. We'll patch things up by using null values for the fields in the second database.
+A full join lets everyone join the party. A key in the first database that doesn't have a match in the second database? Come on it. We'll patch things up by using null values for the fields in the second database.
 
 A key in the second database that doesn't have a match in the first database? Why, you're welcome too. We'll use null values for the fields in the first database.
 
@@ -429,7 +429,7 @@ db <- dbConnect(SQLite(), dbname="../data/longitudinal_example_db.sqlite")
 
 There is a second example, using different variables in the same acupuncture database that was discussed earlier.
 
-I have rearranged the data into four tables.
+I have rearranged the data into seven tables.
 
 </div>
 

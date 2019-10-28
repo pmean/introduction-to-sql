@@ -12,24 +12,6 @@ suppressMessages(suppressWarnings(library(magrittr)))
 suppressMessages(suppressWarnings(library(sqldf)))
 ```
 
-### Counting mismatches
-
-+ Summary statistics (like count) are tricky with joins
-  + Default statistics computed before merge
-  + Solution: use nested queries
-+ Nested queries use parentheses to control the order of execution
-  + Many applications beyond the ones shown in this video
-
-<div class="notes">
-
-In the previous lecture, I showed that there are two ways to account for mismatches in a join. The inner join discards any records where you cannot find a match between the two tables. The left, right, and outer join will include mismatches and add null values as needed.
-
-You should always take the time to get counts before and after a join to help assure that the work is being done correctly. But the default in SQL is to calculate summary statistics before joining. You can fix this using nested queries.
-
-A nested query sounds tricky, but it is just the use of parentheses to control to order of operations. You'll see a few basic examples here, but there are lots of other applications of nested queries in quite different areas.
-
-</div>
-
 ```{r connect}
 db <- dbConnect(SQLite(), dbname="../data/longitudinal_example_db.sqlite")
 ```
@@ -241,7 +223,7 @@ If you want a list of ids where two tables fail to match, look for a null value 
 ### Listing unmatched labels
 ```{r unmatched-labels}
 sql_query <- 
-"select sex_label as umatched_label
+"select sex_label as unmatched_label
   from sex_table
   left join demog_table
   on sex=sex_code
@@ -266,7 +248,7 @@ You can use the same approach to look for unmatched labels or unmatched codes. H
 ### Listing unmatched codes
 ```{r unmatched-codes}
 sql_query <- 
-"select sex as umatched_code
+"select sex as unmatched_code
   from demog_table
   left join sex_table
   on sex=sex_code
