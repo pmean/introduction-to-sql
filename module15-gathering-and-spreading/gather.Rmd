@@ -1,0 +1,57 @@
+---
+title: "Gathering into a single column"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2019-11-20"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+```{r connect}
+db <- dbConnect(SQLite(), dbname="../data/lomaprie_db.sqlite")
+```
+
+### lomaprie_db, listing of original table
+
+```{r}
+sql_code <- 
+"select row_number() over (order by week0) as id, 
+  week0, week3, week6, week9, week12 
+  from earthquake_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+
+
+</div>
+
+### What is this row_number function
+
++ Windowing function
+  + Not single row function
++ Two specific cases
+  + Labels in small table without matching codes in big table
+  + Codes in big table without matching label in small table
+
+<div class="notes">
+
+In the previous module, I mentioned a simple case: every label in the small table has a code in the big table and vice versa. In this lecture, I'll discuss cases where you have mismatches. Before I do that, let me talk briefly about the four major types of joins.
+
+</div>
+
