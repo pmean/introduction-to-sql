@@ -45,9 +45,6 @@ dbGetQuery(conn=db, sql_code)
 
 + Windowing function
   + Not single row function
-+ Two specific cases
-  + Labels in small table without matching codes in big table
-  + Codes in big table without matching label in small table
 
 <div class="notes">
 
