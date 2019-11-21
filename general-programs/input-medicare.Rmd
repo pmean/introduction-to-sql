@@ -1,0 +1,79 @@
+---
+title: "Input medicare claims data"
+author: "Steve Simon"
+date: "Creation date: 2019-11-08"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+```
+
+### Get names
+
+```{r get-names}
+d0 <- "../../../../"
+d1 <- "medicare claims synthetic public use files/sb/"
+csv_names <- list.files(paste0(d0, d1))
+csv_names
+```
+
+The source for this data set is
+
+```{r medicare}
+nam <- "medicare_claims"
+sql_name <- paste0("../data/medicare/", nam, "_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
+
+tb1_name <- "Beneficiary_Summary_2008"
+cs1_name <- "DE1_0_2008_Beneficiary_Summary_File_Sample_1.csv"        
+tb2_name <- "Beneficiary_Summary_2009"
+cs2_name <- "DE1_0_2009_Beneficiary_Summary_File_Sample_1.csv"        
+tb3_name <- "Beneficiary_Summary_2010"
+cs3_name <- "DE1_0_2010_Beneficiary_Summary_File_Sample_1.csv" 
+
+cs4_name <- "DE1_0_2008_to_2010_Carrier_Claims_Sample_1A.csv"
+tb4_name <- "Carrier"
+cs5_name <- "DE1_0_2008_to_2010_Carrier_Claims_Sample_1B.csv"
+
+cs6_name <- "DE1_0_2008_to_2010_Inpatient_Claims_Sample_1.csv"        
+tb6_name <- "Inpatient"
+
+cs7_name <- "DE1_0_2008_to_2010_Outpatient_Claims_Sample_1.csv"        
+tb7_name <- "Outpatient"
+
+cs8_name <- "DE1_0_2008_to_2010_Prescription_Drug_Events_Sample_1.csv"        
+tb8_name <- "PDE"
+```
+
+```{r}
+if (file.remove(sql_name)) cat(paste0(sql_name, " rewritten."))
+raw_data1<- read.csv(paste0(d0, d1, cs1_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data1, sql_name, tb1_name)
+
+raw_data2 <- read.csv(paste0(d0, d1, cs2_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data2, sql_name, tb2_name)
+
+raw_data3 <- read.csv(paste0(d0, d1, cs3_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data3, sql_name, tb3_name)
+```
+
+```{r}
+raw_data4 <- read.csv(paste0(d0, d1, cs4_name), stringsAsFactors=FALSE)
+raw_data5 <- read.csv(paste0(d0, d1, cs5_name), stringsAsFactors=FALSE)
+add_to_sqlite(rbind(raw_data4, raw_data5), sql_name, tb4_name)
+```
+
+```{r}
+raw_data6 <- read.csv(paste0(d0, d1, cs6_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data6, sql_name, tb6_name)
+
+raw_data7 <- read.csv(paste0(d0, d1, cs7_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data7, sql_name, tb7_name)
+
+raw_data8 <- read.csv(paste0(d0, d1, cs8_name), stringsAsFactors=FALSE)
+add_to_sqlite(raw_data8, sql_name, tb8_name)
+```
+
+```{r}
+save.image(file=dat_name)
+```
