@@ -16,7 +16,41 @@ suppressMessages(suppressWarnings(library(sqldf)))
 db <- dbConnect(SQLite(), dbname="../data/lomaprie_db.sqlite")
 ```
 
+### Description of lomaprie data set
+
+![Description of data](../images/lomaprie.png)
+
+<div class="notes">
+
+This data set displays depression scores among college students in a study planned for other purposes but which ended up with the baseline measurements collected just before a major California earthquake. The researchers seized the opportunity to assess changes in depression immediately before and after the earchquake as well as the recovery process longer term.
+
+</div>
+
 ### lomaprie_db, listing of original table
+
+```{r}
+sql_code <- 
+"select *
+  from earthquake_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+This is what the original data looks like. Notice that there is no primary key in this table. Normally this is a major flaw in any reasonable database, but let's ignore that for now.
+
+</div>
+
+### Adding a primary key
 
 ```{r}
 sql_code <- 
@@ -37,18 +71,52 @@ dbGetQuery(conn=db, sql_code)
 
 <div class="notes">
 
-
+Here is the data table with a primary key added. You will need this before you try to restructure your data.
 
 </div>
 
 ### What is this row_number function
 
 + Windowing function
-  + Not single row function
+  + Not a single row function
++ Adds a sequence number
++ Require an over keyword.
 
 <div class="notes">
 
-In the previous module, I mentioned a simple case: every label in the small table has a code in the big table and vice versa. In this lecture, I'll discuss cases where you have mismatches. Before I do that, let me talk briefly about the four major types of joins.
+
+
+</div>
+
+### Restructuring
+
+```{r}
+sql_code <- 
+"select row_number() over (order by week0) as id, 
+  week0 as depression_score,
+  0 as time
+  from earthquake_table
+  union
+    select row_number() over (order by week0) as id,
+    week3 as depression_score,
+    3 as time
+    from earthquake_table
+  limit 5"  
+```
+
++ SQL code
+```
+`r sql_code`
+```
+### Restructuring
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+
 
 </div>
 
