@@ -24,24 +24,36 @@ db <- dbConnect(SQLite(), dbname="../data/lomaprie_db.sqlite")
 
 This data set displays depression scores among college students in a study planned for other purposes but which ended up with the baseline measurements collected just before a major California earthquake. The researchers seized the opportunity to assess changes in depression immediately before and after the earchquake as well as the recovery process longer term.
 
+The source for this data set is
+
+http://www.statsci.org/data/general/lomaprie.html
+
 </div>
 
 ### lomaprie_db, listing of original table
 
 ```{r}
-sql_code <- 
+sql_code1 <- 
 "select *
   from earthquake_table
   limit 5"  
+sql_code2 <- 
+"select count(*) as n_records
+   from earthquake_table"
 ```
 
 + SQL code
 ```
-`r sql_code`
+`r sql_code1`
+
+`r sql_code2`
 ```
+
+### lomaprie_db, listing of original table
 + Output
 ```{r}
-dbGetQuery(conn=db, sql_code)
+dbGetQuery(conn=db, sql_code1)
+dbGetQuery(conn=db, sql_code2)
 ```
 
 <div class="notes">
@@ -53,8 +65,9 @@ This is what the original data looks like. Notice that there is no primary key i
 ### Adding a primary key
 
 ```{r}
-sql_code <- 
-"select row_number() over (order by week0) as id, 
+sql_code1 <- 
+"select 
+  row_number() over (order by week0) as id, 
   week0, week3, week6, week9, week12 
   from earthquake_table
   limit 5"  
@@ -62,11 +75,11 @@ sql_code <-
 
 + SQL code
 ```
-`r sql_code`
+`r sql_code1`
 ```
 + Output
 ```{r}
-dbGetQuery(conn=db, sql_code)
+dbGetQuery(conn=db, sql_code1)
 ```
 
 <div class="notes">
@@ -91,27 +104,56 @@ Here is the data table with a primary key added. You will need this before you t
 ### Restructuring
 
 ```{r}
-sql_code <- 
-"select row_number() over (order by week0) as id, 
-  week0 as depression_score,
-  0 as time
+sql_code1 <- 
+"select 
+  row_number() over (order by week0) as id, 
+  week0 as depression_score, 0 as time
   from earthquake_table
-  union
-    select row_number() over (order by week0) as id,
-    week3 as depression_score,
-    3 as time
-    from earthquake_table
-  limit 5"  
+union select
+  row_number() over (order by week0) as id,
+  week3 as depression_score, 3 as time
+  from earthquake_table
+union select
+  row_number() over (order by week0) as id,
+  week6 as depression_score, 6 as time
+  from earthquake_table"
 ```
 
 + SQL code
 ```
-`r sql_code`
+`r sql_code1`
 ```
+
+### Restructuring, part 2
+
+```{r}
+sql_code2 <- 
+"union select
+  row_number() over (order by week0) as id,
+  week9 as depression_score, 9 as time
+  from earthquake_table
+union select 
+  row_number() over (order by week0) as id,
+  week12 as depression_score, 12 as time
+  from earthquake_table
+limit 13"
+```
++ SQL code, continued
+```
+`r sql_code2`
+```
+
+<div class="notes">
+
+
+
+</div>
+
 ### Restructuring
 + Output
 ```{r}
-dbGetQuery(conn=db, sql_code)
+dbGetQuery(conn=db, 
+  paste(sql_code1, sql_code2, sep="\n"))
 ```
 
 <div class="notes">

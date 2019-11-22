@@ -1,0 +1,33 @@
+---
+title: "Input cholestg database"
+author: "Steve Simon"
+date: "Creation date: 2019-11-22"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+```
+
+### cholestg
+
+The source for this data set is
+
+[STatSci.org](http://www.statsci.org/data/general/cholest.html)
+
+```{r read}
+nam <- "cholestg"
+csv_name <- paste0("../data/", nam, ".csv")
+tsv_name <- paste0("../data/", nam, ".tsv")
+sql_name <- paste0("../data/", nam, "_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
+tab_name <- "earthquake_table"
+
+data <- read.table(tsv_name, header=TRUE, sep="\t", as.is=TRUE)
+```
+
+
+```{r write}
+write.csv(data, file=csv_name, row.names=FALSE)
+add_to_sqlite(data, sql_name, tab_name)
+save.image(file=dat_name)
+```
