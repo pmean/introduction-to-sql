@@ -23,11 +23,13 @@ dat_name <- paste0("../data/", nam, ".RData")
 tab_name <- "earthquake_table"
 
 data <- read.table(tsv_name, header=TRUE, sep="\t", as.is=TRUE)
+n <- dim(data)[1]
+data_with_key <- data.frame(id=1:n, data)
 ```
 
 
 ```{r write}
-write.csv(data, file=csv_name, row.names=FALSE)
-add_to_sqlite(data, sql_name, tab_name)
+write.csv(data_with_key, file=csv_name, row.names=FALSE)
+add_to_sqlite(data_with_key, sql_name, tab_name)
 save.image(file=dat_name)
 ```
