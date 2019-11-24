@@ -1,5 +1,5 @@
 ---
-title: "Gathering into a single column"
+title: "Gathering and spreading"
 author: "Suman Sahil, Steve Simon"
 date: "Creation date: 2019-11-20"
 output: powerpoint_presentation
@@ -62,26 +62,7 @@ This is what the original data looks like. Notice that there is no primary key i
 
 </div>
 
-### Test slide
-```
-r01      1    1    2    2    3    3    4    4  4
-r02 5    0    5    0    5    0    5    0    5  8
-r03
-r04      1    1    2    2    3    3    4    4  4
-r05 5    0    5    0    5    0    5    0    5  8
-r06
-r07      1    1    2    2    3    3    4    4  4
-r08 5    0    5    0    5    0    5    0    5  8
-r09
-r10      1    1    2    2    3    3    4    4  4
-r11 5    0    5    0    5    0    5    0    5  8
-r12
-r13      1    1    2    2    3    3    4    4  4
-r14 5    0    5    0    5    0    5    0    5  8
-r15
-```
-
-### Restructuring
+### Gathering into a single column
 
 ```{r}
 sql_code1 <- 
@@ -101,7 +82,7 @@ union select
 `r sql_code1`
 ```
 
-### Restructuring, part 2
+### Gathering
 
 ```{r}
 sql_code2 <- 
@@ -124,7 +105,7 @@ limit 13"
 
 </div>
 
-### Restructuring
+### Gathering
 + Output
 ```{r}
 dbGetQuery(conn=db, 
@@ -136,4 +117,103 @@ dbGetQuery(conn=db,
 
 
 </div>
+
+```{r disconnect-and-reconnect}
+dbDisconnect(db)
+db <- dbConnect(SQLite(), dbname="../data/cholestg_1_db.sqlite")
+```
+
+### Description of cholestg data set
+
+![Description of data](../images/cholestg.png)
+
+<div class="notes">
+
+This data set shows cholesterol levels for patients after a heart attack. I simplified the data by removing the control patients.
+
+The source for this data set is
+
+[STatSci.org](http://www.statsci.org/data/general/cholest.html)
+
+</div>
+
+### cholestg_1_db, listing of original table
+
+```{r}
+sql_code1 <- 
+"select *
+  from ch_table
+  order by patient, day
+  limit 10
+"
+sql_code2 <- 
+"select count(*) as n_records
+   from ch_table"
+```
+
++ SQL code
+```
+`r sql_code1`
+
+`r sql_code2`
+```
+
+### cholestg_1_db, listing of original table
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code1)
+dbGetQuery(conn=db, sql_code2)
+```
+
+<div class="notes">
+
+This is what the original data looks like.
+
+</div>
+
+
+### cholestg_1_db, count of days
+
+```{r}
+sql_code1 <- 
+"select day, count(day) as n_days
+  from ch_table
+  group by day"  
+```
+
++ SQL code
+```
+`r sql_code1`
+```
+
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code1)
+```
+
+### Spreading across multiple columns
+
+```{r}
+sql_code1 <- 
+"select d2.patient, d2.cholest as chol02, 
+  d14.cholest as chol14
+  from ch_table as d2
+  left join ch_table as d14
+  on d2.patient=d14.patient
+  where d2.day=2 and d14.day=14
+  limit 10
+"
+```
+
++ SQL code
+```
+`r sql_code1`
+```
+
+### Spreading across multiple columns
+
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code1)
+```
 

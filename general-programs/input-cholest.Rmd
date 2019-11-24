@@ -1,0 +1,37 @@
+---
+title: "Input cholesterol database"
+author: "Steve Simon"
+date: "Creation date: 2019-11-22"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+```
+
+### cholestg
+
+The source for this data set is
+
+[STatSci.org](http://www.statsci.org/data/general/cholest.html)
+
+```{r read}
+nam <- "cholestg"
+tsv_name <- paste0("../data/", nam, ".tsv")
+sq1_name <- paste0("../data/", nam, "_1_db.sqlite")
+sq2_name <- paste0("../data/", nam, "_2_db.sqlite")
+dat_name <- paste0("../data/", nam, ".RData")
+tab_name <- "ch_table"
+
+raw_data <- read.table(tsv_name, header=TRUE, sep="\t", as.is=TRUE)
+sb1 <- raw_data$day != 4 & raw_data$group==1 & !is.na(raw_data$cholest)
+subset1 <- raw_data[sb1, c("patient", "day", "cholest")]
+sb2 <- raw_data$group==1 & !is.na(raw_data$cholest)
+subset2 <- raw_data[sb1, c("patient", "day", "cholest")]
+```
+
+
+```{r write}
+add_to_sqlite(subset1, sq1_name, tab_name, replace=TRUE)
+add_to_sqlite(subset2, sq2_name, tab_name, replace=TRUE)
+save.image(file=dat_name)
+```

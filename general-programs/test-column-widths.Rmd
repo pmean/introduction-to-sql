@@ -1,0 +1,26 @@
+---
+title: "Test column widths"
+author: "Steve Simon"
+date: "Created 2019-11-24"
+output: powerpoint_presentation
+---
+
+### Test slide
+```
+r01      1    1    2    2    3    3    4    4  4
+r02 5    0    5    0    5    0    5    0    5  8
+r03
+r04      1    1    2    2    3    3    4    4  4
+r05 5    0    5    0    5    0    5    0    5  8
+r06
+r07      1    1    2    2    3    3    4    4  4
+r08 5    0    5    0    5    0    5    0    5  8
+r09
+r10      1    1    2    2    3    3    4    4  4
+r11 5    0    5    0    5    0    5    0    5  8
+r12
+r13      1    1    2    2    3    3    4    4  4
+r14 5    0    5    0    5    0    5    0    5  8
+r15
+```
+

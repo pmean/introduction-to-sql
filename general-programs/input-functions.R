@@ -2,7 +2,8 @@ suppressMessages(suppressWarnings(library(dplyr)))
 suppressMessages(suppressWarnings(library(magrittr)))
 suppressMessages(suppressWarnings(library(sqldf)))
 
-add_to_sqlite <- function(rawdata, sqlite_name, table_name) {
+add_to_sqlite <- function(rawdata, sqlite_name, table_name, replace=FALSE) {
+  if (file.exists(sqlite_name) & replace) file.remove(sqlite_name)
   db <- dbConnect(SQLite(), dbname=sqlite_name)
   dbWriteTable(conn=db, name=table_name, value=rawdata,
     overwrite=TRUE, row.names=FALSE, header=TRUE)
