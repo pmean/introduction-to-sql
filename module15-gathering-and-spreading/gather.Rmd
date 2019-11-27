@@ -67,13 +67,13 @@ This is what the original data looks like. Notice that there is no primary key i
 ```{r}
 sql_code1 <- 
 "select 
-  id, week0 as depression_score, 0 as time
+  id, week0 as depression, 0 as time
   from earthquake_table
 union select
-  id, week3 as depression_score, 3 as time
+  id, week3 as depression, 3 as time
   from earthquake_table
 union select
-  id, week6 as depression_score, 6 as time
+  id, week6 as depression, 6 as time
   from earthquake_table"
 ```
 
@@ -87,10 +87,10 @@ union select
 ```{r}
 sql_code2 <- 
 "union select
-  id, week9 as depression_score, 9 as time
+  id, week9 as depression, 9 as time
   from earthquake_table
 union 
-  select id, week12 as depression_score, 12 as time
+  select id, week12 as depression, 12 as time
   from earthquake_table
 limit 13"
 ```
@@ -104,6 +104,7 @@ limit 13"
 
 
 </div>
+
 
 ### Gathering
 + Output
@@ -217,3 +218,152 @@ sql_code1 <-
 dbGetQuery(conn=db, sql_code1)
 ```
 
+### Spreading across multiple columns, Take 2
+
+```{r}
+sql_code1 <- 
+"select d2.patient, d2.cholest as chol02, 
+  d14.cholest as chol14
+  from ch_table as d2
+  left join ch_table as d14
+  on d2.patient=d14.patient and 
+    d2.day=2 and d14.day=14
+  limit 10
+"
+```
+
++ SQL code
+```
+`r sql_code1`
+```
+
+### Spreading across multiple columns, Take 2
+
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code1)
+```
+
+```{r disconnect-and-reconnect-2}
+dbDisconnect(db)
+db <- dbConnect(SQLite(), dbname="../data/eav_db.sqlite")
+```
+
+### Entity-Attribute-Value format
+
+```{r}
+sql_code1 <- 
+"select *
+  from eav_table
+  limit 12"  
+dbGetQuery(conn=db, sql_code1)
+```
+
+### Advantages of Entity-Attribute-Value format
++ Universal format
++ Easy to add fields
++ Ideal for sparse matrices
+  + Sparse: most entries are zero
+  
+### Spreading the EAV format
+
+```{r}
+sql_code1 <- 
+"select 
+  d1.entity, 
+  d1.value as age, 
+  d2.value as fev, 
+  d3.value as ht, 
+  d4.value as sex,
+  d5.value as smoke
+  from eav_table as d1
+inner join eav_table as d2
+  on d1.attribute='age' and 
+     d2.attribute='fev' and 
+     d1.entity=d2.entity
+"
+```
+
++ SQL code
+```
+`r sql_code1`
+```
+
+### Spreading the EAV format
+
+```{r}
+sql_code2 <- 
+"inner join eav_table as d3
+  on d3.attribute='ht' and 
+     d1.entity=d3.entity
+inner join eav_table as d4
+  on d4.attribute='sex' and 
+     d1.entity=d4.entity
+inner join eav_table as d5
+  on d5.attribute='sex' and 
+     d1.entity=d5.entity
+  limit 10
+"
+```
++ SQL code, continued
+```
+`r sql_code2`
+```
+
+<div class="notes">
+
+
+
+</div>
+
+
+### Spreading the EAV format
++ Output
+```{r}
+dbGetQuery(conn=db, 
+  paste(sql_code1, sql_code2, sep="\n"))
+```
+
+<div class="notes">
+
+
+
+</div>
+
+### Spreading the EAV format
+
+```{r}
+sql_code1 <- 
+"select 
+  entity, value as age
+  from eav_table
+  where entity in (
+    select entity from eav_table
+    where attribute='smoke' and value=1
+  ) and attribute='age'
+limit 10
+"
+```
+
++ SQL code
+```
+`r sql_code1`
+```
+
+### Spreading the EAV format
++ Output
+```{r}
+dbGetQuery(conn=db, sql_code1)
+```
+
+<div class="notes">
+
+
+
+</div>
+
+
+
+```{r disconnect}
+dbDisconnect(db)
+```
