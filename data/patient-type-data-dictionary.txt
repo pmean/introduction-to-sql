@@ -14,5 +14,7 @@ It has 12 records and 2 fields named
 
 If you are using SQLite, you need to download the file
    hospital_db.SQLite
+   
+Note that this is the same file used for an earlier set of data.
 
 The table name, the number of records,  and the names of the fields are the same as listed above.
