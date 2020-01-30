@@ -1,0 +1,51 @@
+---
+title: "Input fev dataset in eav format"
+author: "Steve Simon"
+date: "Creation date: 2019-11-27"
+output: html_document
+---
+```{r setup}
+source("input-functions.R")
+library(dplyr)
+library(magrittr)
+```
+
+### cholestg
+
+The source for this data set is
+
+[Journal of Statistics Education](http://www.amstat.org/publications/jse/datasets/fev.txt)
+
+```{r read}
+nm1 <- "fev"
+nm2 <- "eav"
+csv_name <- paste0("../data/", nm1, ".csv")
+sql_name <- paste0("../data/", nm2, "_db.sqlite")
+dat_name <- paste0("../data/", nm2, ".RData")
+tab_name <- "eav_table"
+
+raw_data <- read.csv(csv_name, header=TRUE, as.is=TRUE)
+names(raw_data)[1] <- "id"
+head(raw_data)
+```
+
+```{r transform}
+df1 <- data.frame(entity=raw_data$id, attribute="age",   value=raw_data$age,   stringsAsFactors=FALSE)
+df2 <- data.frame(entity=raw_data$id, attribute="fev",   value=raw_data$fev,   stringsAsFactors=FALSE)
+df3 <- data.frame(entity=raw_data$id, attribute="ht",    value=raw_data$ht,    stringsAsFactors=FALSE)
+df4 <- data.frame(entity=raw_data$id, attribute="sex",   value=raw_data$sex,   stringsAsFactors=FALSE)
+df5 <- data.frame(entity=raw_data$id, attribute="smoke", value=raw_data$smoke, stringsAsFactors=FALSE)
+df1 %>%
+  bind_rows(df2) %>%
+  bind_rows(df3) %>%
+  bind_rows(df4) %>%
+  bind_rows(df5) %>%
+  arrange(entity) -> df
+head(df)
+```
+
+
+```{r write}
+add_to_sqlite(df, sql_name, tab_name, replace=TRUE)
+save.image(file=dat_name)
+```
