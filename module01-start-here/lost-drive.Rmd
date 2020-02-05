@@ -41,7 +41,7 @@ What you do see, and it is almost as good, is the N: drive. Normally, you use th
 
 <div class="notes">
 
-The N: drive has several folders, Groups, home, Install, etc. You want to peelk at the "home" folder.
+The N: drive has several folders, Groups, home, Install, etc. You want to peek at the "home" folder.
 
 </div>
 
