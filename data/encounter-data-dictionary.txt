@@ -13,6 +13,7 @@ It has 199 records and 7 fields named
     age (age in years), 
     admission_dt (admission date),
     discharge_dt (discharge date),
+    Weight (units unknown)
 
 If you are using Oracle, you need to specify
     schema=ehr
