@@ -1,0 +1,163 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+884  
+885  ods pdf
+886    file="select.pdf";
+NOTE: Writing ODS PDF output to DISK destination 
+      "C:\Users\simons\Documents\SASUniversityEdition\myfolders\
+      sql-and-r\src\select.pdf", printer "PDF".
+887  
+888  * select.sas
+889    written by Steve Simon
+890    2019-08-08;
+891  
+892  ********* ********* ********* *********
+893  1. Introduction
+894  
+895  This program shows how to use the
+896  SELECT statement for SQL within a SAS
+897  program. The first example shows how
+898  to select an entire table (all records
+899  and all fields).
+900  ********* ********* ********* *********;
+901  
+902  libname sql_lib odbc
+903    datasrc='sqlite3';
+NOTE: Libref SQL_LIB was successfully assigned as follows: 
+      Engine:        ODBC 
+      Physical Name: sqlite3
+904  proc sql;
+905    create table full_table as
+906    select *
+907      from sql_lib.airlines_table;
+NOTE: Table WORK.FULL_TABLE created, with 12 rows and 5 columns.
+
+908  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+909  proc print
+910      data=full_table;
+911  run;
+
+NOTE: There were 12 observations read from the data set 
+      WORK.FULL_TABLE.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+912  
+913  ********* ********* ********* *********
+914  2. This is how you select a single
+915  field.
+916  ********* ********* ********* *********;
+917  
+918  proc sql;
+919    create table single_column as
+920    select Airline
+921      from sql_lib.airlines_table;
+NOTE: Table WORK.SINGLE_COLUMN created, with 12 rows and 1 
+      columns.
+
+922  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+923  proc print
+924      data=single_column;
+925  run;
+
+NOTE: There were 12 observations read from the data set 
+      WORK.SINGLE_COLUMN.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+926  
+927  ********* ********* ********* *********
+928  3. This is how you select a multiple
+929  fields.
+930  ********* ********* ********* *********;
+931  
+932  proc sql;
+933    create table multiple_columns as
+934    select Airline, r2017, r2016
+935      from sql_lib.airlines_table;
+NOTE: Table WORK.MULTIPLE_COLUMNS created, with 12 rows and 3 
+      columns.
+
+936  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+937  proc print
+938      data=multiple_columns;
+939  run;
+
+NOTE: There were 12 observations read from the data set 
+      WORK.MULTIPLE_COLUMNS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+940  
+941  ********* ********* ********* *********
+942  4. You can rename fields in proc sql
+943  but SAS retains the original name as
+944  the variable label. You are better off
+945  working around this in SAS code.
+946  ********* ********* ********* *********;
+947  
+948  proc sql;
+949    create table renamed_fields as
+950    select
+951      Airline,
+952      r2017 as current_rate,
+953      r2016 as previous_rate
+954      from sql_lib.airlines_table;
+NOTE: Table WORK.RENAMED_FIELDS created, with 12 rows and 3 
+      columns.
+
+955  quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+956  proc print
+957      data=renamed_fields;
+958  run;
+
+NOTE: There were 12 observations read from the data set 
+      WORK.RENAMED_FIELDS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+959  proc contents
+960      data=renamed_fields;
+961  run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+962  
+963  ********* ********* ********* *********;
+964  
+965  proc printto; run;
+

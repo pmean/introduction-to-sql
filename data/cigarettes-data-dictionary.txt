@@ -1,0 +1,29 @@
+Cigarettes data dictionary
+
+This data was found originally on the web at the Journal for Statistics Education website (see below). Although the copyright provisions are not clearly listed on the original website, you can share this data freely outside of this class.
+    
+You should not need to use this, but we have a backup of this data in a comma separated value file named
+    cigarettes.csv
+    
+If you are using Oracle, you need to specify
+    schema=simons
+
+All of the data is stored in a single table named
+    cigarettes
+    
+It has 25 records and 5 fields named
+    brand (Cigarette brand name),
+    tar (mg),
+    nicotine (mg),
+    weight (g),
+    co (carbon monoxide, mg)
+
+If you are using SQLite, you need to download the file
+   cigarettes_db.SQLite
+
+All of the data is in a single table named
+   cigarettes_table
+   
+The number of records and the names of the fields are the same as listed above.
+
+Cigarette data for an introduction to multiple regression. Retrieved from http://jse.amstat.org/datasets/cigarettes.dat.txt. A more detailed description appears at http://jse.amstat.org/datasets/cigarettes.txt
