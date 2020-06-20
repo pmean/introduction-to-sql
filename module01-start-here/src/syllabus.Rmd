@@ -1,0 +1,10 @@
+---
+title: "Syllabus"
+output: html_document
+---
+
+```{r child="information-services.Rmd"}
+```
+
+```{r child="plagiarism.Rmd"}
+```

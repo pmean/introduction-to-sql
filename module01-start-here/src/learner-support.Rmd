@@ -1,6 +1,9 @@
-Page01e, Learner Support
-Academic Calendar:
-Students are encouraged to review important add, drop or withdraw dates: http://www.umkc.edu/registrar/acal.asp (Links to an external site.)
+---
+title: "Learner support"
+output: pdf_document
+---
+
+Academic Calendar: Students are encouraged to review important [add, drop or withdraw dates](http://www.umkc.edu/registrar/acal.asp).
 
 Academic Honesty:
 The Board of Curators of the University of Missouri recognizes that academic honesty is essential for the intellectual life of the University. Faculty members have a special obligation to expect high standards of academic honesty in all student work. Students have a special obligation to adhere to such standards. Academic dishonesty, including cheating, plagiarism or sabotage, is adjudicated through the University of Missouri Student Conduct Code (Links to an external site.) and Rules of Procedures in Student Conduct Matters (Links to an external site.).
@@ -74,3 +77,5 @@ Phone – (816) 235-6133
 
 UMKC Connect
 Important information is available to undergraduate students in UMKC Connect accessed through Canvas.  Throughout the term, students may receive emails regarding course grades or academic performance. Students are expected to address information posted in a timely fashion.  This information may be shared with the student’s Success Network made up his or her academic advisor(s) and other campus resources so that UMKC may fully support the student’s success.
+
+This file was written by Steve Simon and Suman Sahil on 2020-06-20 and last modified on `r Sys.Date()`.

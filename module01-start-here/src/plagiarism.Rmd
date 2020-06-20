@@ -1,0 +1,15 @@
+---
+title: "Plagiarism"
+output: pdf_document
+---
+
+You are expected to write and run your own programs in this class. You cannot ask someone else to write your programs. You are welcome and encouraged to adapt programs that have been written by your teachers in this class. You cannot adapt programs written by other students or by outsiders.
+
+If a program that you wrote does not run correctly, you are welcome to show that program to your teachers, to other students, or to outsiders and ask for help. You may fix your programs based on this advice, but you cannot ask anyone other than your teachers to rewrite your programs themselves.
+
+You alone must write any comments in the discussion boards. You can comment on or quote others in the discussion board as long as this is clearly indicated.
+
+You cannot seek assistance from other students or outsiders for any quizzes or tests. If you are confused by a question or do not know the answer, you are welcome to discuss this with your teachers.
+
+This file was written by Steve Simon and Suman Sahil on 2020-06-20 and last modified on `r Sys.Date()`.
+

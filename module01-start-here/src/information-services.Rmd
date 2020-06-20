@@ -1,0 +1,11 @@
+---
+title: "Information Services"
+output: pdf_document
+---
+
+Information services (IS) is available to students who are having troubles with accessing UMKC computing resources. If you have questions about SQL or accessing the Insights platform, please do not ask them for help. Ask your instructors instead.
+
+If you need help from IS, start at their main webpage. Available in [html format](https://www.umkc.edu/is/).
+
+This file was written by Steve Simon and Suman Sahil on 2020-06-20 and last modified on `r Sys.Date()`.
+
