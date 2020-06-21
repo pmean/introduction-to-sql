@@ -70,7 +70,7 @@ For most of the lectures, I will not show the extra SAS and R code, but I wanted
 ```{r select-star, echo=TRUE, eval=FALSE}
 library(sqldf)
 db <- dbConnect(SQLite(), 
-  dbname="../data/airlines_db.sqlite")
+  dbname="../../data/airlines_db.sqlite")
 airlines_data <- dbGetQuery(conn=db,
  "select * 
     from airlines_table")
@@ -111,7 +111,7 @@ Here's what the data frame looks like.
 `r ppt_note[j]`
 </div>
 `r ppt_head[j]` (2/2)
-![SAS Output](../images/select-sas-0`r j`.png)
+![SAS Output](../../images/select-sas-0`r j`.png)
 <div class="notes">
 Here's what the output looks like.
 </div>
@@ -133,7 +133,7 @@ To select a single field, list that field's name after the select statement.
 + R code
 ```{r select-single-field, echo=TRUE, eval=FALSE}
 db <- dbConnect(SQLite(), 
-  dbname="../data/airlines_db.sqlite")
+  dbname="../../data/airlines_db.sqlite")
 airline_names <- dbGetQuery(conn=db,
  "select Airline
     from airlines_table")
@@ -163,7 +163,7 @@ Here's what the output looks like.
 `r ppt_note[j]`
 </div>
 `r ppt_head[j]` (2/2)
-![SAS Output](../images/select-sas-0`r j`.png)
+![SAS Output](../../images/select-sas-0`r j`.png)
 <div class="notes">
 Here's what the output looks like.
 </div>
@@ -218,7 +218,7 @@ Here's what the output looks like.
 `r ppt_note[j]`
 </div>
 `r ppt_head[j]` (2/2)
-![SAS Output](../images/select-sas-0`r j`.png)
+![SAS Output](../../images/select-sas-0`r j`.png)
 <div class="notes">
 Here's what the output looks like.
 </div>
@@ -276,7 +276,7 @@ Here's what the output looks like.
 `r ppt_note[j]`
 </div>
 `r ppt_head[j]` (2/2)
-![SAS Output](../images/select-sas-0`r j`.png)
+![SAS Output](../../images/select-sas-0`r j`.png)
 <div class="notes">
 Here's what the output looks like.
 </div>

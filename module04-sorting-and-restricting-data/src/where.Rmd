@@ -57,7 +57,7 @@ This is just one example of where the standards committees have not caught up wi
 ```{r limit}
 library(sqldf)
 db <- dbConnect(SQLite(), 
-  dbname="../data/fat.sqlite")
+  dbname="../../data/fat.sqlite")
 first_five_records <- dbGetQuery(conn=db,
   "select case_number, age, bmi  
     from fat
@@ -254,7 +254,7 @@ The fat data set has all numeric data. Selection using character data has a few 
 ```{r select-star}
 library(sqldf)
 db <- dbConnect(SQLite(), 
-  dbname="../data/airlines_db.sqlite")
+  dbname="../../data/airlines_db.sqlite")
 airlines_data <- dbGetQuery(conn=db,
  "select * 
     from airlines_table")
