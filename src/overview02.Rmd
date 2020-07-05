@@ -67,3 +67,52 @@ This page provides a bit more details about the database used in this module. Pl
   + SQLite: download this file. Available in [Not available yet](`r git`data/patient_db.sqlite).
   + You should not need it, but there is a backup of this data available in [Not available yet](`r git`data/patient.csv).
   
+### Discussion02a: One minute feedback
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Review the videos in this module and briefly answer the following questions
+
++ What was the most important thing that you learned?
++ What concept(s) do you still find confusing?
++ What would you like to learn next?
+
+Please keep your answers brief. You are welcome to say something generic like "I found nothing confusing" or "I found everything confusing" or "I agree with the previous comment."
+
+### Homework02a: Practice using the crawling database
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Use the database crawling_db. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
+
+1. Read all three fields and all records
+2. Change Temperature to Temperature_F
+3. Put your code and the output in a single PDF file
+
+### Homework02b: Practice using the patient_type database
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Use patient_type table in EHR Datamart. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
+
+1. Read all fields and  all records
+2. Change Pat_type_desc to Patient_Type_Desc
+3. Put your code and the output in a single PDF file
+
+### Quiz02
+
+Graded: 2 points
+
++ What delimiter do you need when selecting more than one field from a table?
+  + one or more blanks
+  + a comma
+  + a semicolon
+  + no delimiters are needed
+
++ What keyword do you use to rename a field?
+  + as
+  + equals
+  + name
+  + rename
+
+Place both the questions 
