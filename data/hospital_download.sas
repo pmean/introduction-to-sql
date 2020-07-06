@@ -1,10 +1,10 @@
-* encounter-download.sas
+* hospital_download.sas
 * written by Steve Simon
 * creation date: 2020-07-06;
 
-* Download the encounter table from Oracle and create a csv file.;
+* Download the hospital table from Oracle and create a csv file.;
 
-%let table_name=encounter;
+%let table_name=hospital;
 
 %include 'q:/sql files/super-secret.sas';
 libname
