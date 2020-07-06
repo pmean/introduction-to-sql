@@ -1,5 +1,5 @@
 ---
-title: "Airlines upload"
+title: "Hospital upload"
 author: "Steve Simon"
 output: html_document
 ---
@@ -11,14 +11,15 @@ suppressMessages(suppressWarnings(library(sqldf)))
 ```
 
 ```{r}
-file_name <- "airlines"
+file_name <- "hospital"
 csv_name <- paste0(file_name, ".csv")
 sqlite_name <- paste0(file_name, ".SQLite")
 table_name <- file_name
 
+rawdata <- read.csv(csv_name)
+rawdata$BED_SIZE[rawdata$BED_SIZE==""] <- NA
 if (file.exists(sqlite_name)) file.remove(sqlite_name)
 db <- dbConnect(SQLite(), dbname=sqlite_name)
-rawdata <- read.csv(csv_name)
 dbWriteTable(
   conn=db, 
   name=table_name, 

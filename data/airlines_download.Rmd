@@ -1,0 +1,23 @@
+---
+title: "Airlines download"
+author: "Steve Simon"
+output: html_document
+---
+
+This program was written on 2020-07-06 and last modified on `r Sys.Date()`.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+
+```{r airlines}
+"https://dasl.datadescription.com/download/data/3048" %>%
+  readLines %>%
+  str_remove("^.*? ") %>%
+  str_replace_all("\t", ",") -> raw_data
+raw_data[1] <- "Airline,b2017,b2016,r2017,r2016"
+csv_name <- "../data/airlines.csv"
+writeLines(raw_data, csv_name)
+```
