@@ -14,22 +14,21 @@ This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
 
 Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 
-Use the database crawling_db. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
+Use patient_type table in EHR Datamart. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
 
-1. Read all three fields and all records
-2. Change Temperature to Temperature_F
+1. Read all fields and  all records
+2. Change Pat_type_desc to Patient_Type_Desc
 3. Put your code and the output in a single PDF file
 
 ```{r}
 library(sqldf)
 db <- dbConnect(SQLite(),
-  dbname="../data/crawling_db.sqlite")
-crawling_data <- dbGetQuery(conn=db,  
+  dbname="../data/patient_db.sqlite")
+patient_data <- dbGetQuery(conn=db,  
 "select
-  Birth_month,
-  Temperature as Temperature_F,
-  avg_crawling_age
-  from crawling_table")
+  PAT_TYPE_ID, 
+  Pat_type_desc as Patient_Type_Desc
+  from patient_crawling_table")
 
 crawling_data
 dbDisconnect(conn=db)
