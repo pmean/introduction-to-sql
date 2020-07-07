@@ -16,7 +16,7 @@
   unknown. Find the id of that hospital.
   4. Combine your results into a single PDF file and submit it.;
 
-ods pdf file="q:/introduction-to-sql/results/hw02a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/hw06a-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
@@ -25,7 +25,7 @@ libname
   user='simons'
   password=&pw
   path='@CHIHFPRD, BUFFSIZE=9000'
-  schema='simons';
+  schema='ehr';
 
 proc sql;
   create table q1 as
