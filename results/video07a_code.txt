@@ -1,0 +1,133 @@
+> Upper_census <- dbGetQuery(conn=db,"Select upper(census_reg) from hospital")
+> Upper_census
+    UPPER(CENSUS_REG)
+1                WEST
+2               SOUTH
+3                WEST
+4               SOUTH
+5                WEST
+...
+
+
+> lower_census <- dbGetQuery(conn=db,"Select lower(census_reg) from hospital")
+> lower_census
+    LOWER(CENSUS_REG)
+1                west
+2               south
+3                west
+4               south
+5                west
+6                west
+7           northeast
+...
+
+> initcap_census <- dbGetQuery(conn=db,"Select initcap(census_reg) from hospital")
+> initcap_census
+    INITCAP(CENSUS_REG)
+1                  West
+2                 South
+3                  West
+4                 South
+5                  West
+6                  West
+7             Northeast
+8                 South
+...
+
+> functions_hospital <- dbGetQuery(conn=db,"SELECT hosp_id,CONCAT(rural_urban, acute_nonacute) as hospital_type,
++                                  LENGTH (acute_nonacute) as length_of_column,INSTR(census_reg, 'W') as contains_w, 
++                                  SUBSTR(census_reg, 0, 2) as read_first_2_alphabets 
++                                  FROM hospital")
+> functions_hospital
+    HOSP_ID  HOSPITAL_TYPE LENGTH_OF_COLUMN CONTAINS_W READ_FIRST_2_ALPHABETS
+1       950     UrbanAcute                5          1                     We
+2       493 RuralNon-Acute                9          0                     So
+3       966     UrbanAcute                5          1                     We
+4       775     UrbanAcute                5          0                     So
+5       668     UrbanAcute                5          1                     We
+6     14246 UrbanNon-Acute                9          1                     We
+7       218     UrbanAcute                5          0                     No
+8       787     UrbanAcute                5          0                     So
+...
+
+> round_example <- dbGetQuery(conn=db,"SELECT round(45.923,2), 
++                                             round(45.923,0), 
++                                             round(45.923,-1) 
++                                      FROM dual")
+> round_example
+
+  ROUND(45.923,2) ROUND(45.923,0) ROUND(45.923,-1)
+1           45.92              46               50
+
+> trunc_example <- dbGetQuery(conn=db,"SELECT trunc(45.923,2), 
++                                             trunc(45.923,0), 
++                                             trunc(45.923,-1) 
++                                      FROM dual")
+
+> trunc_example
+  TRUNC(45.923,2) TRUNC(45.923,0) TRUNC(45.923,-1)
+1           45.92              45               40
+
+> mod_example <- dbGetQuery(conn=db,"SELECT mod(1600,400), 
++                                             mod(1600,300)
++                                    FROM dual")
+
+> mod_example
+  MOD(1600,400) MOD(1600,300)
+1             0           100
+> 
+
+
+> sys_example <- dbGetQuery(conn=db,"SELECT sysdate
++                                    FROM dual")
+> sys_example
+                SYSDATE
+1 2019-09-09 18:33:12.0
+> 
+> sys2_example <- dbGetQuery(conn=db,"SELECT sysdate+2 as add_days 
++                                    FROM dual")
+> sys2_example
+               ADD_DAYS
+1 2019-09-11 18:33:12.0
+> 
+> sys3_example <- dbGetQuery(conn=db,"SELECT add_months(sysdate,3)
++                                    FROM dual")
+> sys3_example
+  ADD_MONTHS(SYSDATE,3)
+1 2019-12-09 18:33:12.0
+> 
+> sysm_example <- dbGetQuery(conn=db,"SELECT months_between('01-JUL-2000', '23-JAN-2000') 
++                                    FROM dual")
+> sysm_example
+  MONTHS_BETWEEN('01-JUL-2000','23-JAN-2000')
+1                                    5.290323
+> 
+> next_example <- dbGetQuery(conn=db,"SELECT next_day(sysdate,5)
++                                    FROM dual")
+> next_example
+    NEXT_DAY(SYSDATE,5)
+1 2019-09-12 18:33:12.0
+> 
+> last_example <- dbGetQuery(conn=db,"SELECT last_day('01-JUL-2000')  
++                                    FROM dual")
+> last_example
+  LAST_DAY('01-JUL-2000')
+1   2000-07-31 00:00:00.0
+> 
+> nvl_example <- dbGetQuery(conn=db,"SELECT nvl(teaching_ind,0) 
++  
++                                    FROM hospital")
+> nvl_example
+    NVL(TEACHING_IND,0)
+1                     0
+2                     0
+3                     0
+4                     0
+5                     0
+6                     0
+7                     1
+8                     0
+9                     0
+10                    0
+11                    1
+...
