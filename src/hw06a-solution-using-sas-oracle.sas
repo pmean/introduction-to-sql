@@ -16,11 +16,21 @@
   unknown. Find the id of that hospital.
   4. Combine your results into a single PDF file and submit it.;
 
+* Note: Some of the names used in this code are arbitrary and you can 
+  choose whatever names you want. To emphasize which names can be 
+  modified at your discretion, I am using names of famous 
+  statisticians.
+
+  The statistician being honored in this code is 
+  [David Blackwell](https://en.wikipedia.org/wiki/David_Blackwell).;
+
+
+
 ods pdf file="q:/introduction-to-sql/results/hw06a-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
-  or_link
+  blackwell
   oracle
   user='simons'
   password=&pw
@@ -28,42 +38,42 @@ libname
   schema='ehr';
 
 proc sql;
-  create table q1 as
+  create table david1 as
     select
       count(*) as number_missing_ids
-      from or_link.hospital
+      from blackwell.hospital
       where HOSP_ID is null
   ;
 quit;
 
 proc print
-  data=q1;
+  data=david1;
 run;
 
 proc sql;
-  create table q2 as
+  create table david2 as
     select
       count(*) as number_missing_teaching_ind
-      from or_link.hospital
+      from blackwell.hospital
       where TEACHING_IND is null
   ;
 quit;
 
 proc print
-  data=q2;
+  data=david2;
 run;
 
 proc sql;
-  create table q3 as
+  create table david3 as
     select
       HOSP_ID
-      from or_link.hospital
+      from blackwell.hospital
       where BED_SIZE is null
   ;
 quit;
 
 proc print
-  data=q3;
+  data=david3;
 run;
 
 ods pdf close;

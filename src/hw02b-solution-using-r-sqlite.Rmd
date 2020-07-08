@@ -1,5 +1,5 @@
 ---
-title: "Homework02a"
+title: "Homework02b"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -20,16 +20,22 @@ Use patient_type table in EHR Datamart. Refer to the page "Data used in this mod
 2. Change Pat_type_desc to Patient_Type_Desc
 3. Put your code and the output in a single PDF file
 
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).
+
+
 ```{r}
 library(sqldf)
-db <- dbConnect(SQLite(),
-  dbname="../data/patient_db.sqlite")
-patient_data <- dbGetQuery(conn=db,  
-"select
-  PAT_TYPE_ID, 
-  Pat_type_desc as Patient_Type_Desc
-  from patient_crawling_table")
+cox <- dbConnect(SQLite(),
+  dbname="../data/patient_type.sqlite")
+gertrude <- dbGetQuery(conn=cox,  "
+    select
+      pat_type_id, 
+      Pat_type_desc as Patient_Type_Desc
+      from patient_type
+")
 
-crawling_data
-dbDisconnect(conn=db)
+gertrude
+dbDisconnect(conn=cox)
 ```

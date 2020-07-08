@@ -13,12 +13,17 @@
   2. Change Pat_type_desc to Patient_Type_Desc
   3. Put your code and the output in a single PDF file;
 
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).
+
+
 
 ods pdf file="q:/introduction-to-sql/results/hw02b-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
-  or_link
+  cox
   oracle
   user='simons'
   password=&pw
@@ -26,15 +31,15 @@ libname
   schema='ehr';
 
 proc sql;
-  create table hw02b_sasfile as
+  create table gertrude as
     select
       PAT_TYPE_ID,
       PAT_TYPE_DESC as Patient_Type_Desc
-  from or_link.patient_type;
+  from cox.patient_type;
 quit;
 
 proc print
-  data=hw02b_sasfile;
+  data=gertrude;
 run;
 
 ods pdf close;
