@@ -19,6 +19,14 @@ The statistician being honored in this code is [John Tukey](https://en.wikipedia
 ods pdf file="q:/introduction-to-sql/results/hw07a-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
+libname
+  tukey
+  oracle
+  user='simons'
+  password=&pw
+  path='@CHIHFPRD, BUFFSIZE=9000'
+  schema='ehr';
+
 
 proc sql;
   create table john_tukey as
@@ -26,7 +34,7 @@ proc sql;
       round(25.926, 2) as rounded_value,
       trunc(25.926, 0) as truncated_value,
       mod(2500, 500) as remainder
-      from dual
+      from tukey.dual
   ;
 quit;
 

@@ -20,6 +20,8 @@ The statistician being honored in this code is
 
 ods pdf file="q:/introduction-to-sql/results/hw09a-solution-using-sas-oracle-output.pdf";
 
+
+
 %include 'q:/sql files/super-secret.sas';
 libname
   bailar
@@ -34,7 +36,7 @@ proc sql;
   select 
     teaching_ind,
     coalesce(teaching_ind, -1) as imputed_value
-  from hospital
+  from bailar.hospital
   where census_reg='West'
   ;
 quit;
@@ -52,7 +54,7 @@ proc sql;
         then 'Group 1'
         else 'Group 2'
       end as age_group
-  from encounter
+  from bailar.encounter
   ;
 quit;
 
