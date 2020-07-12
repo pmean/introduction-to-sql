@@ -33,10 +33,14 @@ libname
   schema='simons';
 
 proc sql;
+  select * from snedecor.titanic;
+run;
+
+proc sql;
   create table george1 as
   select count(*) as number_of_misters
     from snedecor.titanic
-    where name like '% Mr %'
+    where NAME like '% Mr %'
   ;
 quit;
 
