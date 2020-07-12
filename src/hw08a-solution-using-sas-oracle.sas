@@ -35,7 +35,7 @@ libname
 proc sql;
   create table george1 as
   select count(*) as number_of_misters
-    from titanic_table
+    from titanic
     where name like '% Mr %'
   ;
 quit;
@@ -47,7 +47,7 @@ run;
 proc sql;
   create table george2 as
   select sex, count(*) as number_of_children
-    from titanic_table
+    from titanic
     where age < 18
     group by sex
   ;
@@ -60,7 +60,7 @@ run;
 proc sql;
   create table george3 as
   select sex, count(*) as number_of_children
-    from titanic_table
+    from titanic
     where age < 18
     group by sex
   ;
@@ -76,7 +76,7 @@ proc sql;
     sex,
     pclass,
     avg(survived) as survival_probability
-    from titanic_table
+    from titanic
     group by sex, pclass
     having survival_probability > 0.30
   ;

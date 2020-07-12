@@ -14,7 +14,7 @@
 
 Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
-The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).
+The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
 
 ods pdf file="q:/introduction-to-sql/results/hw07a-solution-using-sas-oracle-output.pdf";
 
