@@ -1,18 +1,9 @@
----
-title: "Homework08a"
-author: "Steve Simon"
-output:
-  pdf_document: default
-knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, 
-    encoding=encoding,
-    output_dir = "../results", 
-    output_format = "all") })  
----
+* hw08a.sas
+* written by Steve Simon
+* creation date: 2020-07-12;
 
-This file was created on 2020-07-12 and last modified on `r Sys.Date()`.
-
-Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+* Note: this solution uses SAS and Oracle. An alternate solution using 
+  R and SQLite is also available.
 
 + For your homework, use the titanic database.
   + This is available in Oracle using schema='simons'.
@@ -28,57 +19,59 @@ Note: this solution uses R and SQLite. An alternate solution using SAS and Oracl
 
 Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
-The statistician being honored in this code is [George W. Snedecor](https://en.wikipedia.org/wiki/George_W._Snedecor).
+The statistician being honored in this code is [George W. Snedecor](https://en.wikipedia.org/wiki/George_W._Snedecor).;
 
-```{r george_snedecor1}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george1 <- dbGetQuery(conn=snedecor,  "
+ods pdf file="q:/introduction-to-sql/results/hw08a-solution-using-sas-oracle-output.pdf";
+
+%include 'q:/sql files/super-secret.sas';
+libname
+  snedecor
+  oracle
+  user='simons'
+  password=&pw
+  path='@CHIHFPRD, BUFFSIZE=9000'
+  schema='simons';
+
+proc sql;
+  create table george1 as
   select count(*) as number_of_misters
     from titanic_table
     where name like '% Mr %'
-")
+  ;
+quit;
 
-george1
-dbDisconnect(conn=snedecor)
-```
+proc print
+  data=george1;
+run;
 
-```{r george_snedecor2}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george2 <- dbGetQuery(conn=snedecor,  "
+proc sql;
+  create table george2 as
   select sex, count(*) as number_of_children
     from titanic_table
     where age < 18
     group by sex
-")
+  ;
+quit;
 
-george2
-dbDisconnect(conn=snedecor)
-```
+proc print
+  data=george2;
+run;
 
-```{r george_snedecor3}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george3 <- dbGetQuery(conn=snedecor,  "
+proc sql;
+  create table george3 as
   select sex, count(*) as number_of_children
     from titanic_table
     where age < 18
     group by sex
-")
+  ;
+quit;
 
-george3
-dbDisconnect(conn=snedecor)
-```
+proc print
+  data=george3;
+run;
 
-```{r george_snedecor4}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george4 <- dbGetQuery(conn=snedecor,  "
+proc sql;
+  create table george4 as
   select 
     sex,
     pclass,
@@ -86,8 +79,11 @@ george4 <- dbGetQuery(conn=snedecor,  "
     from titanic_table
     group by sex, pclass
     having survival_probability > 0.30
-")
+  ;
+quit;
 
-george4
-dbDisconnect(conn=snedecor)
-```
+proc print
+  data=george4;
+run;
+
+ods pdf close;
