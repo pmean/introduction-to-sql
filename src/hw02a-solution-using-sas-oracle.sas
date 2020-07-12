@@ -1,8 +1,8 @@
 * hw02a.sas
 * written by Steve Simon
-* creation date: 2020-01-31;
+* creation date: 2020-01-31
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
+  Note: this solution uses SAS and Oracle. An alternate solution using 
   R and SQLite is also available.
 
   Use the database crawling_db. Refer to the page "Data used in this
@@ -11,11 +11,14 @@
 
   1. Read all three fields and all records  
   2. Change Temperature to Temperature_F
-  3. Put your code and the output in a single PDF file;
+  3. Put your code and the output in a single PDF file
 
-Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+Note: Some of the names used in this code are arbitrary and you can 
+choose whatever names you want. To emphasize which names can be 
+modified at your discretion, I am using names of famous statisticians.
 
-The statistician being honored in this code is [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).
+The statistician being honored in this code is 
+[William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).;
 
 ods pdf file="q:/introduction-to-sql/results/hw02a-solution-using-sas-oracle-output.pdf";
 

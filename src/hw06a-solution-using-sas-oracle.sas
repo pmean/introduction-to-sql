@@ -1,8 +1,8 @@
 * hw06a.sas
 * written by Steve Simon
-* creation date: 2020-07-06;
+* creation date: 2020-07-06
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
+  Note: this solution uses SAS and Oracle. An alternate solution using 
   R and SQLite is also available.
 
   For your homework, use the hospital database that I mentioned briefly
@@ -14,9 +14,9 @@
   teaching hospital (TEACHING_IND).
   3. There is only one hospital where the number of beds (BED_SIZE) is
   unknown. Find the id of that hospital.
-  4. Combine your results into a single PDF file and submit it.;
+  4. Combine your results into a single PDF file and submit it.
 
-* Note: Some of the names used in this code are arbitrary and you can 
+  Note: Some of the names used in this code are arbitrary and you can 
   choose whatever names you want. To emphasize which names can be 
   modified at your discretion, I am using names of famous 
   statisticians.
@@ -24,13 +24,11 @@
   The statistician being honored in this code is 
   [David Blackwell](https://en.wikipedia.org/wiki/David_Blackwell).;
 
-
-
 ods pdf file="q:/introduction-to-sql/results/hw06a-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
-  blackwell
+  david
   oracle
   user='simons'
   password=&pw
@@ -38,42 +36,42 @@ libname
   schema='ehr';
 
 proc sql;
-  create table david1 as
+  create table blackwell1 as
     select
       count(*) as number_missing_ids
-      from blackwell.hospital
+      from david.hospital
       where HOSP_ID is null
   ;
 quit;
 
 proc print
-  data=david1;
+  data=blackwell1;
 run;
 
 proc sql;
-  create table david2 as
+  create table blackwell2 as
     select
       count(*) as number_missing_teaching_ind
-      from blackwell.hospital
+      from david.hospital
       where TEACHING_IND is null
   ;
 quit;
 
 proc print
-  data=david2;
+  data=blackwell2;
 run;
 
 proc sql;
-  create table david3 as
+  create table blackwell3 as
     select
       HOSP_ID
-      from blackwell.hospital
+      from david.hospital
       where BED_SIZE is null
   ;
 quit;
 
 proc print
-  data=david3;
+  data=blackwell3;
 run;
 
 ods pdf close;
