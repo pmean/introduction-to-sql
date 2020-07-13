@@ -1,4 +1,4 @@
-* hw09a.sas
+* hw10a.sas
   written by Steve Simon
   creation date: 2020-07-12;
 
@@ -34,7 +34,7 @@
   WHERE type = "T"
 ;
 
-ods pdf file="q:/introduction-to-sql/results/hw08a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/hw10a-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
@@ -47,14 +47,26 @@ libname
 
 proc sql;
   create table george1 as
-    select table_name 
-      from all_tables 
+    select table_name
+      from box.all_tables 
       where owner='EHR'
 ;
 quit;
 
 proc print
   data=george1;
+run;
+
+proc sql;
+  create table george2 as
+  select column_name
+    from box.all_tab_columns 
+	where table_name='ENCOUNTER'
+;
+quit;
+
+proc print
+  data=george2;
 run;
 
 ods pdf close;
