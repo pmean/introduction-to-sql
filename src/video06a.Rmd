@@ -32,7 +32,7 @@ An alternative commonly used by database designers is the use of special codes t
 
 ### Example of null values in a database
 
-![List of selected rows of a database in SQLite Studio](../../images/sql-missing.png)
+![List of selected rows of a database in SQLite Studio](../images/sql-missing.png)
 
 <div class="notes">
 
@@ -42,7 +42,7 @@ Here's a peek at several rows of a database where there are some null values.
 
 ### SAS translation of null
 
-![List of selected rows of a database after import into SAS](../../images/sas-missing.png)
+![List of selected rows of a database after import into SAS](../images/sas-missing.png)
 
 <div class="notes">
 
@@ -52,7 +52,7 @@ When you import the data into SAS, SAS will convert numeric null values to a dot
 
 ### R translation of null
 
-![List of selected rows of a database after import into SAS](../../images/r-missing.png) 
+![List of selected rows of a database after import into SAS](../images/r-missing.png) 
 
 <div class="notes">
 
@@ -64,7 +64,7 @@ R will convert null values to NA if the field is numeric. It will convert to <NA
 
 ```{r}
 suppressMessages(suppressWarnings(library(sqldf)))
-db <- dbConnect(SQLite(), dbname="../../data/titanic_db.sqlite")
+db <- dbConnect(SQLite(), dbname="../data/titanic_db.sqlite")
 
 sql_code <- 
 "select Name, Age
