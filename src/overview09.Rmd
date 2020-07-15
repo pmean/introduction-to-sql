@@ -29,32 +29,42 @@ pan <- "https://umkc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id="
 ### SQL keywords
 
 + Here are the SQL keywords introduced in this module:
-  + 
+  + case
+  + coalesce
+  + decode
+  + greatest
+  + in
+  + least
+  + to_char
+  + to_date
+  + to_number
   
 ### Videos and handouts
 
-+ Video09a. Statistical summary functions (29 minutes)
-  + Available in [Panopto format](`r pan`a2cf66c5-6d1e-4e99-86c6-aad3014c57c4)
++ Video09a. Conversion functions (16 minutes)
+  + Available in [Panopto format](`r pan`69c3af9b-5856-4364-81d8-aad3014c7ec8)
   + Slides, available in [pdf format](`r git`results/video09a.pdf)
-+ Reading, What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. Available in [html format](https://magazine.amstat.org/blog/2013/12/01/bigdatastatresearch/).
++ Video09b. Conversion functions (13 minutes)
+  + Available in [Panopto format](`r pan`1a04e3b6-59d1-4fa3-81dc-aad3016c7e48)
+  + Slides, see above
 
 ### Datasets used in this module
 
 This page provides a bit more details about the database used in this module. Please note that there might be small inconsistencies between the Oracle version and the SQLite version of the data.
 
-Fat is used in the videos. Titanic is used in the homework.
+The encounter and hospital tables are used in the homework.
 
-+ Fat
-  + Data dictionary.  Available in [text format](`r git`data/fat-data-dictionary.txt)
++ Encounter
+  + Data dictionary.  Available in [text format](`r git`data/encounter-data-dictionary.txt)
   + Oracle: no download needed
-  + SQLite: download this file. Available in [binary format](`r git`data/fat.sqlite).
-  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/fat.csv).
+  + SQLite: download this file. Available in [binary format](`r git`data/encounter.sqlite).
+  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/encounter.csv).
 
-+ Titanic
-  + Data dictionary.  Available in [text format](`r git`data/titanic-data-dictionary.txt)
++ Hospital
+  + Data dictionary.  Available in [text format](`r git`data/hospital-data-dictionary.txt)
   + Oracle: no download needed
-  + SQLite: download this file. Available in [binary format](`r git`data/titanic.sqlite).
-  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/titanic.csv).
+  + SQLite: download this file. Available in [binary format](`r git`data/hospital.sqlite).
+  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/hospital.csv).
 
 ### Discussion09a: One minute feedback
 
@@ -68,28 +78,47 @@ Review the videos in this module and briefly answer the following questions
 
 Please keep your answers brief. You are welcome to say something generic like "I found nothing confusing" or "I found everything confusing" or "I agree with the previous comment."
 
-### Discussion09b: Review this week's readings
-
-Graded: 3 points, one point deduction if submitted late.
-
-Review the reading provide in this module and provide a brief summary (3 or 4 sentences). Was there anything in this reading that surprised you.
-
 ### Homework09a: 
 
 + Graded: 3 points, one point deduction if submitted late.
-+ For your homework, use the titanic database. Run SQL queries to answer the following   + Count the number of passengers with the title "Mr" somewhere in their name.
-  + Run a query that counts the number of male and female children (Age <= 18)
-  + Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
-  + The Survived field has values of 0 (died) and 1 (alive) and an average of this value provides a probability of survival.
-  + Calculate this probability for six categories representing the combination of passenger class and sex. Include only those groups where the survival probability is greater than 30%.
++ Use Encounter Table
+  + Use case expression to classify age <= 20 as ‘Group 1’, and age > 20 as ‘Group 2’ 
++ Use hospital table
+  + Use coalesce function to return -1 for null values of teaching_ind in hospital table where census_reg = ‘West’
 + Place the SQL code and the results of all your queries in a single PDF file.
 
 ### Quiz09
 
 + Graded: 3 points, one point deduction if submitted late.
 
-+ The where statement and the having statement allow you to filter your data. In which order are these two statements processed?
-  + They are processed in the order in which they appear.
-  + The where statement is processed before the statistical summary and the having statement is processed after the statistical summary
-  + The having statement is processed before the statistical summary and the where statement is processed after the statistical summary
-  + Both are processed at the same time
+1. What would the output of "select coalesce(null,'1') from dual"
+  + Null
+  + Error
+  + 1
+  + 0
+   
+2. The maximum number of arguments in a CASE expression is 
+  + 250
+  + 255
+  + 1
+  + 0
+   
+3. What date format should be used? (Fill in the blank).
+  + SELECT TO_DATE('1999 05 20',   ____________) from dual;
+    + 'MM DD YYYY'
+    + 'YYYY/MM/DD'
+    + 'MM/DD/YYYY'
+    + 'YYYY MM DD'
+    
+4. Which SQL functions are capable of typecasting column value, literal or an expression? (Multiple answers are possible)
+  + DECODE
+  + CASE
+  + TO_CHAR
+  + TO_DATE
+  
+5. What is the output of following query?
+  + SELECT DECODE(1, 2, 'One','Not one') FROM dual;
+    + Not one
+    + One
+    + 1
+    + 2
