@@ -37,7 +37,8 @@ proc sql;
       BIRTH_MONTH,
       TEMPERATURE as Temperature_F,
       AVG_CRAWLING_AGE
-  from deming.crawling;
+  from deming.crawling
+  where rownum <= 4;
 quit;
 
 proc print
