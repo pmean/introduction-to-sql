@@ -79,7 +79,7 @@ Review the reading provide in this module and provide a brief summary (3 or 4 se
 
 ### Homework06a: 
 
-Graded: 3 points, one point deduction if submitted after deadline
+Graded: 3 points, one point deduction if submitted after deadline.
 
 For your homework, use the hospital database that I mentioned briefly earlier in this lecture.
 

@@ -1,0 +1,101 @@
+---
+title: "Overview of Module 8: Statistical summary functions"
+author: "Suman Sahil, Steve Simon"
+output:
+  html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-07-14 and last modified on `r Sys.Date()`.
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+git <- "https://github.com/pmean/introduction-to-sql/blob/master/"
+pan <- "https://umkc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id="
+```
+
+### Objectives
+
+In this module you will learn about
+
+Statistical summary functions
+The having keyword
+How statistical functions treat missing values
+
+### SQL keywords
+
++ Here are the SQL keywords introduced in this module:
+  + avg
+  + count
+  + having
+  + max
+  + min
+  + sum
+
+### Videos and handouts
+
++ Video08a. Statistical summary functions (29 minutes)
+  + Available in [Panopto format](`r pan`a2cf66c5-6d1e-4e99-86c6-aad3014c57c4)
+  + Slides, available in [pdf format](`r git`results/video08a.pdf)
++ Reading, What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. Available in [html format](https://magazine.amstat.org/blog/2013/12/01/bigdatastatresearch/).
+
+### Datasets used in this module
+
+This page provides a bit more details about the database used in this module. Please note that there might be small inconsistencies between the Oracle version and the SQLite version of the data.
+
+Fat is used in the videos. Titanic is used in the homework.
+
++ Fat
+  + Data dictionary.  Available in [text format](`r git`data/fat-data-dictionary.txt)
+  + Oracle: no download needed
+  + SQLite: download this file. Available in [binary format](`r git`data/fat.sqlite).
+  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/fat.csv).
+
++ Titanic
+  + Data dictionary.  Available in [text format](`r git`data/titanic-data-dictionary.txt)
+  + Oracle: no download needed
+  + SQLite: download this file. Available in [binary format](`r git`data/titanic.sqlite).
+  + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/titanic.csv).
+
+### Discussion08a: One minute feedback
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Review the videos in this module and briefly answer the following questions
+
++ What was the most important thing that you learned?
++ What concept(s) do you still find confusing?
++ What would you like to learn next?
+
+Please keep your answers brief. You are welcome to say something generic like "I found nothing confusing" or "I found everything confusing" or "I agree with the previous comment."
+
+### Discussion08b: Review this week's readings
+
+Graded: 3 points, one point deduction if submitted late.
+
+Review the reading provide in this module and provide a brief summary (3 or 4 sentences). Was there anything in this reading that surprised you.
+
+### Homework08a: 
+
++ Graded: 3 points, one point deduction if submitted late.
++ For your homework, use the titanic database. Run SQL queries to answer the following   + Count the number of passengers with the title "Mr" somewhere in their name.
+  + Run a query that counts the number of male and female children (Age <= 18)
+  + Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
+  + The Survived field has values of 0 (died) and 1 (alive) and an average of this value provides a probability of survival.
+  + Calculate this probability for six categories representing the combination of passenger class and sex. Include only those groups where the survival probability is greater than 30%.
++ Place the SQL code and the results of all your queries in a single PDF file.
+
+### Quiz08
+
++ Graded: 3 points, one point deduction if submitted late.
+
++ The where statement and the having statement allow you to filter your data. In which order are these two statements processed?
+  + They are processed in the order in which they appear.
+  + The where statement is processed before the statistical summary and the having statement is processed after the statistical summary
+  + The having statement is processed before the statistical summary and the where statement is processed after the statistical summary
+  + Both are processed at the same time

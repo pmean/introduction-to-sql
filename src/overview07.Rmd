@@ -92,7 +92,7 @@ Hospital and Titanic are used in the videos. Hospital is also used in the homewo
   + SQLite: download this file. Available in [binary format](`r git`data/titanic.sqlite).
   + You should not need it, but there is a backup of this data available in [CSV format](`r git`data/titanic.csv).
 
-### Discussion06a: One minute feedback
+### Discussion07a: One minute feedback
 
 Graded: 3 points, one point deduction if submitted after deadline
 
