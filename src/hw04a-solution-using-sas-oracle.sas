@@ -12,7 +12,7 @@ Pat_type_desc (Patient Type Desc)
  
 
 Order all the fields by Pat_type_desc
-Select all fields where Pat_type_desc starts with ‘Inp’
+Select all fields where Pat_type_desc starts with "Inp"
 Select first four rows from the table
 
 Note: Some of the names used in this code are arbitrary and you can 
@@ -34,14 +34,36 @@ libname
   schema='ehr';
 
 proc sql;
-  create table nightingale as
+  create table nightingale1 as
     select *
-  from florence.patient_type
-  where monotonic() <= 4;
+      from florence.patient_type
+      order by Pat_type_desc;
 quit;
 
 proc print
-  data=nightingale;
+  data=nightingale1;
+run;
+
+proc sql;
+  create table nightingale2 as
+    select *
+      from florence.patient_type
+      where Pat_type_desc like 'Inp%';
+quit;
+
+proc print
+  data=nightingale2;
+run;
+
+proc sql;
+  create table nightingale3 as
+    select *
+      from florence.patient_type
+      where monotonic() <= 4;
+quit;
+
+proc print
+  data=nightingale3;
 run;
 
 ods pdf close;
