@@ -1,0 +1,51 @@
+Longitudinal example data dictionary
+
+This database was adapted from the acupuncture database and has different tables at baseline, 3 months, and 12 months.
+
+If you are using Oracle, you need to specify
+    schema=simons
+
++ The acupuncture database consists of seven tables
+  + baseline_table, headache severity score at baseline
+  + demog_table, demographics for each patient
+  + group_table, labels for the two groups in the study.
+  + migraine_table, labels for the two types of headaches
+  + one_year_table, headache severity score at 12 months
+  + sex_table. This contains labels for males and females
+  + three_month_table, headache severity score at 3 months
+
++ baseline_table has 401 records and 2 fields
+  + id, a three digit number code for each patient
+  + pk1, headache severity score at baseline
+
++ demog_table has 401 records and 8 fields
+  + id, a three digit number code for each patient
+  + age, age of the patient in years
+  + sex, a numeric code for sex
+  + migraine, a numeric code for headache type
+  + chronicity, number of years of headache disorder
+  + acupuncturist, a three digit number code for acupuncturist
+  + practice_id, a two digit code for practice
+  + grp, a numeric code for treatment group
+
++ group_table has 2 records and 2 fields
+  + group_code, the number codes used for the two treatment group
+  + group_label, a text description of the two treatment groups
+  
++ migraine_table has 2 records and 2 fields
+  + migraine_code, the number codes used for the two headache types
+  + migraine_label, a text description of the two headache types
+  
++ one_year_table has 401 records and 14 fields
+  + id, a three digit number code for each patient
+  + pk5, headache severity score after twelve months
+
++ sex_table has 2 records and 2 fields
+  + sex_code, the number codes that designate sex
+  + sex_label, a text description (male, female)
+  
++ three_month_table has 401 records and 14 fields
+  + id, a three digit number code for each patient
+  + pk2, headache severity score after three months
+
+Please see the data dictionary for the acupuncture database for more information.

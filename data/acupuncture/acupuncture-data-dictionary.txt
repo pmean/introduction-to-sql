@@ -1,0 +1,42 @@
+Acupuncture data dictionary
+
+If you are using Oracle, you need to specify
+    schema=simons
+
++ The acupuncture database consists of four tables
+  + results_table. This contains all of the results of the study.
+  + group_table. This contains labels for the two groups in the study.
+  + migraine_table. This contains labels for the two types of headaches.
+  + sex_table. This contains labels for males and females.
+
++ results_table has 401 records and 14 fields
+  + id, a three digit number code for each patient
+  + age, age of the patient in years
+  + sex, a numeric code for sex
+  + migraine, a numeric code for headache type
+  + chronicity, number of years of headache disorder
+  + acupuncturist, a three digit number code for acupuncturist
+  + practice_id, a two digit code for practice
+  + grp, a numeric code for treatment group
+  + pk1, headache severity score at baseline
+  + pk2, headache severity score after three months
+  + pk5, headache severity score after twelve months
+  + f1, headache frequency at baseline
+  + f2, headache frequency after three months
+  + f5, headache frequency after twelve months
+  
++ group_table has 2 records and 2 fields
+  + group_code, the number codes used for the two treatment group
+  + group_label, a text description of the two treatment groups
+  
++ migraine_table has 2 records and 2 fields
+  + migraine_code, the number codes used for the two headache types
+  + migraine_label, a text description of the two headache types
+  
++ sex_table
+  + sex_code, the number codes that designate sex
+  + sex_label, a text description (male, female)
+  
+This dataset was downloaded from 
+
+Steven C. Grambow, “Acupuncture Dataset”, TSHS Resources Portal (2015). Available in [html format](https://www.causeweb.org/tshs/acupuncture/). You need to register at the portal before downloading this dataset.

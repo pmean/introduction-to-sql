@@ -16,7 +16,7 @@ Note: this solution uses R and SQLite. An alternate solution using SAS and Oracl
 
 Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
-The statistician being honored in this code is [George Box](https://en.wikipedia.org/wiki/George_E._P._Box).
+The statistician being honored in this code is [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 
 Use the longitudinal_example_db. It is available as on the Canvas website or you can find it on the Insights platform.
 
@@ -33,15 +33,15 @@ Use the longitudinal_example_db. It is available as on the Canvas website or you
 6. Show that there are no unmatched labels or unmatched codes for group_table.
 
 
-```{r george_box1}
+```{r hirotugu_akaike1}
 library(sqldf)
-box <- dbConnect(SQLite(),
+akaike <- dbConnect(SQLite(),
   dbname="../data/longitudinal_example_db.sqlite")
-george1 <- dbGetQuery(conn=box,  "
+hirotugu1 <- dbGetQuery(conn=akaike,  "
     select tbl_name from sqlite_master
 ")
 
-george1
-dbDisconnect(conn=box)
+hirotugu1
+dbDisconnect(conn=akaike)
 ```
 
