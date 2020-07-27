@@ -26,7 +26,7 @@ number code.
 age to be less than 40. Use the label for sex, but convert it to all 
 uppercase.
 
-ods pdf file="q:/introduction-to-sql/results/hw09a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/hw11a-solution-using-sas-oracle-output.pdf";
 
 
 
