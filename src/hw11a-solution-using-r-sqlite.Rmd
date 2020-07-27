@@ -31,10 +31,10 @@ library(sqldf)
 hogg <- dbConnect(SQLite(),
   dbname="../data/acupuncture/acupuncture_db.sqlite")
 robert1 <- dbGetQuery(conn=hogg,  "
-    select r.id, g.group_label
+    select r.id, m.migraine_label
       from results_table as r
-      join group_table as g
-      on r.grp=g.group_code
+      join migraine_table as m
+      on r.migraine=m.migraine_code
       limit 10
 ")
 robert1

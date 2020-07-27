@@ -12,12 +12,12 @@ If you are using Oracle, you need to specify
 + results_table has 401 records and 14 fields
   + id, a three digit number code for each patient
   + age, age of the patient in years
-  + sex, a numeric code for sex
-  + migraine, a numeric code for headache type
+  + sex, a numeric code for sex, foriegn key for sex_table
+  + migraine, a numeric code for headache type, foreign key for migraine_table
   + chronicity, number of years of headache disorder
   + acupuncturist, a three digit number code for acupuncturist
   + practice_id, a two digit code for practice
-  + grp, a numeric code for treatment group
+  + grp, a numeric code for treatment group, foreign key for group_table
   + pk1, headache severity score at baseline
   + pk2, headache severity score after three months
   + pk5, headache severity score after twelve months
