@@ -61,7 +61,7 @@ proc sql;
   create table george2 as
   select column_name
     from box.all_tab_columns 
-	where table_name='ENCOUNTER'
+	where table_name='acupuncture'
 ;
 quit;
 
