@@ -5,9 +5,6 @@ This data was found originally on the web at the DASL website (see below). Altho
 You should not need to use this, but we have a backup of this data in a comma separated value file named
     crawling.csv
     
-If you are using Oracle, you need to specify
-    schema=simons
-
 All of the data is stored in a single table named
     crawling
     
@@ -16,12 +13,13 @@ It has 12 records and 3 fields named
     Temperature
     avg_crawling_age
 
+If you are using Oracle, you need to specify
+    schema=melange
+
 If you are using SQLite, you need to download the file
-   crawling_db.SQLite
+   melange.SQLite
 
 All of the data is in a single table named
    crawling_table
    
-The number of records and the names of the fields are the same as listed above.
-
-Crawling. Retrieved from https://dasl.datadescription.com/datafile/crawling/
+Crawling. Retrieved from https://dasl.datadescription.com/datafile/crawling/.
