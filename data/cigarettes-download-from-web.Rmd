@@ -1,0 +1,56 @@
+---
+title: "Download cigarettes data from the web"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This program was written on 2020-08-19 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+```{r download}
+csv_name <- "../data/cigarettes.csv"
+"http://jse.amstat.org/datasets/cigarettes.dat.txt" %>%
+  readLines  %>%
+  str_replace_all("\t", " ") %>%                # Convert tabs to blanks
+  str_replace_all("  ", " ") %>%                # Convert mutliple to single blanks
+  str_replace_all("  ", " ") %>%                # Once more for good measure
+  str_replace_all(" ", ",") %>%                 # Convert blanks to commas
+  paste0('"', .) %>%                            # Add leading quote to name
+  str_replace(',','",') %>%                     # Add trailing quote to name
+  str_replace_all(",\\.",",0.") %>%             # Convert .x to 0.x
+  str_replace("BullDurham", "Bull Durham") %>%  # Add in blanks to some names
+  str_replace("CamelLights", "Camel Lights") %>%
+  str_replace("GoldenLights", "Golden Lights") %>%
+  str_replace("LarkLights", "Lark Lights") %>%
+  str_replace("MultiFilter", "Multi Filter") %>%
+  str_replace("NewportLights", "Newport Lights") %>%
+  str_replace("OldGold", "Old Gold") %>%
+  str_replace("PallMallLight", "Pall Mall Light") %>%
+  str_replace("SalemUltra", "Salem Ultra") %>%
+  str_replace("ViceroyRichLight", "Viceroy Rich Light") %>%
+  str_replace("VirginiaSlims", "Virginia Slims") %>%
+  str_replace("WinstonLights", "Winston Lights") -> raw_data
+names_raw_data <- c(
+  "brand_name",
+  "tar_content_mg", 
+  "nicotine_content_mg",
+  "weight_g",
+  "carbon_monoxide_content_mg"
+)
+names_raw_data %>%
+  paste(collapse='","') %>%
+  paste0('"', ., '"') %>%
+  c(raw_data) -> csv_text
+csv_text %>%
+  writeLines(csv_name)
+cat(csv_text, sep="\n")
+```

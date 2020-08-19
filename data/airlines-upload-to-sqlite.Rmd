@@ -1,10 +1,15 @@
 ---
-title: "Airlines upload"
+title: "Airlines upload to SQLite"
 author: "Steve Simon"
 output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
 ---
 
-The file was created on 2020-07-05 and last modified on `r Sys.Date()`.
+This file was created on 2020-07-05 and last modified on `r Sys.Date()`.
+
+This program reads a CSV file and loads into a table with the same name in the melange SQLite database.
 
 ```{r setup}
 suppressMessages(suppressWarnings(library(sqldf)))
@@ -13,10 +18,9 @@ suppressMessages(suppressWarnings(library(sqldf)))
 ```{r}
 file_name <- "airlines"
 csv_name <- paste0(file_name, ".csv")
-sqlite_name <- paste0(file_name, ".SQLite")
+sqlite_name <- "melange.SQLite"
 table_name <- file_name
 
-if (file.exists(sqlite_name)) file.remove(sqlite_name)
 db <- dbConnect(SQLite(), dbname=sqlite_name)
 rawdata <- read.csv(csv_name)
 dbWriteTable(

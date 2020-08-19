@@ -5,9 +5,6 @@ This data was found originally on the web at the DASL website (see below). Altho
 You should not need to use this, but we have a backup of this data in a comma separated value file named
     airlines.csv
     
-If you are using Oracle, you need to specify
-    schema=simons
-
 All of the data is stored in a single table named
     airlines
     
@@ -18,11 +15,14 @@ It has 12 records and 5 fields named
     r2017
     r2016
 
+If you are using Oracle, you need to specify in your code 
+   schema=melange
+
 If you are using SQLite, you need to download the file
-   airlines_db.SQLite
+   melange.SQLite
 
 All of the data is in a single table named
-   airline_table
+   airlines
    
 The number of records and the names of the fields are the same as listed above.
 

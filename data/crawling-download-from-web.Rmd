@@ -1,0 +1,27 @@
+---
+title: "Download airlines data from the web"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This program was written on 2020-07-06 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+
+```{r download}
+"https://dasl.datadescription.com/download/data/3143" %>%
+  readLines %>%
+  str_replace_all("\t", ",") -> raw_data
+csv_name <- "../data/crawling.csv"
+writeLines(raw_data, csv_name)
+cat(raw_data, sep="\n")
+```

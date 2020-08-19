@@ -1,10 +1,15 @@
 ---
-title: "Airlines download"
+title: "Download airlines data from the web"
 author: "Steve Simon"
 output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
 ---
 
 This program was written on 2020-07-06 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
 
 ```{r setup}
 suppressMessages(suppressWarnings(library(magrittr)))
@@ -12,7 +17,7 @@ suppressMessages(suppressWarnings(library(stringr)))
 ```
 
 
-```{r airlines}
+```{r download}
 "https://dasl.datadescription.com/download/data/3048" %>%
   readLines %>%
   str_remove("^.*? ") %>%
