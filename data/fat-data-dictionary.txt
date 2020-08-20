@@ -1,0 +1,56 @@
+Fat data dictionary
+
+This dataset is described in an article published in
+the Journal of Statistics Education about fitting 
+percentage of body fat to simple body measurements.
+The two key variables are measures of body fat, a 
+rather complex assessment that requires weighing 
+a person underwater. At the same time, researchers
+collected simpler measures of circumference at the
+neck, chest, abdomen, hip, thigh, knee, ankle, 
+biceps, forearm, and wrist to see if the complex 
+measure of body fat could be approximated by some 
+combination of circumference measures.
+
+You can find a description of this dataset at
+    http://www.amstat.org/publications/jse/datasets/fat.txt
+
+and the data itself is at
+    http://www.amstat.org/publications/jse/datasets/fat.dat.txt
+
+All of the data is stored in a single table named
+    fat
+    
+The table has 19 fileds and 252 records.
+
+case, sequence number from 1 to 252
+fat_b, percent of body fat using Brozek's equation
+fat_s, percent of body fat using Siri's equation
+density, (gm/cm^3)
+age, (years)
+weight, (pounds)
+height, (inches)
+bmi, (g/cm^2)
+ffw, fat free weight (pounds)
+neck, circumference (cm) 
+chest, circumference (cm) 
+abdomen, circumference (cm) 
+hip, circumference (cm) 
+thigh, circumference (cm) 
+knee, circumference (cm) 
+ankle, circumference (cm) 
+biceps, circumference (cm) 
+forearm, circumference (cm) 
+wrist,  circumference (cm)
+
+You are free to use this data for non-commercial purposes.
+
+You should not need to use this, but we have a backup of this data in a comma separated value file named
+    fat.csv
+    
+If you are using Oracle, you need to specify
+    schema=melange
+
+If you are using SQLite, you need to download the file
+   melange.SQLite
+

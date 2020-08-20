@@ -40,3 +40,9 @@ If you are using Oracle, you need to specify
 This dataset was downloaded from 
 
 Steven C. Grambow, “Acupuncture Dataset”, TSHS Resources Portal (2015). Available in [html format](https://www.causeweb.org/tshs/acupuncture/). You need to register at the portal before downloading this dataset.
+c
+https://www.causeweb.org/tshs/datasets/acupuncture_data_reduced.RData
+
+You can also find the file at
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1489946/bin/1745-6215-7-15-S1.xls

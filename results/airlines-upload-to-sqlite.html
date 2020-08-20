@@ -368,7 +368,7 @@ summary {
 </div>
 
 
-<p>This file was created on 2020-07-05 and last modified on 2020-08-19.</p>
+<p>This file was created on 2020-07-05 and last modified on 2020-08-20.</p>
 <p>This program reads a CSV file and loads into a table with the same name in the melange SQLite database.</p>
 <pre class="r"><code>suppressMessages(suppressWarnings(library(sqldf)))</code></pre>
 <pre class="r"><code>file_name &lt;- &quot;airlines&quot;
@@ -386,6 +386,25 @@ dbWriteTable(
   row.names=FALSE, 
   header=TRUE)
 dbDisconnect(conn=db)</code></pre>
+<p>Check that everything works.</p>
+<pre class="r"><code>db &lt;- dbConnect(SQLite(), dbname=sqlite_name)
+dbListTables(db)</code></pre>
+<pre><code>## [1] &quot;airlines&quot;   &quot;cigarettes&quot; &quot;crawling&quot;</code></pre>
+<pre class="r"><code>dbGetQuery(conn=db, &quot;select * from airlines&quot;)</code></pre>
+<pre><code>##                Airline b2017 b2016 r2017 r2016
+## 1      DELTA AIR LINES   679   912  0.07  0.09
+## 2       VIRGIN AMERICA   165    77  0.27  0.13
+## 3      JETBLUE AIRWAYS  1475  2140  0.54  0.82
+## 4      UNITED AIRLINES  2067  2874  0.30  0.45
+## 5    HAWAIIAN AIRLINES    92    30  0.11  0.04
+## 6  EXPRESSJET AIRLINES   785  2541  0.67  1.58
+## 7     SKYWEST AIRLINES   917  2177  0.37  0.96
+## 8    AMERICAN AIRLINES  4517  6598  0.46  0.66
+## 9      ALASKA AIRLINES   658   734  0.35  0.41
+## 10  SOUTHWEST AIRLINES  6678 11907  0.58  1.06
+## 11   FRONTIER AIRLINES   540   688  0.45  0.63
+## 12     SPIRIT AIRLINES  1502  1418  0.88  0.93</code></pre>
+<pre class="r"><code>dbDisconnect(conn=db)</code></pre>
 
 
 

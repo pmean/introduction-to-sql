@@ -1,0 +1,52 @@
+---
+title: "Download fat data from the web"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This program was written on 2020-08-20 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+```{r download}
+csv_name <- "../data/fat.csv"
+"http://jse.amstat.org/datasets/fat.dat.txt" %>%
+  readLines  %>%
+  str_replace("^\\s+", "") %>%                      # Remove leading blanks
+  str_replace_all("\\s+", ",") -> raw_data          # Convert multiple blanks to commas
+names_raw_data <- c(
+ "case_number",
+ "fat_b",
+ "fat_s",
+ "dens",
+ "age",
+ "wt",
+ "ht",
+ "bmi",
+ "ffw",
+ "neck",
+ "chest",
+ "abdomen",
+ "hip",
+ "thigh",
+ "knee",
+ "ankle",
+ "biceps",
+ "forearm",
+ "wrist")
+names_raw_data %>%
+  paste(collapse='","') %>%
+  paste0('"', ., '"') %>%
+  c(raw_data) -> csv_text
+csv_text %>%
+  writeLines(csv_name)
+cat(csv_text, sep="\n")
+```

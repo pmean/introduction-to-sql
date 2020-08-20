@@ -2,14 +2,15 @@ Encounter data dictionary
 
 This data is a small selection of data from the Health Facts database. There is no private health information, but please do not share this data outside of this class.
 
-It is used in the lectures, but not in the homework.
+All of the data is stored in a single table named
+    encounter
 
 It has 199 records and 7 fields named
     Enc_id, (a unique identifier for an encounter)
-    hosp_id (Hospital Id), 
-    pat_id (Patient Id), 
-    pat_type_id (Patient type Id),
-    pay_id (Payer Id), 
+    hosp_id (Hospital id), 
+    pat_id (Patient id), 
+    pat_type_id (Patient type id),
+    pay_id (Payer id), 
     age (age in years), 
     admission_dt (admission date),
     discharge_dt (discharge date),
@@ -18,13 +19,6 @@ It has 199 records and 7 fields named
 If you are using Oracle, you need to specify
     schema=ehr
     
-All of the data is stored in a single table named
-    encounter
-
 If you are using SQLite, you need to download the file
-    encounter_db.SQLite
+    ehr.SQLite
     
-All of the data is stored in a single table named
-    encounter_table
-    
-The number of records and the names of the fields are the same as listed above.

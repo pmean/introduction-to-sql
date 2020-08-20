@@ -15,7 +15,7 @@ This program reads a CSV file and loads into a table with the same name in the m
 suppressMessages(suppressWarnings(library(sqldf)))
 ```
 
-```{r}
+```{r write-sqlite}
 file_name <- "crawling"
 csv_name <- paste0(file_name, ".csv")
 sqlite_name <- "melange.SQLite"
@@ -30,5 +30,14 @@ dbWriteTable(
   overwrite=TRUE, 
   row.names=FALSE, 
   header=TRUE)
+dbDisconnect(conn=db)
+```
+
+Check that everything works.
+
+```{r check}
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+dbListTables(db)
+dbGetQuery(conn=db, "select * from crawling")
 dbDisconnect(conn=db)
 ```
