@@ -2,6 +2,15 @@ Titanic data dictionary
 
 This file has 1,313 rows and 5 variables. It is a passenger list from a cruise ship, the Titanic, that struck an iceberg and sunk in 1912, killing many of the people on board. For each passenger, there is information about their demographics, the passenger class, and whether they survived or not.
 
+If you are using Oracle, you need to specify
+    schema=melange
+
+If you are using SQLite, you need to download the file
+   melange.SQLite
+
+All of the data is in a single table named
+   titanic
+   
 Name, Name of the passenger, last name listed first
 PClass, 1, 2, or 3 for first, second, and third class.
 Age, Age of the passenger in years. The code NA is used for unknown ages
@@ -13,11 +22,4 @@ The actual copyright for this dataset is unclear. It appears in multiple places 
 You should not need to use this, but we have a backup of this data in a comma separated value file named
     titanic.csv
     
-This database is not available on Oracle. You won't need this for the homework, but if you want to work with the database in Oracle, just let us know.
-
-If you are using SQLite, you need to download the file
-   titanic_db.SQLite
-
-All of the data is in a single table named
-   titanic_table
    

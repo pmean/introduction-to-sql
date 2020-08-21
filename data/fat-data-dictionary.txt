@@ -18,6 +18,16 @@ You can find a description of this dataset at
 and the data itself is at
     http://www.amstat.org/publications/jse/datasets/fat.dat.txt
 
+You should not need to use this, but we have a backup of 
+this data in a comma separated value file named
+    fat.csv
+    
+If you are using Oracle, you need to specify
+    schema=melange
+
+If you are using SQLite, you need to download the file
+   melange.SQLite
+
 All of the data is stored in a single table named
     fat
     
@@ -44,13 +54,4 @@ forearm, circumference (cm)
 wrist,  circumference (cm)
 
 You are free to use this data for non-commercial purposes.
-
-You should not need to use this, but we have a backup of this data in a comma separated value file named
-    fat.csv
-    
-If you are using Oracle, you need to specify
-    schema=melange
-
-If you are using SQLite, you need to download the file
-   melange.SQLite
 

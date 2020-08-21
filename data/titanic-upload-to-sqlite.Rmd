@@ -1,0 +1,43 @@
+---
+title: "Titanic upload to SQLite"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-08-20 and last modified on `r Sys.Date()`.
+
+This program reads a CSV file and loads into a table with the same name in the melange SQLite database.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+```{r write-sqlite}
+file_name <- "titanic"
+csv_name <- paste0(file_name, ".csv")
+sqlite_name <- "melange.SQLite"
+table_name <- file_name
+
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+rawdata <- read.csv(csv_name)
+dbWriteTable(
+  conn=db, 
+  name=table_name, 
+  value=rawdata,
+  overwrite=TRUE, 
+  row.names=FALSE, 
+  header=TRUE)
+dbDisconnect(conn=db)
+```
+
+Check that everything works.
+
+```{r check}
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+dbListTables(db)
+dbGetQuery(conn=db, "select * from titanic")
+dbDisconnect(conn=db)
+```
