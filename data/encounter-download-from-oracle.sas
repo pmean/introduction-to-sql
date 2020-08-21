@@ -1,4 +1,4 @@
-* encounter-download.sas
+* encounter-download-from-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-06;
 
@@ -24,7 +24,7 @@ quit;
 proc export
     data=table_data
     dbms=csv
-    outfile="q:/introduction-to-sql/data/&table_name..csv"
+    outfile="q:/introduction-to-sql/data/&table_name._oracle.csv"
   replace;
 run;
 

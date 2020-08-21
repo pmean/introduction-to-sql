@@ -4,6 +4,8 @@
 
 * Download the patient_type table from Oracle and create a csv file.;
 
+%let table_name=patient_type;
+
 %include 'q:/sql files/super-secret.sas';
 libname
   or_link
@@ -14,15 +16,15 @@ libname
   schema='ehr';
 
 proc sql;
-  create table patient_type as
+  create table table_data as
     select *
-  from or_link.patient_type;
+  from or_link.&table_name;
 quit;
 
 proc export
-    data=patient_type
+    data=table_data
     dbms=csv
-    outfile="q:/introduction-to-sql/data/patient_type.csv"
+    outfile="q:/introduction-to-sql/data/&table_name._oracle.csv"
   replace;
 run;
 
