@@ -1,0 +1,57 @@
+---
+title: "Crawling upload to SQLite"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-07-21 and last modified on `r Sys.Date()`.
+
+This program reads a CSV file and loads into a table with the same name in the melange SQLite database.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+```{r write-sqlite}
+file_names <- c(
+  "acupuncture_baseline_results",
+  "acupuncture_demographics",
+  "acupuncture_group_labels",
+  "acupuncture_migraine_labels",
+  "acupuncture_one_year_results",
+  "acupuncture_sex_labels",
+  "acupuncture_three_month_results")
+sqlite_name <- "melange.SQLite"
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+for (file_name in file_names) {  
+  csv_name <- paste0(file_name, ".csv")
+  table_name <- file_name
+  rawdata <- read.csv(csv_name)
+  dbWriteTable(
+    conn=db, 
+    name=table_name, 
+    value=rawdata,
+    overwrite=TRUE, 
+    row.names=FALSE, 
+    header=TRUE)
+}
+dbDisconnect(conn=db)
+```
+
+Check that everything works.
+
+```{r check}
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+dbListTables(db)
+dbGetQuery(conn=db, "select * from acupuncture_baseline_results")
+dbGetQuery(conn=db, "select * from acupuncture_demographics")
+dbGetQuery(conn=db, "select * from acupuncture_group_labels")
+dbGetQuery(conn=db, "select * from acupuncture_migraine_labels")
+dbGetQuery(conn=db, "select * from acupuncture_one_year_results")
+dbGetQuery(conn=db, "select * from acupuncture_sex_labels")
+dbGetQuery(conn=db, "select * from acupuncture_three_month_results")
+dbDisconnect(conn=db)
+```
