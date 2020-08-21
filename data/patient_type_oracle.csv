@@ -1,0 +1,13 @@
+PAT_TYPE_ID,PAT_TYPE_DESC
+110,Unknown / Invalid
+79,Community
+84,Emergency
+89,Laboratory
+92,Non-Patient
+87,Inpatient
+97,Other Specialty
+142,Not Mapped
+78,Clinic
+104,Recurring
+98,Outpatient
+93,Observation
