@@ -1,0 +1,70 @@
+---
+title: "Overview of Module 3: Relational Databases and the SQL programming language"
+author: "Suman Sahil, Steve Simon"
+output:
+  html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-12-16 and last modified on `r Sys.Date()`.
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+git <- "https://github.com/pmean/introduction-to-sql/blob/master/"
+pan <- ""
+```
+
+### Objectives
+
++ In this module, you will learn how to:
+  + Define a relational database
+  + Use basic database terminology: table, record, field
+  + Review the history of the SQL language
+  
+### Readings
+
+[A Face Is Exposed for AOL Searcher No. 4417749](https://www.nytimes.com/2006/08/09/technology/09aol.html)
+
+Relational database: a practical foundation for productivity. Available on the Canvas website.
+
+### Videos and handouts
+
++ Video03a. Introduction to Structured Query Lanaguage (7 minutes)
+  + Available in [Panopto format](https://umkc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=01e81458-a1f2-4851-bfa8-aaa70134a584)
+  + Slides, available in [Powerpoint format](`r git`results/select.pptx)
+  
+
+### Discussion03a: One minute feedback
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Review the videos in this module and briefly answer the following questions
+
++ What was the most important thing that you learned?
++ What concept(s) do you still find confusing?
++ What would you like to learn next?
+
+Please keep your answers brief. You are welcome to say something generic like "I found nothing confusing" or "I found everything confusing" or "I agree with the previous comment."
+
+### Discuss03b. Review this week's readings
+
+Graded: 3 points, one point deduction if submitted late.
+
+Review the reading provide in this module and provide a brief summary (3 or 4 sentences). Was there anything in this reading that surprised you.
+
+### Quiz03a. Introduction to Structured Query Language
+  
+Graded: 3 points, one point deduction if submitted late.
+
+Please create a single PDF file that includes both our questions and your answers to the following.
+
+1. There are several important benefits of a relational database. Name one of them.
+
+2. What company developed SQL in the early 1970s?
+
+3. What is a key?

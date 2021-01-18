@@ -1,0 +1,262 @@
+> enc_from_668 <- dbGetQuery(conn=db,"select * from encounter where hosp_id=668")
+> enc_from_668
+     ENC_ID HOSP_ID    PAT_ID PAT_TYPE_ID PAY_ID AGE        ADMISSION_DT        DISCHARGE_DT WEIGHT
+1 505015443     668 322907986          98     17  43 2015-10-27 11:09:00 2015-10-27 23:59:00     82
+2 505015443     668 322907986          98     17  43 2015-10-27 11:09:00 2015-10-27 23:59:00     82
+> enc_from_946 <- dbGetQuery(conn=db,"select * from encounter where hosp_id=946")
+> enc_from_946
+     ENC_ID HOSP_ID    PAT_ID PAT_TYPE_ID PAY_ID AGE        ADMISSION_DT        DISCHARGE_DT WEIGHT
+1 722232783     946 694052848          78      6  74 2016-08-31 14:34:00 2016-08-31 23:59:00     95
+2 726891080     946 689322872          78     11  27 2016-06-24 16:30:00 2016-06-24 23:59:00     82
+> enc_from_union <- dbGetQuery(conn=db,"select * from encounter where hosp_id=668 union select * from encounter where hosp_id=946")
+> enc_from_union
+     ENC_ID HOSP_ID    PAT_ID PAT_TYPE_ID PAY_ID AGE        ADMISSION_DT        DISCHARGE_DT WEIGHT
+1 505015443     668 322907986          98     17  43 2015-10-27 11:09:00 2015-10-27 23:59:00     82
+2 722232783     946 694052848          78      6  74 2016-08-31 14:34:00 2016-08-31 23:59:00     95
+3 726891080     946 689322872          78     11  27 2016-06-24 16:30:00 2016-06-24 23:59:00     82
+> enc_from_union_all <- dbGetQuery(conn=db,"select * from encounter where hosp_id=668 union all select * from encounter where hosp_id=946")
+> enc_from_union_all
+     ENC_ID HOSP_ID    PAT_ID PAT_TYPE_ID PAY_ID AGE        ADMISSION_DT        DISCHARGE_DT WEIGHT
+1 505015443     668 322907986          98     17  43 2015-10-27 11:09:00 2015-10-27 23:59:00     82
+2 505015443     668 322907986          98     17  43 2015-10-27 11:09:00 2015-10-27 23:59:00     82
+3 722232783     946 694052848          78      6  74 2016-08-31 14:34:00 2016-08-31 23:59:00     95
+4 726891080     946 689322872          78     11  27 2016-06-24 16:30:00 2016-06-24 23:59:00     82
+> types_of_patients <- dbGetQuery(conn=db,"select * from patient_type")
+> types_of_patients
+   PAT_TYPE_ID     PAT_TYPE_DESC
+1          110 Unknown / Invalid
+2           79         Community
+3           84         Emergency
+4           89        Laboratory
+5           92       Non-Patient
+6           87         Inpatient
+7           97   Other Specialty
+8          142        Not Mapped
+9           78            Clinic
+10         104         Recurring
+11          98        Outpatient
+12          93       Observation
+> inpatients_enc <- dbGetQuery(conn=db,"select age from encounter where pat_type_id=87")
+> inpatients_enc
+  AGE
+1  61
+2  58
+3  58
+4  65
+> outpatients_enc <- dbGetQuery(conn=db,"select age from encounter where pat_type_id=98")
+> outpatients_enc
+   AGE
+1   52
+2   58
+3   43
+4   55
+5   45
+6   29
+7   52
+8   40
+9   47
+10  31
+11  31
+12  20
+13  22
+14  53
+15  79
+16  39
+17  27
+18  79
+19  52
+20  53
+21  37
+22  57
+23  46
+24  57
+25  30
+26  29
+27  31
+28  53
+29  22
+30  44
+31  64
+32  47
+33  59
+34  19
+35  36
+36  35
+37  41
+38  36
+39  36
+40  43
+41  62
+42  84
+43  37
+44  66
+45  29
+46  51
+47  38
+48  55
+49  50
+50  44
+51  47
+52  70
+53  60
+54  72
+55  32
+56  53
+57  52
+58  60
+59  58
+60  35
+61  32
+62  30
+63  59
+64  51
+65  43
+66  60
+67  42
+68  37
+69  35
+70  50
+71  45
+72  64
+73  48
+74  51
+75  50
+76  48
+77  56
+78  43
+> outpatients_enc <- dbGetQuery(conn=db,"select age from encounter where pat_type_id=98 order by age")
+> outpatients_enc
+   AGE
+1   19
+2   20
+3   22
+4   22
+5   27
+6   29
+7   29
+8   29
+9   30
+10  30
+11  31
+12  31
+13  31
+14  32
+15  32
+16  35
+17  35
+18  35
+19  36
+20  36
+21  36
+22  37
+23  37
+24  37
+25  38
+26  39
+27  40
+28  41
+29  42
+30  43
+31  43
+32  43
+33  43
+34  44
+35  44
+36  45
+37  45
+38  46
+39  47
+40  47
+41  47
+42  48
+43  48
+44  50
+45  50
+46  50
+47  51
+48  51
+49  51
+50  52
+51  52
+52  52
+53  52
+54  53
+55  53
+56  53
+57  53
+58  55
+59  55
+60  56
+61  57
+62  57
+63  58
+64  58
+65  59
+66  59
+67  60
+68  60
+69  60
+70  62
+71  64
+72  64
+73  66
+74  70
+75  72
+76  79
+77  79
+78  84
+> intersect_age <- dbGetQuery(conn=db,"select age from encounter where pat_type_id=87 intersect select age from encounter where pat_type_id=98")
+> intersect_age
+  AGE
+1  58
+> intersect_age2 <- dbGetQuery(conn=db,"select age from encounter where pat_type_id in (87,84) intersect select age from encounter where pat_type_id=98")
+> intersect_age2
+   AGE
+1   19
+2   20
+3   22
+4   27
+5   29
+6   30
+7   32
+8   35
+9   36
+10  37
+11  38
+12  39
+13  40
+14  41
+15  42
+16  44
+17  46
+18  47
+19  50
+20  51
+21  55
+22  58
+23  60
+24  64
+25  72
+> minus_age <- dbGetQuery(conn=db,"select age from encounter where pat_type_id=87 minus select age from encounter where pat_type_id=98")
+> minus_age
+  AGE
+1  61
+2  65
+> minus_age2 <- dbGetQuery(conn=db,"select age from encounter where pat_type_id in (87,84) minus select age from encounter where pat_type_id=98")
+> minus_age2
+   AGE
+1   21
+2   23
+3   24
+4   25
+5   26
+6   28
+7   33
+8   34
+9   61
+10  65
+11  69
+12  75
+13  76
+14  80
+> 

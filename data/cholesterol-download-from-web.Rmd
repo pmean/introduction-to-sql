@@ -1,0 +1,30 @@
+---
+title: "Download cholesterol data from the web"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This program was written on 2020-09-05 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+```{r download}
+csv_name <- "../data/cholesterol.csv"
+"http://www.statsci.org/data/general/cholestg.txt" %>%
+  readLines  %>%
+  str_subset("NA", negate=TRUE) %>%                 # Remove rows with missing data
+  str_replace_all("\t", " ") %>%                    # Convert tabs to blanks
+  str_replace_all("\\s+", ",") %>%                  # Convert multiple blanks to commas
+  str_replace(",1,", ",") %>%                       # Remove group column
+  str_replace_all(",group,", ",") -> raw_data       # Remove group column name
+writeLines(raw_data, csv_name)
+cat(raw_data, sep="\n")
+```

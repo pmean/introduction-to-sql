@@ -1,0 +1,51 @@
+---
+title: "Unmatched codes upload to SQLite"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-09-07 and last modified on `r Sys.Date()`.
+
+This program reads a CSV file and loads into a table with the same name in the melange SQLite database.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+```{r write-sqlite}
+file_names <- c(
+  "unmatched-codes1",
+  "unmatched-codes2")
+table_names <- c(
+  "results",
+  "sex_labels"
+)
+sqlite_name <- "unmatched-codes.SQLite"
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+for (i in 1:2) {  
+  csv_name <- paste0(file_names[i], ".csv")
+  table_name <- table_names[i]
+  rawdata <- read.csv(csv_name)
+  dbWriteTable(
+    conn=db, 
+    name=table_name, 
+    value=rawdata,
+    overwrite=TRUE, 
+    row.names=FALSE, 
+    header=TRUE)
+}
+dbDisconnect(conn=db)
+```
+
+Check that everything works.
+
+```{r check}
+db <- dbConnect(SQLite(), dbname=sqlite_name)
+dbListTables(db)
+dbGetQuery(conn=db, "select * from results")
+dbGetQuery(conn=db, "select * from sex_labels")
+dbDisconnect(conn=db)
+```

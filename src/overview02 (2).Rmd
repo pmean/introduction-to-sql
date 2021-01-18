@@ -1,0 +1,122 @@
+---
+title: "Overview of Module 2: Retrieving data using the SQL SELECT statement"
+author: "Suman Sahil, Steve Simon"
+output:
+  html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-07-05 and last modified on `r Sys.Date()`.
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+git <- "https://github.com/pmean/introduction-to-sql/blob/master/"
+pan <- ""
+```
+
+### Objectives
+
++ In this module, you will learn  how to
+  + Retrieve a limited number of fields
+  + Retrieve distinct values
+  + Change field names
+
+### SQL keywords
+
++ Here are the SQL keywords introduced in this module:
+  + as
+  + from
+  + select
+
+### Data used in "Sorting and Restricting Data"
+
+This page provides a bit more details about the database used in this module. Please note that there might be small inconsistencies between the Oracle version and the SQLite version of the data.
+
++ Airlines
+  + [Data dictionary](`r path`/airlines-data-dictionary.txt)
+  + Oracle: no download needed, use schema=melange
+  + SQLite: download [melange.SQLite](`r path`/melange.SQLite)
+  + There is a backup of this data in [CSV format](`r path`/airlines.csv). You should not need to access this backup.
+
++ Crawling
+  + [Data dictionary](`r path`/crawling-data-dictionary.txt)
+  + Oracle: no download needed, use schema=melange
+  + SQLite: download [melange.SQLite](`r path`/crawling.SQLite)
+  + There is a backup of this data in [CSV format](`r path`/crawling.csv). You should not need to access this backup.
+
++ Hospital
+  + [Data dictionary](`r path`/hospital-data-dictionary.txt)
+  + Oracle: no download needed, use schema=ehr
+  + SQLite: download [melange.SQLite](`r path`/ehr.SQLite)
+  + There is a backup of this data in [CSV format](`r path`/cigarettes.csv). You should not need to access this backup.
+
++ Patient_type
+  + [Data dictionary](`r path`/patient-type-data-dictionary.txt)
+  + Oracle: no download needed, use schema=ehr
+  + SQLite: download [melange.SQLite](`r path`/ehr.SQLite)
+  + There is a backup of this data in [CSV format](`r path`/patient_type.csv). You should not need to access this backup.
+
+### Videos and handouts
+
++ Video02a. Retriveing data using the SQL select statement (15 minutes)
+  + Available in [Panopto format](https://umkc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4b2a0448-a776-46eb-a17f-aaa7010bfcbb)
+  + Slides, available in [Powerpoint format](`r git`results/select.pptx)
+
+```{r}
+path <- "https://github.com/classes-medb/5508/blob/master/data"
+```
+
+### Discussion02a: One minute feedback
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Review the videos in this module and briefly answer the following questions
+
++ What was the most important thing that you learned?
++ What concept(s) do you still find confusing?
++ What would you like to learn next?
+
+Please keep your answers brief. You are welcome to say something generic like "I found nothing confusing" or "I found everything confusing" or "I agree with the previous comment."
+
+### Homework02a: Practice using the crawling database
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Use the database crawling_db. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
+
+1. Read all three fields and all records
+2. Change Temperature to Temperature_F
+3. Put your code and the output in a single PDF file
+
+### Homework02b: Practice using the patient_type database
+
+Graded: 3 points, one point deduction if submitted after deadline
+
+Use patient_type table in EHR Datamart. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything.
+
+1. Read all fields and  all records
+2. Change Pat_type_desc to Patient_Type_Desc
+3. Put your code and the output in a single PDF file
+
+### Quiz02
+
+Graded: 2 points
+
++ What delimiter do you need when selecting more than one field from a table?
+  + one or more blanks
+  + a comma
+  + a semicolon
+  + no delimiters are needed
+
++ What keyword do you use to rename a field?
+  + as
+  + equals
+  + name
+  + rename
+
+Place both the questions 

@@ -1,0 +1,29 @@
+---
+title: "Download lomaprie data from the web"
+author: "Steve Simon"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This program was written on 2020-09-05 and last modified on `r Sys.Date()`.
+
+This program downloads a data file from the web and stores it locally in csv format.
+
+```{r setup}
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(stringr)))
+```
+
+```{r download}
+csv_name <- "../data/lomaprie.csv"
+"http://www.statsci.org/data/general/lomaprie.txt" %>%
+  readLines  %>%
+  str_replace_all("\t", " ") %>%                    # Convert tabs to blanks
+  str_replace_all("\\s+", ",") -> raw_data          # Convert multiple blanks to commas
+id <- c("id", 1:(length(raw_data)-1))
+raw_data <- paste(id, raw_data, sep=",") 
+writeLines(raw_data, csv_name)
+cat(raw_data, sep="\n")
+```

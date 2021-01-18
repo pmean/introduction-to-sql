@@ -1,0 +1,68 @@
+---
+title: "Review of all modules"
+author: "Suman Sahil, Steve Simon"
+output:
+  html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+This file was created on 2020-07-05 and last modified on `r Sys.Date()`.
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+git <- "https://github.com/pmean/introduction-to-sql/blob/master/"
+pan <- ""
+```
+
+This is a brief summary of what you've learned in this class.
+
+### Introduction
+
+There are many databases that use SQL and you saw how to use Oracle SQL from a SAS program, SQLite from an R program, and SQLite from SQLite Studio.
+
+### Retrieving data using the select statement
+
+You learned how to get all fields from a database table (select *), how to get just some of the fields (select field1, field2) and how to rename a fields (select field1 as new_name),
+
+SQL keywords: as, from, select
+
+### Overview of Relational Databases and the SQL programming language
+
+You learned some of the fundamental features of a relational database. A relational database stores information in tables. The rows of a table are records or tuples and the columns of a table are fields or attributes. There is no inherent order in either the records or the fields of a table. Relational databases use a logical structure which separates data tables from the physical storage structure. Relational databases follow certain rules that insure data integrity and consistency. Relational databases will insure that permanent changes occur only if it can insure that all components of the change can be done.
+
+SQL (Structured Query Language) was developed by Boyce and Chamberlin at IBM. It is a declarative language (it describes what is to be done, but not how). It has a free form, meaning that you have a lot of flexibility with respect to spacing and line breaks.
+
+### Sorting and restricting data
+
+You learned how to restrict data using where. For strings, you can search for partial matches using the % symbol as a stand-in for any text.
+
+### Database security
+
+You learned about how information in databases could be compromised and steps that database administrators take to protect themselves. This includes the regularly updating the database software, keeping the database on a different machine than the web server, setting up a firewall, and using parameterized queries.
+
+### Null values 
+
+You can't use a statement like "where field_name=NULL" in SQL, because of the way null values are processed in logical statements. Instead, you have to use "where field_name is NULL".
+
+### Single row functions
+
+### Aggregate functions
+
+### Conversion functions and conditional expressions
+
+### Metadata for databases with more than one table
+
+### Displaying data from more than one table
+
+### Handling mismatches in a join
+
+### Using the set operators
+
+### Using subqueries
+
+### Gathering and spreading operations for longitudinal data

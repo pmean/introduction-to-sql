@@ -1,0 +1,303 @@
+---
+title: "Retrieving data using the SQL SELECT statement"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2017-09-12"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+```{r select.sas}
+program_name <- opts_current$get("label") 
+program_name %>%
+  readLines(warn=FALSE) -> sas_code
+
+sas_code %>% 
+  grep("********* *********", ., fixed=TRUE)               -> comment_lines
+k <- (length(comment_lines)-1) %/% 2
+
+ppt_head <- rep(" ", k)
+ppt_note <- rep(" ", k)
+ppt_code <- rep(" ", k)
+for (i in 1:k) {
+  ppt_head[i] <- paste0("### ", sas_code[comment_lines[2*i-1] + 1])
+  ppt_note[i] <- paste0(sas_code[(comment_lines[2*i-1]+3):(comment_lines[2*i]  -1)], collapse="\n")
+  ppt_code[i] <- paste0(sas_code[(comment_lines[2*i]  +2):(comment_lines[2*i+1]-2)], collapse="\n")
+}
+```
+
+### Working with the airlines dataset
+
++ Database airlines_db
+  + Single table, airlines_table.
+  + Number of passengers bumped from their flights due to overbooking.
+  + For years 2016, 2017
+  + Also rate of bumping per ten thousand passengers.
+    + More details at the [Data Description website](https://dasl.datadescription.com/datafile/airline-bumping-2017).
+    
+<div class="notes">
+
+The first data set is small. So small that you might wonder you would need a database for it. 
+
+The airlines_db database has a single table and that table only has five fields and twelve records. I wanted a database small enough that you could list the entire thing on a single slide.
+
+You can check out the original source, though I did make a few minor modifications.
+
+</div>
+
+### Select an entire table
++ SQL code
+```
+select * 
+  from airlines_table
+```
+
+<div class="notes">
+
+To select an entire table in SQL use the wild card symbol, asterisk. The asterisk is shorthand for "every field in the table." If you are working directly with your database, you do not need any extra code, but in R and SAS there's just a bit more to it.
+
+For most of the lectures, I will not show the extra SAS and R code, but I wanted to illustrate it at least for the very first lecture.
+
+</div>
+
+### Select an entire table in R (1/2)
++ R code
+```{r select-star, echo=TRUE, eval=FALSE}
+library(sqldf)
+db <- dbConnect(SQLite(), 
+  dbname="../../data/airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+ "select * 
+    from airlines_table")
+airlines_data
+dbDisconnect(conn=db)
+```
+
+<div class="notes">
+
+In R, you need a third party extension. There are several that will work. I've had pretty good luck with the sqldf library. There is a generic library dbi and an extension to Oracle called ROracle.
+
+You also need to connect to the database before you can extract any information. use the dbConnect function for this. For a password protected database, you would need extra arguments for the user name and password.
+
+Finally, enclose your SQL code in quotes and pass it to the dbGetQuery function. This function produces a data frame which I have stored in airlines_data.
+
+Always remember to disconnect when you are done. This doesn't have to be right away, but you should disconnect somewhere rather than leaving the connection open when your program is done.
+
+</div>
+
+### Select an entire table in R (2/2)
+
+```{r select-star}
+```
+
+<div class="notes">
+
+Here's what the data frame looks like.
+
+</div>
+
+<!---sas-select-star--->`r j <- 1`
+`r ppt_head[j]` (1/2)
++ SAS code
+```
+`r ppt_code[j]`
+```
+<div class="notes">
+`r ppt_note[j]`
+</div>
+`r ppt_head[j]` (2/2)
+![SAS Output](../../images/select-sas-0`r j`.png)
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+### Selecting a single field
++ SQL code
+```
+select airline
+  from airlines_table
+```
+
+<div class="notes">
+
+To select a single field, list that field's name after the select statement.
+
+</div>
+
+### Selecting a single field in R (1/2)
++ R code
+```{r select-single-field, echo=TRUE, eval=FALSE}
+db <- dbConnect(SQLite(), 
+  dbname="../../data/airlines_db.sqlite")
+airline_names <- dbGetQuery(conn=db,
+ "select Airline
+    from airlines_table")
+airline_names
+```
+
+<div class="notes">
+
+In R, you need to connect again (skip this step if you didn't disconnect earlier). Then call the dbGetQuery function with the SQL code inserted. Keep the connection open for now to save time with the next couple of queries.
+
+</div>
+
+### Selecting a single field in R (2/2)
+```{r select-single-field}
+```
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+<!---sas-select-single-field--->`r j <- j+1`
+`r ppt_head[j]` (1/2)
++ SAS code
+```
+`r ppt_code[j]`
+```
+<div class="notes">
+`r ppt_note[j]`
+</div>
+`r ppt_head[j]` (2/2)
+![SAS Output](../../images/select-sas-0`r j`.png)
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+### Selecting multiple fields
++ SQL code
+```
+select Airline, r2016, r2017
+  from airlines_table
+```
+
+<div class="notes">
+
+To select multiple fields, list them after the select statement separated by commas. Don't leave out the commas. I usually do, and it inevitably leads to a cryptic error message.
+
+</div>
+
+### Selecting multiple fields in R (1/2)
+
+```{r select-multiple-fields, echo=TRUE, eval=FALSE}
+airline_bump_rates <- dbGetQuery(conn=db,
+ "select 
+    Airline, r2016, r2017
+   from airlines_table")
+airline_bump_rates
+```
+
+<div class="notes">
+
+Here's the code in R.
+
+</div>
+
+### Selecting multiple fields in R (2/2)
+
+```{r select-multiple-fields}
+```
+
+<div class="notes">
+
+Here's what the output looks like.
+
+</div>
+
+<!---sas-select-multiple-fields--->`r j <- j+1`
+`r ppt_head[j]` (1/2)
++ SAS code
+```
+`r ppt_code[j]`
+```
+<div class="notes">
+`r ppt_note[j]`
+</div>
+`r ppt_head[j]` (2/2)
+![SAS Output](../../images/select-sas-0`r j`.png)
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+### Changing field names
++ SQL code
+```
+select 
+  Airline, 
+  r2017 as current_rate, 
+  r2016 as previous_rate
+  from airlines_table
+```
+
+<div class="notes">
+
+Use the AS keyword to change the name of a field. Notice where the commas go. This code renames the fields in the output, but the names in the original database remain the same.
+
+</div>
+
+### Changing field names in R (1/2)
+
+```{r as-statement, echo=TRUE, eval=FALSE}
+changed_names <- dbGetQuery(conn=db,
+ "select
+    Airline, 
+    r2017 as current_rate, 
+    r2016 as previous_rate
+    from airlines_table")
+changed_names
+dbDisconnect(conn=db)
+```
+
+<div class="notes">
+
+Here's the R code. Since this is the last query in R, you need to disconnect here.
+
+</div>
+
+### Changing field names in R (2/2)
+
+```{r as-statement}
+```
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+<!---sas-change-field-names--->`r j <- j+1`
+`r ppt_head[j]` (1/2)
++ SAS code
+```
+`r ppt_code[j]`
+```
+<div class="notes">
+`r ppt_note[j]`
+</div>
+`r ppt_head[j]` (2/2)
+![SAS Output](../../images/select-sas-0`r j`.png)
+<div class="notes">
+Here's what the output looks like.
+</div>
+
+### Your homework
+
++ Database crawling_db
+  + Single table, crawling_table.
+    + Birth_month (self-explanatory)
+    + Temperature (Average temperature (F) six months after birth)
+    + avg_crawling_age (in weeks)
+  + More details at the [Data Description website](https://dasl.datadescription.com/datafile/crawling).
+  + Read all three fields and all records
+    + Change Temperature to Temperature_F
+    + Put your code and the output in a single PDF file
+    
+<div class="notes">
+
+The database for your first homework assignment is also very small. It has three fields and twelve records. This data came from a research publication in Infant Behavior and Development. The original data set included 414 infants, but the results were averaged by birth month. The hypothesis is that the colder temperature around the time when infants might start to crawl might adversely influence the age at which the infants started crawling because the bulky clothes needed in cold weather might restrict movement and interfere with their normal development.
+
+You can check out the original source on the data description website.
+
+</div>
+
