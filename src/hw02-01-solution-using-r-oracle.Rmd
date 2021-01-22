@@ -25,7 +25,6 @@ The statistician being honored in this code is [Gertrude Mary Cox](https://en.wi
 
 ```{r}
 library(sqldf)
-# install.packages('RJDBC')
 library(RJDBC)
 
 drv=JDBC("oracle.jdbc.OracleDriver",classPath="C:/oracle/ojdbc6.jar")
