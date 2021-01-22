@@ -1,0 +1,46 @@
+---
+title: "Homework-02-01"
+author: "Steve Simon"
+output:
+  html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+
+
+This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
+
+Note: this solution uses R and Oracle. An alternate solution using SAS and SQLite is also available.
+
+Use patient_type table in EHR Datamart. Refer to the page "Data used in this module" for a description of the data and where you can download it. Oracle users do not need to download anything, but do need to use schema=ehr in their code. Read all the fields and all the records from this table.
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).
+
+
+```{r}
+library(sqldf)
+# install.packages('RJDBC')
+library(RJDBC)
+
+drv=JDBC("oracle.jdbc.OracleDriver",classPath="C:/oracle/ojdbc6.jar")
+
+cox <- dbConnect(
+  drv, 
+  "jdbc:oracle:thin:@//kc-chi-hfprod.kc.umkc.edu:1521/chihfprd.world", 
+  "simons",
+  "Sunday19")
+
+gertrude <- dbGetQuery(conn=cox,
+  "select * 
+   from hospital")
+   
+gertrude
+dbDisconnect(conn=db)
+
+```
