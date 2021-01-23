@@ -1,0 +1,28 @@
+---
+title: "Homework-04-02"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+This file was created on 2021-01-23 and last modified on `r Sys.Date()`.
+
+Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
+
+```{r q2}
+library(sqldf)
+db <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+ampersand_data <- dbGetQuery(conn=db,
+ "select *
+    from cigarettes
+    where brand_name like '%&%'")
+ampersand_data
+dbDisconnect(conn=db)
+```
+
