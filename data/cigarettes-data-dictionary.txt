@@ -9,11 +9,11 @@ All of the data is stored in a single table named
     cigarettes
     
 It has 25 records and 5 fields named
-    brand (Cigarette brand name),
-    tar (mg),
-    nicotine (mg),
-    weight (g),
-    co (carbon monoxide, mg)
+    brand_name,
+    tar_content_mg,
+    nicotine_content_mg,
+    weight_g,
+    carbon monoxide_content_mg
 
 If you are using Oracle, you need to specify in your code 
    schema=melange
