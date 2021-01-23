@@ -30,7 +30,7 @@ pan <- ""
 
 [A Face Is Exposed for AOL Searcher No. 4417749](https://www.nytimes.com/2006/08/09/technology/09aol.html)
 
-Relational database: a practical foundation for productivity. Available on the Canvas website.
+[Relational database: a practical foundation for productivity](https://dl.acm.org/doi/pdf/10.1145/1283920.1283937).
 
 ### Videos and handouts
 
