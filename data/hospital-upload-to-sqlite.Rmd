@@ -23,6 +23,7 @@ table_name <- file_name
 
 db <- dbConnect(SQLite(), dbname=sqlite_name)
 rawdata <- read.csv(csv_name)
+rawdata$BED_SIZE[rawdata$BED_SIZE==""] <- NA
 dbWriteTable(
   conn=db, 
   name=table_name, 
