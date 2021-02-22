@@ -32,7 +32,7 @@ The statistician being honored in this code is [David Blackwell](https://en.wiki
 ```{r david_blackwell1}
 library(sqldf)
 blackwell <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
+  dbname="../data/ehr.sqlite")
 david1 <- dbGetQuery(conn=blackwell,  "
     select
       count(*) as number_missing_ids
@@ -47,7 +47,7 @@ dbDisconnect(conn=blackwell)
 ```{r david_blackwell2}
 library(sqldf)
 blackwell <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
+  dbname="../data/ehr.sqlite")
 david2 <- dbGetQuery(conn=blackwell,  "
     select
       count(*) as number_missing_teaching_ind
@@ -62,7 +62,7 @@ dbDisconnect(conn=blackwell)
 ```{r david_blackwell3}
 library(sqldf)
 blackwell <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
+  dbname="../data/ehr.sqlite")
 david3 <- dbGetQuery(conn=blackwell,  "
     select
       HOSP_ID

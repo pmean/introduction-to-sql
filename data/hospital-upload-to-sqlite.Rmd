@@ -23,6 +23,7 @@ table_name <- file_name
 
 db <- dbConnect(SQLite(), dbname=sqlite_name)
 rawdata <- read.csv(csv_name)
+rawdata$BED_SIZE[rawdata$BED_SIZE==""] <- NA
 dbWriteTable(
   conn=db, 
   name=table_name, 
@@ -39,5 +40,7 @@ Check that everything works.
 db <- dbConnect(SQLite(), dbname=sqlite_name)
 dbListTables(db)
 dbGetQuery(conn=db, "select * from hospital")
+dbGetQuery(conn=db, "select count(*) from hospital where bed_size is null")
+dbGetQuery(conn=db, "select count(*) from hospital where teaching_ind is null")
 dbDisconnect(conn=db)
 ```
