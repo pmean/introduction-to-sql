@@ -1,5 +1,5 @@
 ---
-title: "Homework06a"
+title: "Homework06"
 author: "Steve Simon"
 output:
   pdf_document: default
