@@ -1,0 +1,77 @@
+---
+title: "hw07"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+This file was created on 2021-02-22 and last modified on `r Sys.Date()`.
+
+Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+
+Your homework
+
++ Use the cigarettes table in the melange database. The variable weight_g is recorded to four decimal places. Round all the values to two decimal places and display them.
+
++ Use the hospital table in the ehr database. The variable ACUTE_NONACUTE has the values Acute and Non-Acute. Use the substr function to convert these two values to the first letter (A or N). Print out the first ten values only.
+
++  Use the patient_type table in the ehr database. List all the values of PAT_TYPE_DESC after converting the data to lower case.
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).
+
+```{r john_tukey1}
+library(sqldf)
+
+tukey1 <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+
+john1 <- dbGetQuery(conn=tukey1, "
+    select
+      weight_g, round(weight_g, 2) as rounded_weight
+    from cigarettes
+")
+
+john1
+dbDisconnect(conn=tukey1)
+```
+
+```{r john_tukey2}
+library(sqldf)
+
+tukey2 <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+
+john2 <- dbGetQuery(conn=tukey2, "
+    select
+      substr(ACUTE_NONACUTE, 1, 1) as single_letter_code
+    from hospital
+    limit 10
+")
+
+john2
+dbDisconnect(conn=tukey2)
+```
+
+```{r john_tukey3}
+library(sqldf)
+
+tukey3 <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+
+john3 <- dbGetQuery(conn=tukey3, "
+    select
+      lower(PAT_TYPE_DESC) as description_lower_case
+    from patient_type
+    limit 10
+")
+
+john3
+dbDisconnect(conn=tukey3)
+```
