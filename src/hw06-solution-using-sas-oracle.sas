@@ -1,4 +1,4 @@
-* hw06a.sas
+* hw06.sas
 * written by Steve Simon
 * creation date: 2020-07-06
 
@@ -24,7 +24,7 @@
   The statistician being honored in this code is 
   [David Blackwell](https://en.wikipedia.org/wiki/David_Blackwell).;
 
-ods pdf file="q:/introduction-to-sql/results/hw06a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/hw06-solution-using-sas-oracle-output.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

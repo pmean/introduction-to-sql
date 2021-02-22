@@ -69,7 +69,6 @@ david3 <- dbGetQuery(conn=blackwell,  "
       from hospital
       where BED_SIZE is null
 ")
-
 david3
 dbDisconnect(conn=blackwell)
 ```
