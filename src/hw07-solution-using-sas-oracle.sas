@@ -9,9 +9,9 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
 
-ods pdf file="N:/home/s/simons/introduction-to-sql/results/hw07-solution-using-sas-oracle-output.pdf";
+ods pdf file="//kc.umkc.edu/kc-users/home/s/simons/introduction-to-sql/results/hw07-solution-using-sas-oracle-output.pdf";
 
-%include 'N:/home/s/simons/sql files/super-secret.sas';
+%include '//kc.umkc.edu/kc-users/home/s/simons/sql files/super-secret.sas';
 libname
   tukey1
   oracle
