@@ -8,15 +8,11 @@ There are two major databases, ehr and melange. If you are using Oracle, you do 
 + [ehr.SQLite](https://github.com/pmean/introduction-to-sql/blob/master/data/ehr.SQLite), and
 + [melange.SQLite](https://github.com/pmean/introduction-to-sql/blob/master/data/melange.SQLite)
 
-Here are the tables that you will find in ehr and melange.
+Here are the tables that you will find in ehr and melange. The links will take you to the appropriate data dictionaries.
 
 + ehr
-  + Hospital
-    + Data dictionary
-    + There is a backup of this data in [CSV format](https://github.com/pmean/introduction-to-sql/blob/master/data/hospital.csv). You should not need to access this backup.
-  + Patient_type
-    + Data dictionary
-    + There is a backup of this data in CSV format. You should not need to access this backup.
+  + [Hospital](https://github.com/pmean/introduction-to-sql/blob/master/data/hospital-data-dictionary.md)
+  + [Patient_type](https://github.com/pmean/introduction-to-sql/blob/master/data/patient-type-data-dictionary.md)
 
 + melange
   + Airlines
