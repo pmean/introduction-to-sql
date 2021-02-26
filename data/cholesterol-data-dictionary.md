@@ -1,4 +1,7 @@
-Cholesterol data dictionary
+---
+title: "Cholesterol data dictionary"
+author: "Steve Simon"
+---
 
 This dataset comes from the OzDASL data repository.
 
