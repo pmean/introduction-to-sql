@@ -1,3 +1,8 @@
+---
+title: "Hospital data dictionary"
+author: "Steve Simon"
+---
+
 Hospital data dictionary
 
 This data is a small selection of data from the Health Facts database. There is no private health information, but please do not share this data outside of this class.
