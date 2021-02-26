@@ -8,7 +8,7 @@ author: "Steve Simon"
   + If you are using Oracle, you need to specify
     + schema=ehr
   + If you are using SQLite, you need to download the file
-    + ehr.SQLite
+    + ehr.SQLite from [this page](https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md).
   + All of the data is stored in a single table named
     + hospital
   + It has 16 records and 6 fields named
@@ -18,4 +18,4 @@ author: "Steve Simon"
     + TEACHING_IND
     + RURAL_URBAN
     + ACUTE_NONACUTE
-    
+  + You should not need this, but there is a [backup of the data in CSV format](https://github.com/pmean/introduction-to-sql/blob/master/data/hospital.csv).
