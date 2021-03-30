@@ -1,19 +1,23 @@
 ---
-title: "MEDB 5508, Introduction to SQL, Module05/06, Objectives"
+title: "MEDB 5508, Introduction to SQL, Module03/04, Objectives"
 ---
 
-#### In module05, you will learn how to
+#### In module03, you will learn how to
 
-+ Protect passwords
-+ Prevent SQL Injection attacks 
++ Define a relational database
++ Use basic database terminology: table, record, field
++ Review the history of the SQL language
 
-#### In module06, you will learn how to
+#### In module04, you will learn how to
 
-+ count missing and non-missing values
-+ recognize how missing values influence averages and counts
++ Limit the rows  that are retrieved by a query
++ Sort the rows that are retrieved by a query
++ Select a random sample of records 
 
-#### You will also see the following keywords
+#### You will also see the following SQL keywords
 
-+ avg
-+ count
-+ is NULL/is not NULL
++ limit (SQLite only)
++ monotonic (SAS interface only)
++ order by
++ rownum (Oracle only)
++ where

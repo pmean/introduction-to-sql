@@ -8,7 +8,7 @@ title: "MEDB 5508, Introduction to SQL, Module01/02, Objectives"
 + Retrieve distinct values
 + Change field names
 
-#### You will also see the following SQL keywords
+#### You will see the following SQL keywords
 
 + as
 + from
