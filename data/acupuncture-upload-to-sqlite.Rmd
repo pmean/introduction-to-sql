@@ -1,6 +1,7 @@
 ---
 title: "Crawling upload to SQLite"
-author: "Steve Simon"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 output: html_document
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding,

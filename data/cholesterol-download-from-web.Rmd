@@ -1,13 +1,14 @@
 ---
 title: "Download cholesterol data from the web"
-author: "Steve Simon"
+authors: Suman Sahil and Steve Simon
+date: Created 2020-09-05
 output: html_document
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding,
   output_dir = "../results", output_format = "all") })  
 ---
 
-This program was written on 2020-09-05 and last modified on `r Sys.Date()`.
+This program was last modified on `r Sys.Date()`.
 
 This program downloads a data file from the web and stores it locally in csv format.
 

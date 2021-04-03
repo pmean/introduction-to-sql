@@ -1,6 +1,7 @@
 ---
 title: "Cholesterol data dictionary"
-author: "Steve Simon"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 ---
 
 This dataset comes from the OzDASL data repository.

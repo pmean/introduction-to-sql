@@ -1,13 +1,14 @@
 ---
 title: "Cholesterol upload to SQLite"
-author: "Steve Simon"
+authors: Suman Sahil and Steve Simon
+date: Created 2020-09-05
 output: html_document
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding,
   output_dir = "../results", output_format = "all") })  
 ---
 
-This file was created on 2020-09-05 and last modified on `r Sys.Date()`.
+This file was last modified on `r Sys.Date()`.
 
 This program reads a CSV file and loads into a table with the same name in the melange SQLite database.
 
