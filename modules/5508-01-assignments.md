@@ -1,5 +1,7 @@
 ---
 title: "MEDB 5508, Introduction to SQL, Module02, Assignments"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 ---
 
 #### HW02, Practice using the SELECT statement

@@ -1,5 +1,7 @@
 ---
 title: "MEDB 5508, Introduction to SQL, Module03, Assignments"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 ---
 
 #### Quiz03
