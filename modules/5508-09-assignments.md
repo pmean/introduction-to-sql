@@ -1,5 +1,7 @@
 ---
 title: "MEDB 5508, Introduction to SQL, Module09, Assignments"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 ---
 
 #### HW09, Practice with conversion functions and conditional expressions

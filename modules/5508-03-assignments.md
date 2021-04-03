@@ -40,4 +40,12 @@ Graded: 3 points, one point deduction if submitted after deadline
 
 Note: You can find data dictionaries for all tables used in this class in [Markdown format][git1].
 
+### Quiz04
+
+1. The SQL statement, where name like '%Simon', will look for names that ...
+
+2. To arrange the records of a database in a particular order, you need to use ...
+
+3. To arrange the records in reverse order, you need to use ...
+
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md

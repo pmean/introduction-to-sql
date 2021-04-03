@@ -40,8 +40,8 @@ Here are the tables that you will find in ehr and melange. The links will take y
 [cho]: https://github.com/pmean/introduction-to-sql/blob/master/data/cholesterol-data-dictionary.md
 [cig]: https://github.com/pmean/introduction-to-sql/blob/master/data/cigarettes-data-dictionary.txt
 [cra]: https://github.com/pmean/introduction-to-sql/blob/master/data/crawling-data-dictionary.md
-[ead]: https://github.com/pmean/introduction-to-sql/blob/master/data/eav-data-dictionary.txt
+[ead]: https://github.com/pmean/introduction-to-sql/blob/master/data/eav-data-dictionary.md
 [ftd]: https://github.com/pmean/introduction-to-sql/blob/master/data/fat-data-dictionary.txt
-[lom]: https://github.com/pmean/introduction-to-sql/blob/master/data/lomaprie-data-dictionary.txt
+[lom]: https://github.com/pmean/introduction-to-sql/blob/master/data/lomaprie-data-dictionary.md
 [lon]: https://github.com/pmean/introduction-to-sql/blob/master/data/longitudinal-example-data-dictionary.txt
 [ttc]: https://github.com/pmean/introduction-to-sql/blob/master/data/titanic-data-dictionary.txt
