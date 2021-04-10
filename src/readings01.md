@@ -5,13 +5,17 @@ date: "Created 2021-04-10"
 output: html_document
 ---
 
+Graded: 3 points, one point deduction if late.
+
+Summarize one of the following readings. What was the most interesting point, what surprised you about the article, or what did you learn from this article. Keep your summary short (one to two paragraphs). Please check the discussion board before you submit and do not comment on an article that another student has already commented on.
+
 Michael Barbaro, Tom Zeller Jr. A Face Is Exposed for AOL Searcher No. 4417749. The New York Times 2006-08-09. Available in [html format][barb].
 
 Brian Barrett. How a 'NULL' License Plate Landed One Hacker in Ticket Hell. Wired 2019-08.13. Available in [html format][barr]
 
 Elisa Bertino, Sushil Jajodia, PierangelaSamarati. Database security: Research and practice. Available in [pdf format][bert]
 
-E.F. Codd. [Relational database: a practical foundation for productivity. Communications of the ACM 1982-02-01. Available in [pdf format][codd].
+E.F. Codd. Relational database: a practical foundation for productivity. Communications of the ACM 1982-02-01. Available in [pdf format][codd].
 
 Charles Duhigg. How companies learn your secrets. The New York Times 2012-02-16. Available in [html format][duhi]
 
