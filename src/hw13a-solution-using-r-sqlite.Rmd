@@ -18,18 +18,16 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 
-Use the longitudinal_example_db. It is available as on the Canvas website or you can find it on the Insights platform.
-
-1. Do an inner join of baseline_table and one_year_table. Display the first ten rows of data only.
+1. Do an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
 
 ```{r hirotugu_akaike1}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
-  dbname="../data/longitudinal_example_db.sqlite")
+  dbname="../data/melange.sqlite")
 hirotugu1 <- dbGetQuery(conn=akaike,  "
     select b.id, b.pk1, o.pk5
-      from baseline_table as b
-      join one_year_table as o
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
       on b.id=o.id
     limit 10
 ")
@@ -38,27 +36,46 @@ hirotugu1
 dbDisconnect(conn=akaike)
 ```
 
-2. Explain why id 104 included in this inner join, but not the inner join shown in the video?
+2. Do a left join of acupuncture_baseline_results and acupuncture_one_year_results and display the fields id, pk1, and pk5. Display the first ten rows of data only. Explain why these results are different from the results of the previous question.
 
-3. Count the number of records after an inner join of baseline_table and year_one_table. Compare this to the number of records in the year_one_table.
+```{r hirotugu_akaike2}
+library(sqldf)
+akaike <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+hirotugu2 <- dbGetQuery(conn=akaike,  "
+    select b.id, b.pk1, o.pk5
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
+    limit 10
+")
+
+hirotugu2
+dbDisconnect(conn=akaike)
+```
+
+There are several patients in the baseline table that are not in the one year table. These patients are excluded from the inner join, but not the left join.
+
+
+3. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results.
 
 ```{r hirotugu_akaike3}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
-  dbname="../data/longitudinal_example_db.sqlite")
+  dbname="../data/melange.sqlite")
 hirotugu3a <- dbGetQuery(conn=akaike,  "
-    select count(b.id) as n
-      from baseline_table as b
-      join one_year_table as o
+    select count(*) as n
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
       on b.id=o.id
 ")
-
 hirotugu3a
 hirotugu3b <- dbGetQuery(conn=akaike,  "
-    select count(o.id) as n
-      from one_year_table as o
+    select count(*) as n
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
 ")
-
 hirotugu3b
 dbDisconnect(conn=akaike)
 ```
@@ -68,14 +85,14 @@ dbDisconnect(conn=akaike)
 ```{r hirotugu_akaike4}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
-  dbname="../data/longitudinal_example_db.sqlite")
+  dbname="../data/melange.sqlite")
 hirotugu4 <- dbGetQuery(conn=akaike,  "
     select 
       avg(b.pk1) as pk1_avg,
       avg(o.pk5) as pk5_avg,
       avg(b.pk1)-avg(o.pk5) as change_score
-      from baseline_table as b
-      join one_year_table as o
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
       on b.id=o.id
 ")
 
@@ -83,43 +100,42 @@ hirotugu4
 dbDisconnect(conn=akaike)
 ```
 
-5. Find and list the two labels in migraine_table that do not correspond to any codes in demog_table.
+5. Display all the pk1 values for patients 64 and older.
 
 ```{r hirotugu_akaike5}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
-  dbname="../data/longitudinal_example_db.sqlite")
+  dbname="../data/melange.sqlite")
 hirotugu5 <- dbGetQuery(conn=akaike,  "
     select 
-      m.migraine_code, m.migraine_label
-      from migraine_table as m
-      left join demog_table as d
-      on m.migraine_code=d.migraine
-      where d.migraine is null
+      d.id, d.age, b.pk1
+      from acupuncture_demographics as d
+      inner join acupuncture_baseline_results as b
+      on d.id=b.id
+      where d.age >= 64
 ")
 
 hirotugu5
 dbDisconnect(conn=akaike)
 ```
 
-6. Show that there are no unmatched labels or unmatched codes for group_table.
+6. There are 100 patients with baseline values but no values at one year. Print the ids of the first ten of these patients.
 
 ```{r hirotugu_akaike6}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
-  dbname="../data/longitudinal_example_db.sqlite")
+  dbname="../data/melange.sqlite")
 hirotugu6 <- dbGetQuery(conn=akaike,  "
     select 
-      count(g.group_code) as n
-      from group_table as g
-      left join demog_table as d
-      on g.group_code=d.grp
-      where d.grp is null
+      b.id as unmatched_ids
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
+    where o.id is null
+    limit 10
 ")
 
 hirotugu6
 dbDisconnect(conn=akaike)
 ```
-
-
 

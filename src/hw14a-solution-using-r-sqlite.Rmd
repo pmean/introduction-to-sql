@@ -1,0 +1,78 @@
+---
+title: "Homework14a"
+author: "Suman Sahil and Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+This file was created on 2020-07-24 and last modified on `r Sys.Date()`.
+
+Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Helen Walker](https://en.wikipedia.org/wiki/Helen_M._Walker).
+
+1. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+
+```{r helen_walker1}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen1 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    intersect
+    select id
+      from acupuncture_one_year_results
+    limit 10
+")
+
+helen1
+dbDisconnect(conn=walker)
+```
+
+2. Compute the union of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+
+```{r helen_walker2}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen2 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    union
+    select id
+      from acupuncture_one_year_results
+    order by id
+    limit 10
+")
+
+helen2
+dbDisconnect(conn=walker)
+```
+
+3. In a previous module, you were asked to list the first ten ids that were in acupuncture_baseline_resuts but not in acupuncture_one_year_results. Use the set operator "minus" to achieve the same goal. Note: for SQLite, use "except" instead of "minus".
+
+```{r helen_walker3}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen3 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    except
+    select id
+      from acupuncture_one_year_results
+    limit 10
+")
+
+helen3
+dbDisconnect(conn=walker)
+```
+
