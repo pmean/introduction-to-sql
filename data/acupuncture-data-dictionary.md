@@ -1,6 +1,7 @@
 ---
 title: "Acupuncture data dictionary"
-author: "Steve Simon"
+authors: Suman Sahil and Steve Simon
+date: Created 2021-04-03
 ---
 
 + Acupuncture data dictionary
