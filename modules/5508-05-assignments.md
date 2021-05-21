@@ -22,15 +22,15 @@ Review the videos in this module before taking the quiz. Create a PDF file that 
 
 Graded: 3 points, one point deduction if submitted after deadline
 
-2021-02-22. Special note for SQLite users. If you downloaded the file ehr.SQLite (Links to an external site.) earlier than this date, please download it again.
+<!---Double check, as this hw had issues last time--->
 
 I am consolidating documentation for all databases and data tables [here](https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md).
 
-Verify that the hospital id code (HOSP_ID) has no missing values.
+Q1. Verify that the hospital id code (HOSP_ID) has no missing values.
 
-There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND).
+Q2. There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND).
 
-There is only one hospital where the number of beds (BED_SIZE) is unknown. Find the id of that hospital.
+Q3. There is only one hospital where the number of beds (BED_SIZE) is unknown. Find the id of that hospital.
 
 Combine your results into a single PDF file and submit it.
 

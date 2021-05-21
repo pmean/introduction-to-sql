@@ -29,19 +29,19 @@ We will work with the database fat.sqlite. The name of the database is the same 
 ### Selecting a limited number of records (1/2)
 + SQL code (SQLite)
 ```
-select * 
-  from fat
+select * from fat
   limit 5
 ```
 + SQL code (Oracle)
 ```
-select * 
-  from fat
+select * from fat
   where rownum <= 5
 ```
-+ Other databases
++ SAS interface to any SQL database
 ```
-???
+select * from fat
+  where monotonic() <= 5
+
 ```
 
 <div class="notes">
@@ -49,6 +49,10 @@ select *
 Selecting a limited number of records is one area where different databases use different approaches. SQLite uses a limit statement. Oracle uses a rownum variable in the where statement. Other databases use a keyword like top or first.
 
 This is just one example of where the standards committees have not caught up with the database designers.
+
+One oddity is that the SAS interface to any SQL database will override the approach that you might use with a SAS approach. SAS defines the function "monotonic" to equal the row number of a query. So to limit the number of records if you are using SAS and PROC SQL, and the statement
+
+where monotonic() <= 5
 
 </div>
 
