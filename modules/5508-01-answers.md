@@ -23,8 +23,8 @@ Here are the answers to the homework assignment. Please note that you are requir
   + click [here][m01q02c] for the code and output combined.
 
 [m01q01a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m01-q01-simon-sas-oracle.sas
-[m01q01b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q01-simon-sas-oracle-output.pdf
-[m01q01c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q01-simon-r-sqlite.pdf
 [m01q02a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m01-q02-simon-sas-oracle.sas
-[m01q02b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q02-simon-sas-oracle-output.pdf
+[m01q01b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q01-simon-sas-oracle.pdf
+[m01q02b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q02-simon-sas-oracle.pdf
+[m01q01c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q01-simon-r-sqlite.pdf
 [m01q02c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m01-q02-simon-r-sqlite.pdf
