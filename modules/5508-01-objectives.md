@@ -4,7 +4,7 @@ authors: Suman Sahil and Steve Simon
 date: Created 2021-04-03
 ---
 
-Your first assignment is unofficial, but you need to decide how you will run SQL in this class.
+Your first task is unofficial, but you need to decide how you will run SQL in this class.
 
 There are at least three methods to access SQL, and they all have been tested by us.
 
