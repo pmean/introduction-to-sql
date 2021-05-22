@@ -1,5 +1,5 @@
 ---
-title: "MEDB 5508, Introduction to SQL, Module01, Answers"
+title: "MEDB 5508, Introduction to SQL, Module02, Answers"
 authors: Suman Sahil and Steve Simon
 date: Created 2021-05-21
 ---
