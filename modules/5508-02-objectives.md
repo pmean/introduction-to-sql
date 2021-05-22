@@ -1,15 +1,12 @@
 ---
-title: "MEDB 5508, Introduction to SQL, Module03/04, Objectives"
+title: "MEDB 5508, Introduction to SQL, Module02, Objectives"
 ---
 
-#### In module03, you will learn how to
+#### In this module, you will learn how to
 
 + Define a relational database
 + Use basic database terminology: table, record, field
 + Review the history of the SQL language
-
-#### In module04, you will learn how to
-
 + Limit the rows  that are retrieved by a query
 + Sort the rows that are retrieved by a query
 + Select a random sample of records 
