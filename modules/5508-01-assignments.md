@@ -26,11 +26,9 @@ Convert your code and results for both queries into PDF files and combine them, 
 
 Please review the videos in this module before taking this quiz.
 
-1. What symbol is used with the select keyword to select all fields in a table?
-
-2. What symbol is used to separate field names in a query that selects more than one field?
-
-3. What keyword is used to change the name of a field?
++ What symbol is used with the select keyword to select all fields in a table?
++ What symbol is used to separate field names in a query that selects more than one field?
++ What keyword is used to change the name of a field?
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
 

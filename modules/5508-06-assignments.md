@@ -29,6 +29,14 @@ Put your code and the output in a single PDF file.
 
 #### Quiz06
 
-What 
+Please review the videos in this module before taking this quiz.
 
-[git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
+All questions are True/False.
+
++ A left outer join, right outer join, or full outer join can sometimes produce null values for records that do not match.
++ If table1 has 40 thousand records, and table2 has 2 thousand records, there will be 80 million records in the Cartersian product.
++ A self join occurs when the foreign key in a table is linked to the primary key in the same table.
++ Aliases are not really needed unless you are joining three or more tables in a single SQL query.
++ You can use a foreign key as a primary key.
++ A foreign key can reference a  unique key in the same table or another table.
++ A primary key can accept multiple NULL values.
