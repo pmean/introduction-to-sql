@@ -4,6 +4,12 @@ authors: Suman Sahil and Steve Simon
 date: Created 2021-04-03
 ---
 
+#### Discuss01
+
+Graded: 3 points, 1 point deduction if late.
+
+Please briefly introduce yourself. Tell us a bit about yourself professionally, and optionally tell us one thing that is not related to your work or your career. Also optional, but greatly appreciated, would be a picture of yourself.
+
 #### HW01, Practice using the SELECT statement
 
 Graded: 3 point, one point deduction if submitted after the due date.
@@ -18,11 +24,13 @@ Convert your code and results for both queries into PDF files and combine them, 
 
 #### Quiz01
 
-What symbol is used with the select keyword to select all fields in a table?
+Please review the videos in this module before taking this quiz.
 
-What symbol is used to separate field names in a query that selects more than one field?
+1. What symbol is used with the select keyword to select all fields in a table?
 
-What keyword is used to change the name of a field?
+2. What symbol is used to separate field names in a query that selects more than one field?
+
+3. What keyword is used to change the name of a field?
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
 

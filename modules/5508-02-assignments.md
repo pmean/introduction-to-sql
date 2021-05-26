@@ -19,15 +19,17 @@ Please keep your answers brief. You are welcome to say something generic like "I
 
 Graded: 3 points, one point deduction if submitted after deadline
 
-1. Use table patient_type table in the EHR data mart. Order all the fields by Pat_type_desc and print just the first four rows from the table. Please note that if you are using SAS to access a SQL database, you need to use the keyword monotonic.
+M02-Q01. Use table patient_type table in the EHR data mart. Order all the fields by Pat_type_desc and print just the first four rows from the table. Please note that if you are using SAS to access a SQL database, you need to use the keyword monotonic.
 
-2. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
+M02-Q02. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
 
-3. Put all your code and output in a single PDF file.
+Put all your code and output in a single PDF file.
 
 Note: You can find data dictionaries for all tables used in this class in [Markdown format][git1].
 
 ### Quiz02
+
+Please review the videos in this module before taking this quiz.
 
 1. The SQL statement, where name like '%Simon', will look for names that ...
 

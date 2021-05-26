@@ -1,5 +1,5 @@
 ---
-title: "MEDB 5508, Introduction to SQL, Module09/10, Objectives"
+title: "MEDB 5508, Introduction to SQL, Module05, Objectives"
 ---
 
 #### In module09, you will learn how to

@@ -22,7 +22,7 @@ Put your code and output in a single pdf file
 
 #### Quiz04
 
-Graded: 3 points, one point deduction if submitted late.
+Please review the videos in this module before taking this quiz.
 
 The where statement and the having statement allow you to filter your data. In which order are these two statements processed ...
 
