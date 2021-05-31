@@ -1,11 +1,10 @@
-* m03-q01-simon-sas-oracle.sas
+* m03-q03-simon-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-06
 
-* Purpose: This program provides the answers to homework in m02-q01
-* of MEDB 5508, Introduction to SQL, where you were asked to read 
-* in data from the patient_type table and print the first four rows
-* orderd by Pat_type_desc. 
+* Purpose: This program provides the answers to homework in m03-q03
+* of MEDB 5508, Introduction to SQL, where you were asked to find 
+* the hospital with a missing bed size.
 
 * Permissions: This program is placed in the public domain. You can
 * use it in any way you see fit without asking for permission.
@@ -17,21 +16,8 @@
 * famous statisticians.   The statistician being honored in this code is 
 * [David Blackwell](https://en.wikipedia.org/wiki/David_Blackwell).
 
-* M03-Q01. Verify that the hospital id code (HOSP_ID) has no missing values.
-
-  2. There are only two fields in the database that have null values.
-  Get a count of the number of missing values for the indicator for
-  teaching hospital (TEACHING_IND).
-  3. There is only one hospital where the number of beds (BED_SIZE) is
-  unknown. Find the id of that hospital.
-  4. Combine your results into a single PDF file and submit it.
-
-  Note: Some of the names used in this code are arbitrary and you can 
-  choose whatever names you want. To emphasize which names can be 
-  modified at your discretion, I am using names of famous 
-  statisticians.
-
-;
+* M03-Q03. There is only one hospital where the number of beds (BED_SIZE)
+* is unknown. Find the id of that hospital.;
 
 ods pdf file="q:/introduction-to-sql/results/hw06-solution-using-sas-oracle-output.pdf";
 

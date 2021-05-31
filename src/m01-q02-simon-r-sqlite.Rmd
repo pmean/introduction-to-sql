@@ -10,9 +10,13 @@ knit: (function(inputFile, encoding) {
     output_format = "all") })  
 ---
 
-This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
+Dates: This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
 
-This program provides the answers to homework in m01-q02 of MEDB 5508, Introduction to SQL, where you were asked to read in data from the crawling table. This program is in the public domain and anyone can use the code in any way they wish without asking permission. You will be able to view this code after you have submitted your assignment. If you are having trouble getting your program to work, compare what you did to my code. If you are still having problems after viewing my code, please contact me.
+Purpose: This program provides the answers to homework in m01-q02 of MEDB 5508, Introduction to SQL, where you were asked to read in data from the crawling table and change one of the field names.
+
+Permissions: This program is in the public domain and anyone can use the code in any way they wish without asking permission.
+
+You will be able to view this code after you have submitted your assignment. If you are having trouble getting your program to work, compare what you did to my code. If you are still having problems after viewing my code, please contact me.
 
 Note: these solutions uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 
@@ -39,3 +43,5 @@ edwards
 
 dbDisconnect(conn=deming)
 ```
+
+Shown above is a listing of all three fields and all records.

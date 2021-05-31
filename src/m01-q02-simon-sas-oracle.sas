@@ -2,22 +2,23 @@
 * written by Steve Simon
 * creation date: 2020-01-31
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
-* R and SQLite is also available.
+* Purpose: This program provides the answers to homework in m01-q02
+* of MEDB 5508, Introduction to SQL, where you were asked to read
+* in data from the crawling table and change one of the field names. 
 
-* m02-q02. Use the table crawling. Refer to the page "Data used in this 
-* module" for a description of the data and where you can download
-* it. Oracle users do not need to download anything, but do need to
-* use schema=melange in their code. Run a query that changes 
-* Temperature to Temperature_F and displays all three fields and all
-* records.
+* Permissions: This program is placed in the public domain. You can
+* use it in any way you see fit without asking for permission.
 
-* Note: Some of the names used in this code are arbitrary and you can 
-* choose whatever names you want. To emphasize which names can be 
-* modified at your discretion, I am using names of famous statisticians.
+* Notes: this solution uses SAS and Oracle. An alternate solution using 
+* R and SQLite is also available. Some of the names used in this code
+* are arbitrary and you can choose whatever names you want. To emphasize
+* which names can be modified at your discretion, I am using names of
+* famous statisticians. The statistician being honored in this code is 
+* [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).
 
-* The statistician being honored in this code is 
-* [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).;
+* m01-q02. Use the crawling table in the melange datamart. Run a query
+* that changes Temperature to Temperature_F and displays all three
+* fields and all records.;
 
 ods pdf file="q:/introduction-to-sql/results/m01-q02-simon-sas-oracle.pdf";
 
@@ -41,6 +42,7 @@ quit;
 
 proc print
   data=edwards;
+  title1 "This is a listing of all three fields and all records.";
 run;
 
 ods pdf close;

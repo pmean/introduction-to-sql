@@ -22,7 +22,7 @@ A student in a previous semester used Python to access SQLServer. It worked quit
 
 There are other excellent free databases out there. MySQL is a free database that has features and security that rival even the best commercial products. SQL Server has a free educational version. We have not tried to document these other systems, but you are welcome to try them if you like. If you use an alternative SQL database, you'll have to load a few files into that database before doing anything else.
 
-#### In module01, you will learn how to
+#### In this module, you will learn how to
 
 + logon to the Insights platform
 + run a simple SAS program to access an Oracle database
