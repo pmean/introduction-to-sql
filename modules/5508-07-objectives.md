@@ -20,3 +20,4 @@ title: "MEDB 5508, Introduction to SQL, Module07, Objectives"
 + minus (Oracle), except (SQLite)
 + union
 + union all
+

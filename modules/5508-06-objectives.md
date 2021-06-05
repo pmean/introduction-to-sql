@@ -24,3 +24,4 @@ title: "MEDB 5508, Introduction to SQL, Module06, Objectives"
 + on
 + outer join (Oracle), no equivalent in SQLite
 + right join (Oracle), no equivalent in SQLite
+

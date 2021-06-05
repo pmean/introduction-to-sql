@@ -30,3 +30,4 @@ title: "MEDB 5508, Introduction to SQL, Module05, Objectives"
 + to_number
 + table_name (Oracle)
 + tbl_name (SQLite)
+
