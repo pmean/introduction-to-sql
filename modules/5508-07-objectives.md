@@ -2,6 +2,8 @@
 title: "MEDB 5508, Introduction to SQL, Module07, Objectives"
 ---
 
+### Module07, Mismatches and set operators
+
 #### In this module, you will learn how to
 
 + handle a category label that does not have a match in the main table

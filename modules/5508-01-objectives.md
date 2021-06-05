@@ -1,8 +1,10 @@
 ---
 title: "MEDB 5508, Introduction to SQL, Module01, Objectives"
-authors: Suman Sahil and Steve Simon
-date: Created 2021-04-03
 ---
+
+### Module01, Start here
+
+There are eight modules in this class and a final exam. In each module (except the last one), you will participate in a discussion board, take a short quiz, and prepare a homework assignment.
 
 Your first task is unofficial, but you need to decide how you will run SQL in this class.
 

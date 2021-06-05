@@ -2,6 +2,8 @@
 title: "MEDB 5508, Introduction to SQL, Module03, Objectives"
 ---
 
+### Module03, Security/null values
+
 #### In this module, you will learn how to
 
 + Protect passwords

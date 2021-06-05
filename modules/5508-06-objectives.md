@@ -2,6 +2,8 @@
 title: "MEDB 5508, Introduction to SQL, Module06, Objectives"
 ---
 
+### Module06, Managing and retrieving data from multiple tables
+
 #### In this module, you will learn how to
 
 + Define primary keys and foreign keys

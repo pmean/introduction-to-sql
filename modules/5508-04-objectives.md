@@ -2,6 +2,8 @@
 title: "MEDB 5508, Introduction to SQL, Module04, Objectives"
 ---
 
+### Module04, Single row and aggregate functions
+
 #### In this module, you will learn how to
 
 + Describe various types of functions available in SQL

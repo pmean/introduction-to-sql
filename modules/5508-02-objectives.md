@@ -2,6 +2,8 @@
 title: "MEDB 5508, Introduction to SQL, Module02, Objectives"
 ---
 
+### Module02, Introduction to relational databases
+
 #### In this module, you will learn how to
 
 + Define a relational database
