@@ -2,7 +2,7 @@
 title: "MEDB 5508, Introduction to SQL, Module01, Objectives"
 ---
 
-### Module01, Start here
+#### Module01, Start here
 
 There are eight modules in this class and a final exam. In each module (except the last one), you will participate in a discussion board, take a short quiz, and prepare a homework assignment.
 
@@ -24,7 +24,7 @@ A student in a previous semester used Python to access SQLServer. It worked quit
 
 There are other excellent free databases out there. MySQL is a free database that has features and security that rival even the best commercial products. SQL Server has a free educational version. We have not tried to document these other systems, but you are welcome to try them if you like. If you use an alternative SQL database, you'll have to load a few files into that database before doing anything else.
 
-#### In this module, you will learn how to
+##### In this module, you will learn how to
 
 + logon to the Insights platform
 + run a simple SAS program to access an Oracle database
@@ -34,7 +34,7 @@ There are other excellent free databases out there. MySQL is a free database tha
 + retrieve distinct values
 + change field names
 
-#### You will see the following SQL keywords
+##### You will see the following SQL keywords
 
 + as
 + distinct

@@ -2,9 +2,9 @@
 title: "MEDB 5508, Introduction to SQL, Module04, Objectives"
 ---
 
-### Module04, Single row and aggregate functions
+#### Module04, Single row and aggregate functions
 
-#### In this module, you will learn how to
+##### In this module, you will learn how to
 
 + Describe various types of functions available in SQL
 + Use character, number, and date functions in SELECT statements
@@ -15,7 +15,7 @@ title: "MEDB 5508, Introduction to SQL, Module04, Objectives"
   + Conversion
   + General
   
-#### You will also see the following SQL keywords
+##### You will also see the following SQL keywords
 
 + add_months (Oracle), no equivalent in SQLite
 + case
