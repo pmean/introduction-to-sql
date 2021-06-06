@@ -6,7 +6,7 @@ date: Created 2021-04-03
 
 #### Discuss03
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 Review the videos in this module and briefly answer the following questions
 
@@ -39,3 +39,5 @@ Please review the videos in this module before taking this quiz.
 + Prepared statements with parameterized queries help protect against what type of attack? ...
 + What does SAS convert NULL values to? ...
 + What actions can help to maintain security for a database? ...
+
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

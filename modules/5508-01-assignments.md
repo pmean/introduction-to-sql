@@ -12,7 +12,7 @@ Please briefly introduce yourself. Tell us a bit about yourself professionally, 
 
 #### HW01, Practice using the SELECT statement
 
-Graded: 3 point, one point deduction if submitted after the due date.
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 M01-Q01. Use the patient_type table in EHR datamart. Read all the fields and all 12 records from this table.
 
@@ -33,4 +33,4 @@ Please review the videos in this module before taking this quiz.
 + What keyword is used to change the name of a field?
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
-
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

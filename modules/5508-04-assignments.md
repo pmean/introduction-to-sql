@@ -6,7 +6,7 @@ date: Created 2021-04-03
 
 #### HW04, Practice with single row functions and statistical summaries
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 M04-Q01. Use the cigarettes table in the melange database. The variable weight_g is recorded to four decimal places. Round all the values to two decimal places and display them.
 
@@ -30,3 +30,4 @@ Please review the videos in this module before taking this quiz.
 + True or False: A single row function must output a value of the same type as the input argument
 
 [sas1]: https://sasexamplecode.com/how-to-round-numbers-in-sas/
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
