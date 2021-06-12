@@ -4,7 +4,7 @@ title: "MEDB 5508, Introduction to SQL, Module07, Assignments"
 
 #### Discuss07
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 Review the videos in this module and briefly answer the following questions
 
@@ -34,3 +34,5 @@ M07-Q07. Compute the intersection of the ids from acupuncture_baseline_results a
 M07-Q08. Compute the union of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
 
 M07-Q09. In a previous module, you were asked to list the first ten ids that were in acupuncture_baseline_resuts but not in acupuncture_one_year_results. Use the set operator "minus" to achieve the same goal. Note: for SQLite, use "except" instead of "minus".
+
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

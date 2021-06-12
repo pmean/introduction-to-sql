@@ -6,7 +6,7 @@ date: Created 2021-04-03
 
 #### Discuss06
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 Review the videos in this module and briefly answer the following questions
 
@@ -40,3 +40,5 @@ All questions are True/False.
 + You can use a foreign key as a primary key.
 + A foreign key can reference a  unique key in the same table or another table.
 + A primary key can accept multiple NULL values.
+
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

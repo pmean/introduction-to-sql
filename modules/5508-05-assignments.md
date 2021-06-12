@@ -6,7 +6,8 @@ date: Created 2021-04-03
 
 #### Discuss05
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
 
 Review the videos in this module and briefly answer the following questions
 
@@ -39,3 +40,4 @@ Please review the videos in this module before taking this quiz.
 + Why might you want to separate database information into two or more tables? ...
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
