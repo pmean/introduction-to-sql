@@ -3,6 +3,11 @@ title: "Help! My Q drive disappeared!"
 author: "Steve Simon"
 date: "Created 2019-09-18"
 output: powerpoint_presentation
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
 ---
 
 ### What to do if you can't find your network folder
