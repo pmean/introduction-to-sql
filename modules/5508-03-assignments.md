@@ -8,6 +8,8 @@ date: Created 2021-04-03
 
 Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
+Use the hospital table in the ehr schema. You can find a description of the hospital table (and all other data sets) on [my Github site][hos1].  
+
 Review the videos in this module and briefly answer the following questions
 
 + What was the most important thing that you learned?
@@ -41,3 +43,5 @@ Please review the videos in this module before taking this quiz.
 + What actions can help to maintain security for a database? ...
 
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
+
+[hos1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
