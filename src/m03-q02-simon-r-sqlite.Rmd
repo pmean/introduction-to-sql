@@ -1,5 +1,5 @@
 ---
-title: "Module 03 Homework, Q1"
+title: "Module03 homework, Q2"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -12,7 +12,7 @@ knit: (function(inputFile, encoding) {
 
 Dates: This file was created on 2020-07-06 and last modified on `r Sys.Date()`.
 
-Purpose: Answer M03-Q01. Verify that the hospital id code (HOSP_ID) has no missing values.
+Purpose: Answer M03-Q02. There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND).
 
 Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 
@@ -26,9 +26,9 @@ blackwell <- dbConnect(SQLite(),
   dbname="../data/ehr.sqlite")
 david <- dbGetQuery(conn=blackwell,  "
     select
-      count(*) as number_missing_ids
-    from hospital
-    where HOSP_ID is null
+      count(*) as number_missing_teaching_ind
+      from hospital
+      where TEACHING_IND is null
 ")
 
 david

@@ -2,9 +2,9 @@
 * written by Steve Simon
 * creation date: 2020-01-31
 
-* Purpose: This program provides the answers to homework in m01-q02
-* of MEDB 5508, Introduction to SQL, where you were asked to read
-* in data from the crawling table and change one of the field names. 
+* Purpose: Answer M01-Q02. Use the crawling table in the melange
+* datamart. Run a query that changes Temperature to Temperature_F 
+* and displays all three fields and all records.
 
 * Permissions: This program is placed in the public domain. You can
 * use it in any way you see fit without asking for permission.
@@ -14,11 +14,7 @@
 * are arbitrary and you can choose whatever names you want. To emphasize
 * which names can be modified at your discretion, I am using names of
 * famous statisticians. The statistician being honored in this code is 
-* [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).
-
-* m01-q02. Use the crawling table in the melange datamart. Run a query
-* that changes Temperature to Temperature_F and displays all three
-* fields and all records.;
+* [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).;
 
 ods pdf file="q:/introduction-to-sql/results/m01-q02-simon-sas-oracle.pdf";
 

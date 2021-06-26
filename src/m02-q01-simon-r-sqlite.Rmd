@@ -1,5 +1,5 @@
 ---
-title: "Homework-04-01"
+title: "Module02 Homework, Q01"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -10,21 +10,24 @@ knit: (function(inputFile, encoding) {
     output_format = "all") })  
 ---
 
-This file was created on 2021-01-23 and last modified on `r Sys.Date()`.
+Dates: This file was created on 2021-01-23 and last modified on `r Sys.Date()`.
 
-Use table patient_type in EHR data mart. Order all the fields by 
+Purpose: Answer M02-Q01. Use table patient_type in EHR data mart. Order all the fields by 
 Pat_type_desc and print just the first four rows from the table.
+
+Note: To emphasize which names can be modified at your discretion, I am using names of famous statisticians. The statistician being honored in this code is [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale).
+
 
 ```{r q1}
 library(sqldf)
-db <- dbConnect(SQLite(),
-dbname="../data/ehr.sqlite")
-ordered_data <- dbGetQuery(conn=db,
+florence <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+nightingale <- dbGetQuery(conn=florence,
  "select *
     from patient_type
     order by Pat_type_desc
     limit 4")
-ordered_data
-dbDisconnect(conn=db)
+nightingale
+dbDisconnect(conn=florence)
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Homework-04-02"
+title: "Module02 Homework, Q2"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -10,19 +10,23 @@ knit: (function(inputFile, encoding) {
     output_format = "all") })  
 ---
 
-This file was created on 2021-01-23 and last modified on `r Sys.Date()`.
+Dates: This file was created on 2021-01-23 and last modified on `r Sys.Date()`.
 
-Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
+Purpose: Answer M02-Q02. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
+
+Notes: this solution uses SAS and Oracle. An alternate solution using R and SQLite is also available. Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians. 
+
+The statistician being honored in this code is [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes).;
 
 ```{r q2}
 library(sqldf)
-db <- dbConnect(SQLite(),
+thomas <- dbConnect(SQLite(),
   dbname="../data/melange.sqlite")
-ampersand_data <- dbGetQuery(conn=db,
+bayes <- dbGetQuery(conn=thomas,
  "select *
     from cigarettes
     where brand_name like '%&%'")
-ampersand_data
-dbDisconnect(conn=db)
+bayes
+dbDisconnect(conn=thomas)
 ```
 

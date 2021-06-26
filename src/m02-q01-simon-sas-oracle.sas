@@ -2,10 +2,11 @@
 * written by Steve Simon
 * creation date: 2020-07-22
 
-* Purpose: This program provides the answers to homework in m02-q01
-* of MEDB 5508, Introduction to SQL, where you were asked to read 
-* in data from the patient_type table and print the first four rows
-* orderd by Pat_type_desc. 
+* Purpose: Answer M02-Q01. Use table patient_type table in the EHR
+* data mart. Order all the fields by Pat_type_desc and print just
+* the first four rows from the table. Please note that if you are
+* using SAS to access a SQL database, you need to use the keyword
+* monotonic.
 
 * Permissions: This program is placed in the public domain. You can
 * use it in any way you see fit without asking for permission.
@@ -15,12 +16,7 @@
 * are arbitrary and you can choose whatever names you want. To emphasize
 * which names can be modified at your discretion, I am using names of 
 * famous statisticians. The statistician being honored in this code is 
-* [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale).
-
-* M02-Q01. Use table patient_type table in the EHR data mart. Order all
-* the fields by Pat_type_desc and print just the first four rows from the
-* table. Please note that if you are using SAS to access a SQL database,
-* you need to use the keyword monotonic.;
+* [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale).;
 
 ods pdf file="q:/introduction-to-sql/results/m02-q01-simon-sas-oracle.pdf";
 

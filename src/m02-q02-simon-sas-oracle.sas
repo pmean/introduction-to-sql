@@ -2,9 +2,9 @@
 * written by Steve Simon
 * creation date: 2020-07-24
 
-* Purpose: This program provides the answers to homework in m02-q02
-* of MEDB 5508, Introduction to SQL, where you were asked to find
-* and print all the cigarettes with an ampersand (&) in their name. 
+* Purpose: Answer M02-Q02. Use the cigarettes table in the melange
+* database. Find and print all of the records for cigarettes that
+* have an ampersand (&) in their name.
 
 * Permissions: This program is placed in the public domain. You can
 * use it in any way you see fit without asking for permission.
@@ -15,19 +15,8 @@
 * which names can be modified at your discretion, I am using names of 
 * famous statisticians. 
 
-* M02-Q02. Use the cigarettes table in the melange database. Find and
-* print all of the records for cigarettes that have an ampersand (&)
-* in their name.
-
-Use the cigarettes database. Find and print the records for cigarettes 
-that have an ampersand (&) in their name
-
-Note: Some of the names used in this code are arbitrary and you can 
-choose whatever names you want. To emphasize which names can be 
-modified at your discretion, I am using names of famous statisticians.
-
-The statistician being honored in this code is 
-[Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes).;
+* The statistician being honored in this code is 
+* [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes).;
 
 ods pdf file="q:/introduction-to-sql/results/m02-q02-simon-sas-oracle.pdf";
 

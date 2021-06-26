@@ -2,9 +2,8 @@
 * written by Steve Simon
 * creation date: 2020-01-31
 
-* Purpose: This program provides the answers to homework in m01-q01
-* of MEDB 5508, Introduction to SQL, where you were asked to read
-* in data from the patient_type table. 
+* Purpose: Answer M01-Q01. Use patient_type table in EHR Datamart.
+* Read all the fields and all 12 records from this table.
 
 * Permissions: This program is placed in the public domain. You can
 * use it in any way you see fit without asking for permission.
@@ -14,10 +13,7 @@
 * are arbitrary and you can choose whatever names you want. To emphasize
 * which names can be modified at your discretion, I am using names of 
 * famous statisticians. The statistician being honored in this code is 
-* [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).
-
-* m01-q01. Use patient_type table in EHR Datamart. Read all the fields
-* and all 12 records from this table.;
+* [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).;
 
 ods pdf file="q:/introduction-to-sql/results/m01-q01-simon-sas-oracle.pdf";
 
