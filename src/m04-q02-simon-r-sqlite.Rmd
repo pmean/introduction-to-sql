@@ -1,5 +1,5 @@
 ---
-title: "Homework08a"
+title: "Module04 homework, Q2"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -10,84 +10,30 @@ knit: (function(inputFile, encoding) {
     output_format = "all") })  
 ---
 
-This file was created on 2020-07-12 and last modified on `r Sys.Date()`.
+Dates: This file was created on 2020-07-12 and last modified on `r Sys.Date()`.
+
+Purpose: To answer M04-Q02. Use the hospital table in the ehr database. The variable ACUTE_NONACUTE has the values Acute and Non-Acute. Use the substr function to convert these two values to the first letter (A or N). Print out the first ten values only.
 
 Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 
-+ For your homework, use the titanic database.
-  + This is available in Oracle using schema='simons'.
-  + In SQLite, it is a standalone file named titanic_db.sqlite.
-+ Run SQL queries to answer the following 
-  + Count the number of passengers with the title "Mr" somewhere in their name.
-  + Run a query that counts the number of male and female children (Age <= 18)
-  + Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
-  + The Survived field has values of 0 (died) and 1 (alive) and an average of this value provides a probability of survival.
-  + Calculate this probability for six categories representing the combination of passenger class and sex.
-  + Include only those groups where the survival probability is greater than 30%.
-+ Place the SQL code and the results of all your queries in a single PDF file.
+Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
-Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).
 
-The statistician being honored in this code is [George W. Snedecor](https://en.wikipedia.org/wiki/George_W._Snedecor).
-
-```{r george_snedecor1}
+```{r john_tukey}
 library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george1 <- dbGetQuery(conn=snedecor,  "
-  select count(*) as number_of_misters
-    from titanic_table
-    where name like '% Mr %'
+
+tukey <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+
+john <- dbGetQuery(conn=tukey, "
+    select
+      substr(ACUTE_NONACUTE, 1, 1) as single_letter_code
+    from hospital
+    limit 10
 ")
 
-george1
-dbDisconnect(conn=snedecor)
+john
+dbDisconnect(conn=tukey)
 ```
 
-```{r george_snedecor2}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george2 <- dbGetQuery(conn=snedecor,  "
-  select sex, count(*) as number_of_children
-    from titanic_table
-    where age < 18
-    group by sex
-")
-
-george2
-dbDisconnect(conn=snedecor)
-```
-
-```{r george_snedecor3}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george3 <- dbGetQuery(conn=snedecor,  "
-  select sex, count(*) as number_of_children
-    from titanic_table
-    where age < 18
-    group by sex
-")
-
-george3
-dbDisconnect(conn=snedecor)
-```
-
-```{r george_snedecor4}
-library(sqldf)
-snedecor <- dbConnect(SQLite(),
-  dbname="../data/titanic_db.sqlite")
-george4 <- dbGetQuery(conn=snedecor,  "
-  select 
-    sex,
-    pclass,
-    avg(survived) as survival_probability
-    from titanic_table
-    group by sex, pclass
-    having survival_probability > 0.30
-")
-
-george4
-dbDisconnect(conn=snedecor)
-```

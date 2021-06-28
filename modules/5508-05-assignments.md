@@ -6,9 +6,6 @@ date: Created 2021-04-03
 
 #### Discuss05
 
-Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
-[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
-
 Review the videos in this module and briefly answer the following questions
 
 + What was the most important thing that you learned?
@@ -19,6 +16,9 @@ Please keep your answers brief. You are welcome to say something generic like "I
 #### HW05, Practice with conversion functions and conditional expressions
 
 Graded: 3 points, one point deduction if submitted after deadline
+
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
+[gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
 
 M05-Q01. Use the encounter table in the ehr database. Classify age into two groups labelled 'Child' and 'Adult'. a child represents patients with age <= 20 and an adult represents patients with age >20. Hint: use the case function.
 

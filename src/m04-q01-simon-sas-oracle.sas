@@ -1,19 +1,32 @@
-* hw07.sas
+* m04-q01-simon-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2021-02-22;
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
-  R and SQLite is also available.
+* Purpose: To answer M04-Q01. Use the cigarettes 
+* table in the melange database. The variable 
+* weight_g is recorded to four decimal places. 
+* Round all the values to two decimal places
+* and display them.
 
-Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+* Note: this solution uses SAS and Oracle. An 
+* alternate solution using R and SQLite is also
+* available.
 
-The statistician being honored in this code is [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
+* Note: Some of the names used in this code are
+* arbitrary and you can choose whatever names you
+* want. To emphasize which names can be modified
+* at your discretion, I am using names of famous
+* statisticians.
 
-ods pdf file="//kc.umkc.edu/kc-users/home/s/simons/introduction-to-sql/results/hw07-solution-using-sas-oracle-output.pdf";
+* The statistician being honored in this code is
+* [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
 
-%include '//kc.umkc.edu/kc-users/home/s/simons/sql files/super-secret.sas';
+ods pdf file="q:/introduction-to-sql/m04-q01-simon-sas-oracle.pdf";
+
+%include "q:/sql files/super-secret.sas";
+
 libname
-  tukey1
+  tukey
   oracle
   user='simons'
   password=&pw
@@ -22,50 +35,16 @@ libname
 
 
 proc sql;
-  create table john1 as
+  create table john as
     select
-      weight_g, round(weight_g, 0.01) as rounded_weight
-    from tukey1.cigarettes
+      weight_g,
+      round(weight_g, 0.01) as rounded_weight
+    from tukey.cigarettes
   ;
 quit;
 
 proc print
-  data=john1;
-run;
-
-libname
-  tukey2
-  oracle
-  user='simons'
-  password=&pw
-  path='@CHIHFPRD, BUFFSIZE=9000'
-  schema='ehr';
-
-
-proc sql;
-  create table john2 as
-    select
-      substr(ACUTE_NONACUTE, 1, 1) as single_letter_code
-    from tukey2.hospital
-    where monotonic() <= 10
-  ;
-quit;
-
-proc print
-  data=john2;
-run;
-
-proc sql;
-  create table john3 as
-    select
-      lower(PAT_TYPE_DESC) as description_lower_case
-    from tukey2.patient_type
-    where monotonic() <= 10
-  ;
-quit;
-
-proc print
-  data=john3;
+  data=john;
 run;
 
 ods pdf close;
