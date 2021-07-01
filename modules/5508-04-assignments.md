@@ -18,7 +18,9 @@ M04-Q03. Use the titanic table in the melange database. Run a query that counts 
 
 M04-Q04. Use the titanic table in the melange database. Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
 
-Put your code and output in a single pdf file
+Put your code and output in a single pdf file.
+
+Refer to [this page][git1] for a description of the data files. 
 
 #### Quiz04
 
@@ -31,3 +33,4 @@ Please review the videos in this module before taking this quiz.
 
 [sas1]: https://sasexamplecode.com/how-to-round-numbers-in-sas/
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
+[git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md

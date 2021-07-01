@@ -35,4 +35,6 @@ M07-Q08. Compute the union of the ids from acupuncture_baseline_results and acup
 
 M07-Q09. In a previous module, you were asked to list the first ten ids that were in acupuncture_baseline_resuts but not in acupuncture_one_year_results. Use the set operator "minus" to achieve the same goal. Note: for SQLite, use "except" instead of "minus".
 
+Refer to [this page][git1] for a description of the data files. 
+
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

@@ -30,6 +30,8 @@ M05-Q04. Use the melange database and write a SQL query that will list all the f
 
 Put your code and the output in a single PDF file.
 
+Refer to [this page][git1] for a description of the data files. 
+
 #### Quiz05
 
 Please review the videos in this module before taking this quiz.
