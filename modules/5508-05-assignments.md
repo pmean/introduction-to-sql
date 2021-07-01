@@ -20,9 +20,9 @@ Graded: 3 points, one point deduction if submitted after deadline
 Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
 
-M05-Q01. Use the encounter table in the ehr database. Classify age into two groups labelled 'Child' and 'Adult'. a child represents patients with age <= 20 and an adult represents patients with age >20. Hint: use the case function.
+M05-Q01. Use the encounter table in the ehr database. Classify age into two groups labelled 'Child' and 'Adult'. A child represents patients with age <= 20 and an adult represents patients with age >20. Hint: use the case function.
 
-M05-Q02. Use the hospital table in the ehr database. Convert null values of teaching_ind to -1 and print the values only for  census_reg = ‘West’. Hint: Use coalesce function.
+M05-Q02. Use the hospital table in the ehr database. Convert null values of teaching_ind to -1 and print the values only for  census_reg = "West". Hint: Use coalesce function.
 
 M05-Q03. Use the ehr database and write a SQL query that will list all the table names.
 

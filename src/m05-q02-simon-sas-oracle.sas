@@ -1,9 +1,15 @@
-* hw10a.sas
+* m05-q02-simon.sas.oracle.sas
   written by Steve Simon
   creation date: 2020-07-12;
 
 * Note: this solution uses SAS and Oracle. An alternate solution using 
   R and SQLite is also available.
+  
+* Purpose: Answer M05-Q2. Use the hospital table
+* in the ehr database. Convert null values of 
+* teaching_ind to -1 and print the values only 
+* for  census_reg = ‘West’. Hint: Use coalesce
+* function.
 
   Note: Some of the names used in this code are arbitrary and you can 
   choose whatever names you want. To emphasize which names can be 

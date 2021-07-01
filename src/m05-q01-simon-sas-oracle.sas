@@ -2,6 +2,10 @@
 * written by Steve Simon
 * creation date: 2020-07-12;
 
+* Purpose: To answer M05-Q01. Use the encounter
+* table in the ehr database. Classify age into
+* two groups labelled 'Child' and 'Adult'. A child represents patients with age <= 20 and an adult represents patients with age >20. Hint: use the case function.
+
 * Note: this solution uses SAS and Oracle. An alternate solution using 
   R and SQLite is also available.
 
