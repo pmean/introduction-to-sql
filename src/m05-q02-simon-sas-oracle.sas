@@ -1,78 +1,58 @@
-* m05-q02-simon.sas.oracle.sas
-  written by Steve Simon
-  creation date: 2020-07-12;
+*************************************************
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
-  R and SQLite is also available.
+m05-q02-simon.sas.oracle.sas
+Author: Steve Simon
+Creation date: 2020-07-12
+
+Note: this solution uses SAS and Oracle. An 
+alternate solution using  R and SQLite is also
+available.
   
-* Purpose: Answer M05-Q2. Use the hospital table
-* in the ehr database. Convert null values of 
-* teaching_ind to -1 and print the values only 
-* for  census_reg = ‘West’. Hint: Use coalesce
-* function.
+Purpose: Answer M05-Q2. Use the hospital table
+in the ehr database. Convert null values of 
+teaching_ind to -1 and print the values only 
+for  census_reg = "�West".
 
-  Note: Some of the names used in this code are arbitrary and you can 
-  choose whatever names you want. To emphasize which names can be 
-  modified at your discretion, I am using names of famous 
-  statisticians.
+Hint: Use coalesce function.
 
-  The statistician being honored in this code is 
-  [George Box](https://en.wikipedia.org/wiki/George_E._P._Box).
+Some of the names used in this code are 
+arbitrary and you can choose whatever names you
+want. To emphasize which names can be modified
+at your discretion, I am using names of famous 
+statisticians.
 
-  1. Pick a database (any database)
-    +	Use one of the approaches shown above to list all the table names.
+The statistician being honored in this code is 
+[George Box](https://en.wikipedia.org/wiki/George_E._P._Box).
 
-  2. Pick a table (any table)
-    +	Use one of the approaches shown above to list all the field names.
+*************************************************;
 
-  3. Do an Internet search on a database other than Oracle and SQLite.
-    +	Document how you get a list of all the table names in that database.
-
-  Answer to #3: I ran a search on the phrase "db2 list all table names" 
-  and found a web page
-
-  https://chartio.com/resources/tutorials/how-to-list-tables-in-ibm-db2/
-
-  Tne information about every table in db2 is listed in a table called 
-  SYSIBM.SYSTABLES. Use the following SQL statements:
-
-  SELECT * FROM SYSIBM.SYSTABLES
-  WHERE type = "T"
-;
-
-ods pdf file="q:/introduction-to-sql/results/hw10a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/m05-q02-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
-  box
+  bailar
   oracle
   user='simons'
   password=&pw
   path='@CHIHFPRD, BUFFSIZE=9000'
-  schema='sys';
+  schema='ehr';
 
 proc sql;
-  create table george1 as
-    select table_name
-      from box.all_tables 
-      where owner='EHR'
-;
+  create table barbara as
+  select 
+    census_reg,
+    teaching_ind,
+    coalesce(teaching_ind, -1) as imputed_value
+  from bailar.hospital
+  where 
+    census_reg='West' and
+	monotonic() <= 10
+  ;
 quit;
 
 proc print
-  data=george1;
-run;
-
-proc sql;
-  create table george2 as
-  select column_name
-    from box.all_tab_columns 
-	where table_name='acupuncture'
-;
-quit;
-
-proc print
-  data=george2;
+  data=barbara;
+  title1 "A listing of data with NULL replaced by -1";
 run;
 
 ods pdf close;

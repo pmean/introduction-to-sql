@@ -20,20 +20,17 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [George Box](https://en.wikipedia.org/wiki/George_E._P._Box).
 
-1. Pick a database (any database)
-  +	Use one of the approaches shown above to list all the table names.
-
 Here is the approach using SQL commands.
 
 ```{r george_box1}
 library(sqldf)
 box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-george1 <- dbGetQuery(conn=box,  "
+  dbname="../data/ehr.sqlite")
+george <- dbGetQuery(conn=box,  "
     select tbl_name from sqlite_master
 ")
 
-george1
+george
 dbDisconnect(conn=box)
 ```
 
@@ -42,50 +39,7 @@ Here is an alternative approach using an R function. You don't have to do your h
 ```{r george_box2}
 library(sqldf)
 box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
+  dbname="../data/ehr.sqlite")
 dbListTables(conn=box)
 dbDisconnect(conn=box)
 ```
-
-2. Pick a table (any table)
-  +	Use one of the approaches shown above to list all the field names.
-
-Here is the approach using SQL commands.
-
-```{r george_box3}
-library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-george3 <- dbGetQuery(conn=box,  "
-    pragma table_info(hospital)
-")
-
-george3
-dbDisconnect(conn=box)
-```
-
-Here is an alternative approach using an R function. You don't have to do your homework both ways; I'm just showing different methods.
-
-```{r george_box4}
-library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-dbListFields(conn=box, name="hospital")
-dbDisconnect(conn=box)
-```
-
-3. Do an Internet search on a database other than Oracle and SQLite.
-  +	Document how you get a list of all the table names in that database.
-
-I ran a search on the phrase "mysql list all table names" and found a web page
-
-https://stackoverflow.com/questions/8334493/get-table-names-using-select-statement-in-mysql
-
-This talks in a bit more detail than I needed, but the basic answer is to use the 
-SQL statements
-
-```{}
-  SELECT table_name FROM information_schema.tables
-  WHERE table_schema = 'your_database_name';
-```
-
