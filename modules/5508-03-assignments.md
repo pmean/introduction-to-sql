@@ -33,6 +33,8 @@ M03-Q03. There is only one hospital where the number of beds (BED_SIZE) is unkno
 
 Combine your results into a single PDF file and submit it.
 
+Refer to [this page][git1] for a description of the data files. 
+
 #### Quiz03
 
 Please review the videos in this module before taking this quiz.
@@ -43,5 +45,4 @@ Please review the videos in this module before taking this quiz.
 + What actions can help to maintain security for a database? ...
 
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
-
-[hos1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
+[git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md

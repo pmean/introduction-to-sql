@@ -1,5 +1,5 @@
 ---
-title: "Homework10a"
+title: "Module05 homework, Q2"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -10,7 +10,9 @@ knit: (function(inputFile, encoding) {
     output_format = "all") })  
 ---
 
-This file was created on 2020-07-14 and last modified on `r Sys.Date()`.
+Dates: This file was created on 2020-07-14 and last modified on `r Sys.Date()`.
+
+Purpose: Answer M05-Q2. Use the hospital table in the ehr database. Convert null values of teaching_ind to -1 and print the values only for  census_reg = "West". Hint: Use coalesce function.
 
 Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 

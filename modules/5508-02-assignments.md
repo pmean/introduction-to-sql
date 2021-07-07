@@ -21,7 +21,7 @@ Grading rubric is available on [my Github site][gra1]. One point deduction if su
 
 M02-Q01. Use table patient_type table in the EHR data mart. Order all the fields by Pat_type_desc and print just the first four rows from the table. Please note that if you are using SAS to access a SQL database, you need to use the keyword monotonic.
 
-M02-Q02. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.
+M02-Q02. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.          
 
 Put all your code and output in a single PDF file.
 

@@ -27,6 +27,8 @@ M06-Q03. Get a count of the numbers of males and females (from the acupuncture_d
 
 Put your code and the output in a single PDF file.
 
+Refer to [this page][git1] for a description of the data files. 
+
 #### Quiz06
 
 Please review the videos in this module before taking this quiz.
