@@ -13,7 +13,7 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [George W. Snedecor](https://en.wikipedia.org/wiki/George_W._Snedecor).;
 
-ods pdf file="q:/introduction-to-sql/results/hw08a-solution-using-sas-oracle-output.pdf";
+ods pdf file="q:/introduction-to-sql/results/m04-q03-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
