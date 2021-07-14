@@ -1,6 +1,6 @@
 *************************************************
 
-m06-q01-simon-sas-oracle.sas
+m06-q03-simon-sas-oracle.sas
 author: Steve Simon
 creation date: 2020-07-25
 
@@ -19,13 +19,13 @@ statisticians.
 The statistician being honored in this code is 
 [Robert V. Hogg](https://en.wikipedia.org/wiki/Robert_V._Hogg).
 
-1. List id and migraine_label for the first ten
-records after joining the acupuncture_demographics
-and acupuncture_migraine_labels tables.
+3. Get a count of the numbers of males and females
+where you restrict age to be less than 40. Use the
+label for sex, but convert it to all uppercase.
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m06-q01-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/m06-q03-simon-sas-oracle.pdf";
 
 
 
@@ -36,15 +36,18 @@ libname
   user='simons'
   password=&pw
   path='@CHIHFPRD, BUFFSIZE=9000'
-  schema='simons';
+  schema='melange';
 
 proc sql;
   create table robert as
-    select r.id, g.group_label
-      from hogg.results_table as r
-      join hogg.group_table as g
-      on r.group_n=g.group_code
-      where monotonic() <= 10
+    select 
+        upper(s.sex_label) as gender,
+        count(*) as n
+      from hogg.acupuncture_demographics as d
+      join hogg.acupuncture_sex_labels as s
+        on d.sex=s.sex_code
+      where d.age < 40
+      group by gender
   ;
 quit;
 

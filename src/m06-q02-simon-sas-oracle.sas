@@ -1,6 +1,6 @@
 *************************************************
 
-m06-q01-simon-sas-oracle.sas
+m06-q02-simon-sas-oracle.sas
 author: Steve Simon
 creation date: 2020-07-25
 
@@ -19,15 +19,14 @@ statisticians.
 The statistician being honored in this code is 
 [Robert V. Hogg](https://en.wikipedia.org/wiki/Robert_V._Hogg).
 
-1. List id and migraine_label for the first ten
-records after joining the acupuncture_demographics
-and acupuncture_migraine_labels tables.
+2. Get a count of the number of records in the
+database in the control group and the treatment
+group. Use the label for group and not the number
+code.
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m06-q01-simon-sas-oracle.pdf";
-
-
+ods pdf file="q:/introduction-to-sql/results/m06-q02-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
@@ -36,15 +35,15 @@ libname
   user='simons'
   password=&pw
   path='@CHIHFPRD, BUFFSIZE=9000'
-  schema='simons';
+  schema='melange';
 
 proc sql;
   create table robert as
-    select r.id, g.group_label
-      from hogg.results_table as r
-      join hogg.group_table as g
-      on r.group_n=g.group_code
-      where monotonic() <= 10
+    select g.group_label, count(*) as n
+      from hogg.acupuncture_demographics as d
+      join hogg.acupuncture_group_labels as g
+      on d.grp=g.group_code
+      group by g.group_label
   ;
 quit;
 
