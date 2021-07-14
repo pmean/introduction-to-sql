@@ -27,7 +27,7 @@ Here are the answers to the homework assignment. Please note that you are requir
 + If you are using SAS and Oracle,
   + click [here][m06q03a] for the code and
   + click [here][m06q03b] for the output.
-+ If you are using R and SQLite,
++ If you are using R and SQLite, 
   + click [here][m06q03c] for the code and output combined.
 
 [m06q01a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m06-q01-simon-sas-oracle.sas
