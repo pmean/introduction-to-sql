@@ -18,74 +18,20 @@ Note: this solution uses R and SQLite. An alternate solution using SAS and Oracl
 
 Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
-The statistician being honored in this code is [George Box](https://en.wikipedia.org/wiki/George_E._P._Box).
+The statistician being honored in this code is [Barbara A. Bailar](https://en.wikipedia.org/wiki/Barbara_A._Bailar).
 
-1. Pick a database (any database)
-  +	Use one of the approaches shown above to list all the table names.
-
-Here is the approach using SQL commands.
-
-```{r george_box1}
+```{r barbara_bailar}
 library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-george1 <- dbGetQuery(conn=box,  "
-    select tbl_name from sqlite_master
+bailar <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+barbara <- dbGetQuery(conn=bailar,  "
+  select 
+    teaching_ind,
+    coalesce(teaching_ind, -1) as imputed_value
+  from hospital
+  where census_reg='West'
 ")
 
-george1
-dbDisconnect(conn=box)
+barbara
+dbDisconnect(conn=bailar)
 ```
-
-Here is an alternative approach using an R function. You don't have to do your homework both ways; I'm just showing different methods.
-
-```{r george_box2}
-library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-dbListTables(conn=box)
-dbDisconnect(conn=box)
-```
-
-2. Pick a table (any table)
-  +	Use one of the approaches shown above to list all the field names.
-
-Here is the approach using SQL commands.
-
-```{r george_box3}
-library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-george3 <- dbGetQuery(conn=box,  "
-    pragma table_info(hospital)
-")
-
-george3
-dbDisconnect(conn=box)
-```
-
-Here is an alternative approach using an R function. You don't have to do your homework both ways; I'm just showing different methods.
-
-```{r george_box4}
-library(sqldf)
-box <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-dbListFields(conn=box, name="hospital")
-dbDisconnect(conn=box)
-```
-
-3. Do an Internet search on a database other than Oracle and SQLite.
-  +	Document how you get a list of all the table names in that database.
-
-I ran a search on the phrase "mysql list all table names" and found a web page
-
-https://stackoverflow.com/questions/8334493/get-table-names-using-select-statement-in-mysql
-
-This talks in a bit more detail than I needed, but the basic answer is to use the 
-SQL statements
-
-```{}
-  SELECT table_name FROM information_schema.tables
-  WHERE table_schema = 'your_database_name';
-```
-

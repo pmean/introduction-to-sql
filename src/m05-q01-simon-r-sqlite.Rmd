@@ -16,56 +16,26 @@ Purpose: To answer M05-Q1. Use the encounter table in the ehr database. Classify
 
 Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
 
-Graded: 3 points, one point deduction if submitted after deadline
-
-–Put your code and the output in a single PDF file
-
-–Use Encounter Table
-
-–Use case expression to classify age <= 40 as ‘Group 1’, and age > 40 as ‘Group 2’ 
-
- 
-
-–Use hospital table
-
-–Use coalesce function to return -1 for null values of teaching_ind in hospital table where census_reg = ‘West’
-
 Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
 
 The statistician being honored in this code is [Barbara A. Bailar](https://en.wikipedia.org/wiki/Barbara_A._Bailar).
 
-```{r barbara_bailar1}
+```{r barbara_bailar}
 library(sqldf)
 bailar <- dbConnect(SQLite(),
-  dbname="../data/hospital.sqlite")
-barbara1 <- dbGetQuery(conn=bailar,  "
-  select 
-    teaching_ind,
-    coalesce(teaching_ind, -1) as imputed_value
-  from hospital
-  where census_reg='West'
-")
-
-barbara1
-dbDisconnect(conn=bailar)
-```
-
-```{r barbara_bailar2}
-library(sqldf)
-bailar <- dbConnect(SQLite(),
-  dbname="../data/encounter_db.sqlite")
-barbara2 <- dbGetQuery(conn=bailar,  "
+  dbname="../data/ehr.sqlite")
+barbara <- dbGetQuery(conn=bailar,  "
   select 
     age,
     case 
-      when age <= 40
-        then 'Group 1'
-        else 'Group 2'
+      when age <= 20
+        then 'Child'
+        else 'Adult'
       end as age_group
   from encounter
+  limit 20
 ")
 
-barbara2
+barbara
 dbDisconnect(conn=bailar)
 ```
-
