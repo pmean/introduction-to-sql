@@ -4,7 +4,7 @@ authors: Suman Sahil and Steve Simon
 date: Created 2021-05-21
 ---
 
-Here are the answers to the homework assignment. Please note that you are required to submit your code and output as a single PDF file, this page uses several files to make it easier for us to teach this class.
+Here are our answers to your homework assignment. Please note that you are required to submit your code and output as a single PDF file, this page uses several files to make it easier for us to teach this class.
 
 #### M01-Q01
 
