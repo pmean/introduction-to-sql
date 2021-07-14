@@ -21,10 +21,34 @@ Here are the answers to the homework assignment. Please note that you are requir
   + click [here][m05q02b] for the output.
 + If you are using R and SQLite,
   + click [here][m05q02c] for the code and output combined.
+  
+#### M05-Q03
+
++ If you are using SAS and Oracle,
+  + click [here][m05q03a] for the code and
+  + click [here][m05q03b] for the output.
++ If you are using R and SQLite,
+  + click [here][m05q03c] for the code and output combined.
+
+#### M05-Q04
+
++ If you are using SAS and Oracle,
+  + click [here][m05q04a] for the code and
+  + click [here][m05q04b] for the output.
++ If you are using R and SQLite,
+  + click [here][m05q04c] for the code and output combined.
 
 [m05q01a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m05-q01-simon-sas-oracle.sas
 [m05q02a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m05-q02-simon-sas-oracle.sas
+[m05q03a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m05-q03-simon-sas-oracle.sas
+[m05q04a]: https://github.com/pmean/introduction-to-sql/blob/master/src/m05-q04-simon-sas-oracle.sas
+
 [m05q01b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q01-simon-sas-oracle.pdf
 [m05q02b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q02-simon-sas-oracle.pdf
+[m05q03b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q03-simon-sas-oracle.pdf
+[m05q04b]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q04-simon-sas-oracle.pdf
+
 [m05q01c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q01-simon-r-sqlite.pdf
 [m05q02c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q02-simon-r-sqlite.pdf
+[m05q03c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q03-simon-r-sqlite.pdf
+[m05q04c]: https://github.com/pmean/introduction-to-sql/blob/master/results/m05-q04-simon-r-sqlite.pdf
