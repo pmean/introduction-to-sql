@@ -1,5 +1,5 @@
 ---
-title: "Module07, Q2"
+title: "Module07, Q4"
 author: "Steve Simon"
 output:
   pdf_document: default
@@ -18,22 +18,21 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 
-Q2. Compute the average pk score at baseline, the average score at one year, and the average change score. Without running any formal statistical tests, tell us whether you think the pk scores are increasing, decreasing, or staying about the same.
+Q4. There are 100 patients with baseline values but no values at one year. Use a left join to identify these patients. Print the ids of the first ten of these patients.
 
-```{r hirotugu_akaike4}
+```{r hirotugu_akaike}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
   dbname="../data/melange.sqlite")
-hirotugu_q2 <- dbGetQuery(conn=akaike,  "
+hirotugu_q4 <- dbGetQuery(conn=akaike,  "
     select 
-      avg(b.pk1) as pk1_avg,
-      avg(o.pk5) as pk5_avg,
-      avg(b.pk1)-avg(o.pk5) as change_score
+      b.id as unmatched_ids
       from acupuncture_baseline_results as b
-      join acupuncture_one_year_results as o
+      left join acupuncture_one_year_results as o
       on b.id=o.id
+    where o.id is null
 ")
 
-hirotugu_q2
+hirotugu_q4
 dbDisconnect(conn=akaike)
 ```
