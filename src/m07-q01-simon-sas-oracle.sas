@@ -52,7 +52,7 @@ quit;
 
 proc print
   data=hirotugu_inner;
-  title1 "There are 301 records after an innter join";
+  title1 "There are 301 records after an inner join";
 run;
 
 proc sql;
