@@ -13,7 +13,7 @@ Please keep your answers brief. You are welcome to say something generic like "I
 
 #### HW07, Mismatches/set operators
 
-Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
+The grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
 Q1. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results. Why are these numbers different?
 
@@ -21,6 +21,7 @@ Q2. Compute the average pk score at baseline, the average score at one year, and
 
 Q3. Display all the pk1 values for patients 64 and older.
 
+<<<<<<< HEAD
 Q4. There are 100 patients with baseline values but no values at one year. Use a left join to identify these patients. Print the ids of the first ten of these patients.
 
 Q5. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
@@ -30,6 +31,15 @@ Q6. Compute the union of the ids from acupuncture_baseline_results and acupunctu
 Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator “minus” to achieve the same goal. Note: for SQLite, use “except” instead of “minus”.
 
 Warning! The names of the various acupuncture tables and the names of the fields (columns/variables) in each table are tricky and inconsistent. For example, some fields use the abbreviation "grp" and others spell it out completely as "group". Refer to [this page][git1] for a description of the data files. 
+=======
+Q4. There are 100 patients with baseline values but no values at one year. Print the ids of the first ten of these patients.
+
+Q5. Use the set operator "intersect" to get a list of ids that can be found in both acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+
+Q6. Use set operator "union" to get a list of the ids that can be found in either acupuncture_baseline_results or acupuncture_one_year_results. Display the first ten rows of data only.
+
+Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator "minus" to achieve the same goal. Note: for SQLite, use "except" instead of "minus".
+>>>>>>> 7850bfbde622ae9222d440174493ff716fe160e2
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/acupuncture-data-dictionary.md
 
