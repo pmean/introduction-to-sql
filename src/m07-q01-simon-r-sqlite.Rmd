@@ -18,46 +18,7 @@ Note: Some of the names used in this code are arbitrary and you can choose whate
 
 The statistician being honored in this code is [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 
-1. Do an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
-
-```{r hirotugu_akaike1}
-library(sqldf)
-akaike <- dbConnect(SQLite(),
-  dbname="../data/melange.sqlite")
-hirotugu1 <- dbGetQuery(conn=akaike,  "
-    select b.id, b.pk1, o.pk5
-      from acupuncture_baseline_results as b
-      join acupuncture_one_year_results as o
-      on b.id=o.id
-    limit 10
-")
-
-hirotugu1
-dbDisconnect(conn=akaike)
-```
-
-2. Do a left join of acupuncture_baseline_results and acupuncture_one_year_results and display the fields id, pk1, and pk5. Display the first ten rows of data only. Explain why these results are different from the results of the previous question.
-
-```{r hirotugu_akaike2}
-library(sqldf)
-akaike <- dbConnect(SQLite(),
-  dbname="../data/melange.sqlite")
-hirotugu2 <- dbGetQuery(conn=akaike,  "
-    select b.id, b.pk1, o.pk5
-      from acupuncture_baseline_results as b
-      left join acupuncture_one_year_results as o
-      on b.id=o.id
-    limit 10
-")
-
-hirotugu2
-dbDisconnect(conn=akaike)
-```
-
-There are several patients in the baseline table that are not in the one year table. These patients are excluded from the inner join, but not the left join.
-
-
-3. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results.
+Q1. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results. Why are these numbers different?
 
 ```{r hirotugu_akaike3}
 library(sqldf)
@@ -80,7 +41,7 @@ hirotugu3b
 dbDisconnect(conn=akaike)
 ```
 
-4. Compute the average pk score at baseline, the average score at one year, and the average change score.
+Q2. Compute the average pk score at baseline, the average score at one year, and the average change score. Without running any formal statistical tests, tell us whether you think the pk scores are increasing, decreasing, or staying about the same.
 
 ```{r hirotugu_akaike4}
 library(sqldf)
@@ -100,7 +61,7 @@ hirotugu4
 dbDisconnect(conn=akaike)
 ```
 
-5. Display all the pk1 values for patients 64 and older.
+Q3. Display all the pk1 values for patients 64 and older.
 
 ```{r hirotugu_akaike5}
 library(sqldf)
@@ -119,7 +80,7 @@ hirotugu5
 dbDisconnect(conn=akaike)
 ```
 
-6. There are 100 patients with baseline values but no values at one year. Print the ids of the first ten of these patients.
+Q4. There are 100 patients with baseline values but no values at one year. Use a left join to identify these patients. Print the ids of the first ten of these patients.
 
 ```{r hirotugu_akaike6}
 library(sqldf)
@@ -137,5 +98,63 @@ hirotugu6 <- dbGetQuery(conn=akaike,  "
 
 hirotugu6
 dbDisconnect(conn=akaike)
+```
+
+Q5. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+
+```{r helen_walker1}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen1 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    intersect
+    select id
+      from acupuncture_one_year_results
+    limit 10
+")
+
+helen1
+dbDisconnect(conn=walker)
+```
+
+Q6. Compute the union of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+
+```{r helen_walker2}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen2 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    union
+    select id
+      from acupuncture_one_year_results
+    order by id
+    limit 10
+")
+
+helen2
+dbDisconnect(conn=walker)
+```
+
+Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator “minus” to achieve the same goal. Note: for SQLite, use “except” instead of “minus”.
+
+```{r helen_walker3}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen3 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    except
+    select id
+      from acupuncture_one_year_results
+    limit 10
+")
+
+helen3
+dbDisconnect(conn=walker)
 ```
 

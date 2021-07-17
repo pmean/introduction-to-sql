@@ -27,7 +27,7 @@ M06-Q03. Get a count of the numbers of males and females (from the acupuncture_d
 
 Put your code and the output in a single PDF file.
 
-Refer to [this page][git1] for a description of the data files. 
+Warning! The names of the various acupuncture tables and the names of the fields (columns/variables) in each table are tricky and inconsistent. For example, some fields use the abbreviation "grp" and others spell it out completely as "group". You should look at the [data dictionary][git1] for the acupuncture tables.
 
 #### Quiz06
 
@@ -44,3 +44,7 @@ All questions are True/False.
 + A primary key can accept multiple NULL values.
 
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
+
+[git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/acupuncture-data-dictionary.md
+
+
