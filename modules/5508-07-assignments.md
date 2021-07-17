@@ -21,13 +21,13 @@ Q2. Compute the average pk score at baseline, the average score at one year, and
 
 Q3. Display all the pk1 values for patients 64 and older.
 
-Q4. There are 100 patients with baseline values but no values at one year. Use a left join to identify these patients. Print the ids of the first ten of these patients.
+Q4. There are 100 patients with baseline values but no values at one year. Use a left join to identify these patients. Print the ids only for values of 130 or less.
 
-Q5. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+Q5. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Print the ids only for values of 130 or less.
 
-Q6. Compute the union of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Display the first ten rows of data only.
+Q6. Compute the union of the ids from acupuncture_baseline_results and acupuncture_one_year_results. Print the ids only for values of 130 or less.
 
-Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator “minus” to achieve the same goal. Note: for SQLite, use “except” instead of “minus”.
+Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator “minus” to achieve the same goal. Note: for SQLite, use “except” instead of “minus”. Print the ids only for values of 130 or less.
 
 Warning! The names of the various acupuncture tables and the names of the fields (columns/variables) in each table are tricky and inconsistent. For example, some fields use the abbreviation "grp" and others spell it out completely as "group". Refer to [this page][git1] for a description of the data files. 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/acupuncture-data-dictionary.md
