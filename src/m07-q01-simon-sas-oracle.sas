@@ -1,43 +1,78 @@
-* hw13a.sas
-* written by Steve Simon
-* creation date: 2020-07-27;
+*************************************************
+m07-q01-simon-sas-oracle
+author: Steve Simon
+creation date: 2020-07-27;
 
-* Note: this solution uses SAS and Oracle. An alternate solution using 
-  R and SQLite is also available.
+purpose: to illustrate answers to homework in 
+module07
+
+license: public domain
+
+Note: this solution uses SAS and Oracle. An 
+alternate solution using R and SQLite is also
+available.
   
-1. Do an inner join of baseline_table and one_year_table. Display the 
-first ten rows of data only.
+Q1. Count the number of records after an inner
+join of acupuncture_baseline_results and 
+acupuncture_one_year_results. Count the number of
+records after a left join of 
+acupuncture_baseline_results and 
+acupuncture_one_year_results. Why are these 
+numbers different?
 
-2. Explain why id 104 included in this inner join, but not the inner 
-join shown in the video?
+Q2. Compute the average pk score at baseline, the
+average score at one year, and the average change
+score. Without running any formal statistical
+tests, tell us whether you think the pk scores
+are increasing, decreasing, or staying about the
+same.
 
-3. Count the number of records after an inner join of baseline_table
-and year_one_table. Compare this to the number of records in the 
-year_one_table.
+Q3. Display all the pk1 values for patients 64
+and older.
 
-4. Compute the average pk score at baseline, the average score at one
-year, and the average change score.
+Q4. There are 100 patients with baseline values
+but no values at one year. Use a left join to
+identify these patients. Print the ids of the
+first ten of these patients.
 
-5. Find and list the two labels in migraine_table that do not 
-correspond to any codes in demog_table.
+Q5. Compute the intersection of the ids from 
+acupuncture_baseline_results and 
+acupuncture_one_year_results. Display the first
+ten rows of data only.
 
-6. Show that there are no unmatched labels or unmatched codes for 
-group_table.
+Q6. Compute the union of the ids from 
+acupuncture_baseline_results and 
+acupuncture_one_year_results. Display the first
+ten rows of data only.
 
+Q7. In a previous question, you were asked to
+list the first ten ids that were in 
+acupuncture_baseline_results but not in 
+acupuncture_one_year_results. Use the set 
+operator “minus” to achieve the same goal. 
+Note: for SQLite, use “except” instead of 
+“minus”.
 
-
-Note: Some of the names used in this code are arbitrary and you can 
-choose whatever names you want. To emphasize which names can be 
-modified at your discretion, I am using names of famous statisticians.
+Note: Some of the names used in this code are
+arbitrary and you can choose whatever names you
+want. To emphasize which names can be modified at
+your discretion, I am using names of famous
+statisticians.
 
 The statistician being honored in this code is 
 [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 
-ods pdf file="q:/introduction-to-sql/results/hw13a-solution-using-sas-oracle-output.pdf";
+The statistician being honored in this code is 
+[Helen Walker](https://en.wikipedia.org/wiki/Helen_M._Walker).
+
+
+*************************************************;
+
+ods pdf file="q:/introduction-to-sql/results/m07-q01-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
-  akaike
+  akaike /* walker */
   oracle
   user='simons'
   password=&pw
@@ -45,132 +80,142 @@ libname
   schema='simons';
 
 proc sql;
-  create table hirotugu1 as
-    select b.id, b.pk1, o.pk5
-      from akaike.baseline_table as b
-      join akaike.one_year_table as o
-      on b.id=o.id
-      where monotonic() <= 10
-  ;
-quit;
-
-proc print
-  data=hirotugu1;
-  title1 "First ten rows in joined data";
-run;
-
-proc sql;
-  create table hirotugu2a as
-    select count(*)
-      from akaike.baseline_table
-      where id = 104
-  ;
-quit;
-
-proc print
-  data=hirotugu2a;
-  title1 "Number of records in baseline_table with id=104";
-run;
-
-proc sql;
-  create table hirotugu2b as
-    select count(*)
-      from akaike.three_month_table
-      where id = 104
-  ;
-quit;
-
-proc print
-  data=hirotugu2b;
-  title1 "Number of records in three_month_table with id=104";
-run;
-
-proc sql;
-  create table hirotugu2c as
-    select count(*)
-      from akaike.one_year_table
-      where id = 104
-  ;
-quit;
-
-proc print
-  data=hirotugu2c;
-  title1 "Number of records in one_year_table with id=104";
-run;
-
-proc sql;
-  create table hirotugu3a as
-    select count(b.id) as n
-      from akaike.baseline_table as b
-      join akaike.one_year_table as o
-      on b.id=o.id
-  ;
-quit;
-
-proc print
-  data=hirotugu3a;
-  title1 "Number of records after joining baseline_table and one_year_table";
-run;
-
-proc sql;
-  create table hirotugu3b as
+  create table hirotogu_inner as
     select count(*) as n
-      from akaike.one_year_table
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
+      on b.id=o.id
   ;
 quit;
 
 proc print
-  data=hirotugu3b;
-  title1 "Number of records in one_year_table";
+  data=hirotugu_inner;
+  title1 "There are 301 records after an innter join";
 run;
 
 proc sql;
-  create table hirotugu4 as
+  create table hirotugu_left as
+    select count(*) as n
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
+  ;
+quit;
+
+proc print
+  data=hirotugu_left;
+  title1 "There are 401 records after a left join";
+  title2 "The left join has more data because it includes";
+  title3 "patients who dropped out at one year."
+run;
+
+*************************************************;
+
+proc sql;
+  create table hirotugu as
     select 
       avg(b.pk1) as pk1_avg,
       avg(o.pk5) as pk5_avg,
       avg(b.pk1)-avg(o.pk5) as change_score
-      from akaike.baseline_table as b
-      join akaike.one_year_table as o
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
       on b.id=o.id
   ;
 quit;
 
 proc print
-  data=hirotugu4;
-  title1 "Average scores at baseline and one year, plus a change score";
+  data=hirotugu;
+  title1 "Q2";
 run;
 
+*************************************************;
+
 proc sql;
-  create table hirotugu5 as
-    select 
-      m.migraine_code, m.migraine_label
-      from akaike.migraine_table as m
-      left join akaike.demog_table as d
-      on m.migraine_code=d.migraine
-      where d.migraine is null
+  create table hirotugu as
+      d.id, d.age, b.pk1
+      from acupuncture_demographics as d
+      inner join acupuncture_baseline_results as b
+      on d.id=b.id
+      where d.age >= 64
   ;
 quit;
 
 proc print
-  data=hirotugu5;
-    title1 "Codes in migraine_table not found in demog_table";
+  data=hirotugu;
+  title1 "Q3";
 run;
 
+************************************************;
+
 proc sql;
-  create table hirotugu6 as
+  create table hirotugu as
     select 
-      count(g.group_code) as n
-      from akaike.group_table as g
-      left join akaike.demog_table as d
-      on g.group_code=d.grp
-      where d.grp is null
+      b.id as unmatched_ids
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
+    where o.id is null and
+      monotonic() <= 10
   ;
 quit;
 
 proc print
-  data=hirotugu6;
-  title1 "Verifying that no codes in group_table are not also found in demog_table";
+  data=hirotugu;
+  title1 "Q4";
+run;
+
+************************************************;
+
+proc sql;
+  create table helen as
+    select id
+      from acupuncture_baseline_results
+    intersect
+    select id
+      from acupuncture_one_year_results
+    where monotonic() <= 10
+  ;
+quit;
+
+proc print
+  daata=helen;
+  title1 "Q5";
+run;
+
+*************************************************;
+
+proc sql;
+  create table helen as
+    select id
+      from acupuncture_baseline_results
+    union
+    select id
+      from acupuncture_one_year_results
+    where monotonic() <= 10
+  ;
+quit;
+
+proc print
+  data=helen;
+  title1 "Q6";
+run;
+
+*************************************************;
+
+proc sql;
+  create table helen as
+    select id
+      from acupuncture_baseline_results
+    minus
+    select id
+      from acupuncture_one_year_results
+    where monotonic() <= 10
+  ;
+quit;
+
+proc print
+  data=helen;
+    title1 "Q7";
 run;
 
 ods pdf close;

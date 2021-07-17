@@ -20,24 +20,24 @@ The statistician being honored in this code is [Hirotugu Akaike](https://en.wiki
 
 Q1. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results. Why are these numbers different?
 
-```{r hirotugu_akaike3}
+```{r hirotugu_akaike}
 library(sqldf)
 akaike <- dbConnect(SQLite(),
   dbname="../data/melange.sqlite")
-hirotugu3a <- dbGetQuery(conn=akaike,  "
+hirotugu_inner <- dbGetQuery(conn=akaike,  "
     select count(*) as n
       from acupuncture_baseline_results as b
       join acupuncture_one_year_results as o
       on b.id=o.id
 ")
-hirotugu3a
-hirotugu3b <- dbGetQuery(conn=akaike,  "
+hirotugu_inner
+hirotugu_left <- dbGetQuery(conn=akaike,  "
     select count(*) as n
       from acupuncture_baseline_results as b
       left join acupuncture_one_year_results as o
       on b.id=o.id
 ")
-hirotugu3b
+hirotugu_left
 dbDisconnect(conn=akaike)
 ```
 
@@ -47,7 +47,7 @@ Q2. Compute the average pk score at baseline, the average score at one year, and
 library(sqldf)
 akaike <- dbConnect(SQLite(),
   dbname="../data/melange.sqlite")
-hirotugu4 <- dbGetQuery(conn=akaike,  "
+hirotugu <- dbGetQuery(conn=akaike,  "
     select 
       avg(b.pk1) as pk1_avg,
       avg(o.pk5) as pk5_avg,
@@ -57,7 +57,7 @@ hirotugu4 <- dbGetQuery(conn=akaike,  "
       on b.id=o.id
 ")
 
-hirotugu4
+hirotugu
 dbDisconnect(conn=akaike)
 ```
 
@@ -67,7 +67,7 @@ Q3. Display all the pk1 values for patients 64 and older.
 library(sqldf)
 akaike <- dbConnect(SQLite(),
   dbname="../data/melange.sqlite")
-hirotugu5 <- dbGetQuery(conn=akaike,  "
+hirotugu <- dbGetQuery(conn=akaike,  "
     select 
       d.id, d.age, b.pk1
       from acupuncture_demographics as d
@@ -76,7 +76,7 @@ hirotugu5 <- dbGetQuery(conn=akaike,  "
       where d.age >= 64
 ")
 
-hirotugu5
+hirotugu
 dbDisconnect(conn=akaike)
 ```
 
