@@ -50,7 +50,7 @@ quit;
 
 proc print
   data=hirotugu_q4;
-  title1 "Listing of intersection for ids";
+  title1 "Listing of mismatched ids";
 run;
 
 
