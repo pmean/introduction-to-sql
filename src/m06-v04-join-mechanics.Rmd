@@ -3,6 +3,11 @@ title: "Mechanics of joining/merging two tables"
 author: "Suman Sahil, Steve Simon"
 date: "Creation date: 2021-07-24"
 output: powerpoint_presentation
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
 ---
 
 ```{r setup, echo=FALSE}
@@ -17,7 +22,7 @@ suppressMessages(suppressWarnings(library(tidyr)))
 ### Overview
 
 + Mechanics of join/merge
-+ One-to-one merge
++ Efficiency issues
 + One-to-many merge
 + Mismatches
 
@@ -237,6 +242,64 @@ The completes the join.
 
 </div>
 
+### Break #1
++ What you just learned
+  + Simple matching algorithm
++ What's next
+  + Efficiency issues
+
+### Efficiency (1/2)
++ How much work?
+  + Eight steps
+  + Eight comparisons within each step
+  + 64 total steps
++ Complications
+  + When one or both tables do not fit in memory
+  + NULL values
+
+<div class="notes">
+
+While efficiency is beyond the scope of this class, I do want to touch on the issue briefly. The algorithm shown here is the easiest to understand, and it is also easy to implement. It can sometimes be terribly slow and inefficient.
+
+In this example, there were eight steps and each step required eight comparisons to find the right match. You can't stop once you find a match, because you don't know if there might be a second match. So there are 64 comparisons needed to join two tables with eight records each.
+
+When tables in a database can have thousands or even millions of records, the number of comparisons can overwhelm even the fastest computer.
+
+There are complications to consider. When one or both tables do not fit in memory, you have an added cost of bringing pieces of each table in and out.
+
+NULL values complicate a join because you can't say what matches what when NULL values are included. Many databases are designed so that NULL values are not allowed on any fields that might be used to link two tables.
+
+</div>
+
+### Efficiency (2/2)
++ Improvements
+  + Speed gains can often be substantial, but ...
+  + Change the order of the join
+  + Sort before merging
+  + Create a hash
+  
+<div class="notes">
+
+Improvements of the basic join algorithms are often possible. At times this might mean the difference between a join that takes a few seconds verus one that takes a few hours. If your database is really big, then sometimes it might mean the difference between a few hours and a few days. 
+
+It is impossible to perfectly predict whether a more complex algorithm will perform better without running both algorithms side-by-side. This defeats the purpose of making an improvement, of course. There are general features of the tables being joined that can often indiciate with pretty good accuracy what approach is best. Nevertheless, picking the most efficient approach can sometimes be more of an art than a science.
+
+Mathematically, joining table A to table B is identical to joining table B to table A. But computationally, one may be much slower than the other. This can happen when there is a large discrepancy in the size of the two tables being joined. Modern databases try to look at features of the join to predict the timing of joining A to B versus B to A and may choose to reverse the order.
+
+Often, but not always, you can sort the two tables and then do the join. It takes time to sort the table, but matching can go a lot faster.
+
+For very large tables, you can use a hash function on the linking variables. A hash function takes an input value and creates a new value called a hash that has several desirable mathematical properties. The hash is always the same size as the input, often much smaller in size, and it tends to be distributed uniformly across the possible values. Matching hashes rather than the original linking variables can sometimes be more efficient.
+
+As an end user, you don't need to worry too much about these issues, as they are handled behind the scenes by the database programmers.
+
+</div>
+
+### Break #2
++ What you just learned
+  + Efficiency issues
++ What's next
+  + One-to-many join
+
 ### An updated doctor table, one-to-many join
 
 ```{r}
@@ -359,6 +422,12 @@ Here's what the complete join looks like.
 
 </div>
 
+### Break #3
++ What you just learned
+  + One-to-many join
++ What's next
+  + What to do with mismatches
+  
 ### Another update, what to do with mismatches
 
 ```{r}
@@ -417,16 +486,16 @@ The second choice is to include the mismatch, and fill the values in the doctor 
 
 </div>
 
-### Overview
+### Summary
 
 + Mechanics of join/merge
-+ One-to-one merge
++ Efficiency issues
 + One-to-many merge
 + Mismatches
 
 <div class="notes">
 
-There's a lot more to cover. But you learned the basic algorithm for the one-to-one merge, how it works just as well for the one-to-many join, and the two approaches to handling mismatches.
+There's a lot more to cover. But you learned the basic algorithm for the one-to-one merge, how it works just as well for the one-to-many join, and the two approaches to handling mismatches. We also snuck in some information about computational efficiency.
 
 </div>
 
