@@ -1,0 +1,58 @@
+---
+title: "Create overview and place in README.md"
+author: "Steve Simon"
+date: "Created 2021-07-24"
+output: html_document
+---
+
+```{r common-code, child="common-functions.Rmd"}
+```
+
+```{r constants}
+modules <- zpad(1:8)
+prefix <- 'https://github.com/pmean/introduction-to-sql/blob/master/'
+```
+
+```{r}
+list.files(path="../modules", pattern="\\.md") -> md_files
+
+keywords <- c(
+  "Announcements",
+  "Overview",
+  "Objectives",
+  "Assignments", 
+  "Answers")
+
+readLines("create-course-overview.txt") %>%
+  paste0(collapse="\n") -> course_overview
+```
+
+```{r}
+course_overview %<>% paste0("\n\nThis file was automatically generated")
+course_overview %<>% paste0(" by create-course-overview.Rmd")
+course_overview %<>% paste0(" and was last updated on ", Sys.Date())
+```
+
+```{r}
+for (module in modules) {
+  course_overview %<>% paste0("\n\n### Module", module)
+  md_files %>% str_subset(paste0("-", module, "-")) -> md
+  for (keyword in keywords) {
+    course_overview %<>% paste0("\n", bullet(md, keyword))
+  }
+}
+```
+
+```{r}
+for (md_file in md_files) {
+  course_overview %<>% paste0("\n\n", add_links(md_file, ""))
+}
+```
+
+```{r}
+course_overview %>%
+  writeLines("../README.md")
+
+course_overview %>% cat
+```
+
