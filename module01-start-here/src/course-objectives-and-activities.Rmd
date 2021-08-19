@@ -1,8 +1,0 @@
----
-title: "Couse Objective and Activities"
-output: pdf_document
----
-
-Course Objectives and Activities
-
-This file was written by Steve Simon and Suman Sahil on 2020-06-20 and last modified on `r Sys.Date()`.
