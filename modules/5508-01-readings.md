@@ -23,6 +23,12 @@ William Kent. A Simple Guide to Five Normal Forms in Relational Database Theory.
 
 Julia Lane, Victoria Stodden. What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. AMSTAT News 2013-12-01. Available in [html format][lane].
 
+On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+
+<!---my git--->
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-readings.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+
 [barb]: https://www.nytimes.com/2006/08/09/technology/09aol.html
 [barr]: https://www.wired.com/story/null-license-plate-landed-one-hacker-ticket-hell/
 [bert]: https://courses.cs.washington.edu/courses/cse590q/03au/jajodia-is-95.pdf

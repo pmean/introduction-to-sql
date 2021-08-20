@@ -75,3 +75,10 @@ If you are missing more than two or three assignments, however, you should talk 
 #### To be posted at 25% mark
 
 Every time we teach this class, we introduce small improvements. This sometimes includes improvements to the homework assignments. Unfortunately, this can sometimes cause confusion, such as when the Panopto video from a couple of years ago refers to a slightly different version of your homework assignment. if there is a discrepancy between what a video describes as your homework and what you see on the Canvas site, please rely on the Canvas site. This discrepancy is especially notable in Module07, but you may see inconsistencies in any Module.
+
+On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+
+<!---my git--->
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-announcements.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+

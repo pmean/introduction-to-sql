@@ -37,5 +37,11 @@ Please review the videos in this module before taking this quiz.
 + What company developed SQL in the early 1970s?
 + The rows of a database are also called ...
 
+On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+
+<!---my git--->
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-02-assignments.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

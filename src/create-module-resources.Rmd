@@ -54,7 +54,7 @@ for (module in modules) {
   rmd_v %>% str_subset(paste0("-m", module, "-")) -> rmd_v_subset
   sas_h %>% str_subset(paste0("-m", module, "-")) -> sas_h_subset
   sas_o %>% str_subset(paste0("-m", module, "-")) -> sas_o_subset
-  filename <- str_replace("../modules/5507-xx-resources.md", "xx", module)
+  filename <- str_replace("../modules/5508-xx-resources.md", "xx", module)
 
   vlist <- sort(c(pdf_v_subset, ppt_v_subset, rmd_v_subset))
   hlist <- sort(c(rmd_h_subset, rmd_o_subset, sas_h_subset, sas_o_subset))
