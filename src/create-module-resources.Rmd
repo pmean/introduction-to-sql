@@ -9,30 +9,34 @@ output: html_document
 ```
 
 ```{r}
-list.files(path="../src", pattern="\\.sas") %>%
-  str_subset("m..-q") -> sas_h
+list.files(path="../src", pattern="\\.Rmd") %>%
+  str_subset("m..-hw") -> rmd_h
 
 list.files(path="../src", pattern="\\.Rmd") %>%
-  str_subset("m..-q") -> r_h
+  str_subset("m..-vi") -> rmd_v
+
+list.files(path="../src", pattern="\\.sas") %>%
+  str_subset("m..-hw") -> sas_h
 
 list.files(path="../results", pattern="\\.pdf") %>%
-  str_subset("-sas-oracle-") -> sas_o
-
-list.files(path="../results", pattern="\\.pdf") %>%
-  str_subset("-r-sqlite-") -> r_o
-
-list.files(path="../results", pattern="\\.pdf") %>%
-  str_subset("m..-v") -> pdf_s
+  str_subset("m..-vi") -> pdf_v
 
 list.files(path="../results", pattern="\\.pptx") %>%
-  str_subset("m..-v") -> ppt_s
+  str_subset("m..-vi") -> ppt_v
 
-r_h %>% data.frame %>% set_names("r_h") %>% kable
-r_o %>% data.frame %>% set_names("r_o") %>% kable
+list.files(path="../results", pattern="\\.pdf") %>%
+  str_subset("-r-sqlite") -> rmd_o
+
+list.files(path="../results", pattern="\\.pdf") %>%
+  str_subset("-sas-oracle") -> sas_o
+
+pdf_v %>% data.frame %>% set_names("pdf_v") %>% kable
+ppt_v %>% data.frame %>% set_names("ppt_v") %>% kable
+rmd_h %>% data.frame %>% set_names("rmd_h") %>% kable
+rmd_o %>% data.frame %>% set_names("rmd_o") %>% kable
+rmd_v %>% data.frame %>% set_names("rmd_v") %>% kable
 sas_h %>% data.frame %>% set_names("sas_h") %>% kable
 sas_o %>% data.frame %>% set_names("sas_o") %>% kable
-pdf_s %>% data.frame %>% set_names("pdf_s") %>% kable
-ppt_s %>% data.frame %>% set_names("ppt_s") %>% kable
 ```
 
 ```{r constants}
@@ -40,18 +44,20 @@ modules <- zpad(1:8)
 prefix <- 'https://github.com/pmean/introduction-to-sql/blob/master/'
 ```
 
-```{r}
+```{r write-module-resources}
 for (module in modules) {
   module_num <- paste0("Module", module)
-  pdf_h %>% str_subset(paste0("-", module, "-")) -> pdf_h_subset
-  pdf_v %>% str_subset(paste0("-", module, "-")) -> pdf_v_subset
-  rmd_v %>% str_subset(paste0("-", module, "-")) -> rmd_v_subset
-  sas_h %>% str_subset(paste0("-", module, "-")) -> sas_h_subset
-  sas_v %>% str_subset(paste0("-", module, "-")) -> sas_v_subset
+  pdf_v %>% str_subset(paste0("-m", module, "-")) -> pdf_v_subset
+  ppt_v %>% str_subset(paste0("-m", module, "-")) -> ppt_v_subset
+  rmd_h %>% str_subset(paste0("-m", module, "-")) -> rmd_h_subset
+  rmd_o %>% str_subset(paste0("-m", module, "-")) -> rmd_o_subset
+  rmd_v %>% str_subset(paste0("-m", module, "-")) -> rmd_v_subset
+  sas_h %>% str_subset(paste0("-m", module, "-")) -> sas_h_subset
+  sas_o %>% str_subset(paste0("-m", module, "-")) -> sas_o_subset
   filename <- str_replace("../modules/5507-xx-resources.md", "xx", module)
 
-  vlist <- sort(c(pdf_v_subset, rmd_v_subset))
-  hlist <- sort(c(pdf_h_subset, sas_h_subset))
+  vlist <- sort(c(pdf_v_subset, ppt_v_subset, rmd_v_subset))
+  hlist <- sort(c(rmd_h_subset, rmd_o_subset, sas_h_subset, sas_o_subset))
   readLines("create-module-resources.txt") %>%
     paste0(collapse="\n")  %>%
     str_replace("Module", module_num) %>%
@@ -65,11 +71,7 @@ for (module in modules) {
     paste0("\n", bullet(vlist)) %>%
     
     paste0("\n\n#### ") %>%
-    paste0("SAS programs used in the videos\n") %>%
-    paste0("\n", bullet(sas_v_subset)) %>%
-    
-    paste0("\n\n#### ") %>%
-    paste0("Homework solutions, SAS code and output\n") %>%
+    paste0("Homework solutions, code and output\n") %>%
     paste0("\n", bullet(hlist)) %>%
     
     paste0("\n\nThis file was automatically generated") %>%
@@ -90,19 +92,25 @@ for (module in modules) {
     paste0("README.md") %>%
 
     paste0("\n\n<!---pdf_h--->") %>%
-    paste0("\n", add_links(pdf_h_subset, "pdf", "results/")) %>%
-
-    paste0("\n\n<!---pdf_v--->") %>%
     paste0("\n", add_links(pdf_v_subset, "pdf", "results/")) %>%
+
+    paste0("\n\n<!---ppt_v--->") %>%
+    paste0("\n", add_links(ppt_v_subset, "pdf", "results/")) %>%
+    
+    paste0("\n\n<!---rmd_h--->") %>%
+    paste0("\n", add_links(rmd_h_subset, "md", "src/")) %>%
+    
+    paste0("\n\n<!---rmd_o--->") %>%
+    paste0("\n", add_links(rmd_o_subset, "md", "src/")) %>%
     
     paste0("\n\n<!---rmd_v--->") %>%
     paste0("\n", add_links(rmd_v_subset, "md", "src/")) %>%
     
-    paste0("\n\n<!---sas_v--->") %>%
-    paste0("\n", add_links(sas_v_subset, "sas", "src/")) %>%
-
     paste0("\n\n<!---sas_h--->") %>%
-    paste0("\n", add_links(sas_h_subset, "sas", "src/")) -> module_overviews
+    paste0("\n", add_links(sas_h_subset, "sas", "src/")) %>%
+
+    paste0("\n\n<!---sas_o--->") %>%
+    paste0("\n", add_links(sas_o_subset, "sas", "src/")) -> module_overviews
   
   module_overviews %>% cat
   module_overviews %>%
