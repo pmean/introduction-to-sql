@@ -40,5 +40,14 @@ Please review the videos in this module before taking this quiz.
 + What function could help you simplify the following SQL code: where id=12 or id=24 or id=45 ...
 + Why might you want to separate database information into two or more tables? ...
 
+You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
+
+Here are [links to other important files][mygit] on my github site.
+
+<!---my git--->
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-05-assignments.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+
+
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

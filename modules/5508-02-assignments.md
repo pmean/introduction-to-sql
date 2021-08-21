@@ -19,9 +19,9 @@ Please keep your answers brief. You are welcome to say something generic like "I
 
 Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
-M02-Q01. Use table patient_type table in the EHR data mart. Order all the fields by Pat_type_desc and print just the first four rows from the table. Please note that if you are using SAS to access a SQL database, you need to use the keyword monotonic.
+Q1. Use table patient_type table in the EHR data mart. Order all the fields by Pat_type_desc and print just the first four rows from the table. Please note that if you are using SAS to access a SQL database, you need to use the keyword monotonic.
 
-M02-Q02. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.          
+Q2. Use the cigarettes table in the melange database. Find and print all of the records for cigarettes that have an ampersand (&) in their name.          
 
 Put all your code and output in a single PDF file.
 
@@ -37,7 +37,9 @@ Please review the videos in this module before taking this quiz.
 + What company developed SQL in the early 1970s?
 + The rows of a database are also called ...
 
-On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
+
+Here are [links to other important files][mygit] on my github site.
 
 <!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-02-assignments.md
