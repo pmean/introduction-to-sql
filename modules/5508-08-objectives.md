@@ -2,7 +2,7 @@
 title: "MEDB 5508, Introduction to SQL, Module08, Objectives"
 ---
 
-#### Module08, Suqueries, gathering, and spreading
+#### Module08, Subqueries, gathering, and spreading
 
 ##### In this module, you will learn how to
 
