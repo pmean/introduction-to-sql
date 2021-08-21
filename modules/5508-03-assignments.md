@@ -6,10 +6,6 @@ date: Created 2021-04-03
 
 #### Discuss03
 
-Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
-
-Use the hospital table in the ehr schema. You can find a description of the hospital table (and all other data sets) on [my Github site][hos1].  
-
 Review the videos in this module and briefly answer the following questions
 
 + What was the most important thing that you learned?
@@ -19,17 +15,13 @@ Please keep your answers brief. You are welcome to say something generic like "I
 
 #### HW03, Practice with null values
 
-Graded: 3 points, one point deduction if submitted after deadline
+Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
-<!---Double check, as this hw had issues last time--->
+Q1. Verify that the hospital id code (HOSP_ID) has no missing values. Be sure to use count(*) instead of count(HOSP_ID).
 
-I am consolidating documentation for all databases and data tables [here](https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md).
+Q2. There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND).
 
-M03-Q01. Verify that the hospital id code (HOSP_ID) has no missing values. Be sure to use count(*) instead of count(HOSP_ID).
-
-M03-Q02. There are only two fields in the database that have null values. Get a count of the number of missing values for the indicator for teaching hospital (TEACHING_IND).
-
-M03-Q03. There is only one hospital where the number of beds (BED_SIZE) is unknown. Find the id of that hospital.
+Q3. There is only one hospital where the number of beds (BED_SIZE) is unknown. Find the id of that hospital.
 
 Combine your results into a single PDF file and submit it.
 
