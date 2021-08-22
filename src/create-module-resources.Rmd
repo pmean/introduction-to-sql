@@ -155,14 +155,21 @@ for (i in 1:length(modules)) {
     paste0(prefix) %>%
     paste0("README.md") -> resources_conclusion[i]
 
+  
   resources_intro %>% 
     paste0(resources_readings_1[i]) %>%
+    paste0("\n\n") %>%
     paste0(resources_slides_1[i]) %>%
+    paste0("\n\n") %>%
     paste0(resources_homework_1[i-1]) %>%
+    paste0("\n\n") %>%
     paste0(resources_conclusion[i]) %>%
+    paste0("\n\n") %>%
     paste0(resources_readings_2[i]) %>%
+    paste0("\n\n") %>%
     paste0(resources_slides_1[i]) %>%
-    paste0(resources_homework_1[i-1]) -> resources_text
+    paste0("\n\n") %>%
+    paste0(resources_homework_2[i-1]) -> resources_text
   
   resources_text %>% cat
   resources_text %>% writeLines(filename)
