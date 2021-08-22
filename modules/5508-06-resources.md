@@ -52,26 +52,28 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA
 ---
@@ -128,26 +130,28 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA
 ---
@@ -204,26 +208,28 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA
 ---
@@ -280,26 +286,28 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA
 ---
@@ -356,26 +364,28 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA
 ---
@@ -432,25 +442,27 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m06-video-basic-terminologies.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pdf
+[m06-video-database-design.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pdf
+[m06-video-displaying-data.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pdf
+[m06-video-multiple-tables.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pdf
+[m06-video-simple-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pdf
+[m06-video-using-joins.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pdf
 
-+ [5508-simon-m06-video-add-labels.Rmd][m06-video-add-labels.Rmd].
-+ [5508-simon-m06-video-basic-terminologies.pdf][m06-video-basic-terminologies.pdf].
-+ [5508-simon-m06-video-basic-terminologies.pptx][m06-video-basic-terminologies.pptx].
-+ [5508-simon-m06-video-database-design.pdf][m06-video-database-design.pdf].
-+ [5508-simon-m06-video-database-design.pptx][m06-video-database-design.pptx].
-+ [5508-simon-m06-video-displaying-data.pdf][m06-video-displaying-data.pdf].
-+ [5508-simon-m06-video-displaying-data.pptx][m06-video-displaying-data.pptx].
-+ [5508-simon-m06-video-join-mechanics.Rmd][m06-video-join-mechanics.Rmd].
-+ [5508-simon-m06-video-multiple-tables.pdf][m06-video-multiple-tables.pdf].
-+ [5508-simon-m06-video-multiple-tables.pptx][m06-video-multiple-tables.pptx].
-+ [5508-simon-m06-video-multiple-tables.Rmd][m06-video-multiple-tables.Rmd].
-+ [5508-simon-m06-video-simple-joins.pdf][m06-video-simple-joins.pdf].
-+ [5508-simon-m06-video-simple-joins.pptx][m06-video-simple-joins.pptx].
-+ [5508-simon-m06-video-using-joins.pdf][m06-video-using-joins.pdf].
-+ [5508-simon-m06-video-using-joins.pptx][m06-video-using-joins.pptx].
+<!---ppt_v--->
+[m06-video-basic-terminologies.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-basic-terminologies.pptx
+[m06-video-database-design.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-database-design.pptx
+[m06-video-displaying-data.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-displaying-data.pptx
+[m06-video-multiple-tables.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-multiple-tables.pptx
+[m06-video-simple-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-simple-joins.pptx
+[m06-video-using-joins.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m06-video-using-joins.pptx
+
+<!---rmd_v--->
+[m06-video-add-labels.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-add-labels.Rmd
+[m06-video-join-mechanics.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-join-mechanics.Rmd
+[m06-video-multiple-tables.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m06-video-multiple-tables.Rmd
 
 NA

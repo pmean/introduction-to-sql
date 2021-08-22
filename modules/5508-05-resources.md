@@ -44,18 +44,20 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m05-video-conversion-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion-duplicate.pdf
+[m05-video-conversion.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion.pdf
+[m05-video-join-mechanics.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pdf
+[m05-video-metadata.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pdf
 
-+ [5508-simon-m05-video-conversion-duplicate.pdf][m05-video-conversion-duplicate.pdf].
-+ [5508-simon-m05-video-conversion.pdf][m05-video-conversion.pdf].
-+ [5508-simon-m05-video-join-mechanics.pdf][m05-video-join-mechanics.pdf].
-+ [5508-simon-m05-video-join-mechanics.pptx][m05-video-join-mechanics.pptx].
-+ [5508-simon-m05-video-metadata.pdf][m05-video-metadata.pdf].
-+ [5508-simon-m05-video-metadata.pptx][m05-video-metadata.pptx].
-+ [5508-simon-m05-video-metadata.Rmd][m05-video-metadata.Rmd].
+<!---ppt_v--->
+[m05-video-join-mechanics.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pptx
+[m05-video-metadata.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pptx
+
+<!---rmd_v--->
+[m05-video-metadata.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m05-video-metadata.Rmd
 
 NA
 ---
@@ -104,18 +106,20 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m05-video-conversion-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion-duplicate.pdf
+[m05-video-conversion.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion.pdf
+[m05-video-join-mechanics.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pdf
+[m05-video-metadata.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pdf
 
-+ [5508-simon-m05-video-conversion-duplicate.pdf][m05-video-conversion-duplicate.pdf].
-+ [5508-simon-m05-video-conversion.pdf][m05-video-conversion.pdf].
-+ [5508-simon-m05-video-join-mechanics.pdf][m05-video-join-mechanics.pdf].
-+ [5508-simon-m05-video-join-mechanics.pptx][m05-video-join-mechanics.pptx].
-+ [5508-simon-m05-video-metadata.pdf][m05-video-metadata.pdf].
-+ [5508-simon-m05-video-metadata.pptx][m05-video-metadata.pptx].
-+ [5508-simon-m05-video-metadata.Rmd][m05-video-metadata.Rmd].
+<!---ppt_v--->
+[m05-video-join-mechanics.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pptx
+[m05-video-metadata.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pptx
+
+<!---rmd_v--->
+[m05-video-metadata.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m05-video-metadata.Rmd
 
 NA
 ---
@@ -164,18 +168,20 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m05-video-conversion-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion-duplicate.pdf
+[m05-video-conversion.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion.pdf
+[m05-video-join-mechanics.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pdf
+[m05-video-metadata.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pdf
 
-+ [5508-simon-m05-video-conversion-duplicate.pdf][m05-video-conversion-duplicate.pdf].
-+ [5508-simon-m05-video-conversion.pdf][m05-video-conversion.pdf].
-+ [5508-simon-m05-video-join-mechanics.pdf][m05-video-join-mechanics.pdf].
-+ [5508-simon-m05-video-join-mechanics.pptx][m05-video-join-mechanics.pptx].
-+ [5508-simon-m05-video-metadata.pdf][m05-video-metadata.pdf].
-+ [5508-simon-m05-video-metadata.pptx][m05-video-metadata.pptx].
-+ [5508-simon-m05-video-metadata.Rmd][m05-video-metadata.Rmd].
+<!---ppt_v--->
+[m05-video-join-mechanics.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pptx
+[m05-video-metadata.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pptx
+
+<!---rmd_v--->
+[m05-video-metadata.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m05-video-metadata.Rmd
 
 NA
 ---
@@ -224,18 +230,20 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m05-video-conversion-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion-duplicate.pdf
+[m05-video-conversion.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion.pdf
+[m05-video-join-mechanics.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pdf
+[m05-video-metadata.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pdf
 
-+ [5508-simon-m05-video-conversion-duplicate.pdf][m05-video-conversion-duplicate.pdf].
-+ [5508-simon-m05-video-conversion.pdf][m05-video-conversion.pdf].
-+ [5508-simon-m05-video-join-mechanics.pdf][m05-video-join-mechanics.pdf].
-+ [5508-simon-m05-video-join-mechanics.pptx][m05-video-join-mechanics.pptx].
-+ [5508-simon-m05-video-metadata.pdf][m05-video-metadata.pdf].
-+ [5508-simon-m05-video-metadata.pptx][m05-video-metadata.pptx].
-+ [5508-simon-m05-video-metadata.Rmd][m05-video-metadata.Rmd].
+<!---ppt_v--->
+[m05-video-join-mechanics.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pptx
+[m05-video-metadata.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pptx
+
+<!---rmd_v--->
+[m05-video-metadata.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m05-video-metadata.Rmd
 
 NA
 ---
@@ -284,17 +292,19 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m05-video-conversion-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion-duplicate.pdf
+[m05-video-conversion.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-conversion.pdf
+[m05-video-join-mechanics.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pdf
+[m05-video-metadata.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pdf
 
-+ [5508-simon-m05-video-conversion-duplicate.pdf][m05-video-conversion-duplicate.pdf].
-+ [5508-simon-m05-video-conversion.pdf][m05-video-conversion.pdf].
-+ [5508-simon-m05-video-join-mechanics.pdf][m05-video-join-mechanics.pdf].
-+ [5508-simon-m05-video-join-mechanics.pptx][m05-video-join-mechanics.pptx].
-+ [5508-simon-m05-video-metadata.pdf][m05-video-metadata.pdf].
-+ [5508-simon-m05-video-metadata.pptx][m05-video-metadata.pptx].
-+ [5508-simon-m05-video-metadata.Rmd][m05-video-metadata.Rmd].
+<!---ppt_v--->
+[m05-video-join-mechanics.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-join-mechanics.pptx
+[m05-video-metadata.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m05-video-metadata.pptx
+
+<!---rmd_v--->
+[m05-video-metadata.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m05-video-metadata.Rmd
 
 NA

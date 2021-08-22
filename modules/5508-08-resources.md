@@ -42,16 +42,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -98,16 +100,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -154,16 +158,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -210,16 +216,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -266,16 +274,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -322,16 +332,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -378,16 +390,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA
 ---
@@ -434,15 +448,17 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m08-video-using-subqueries-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries-duplicate.pdf
+[m08-video-using-subqueries.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-using-subqueries.pdf
 
-+ [5508-simon-m08-video-gathering-and-spreading-duplicate.pptx][m08-video-gathering-and-spreading-duplicate.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.pptx][m08-video-gathering-and-spreading.pptx].
-+ [5508-simon-m08-video-gathering-and-spreading.Rmd][m08-video-gathering-and-spreading.Rmd].
-+ [5508-simon-m08-video-using-subqueries-duplicate.pdf][m08-video-using-subqueries-duplicate.pdf].
-+ [5508-simon-m08-video-using-subqueries.pdf][m08-video-using-subqueries.pdf].
+<!---ppt_v--->
+[m08-video-gathering-and-spreading-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading-duplicate.pptx
+[m08-video-gathering-and-spreading.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m08-video-gathering-and-spreading.pptx
+
+<!---rmd_v--->
+[m08-video-gathering-and-spreading.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m08-video-gathering-and-spreading.Rmd
 
 NA

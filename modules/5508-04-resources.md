@@ -41,15 +41,17 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m04-video-single-row-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pdf
+[m04-video-statistical-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-statistical-functions.pdf
 
-+ [5508-simon-m04-video-single-row-functions.pdf][m04-video-single-row-functions.pdf].
-+ [5508-simon-m04-video-single-row-functions.pptx][m04-video-single-row-functions.pptx].
-+ [5508-simon-m04-video-statistical-functions.pdf][m04-video-statistical-functions.pdf].
-+ [5508-simon-m04-video-statistical-functions.Rmd][m04-video-statistical-functions.Rmd].
+<!---ppt_v--->
+[m04-video-single-row-functions.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pptx
+
+<!---rmd_v--->
+[m04-video-statistical-functions.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m04-video-statistical-functions.Rmd
 
 NA
 ---
@@ -95,15 +97,17 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m04-video-single-row-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pdf
+[m04-video-statistical-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-statistical-functions.pdf
 
-+ [5508-simon-m04-video-single-row-functions.pdf][m04-video-single-row-functions.pdf].
-+ [5508-simon-m04-video-single-row-functions.pptx][m04-video-single-row-functions.pptx].
-+ [5508-simon-m04-video-statistical-functions.pdf][m04-video-statistical-functions.pdf].
-+ [5508-simon-m04-video-statistical-functions.Rmd][m04-video-statistical-functions.Rmd].
+<!---ppt_v--->
+[m04-video-single-row-functions.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pptx
+
+<!---rmd_v--->
+[m04-video-statistical-functions.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m04-video-statistical-functions.Rmd
 
 NA
 ---
@@ -149,15 +153,17 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m04-video-single-row-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pdf
+[m04-video-statistical-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-statistical-functions.pdf
 
-+ [5508-simon-m04-video-single-row-functions.pdf][m04-video-single-row-functions.pdf].
-+ [5508-simon-m04-video-single-row-functions.pptx][m04-video-single-row-functions.pptx].
-+ [5508-simon-m04-video-statistical-functions.pdf][m04-video-statistical-functions.pdf].
-+ [5508-simon-m04-video-statistical-functions.Rmd][m04-video-statistical-functions.Rmd].
+<!---ppt_v--->
+[m04-video-single-row-functions.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pptx
+
+<!---rmd_v--->
+[m04-video-statistical-functions.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m04-video-statistical-functions.Rmd
 
 NA
 ---
@@ -203,14 +209,16 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m04-video-single-row-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pdf
+[m04-video-statistical-functions.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-statistical-functions.pdf
 
-+ [5508-simon-m04-video-single-row-functions.pdf][m04-video-single-row-functions.pdf].
-+ [5508-simon-m04-video-single-row-functions.pptx][m04-video-single-row-functions.pptx].
-+ [5508-simon-m04-video-statistical-functions.pdf][m04-video-statistical-functions.pdf].
-+ [5508-simon-m04-video-statistical-functions.Rmd][m04-video-statistical-functions.Rmd].
+<!---ppt_v--->
+[m04-video-single-row-functions.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m04-video-single-row-functions.pptx
+
+<!---rmd_v--->
+[m04-video-statistical-functions.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m04-video-statistical-functions.Rmd
 
 NA

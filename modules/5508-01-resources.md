@@ -70,18 +70,20 @@ The readme.md file on my github site has [links to other important files][mygit]
 
 
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m01-video-lost-drive.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-lost-drive.pdf
+[m01-video-server-access.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-server-access.pdf
+[m01-video-sql-select.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-sql-select.pdf
 
-+ [5508-simon-m01-video-lost-drive.pdf][m01-video-lost-drive.pdf].
-+ [5508-simon-m01-video-lost-drive.pptx][m01-video-lost-drive.pptx].
-+ [5508-simon-m01-video-r-code.Rmd][m01-video-r-code.Rmd].
-+ [5508-simon-m01-video-running-sql.pptx][m01-video-running-sql.pptx].
-+ [5508-simon-m01-video-server-access.pdf][m01-video-server-access.pdf].
-+ [5508-simon-m01-video-sql-select.pdf][m01-video-sql-select.pdf].
-+ [5508-simon-m01-video-sql-select.pptx][m01-video-sql-select.pptx].
-+ [5508-simon-m01-video-sql-select.Rmd][m01-video-sql-select.Rmd].
+<!---ppt_v--->
+[m01-video-lost-drive.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-lost-drive.pptx
+[m01-video-running-sql.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-running-sql.pptx
+[m01-video-sql-select.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m01-video-sql-select.pptx
+
+<!---rmd_v--->
+[m01-video-r-code.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m01-video-r-code.Rmd
+[m01-video-sql-select.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m01-video-sql-select.Rmd
 
 NA

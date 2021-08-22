@@ -43,17 +43,19 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m02-video-introduction.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-introduction.pdf
+[m02-video-sorting-restricting.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-sorting-restricting.pdf
+[m02-video-where.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-where.pdf
 
-+ [5508-simon-m02-video-introduction.pdf][m02-video-introduction.pdf].
-+ [5508-simon-m02-video-introduction.pptx][m02-video-introduction.pptx].
-+ [5508-simon-m02-video-sorting-restricting.pdf][m02-video-sorting-restricting.pdf].
-+ [5508-simon-m02-video-where.pdf][m02-video-where.pdf].
-+ [5508-simon-m02-video-where.pptx][m02-video-where.pptx].
-+ [5508-simon-m02-video-where.Rmd][m02-video-where.Rmd].
+<!---ppt_v--->
+[m02-video-introduction.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-introduction.pptx
+[m02-video-where.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-where.pptx
+
+<!---rmd_v--->
+[m02-video-where.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m02-video-where.Rmd
 
 NA
 ---
@@ -101,16 +103,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m02-video-introduction.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-introduction.pdf
+[m02-video-sorting-restricting.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-sorting-restricting.pdf
+[m02-video-where.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-where.pdf
 
-+ [5508-simon-m02-video-introduction.pdf][m02-video-introduction.pdf].
-+ [5508-simon-m02-video-introduction.pptx][m02-video-introduction.pptx].
-+ [5508-simon-m02-video-sorting-restricting.pdf][m02-video-sorting-restricting.pdf].
-+ [5508-simon-m02-video-where.pdf][m02-video-where.pdf].
-+ [5508-simon-m02-video-where.pptx][m02-video-where.pptx].
-+ [5508-simon-m02-video-where.Rmd][m02-video-where.Rmd].
+<!---ppt_v--->
+[m02-video-introduction.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-introduction.pptx
+[m02-video-where.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m02-video-where.pptx
+
+<!---rmd_v--->
+[m02-video-where.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m02-video-where.Rmd
 
 NA

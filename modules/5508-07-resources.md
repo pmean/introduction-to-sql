@@ -48,22 +48,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -116,22 +118,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -184,22 +188,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -252,22 +258,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -320,22 +328,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -388,22 +398,24 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA
 ---
@@ -456,21 +468,23 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
+<!---ppt_v--->
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
+
+<!---rmd_v--->
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 NA

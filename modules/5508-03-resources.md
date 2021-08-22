@@ -42,16 +42,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m03-video-database-security-part1.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part1.pdf
+[m03-video-database-security-part2.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part2.pdf
+[m03-video-null-values.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pdf
 
-+ [5508-simon-m03-video-database-security-part1.pdf][m03-video-database-security-part1.pdf].
-+ [5508-simon-m03-video-database-security-part2.pdf][m03-video-database-security-part2.pdf].
-+ [5508-simon-m03-video-null-values.pdf][m03-video-null-values.pdf].
-+ [5508-simon-m03-video-null-values.pptx][m03-video-null-values.pptx].
-+ [5508-simon-m03-video-null-values.Rmd][m03-video-null-values.Rmd].
+<!---ppt_v--->
+[m03-video-null-values.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pptx
+
+<!---rmd_v--->
+[m03-video-null-values.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m03-video-null-values.Rmd
 
 NA
 ---
@@ -98,16 +100,18 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m03-video-database-security-part1.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part1.pdf
+[m03-video-database-security-part2.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part2.pdf
+[m03-video-null-values.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pdf
 
-+ [5508-simon-m03-video-database-security-part1.pdf][m03-video-database-security-part1.pdf].
-+ [5508-simon-m03-video-database-security-part2.pdf][m03-video-database-security-part2.pdf].
-+ [5508-simon-m03-video-null-values.pdf][m03-video-null-values.pdf].
-+ [5508-simon-m03-video-null-values.pptx][m03-video-null-values.pptx].
-+ [5508-simon-m03-video-null-values.Rmd][m03-video-null-values.Rmd].
+<!---ppt_v--->
+[m03-video-null-values.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pptx
+
+<!---rmd_v--->
+[m03-video-null-values.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m03-video-null-values.Rmd
 
 NA
 ---
@@ -154,15 +158,17 @@ The readme.md file on my github site has [links to other important files][mygit]
 NA
 <!--links-->
 
-<!--resources-slides-1-->
 
 
- Slides used in the videos
+<!---pdf_v--->
+[m03-video-database-security-part1.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part1.pdf
+[m03-video-database-security-part2.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-database-security-part2.pdf
+[m03-video-null-values.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pdf
 
-+ [5508-simon-m03-video-database-security-part1.pdf][m03-video-database-security-part1.pdf].
-+ [5508-simon-m03-video-database-security-part2.pdf][m03-video-database-security-part2.pdf].
-+ [5508-simon-m03-video-null-values.pdf][m03-video-null-values.pdf].
-+ [5508-simon-m03-video-null-values.pptx][m03-video-null-values.pptx].
-+ [5508-simon-m03-video-null-values.Rmd][m03-video-null-values.Rmd].
+<!---ppt_v--->
+[m03-video-null-values.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m03-video-null-values.pptx
+
+<!---rmd_v--->
+[m03-video-null-values.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m03-video-null-values.Rmd
 
 NA
