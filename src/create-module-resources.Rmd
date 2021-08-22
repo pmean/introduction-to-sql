@@ -46,7 +46,8 @@ prefix <- 'https://github.com/pmean/introduction-to-sql/blob/master/'
 
 ```{r write-module-resources}
 resources_intro <- NULL
-resources_readings <- NULL
+resources_readings_1 <- NULL
+resources_readings_2 <- NULL
 resources_slides_1 <- NULL
 resources_slides_2 <- NULL
 resources_homework_1 <- NULL
@@ -78,9 +79,19 @@ for (i in 1:length(modules)) {
 
   # resources_readings
   readings_filename <- paste0("../modules/5508-", module, "-readings.md")
-  readLines(con=readings_filename)[-(1:6)] %>%
+  resources_readings <- readLines(con=readings_filename)
+  i <- str_which(resources_readings, "---")[2]+1
+  j <- str_which(resources_readings, "<!--links-->")
+  n <- length(resources_readings)
+  
+  resources_readings %>%
+    extract((i:(j-1))) %>%
     paste0(collapse="\n") %>%
-    paste0("<!--resources-readings-1-->\n", .) -> resources_readings[i]
+    paste0("\n\nRecommended readings\n\n", .) -> resources_readings_1[i]
+    
+  resources_readings %>%
+    extract(((j+1):n)) %>%
+    paste0(collapse="\n") -> resources_readings_2[i]
     
   
   # resources_slides
@@ -145,10 +156,11 @@ for (i in 1:length(modules)) {
     paste0("README.md") -> resources_conclusion[i]
 
   resources_intro %>% 
-    paste0(resources_readings[i]) %>%
+    paste0(resources_readings_1[i]) %>%
     paste0(resources_slides_1[i]) %>%
     paste0(resources_homework_1[i-1]) %>%
     paste0(resources_conclusion[i]) %>%
+    paste0(resources_readings_2[i]) %>%
     paste0(resources_slides_1[i]) %>%
     paste0(resources_homework_1[i-1]) -> resources_text
   
