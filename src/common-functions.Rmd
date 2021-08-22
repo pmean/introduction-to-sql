@@ -228,7 +228,7 @@ ou <- function(j) {
 ```{r sh}
 sh <- function(s) {
   s %>%
-    str_remove("5507-0.-simon-") %>%
+    str_remove("550.-simon-") %>%
     return
 }
 ```

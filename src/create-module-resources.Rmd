@@ -66,14 +66,20 @@ for (module in modules) {
     paste0("\n\n### Resources for ") %>%
     paste0(module_num) %>%
 
-    paste0("\n\n#### ") %>%
+    paste0("\n\n ") %>%
     paste0("Slides used in the videos\n") %>%
-    paste0("\n", bullet(vlist)) %>%
+    paste0("\n", bullet(vlist)) -> resource_text
     
-    paste0("\n\n#### ") %>%
-    paste0("Homework solutions, code and output\n") %>%
-    paste0("\n", bullet(hlist)) %>%
-    
+    if (length(hlist) > 0) {
+      resource_text %>%
+        paste0("\n\n ") %>%
+        paste0("Homework solutions, code and output\n") %>%
+        paste0("Compare your code to ours, ") %>%
+        paste0("but only after submitting your work.\n") %>%
+        paste0("\n", bullet(hlist)) -> resource_text
+    }
+  
+    resource_text %>%
     paste0("\n\nThis file was automatically generated") %>%
     paste0(" by create-module-resources.Rmd") %>%
     paste0(" and was last updated on ", Sys.Date()) %>%
@@ -91,17 +97,17 @@ for (module in modules) {
     paste0(prefix) %>%
     paste0("README.md") %>%
 
-    paste0("\n\n<!---pdf_h--->") %>%
+    paste0("\n\n<!---pdf_v--->") %>%
     paste0("\n", add_links(pdf_v_subset, "pdf", "results/")) %>%
 
     paste0("\n\n<!---ppt_v--->") %>%
-    paste0("\n", add_links(ppt_v_subset, "pdf", "results/")) %>%
+    paste0("\n", add_links(ppt_v_subset, "ppt", "results/")) %>%
+    
+    paste0("\n\n<!---rmd_o--->") %>%
+    paste0("\n", add_links(rmd_o_subset, "pdf", "results/")) %>%
     
     paste0("\n\n<!---rmd_h--->") %>%
     paste0("\n", add_links(rmd_h_subset, "md", "src/")) %>%
-    
-    paste0("\n\n<!---rmd_o--->") %>%
-    paste0("\n", add_links(rmd_o_subset, "md", "src/")) %>%
     
     paste0("\n\n<!---rmd_v--->") %>%
     paste0("\n", add_links(rmd_v_subset, "md", "src/")) %>%
@@ -110,10 +116,10 @@ for (module in modules) {
     paste0("\n", add_links(sas_h_subset, "sas", "src/")) %>%
 
     paste0("\n\n<!---sas_o--->") %>%
-    paste0("\n", add_links(sas_o_subset, "sas", "src/")) -> module_overviews
+    paste0("\n", add_links(sas_o_subset, "sas", "src/")) -> resource_text
   
-  module_overviews %>% cat
-  module_overviews %>%
+  resource_text %>% cat
+  resource_text %>%
     writeLines(filename)
 }
 ```

@@ -6,107 +6,111 @@ output: html_document
 
 <!--This file was first created on 2021-07-28.-->
 
-This page shows the links to important files used in Module07 of MEDB 5508, Introduction to SQL, taught by Suman Sahil and Steve Simon. This class is taught at the University of Missouri-Kansas City in the Department of Biomedical and Health Informatics. This course uses the Canvas Learning Management System. If you are enrolled in this class, but do not have access to the Canvas website, please let me know immediately. This github repository is not a substitute for the Canvas site. I use it to organize files. Then I either copy-and-paste the information to the Canvas site or include links from the Canvas website to this repository.
-
-All of the text, programs, and output are public domain. That means that you can use or modify the program in any way you please without asking for permission first. You are encouraged to cite the github site
-
-+ https://github.com/pmean/introduction-to-sas
-
-if you use this material, but this is not required.
+This page shows the links to important files used in Module07 of MEDB 5508, Introduction to SQL, taught by Suman Sahil and Steve Simon. 
 
 ### Resources for Module07
 
-#### Slides used in the videos
+ Slides used in the videos
 
-+ [5508-simon-m07-video-counting-mismatches.pdf][5508-simon-m07-video-counting-mismatches.pdf].
-+ [5508-simon-m07-video-counting-mismatches.pptx][5508-simon-m07-video-counting-mismatches.pptx].
-+ [5508-simon-m07-video-counting-mismatches.Rmd][5508-simon-m07-video-counting-mismatches.Rmd].
-+ [5508-simon-m07-video-mismatches-duplicate.pdf][5508-simon-m07-video-mismatches-duplicate.pdf].
-+ [5508-simon-m07-video-mismatches-duplicate.pptx][5508-simon-m07-video-mismatches-duplicate.pptx].
-+ [5508-simon-m07-video-mismatches-triplicate.pdf][5508-simon-m07-video-mismatches-triplicate.pdf].
-+ [5508-simon-m07-video-mismatches-triplicate.pptx][5508-simon-m07-video-mismatches-triplicate.pptx].
-+ [5508-simon-m07-video-mismatches.pdf][5508-simon-m07-video-mismatches.pdf].
-+ [5508-simon-m07-video-mismatches.pptx][5508-simon-m07-video-mismatches.pptx].
-+ [5508-simon-m07-video-mismatches.Rmd][5508-simon-m07-video-mismatches.Rmd].
-+ [5508-simon-m07-videoa-mismatches.Rmd][5508-simon-m07-videoa-mismatches.Rmd].
++ [5508-simon-m07-video-counting-mismatches.pdf][m07-video-counting-mismatches.pdf].
++ [5508-simon-m07-video-counting-mismatches.pptx][m07-video-counting-mismatches.pptx].
++ [5508-simon-m07-video-counting-mismatches.Rmd][m07-video-counting-mismatches.Rmd].
++ [5508-simon-m07-video-mismatches-duplicate.pdf][m07-video-mismatches-duplicate.pdf].
++ [5508-simon-m07-video-mismatches-duplicate.pptx][m07-video-mismatches-duplicate.pptx].
++ [5508-simon-m07-video-mismatches-triplicate.pdf][m07-video-mismatches-triplicate.pdf].
++ [5508-simon-m07-video-mismatches-triplicate.pptx][m07-video-mismatches-triplicate.pptx].
++ [5508-simon-m07-video-mismatches.pdf][m07-video-mismatches.pdf].
++ [5508-simon-m07-video-mismatches.pptx][m07-video-mismatches.pptx].
++ [5508-simon-m07-video-mismatches.Rmd][m07-video-mismatches.Rmd].
++ [5508-simon-m07-videoa-mismatches.Rmd][m07-videoa-mismatches.Rmd].
 
-#### Homework solutions, code and output
+ Homework solutions, code and output
+Compare your code to ours, but only after submitting your work.
 
-+ [5508-simon-m07-hw-q01-r-sqlite.pdf][5508-simon-m07-hw-q01-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q01-r-sqlite.Rmd][5508-simon-m07-hw-q01-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q01-sas-oracle.pdf][5508-simon-m07-hw-q01-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q01-sas-oracle.sas][5508-simon-m07-hw-q01-sas-oracle.sas].
-+ [5508-simon-m07-hw-q02-r-sqlite.pdf][5508-simon-m07-hw-q02-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q02-r-sqlite.Rmd][5508-simon-m07-hw-q02-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q02-sas-oracle.pdf][5508-simon-m07-hw-q02-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q02-sas-oracle.sas][5508-simon-m07-hw-q02-sas-oracle.sas].
-+ [5508-simon-m07-hw-q03-r-sqlite.pdf][5508-simon-m07-hw-q03-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q03-r-sqlite.Rmd][5508-simon-m07-hw-q03-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q03-sas-oracle.pdf][5508-simon-m07-hw-q03-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q03-sas-oracle.sas][5508-simon-m07-hw-q03-sas-oracle.sas].
-+ [5508-simon-m07-hw-q04-r-sqlite.pdf][5508-simon-m07-hw-q04-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q04-r-sqlite.Rmd][5508-simon-m07-hw-q04-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q04-sas-oracle.pdf][5508-simon-m07-hw-q04-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q04-sas-oracle.sas][5508-simon-m07-hw-q04-sas-oracle.sas].
-+ [5508-simon-m07-hw-q05-r-sqlite.pdf][5508-simon-m07-hw-q05-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q05-r-sqlite.Rmd][5508-simon-m07-hw-q05-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q05-sas-oracle.pdf][5508-simon-m07-hw-q05-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q05-sas-oracle.sas][5508-simon-m07-hw-q05-sas-oracle.sas].
-+ [5508-simon-m07-hw-q06-r-sqlite.pdf][5508-simon-m07-hw-q06-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q06-r-sqlite.Rmd][5508-simon-m07-hw-q06-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q06-sas-oracle.pdf][5508-simon-m07-hw-q06-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q06-sas-oracle.sas][5508-simon-m07-hw-q06-sas-oracle.sas].
-+ [5508-simon-m07-hw-q07-r-sqlite.pdf][5508-simon-m07-hw-q07-r-sqlite.pdf].
-+ [5508-simon-m07-hw-q07-r-sqlite.Rmd][5508-simon-m07-hw-q07-r-sqlite.Rmd].
-+ [5508-simon-m07-hw-q07-sas-oracle.pdf][5508-simon-m07-hw-q07-sas-oracle.pdf].
-+ [5508-simon-m07-hw-q07-sas-oracle.sas][5508-simon-m07-hw-q07-sas-oracle.sas].
++ [5508-simon-m07-hw-q01-r-sqlite.pdf][m07-hw-q01-r-sqlite.pdf].
++ [5508-simon-m07-hw-q01-r-sqlite.Rmd][m07-hw-q01-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q01-sas-oracle.pdf][m07-hw-q01-sas-oracle.pdf].
++ [5508-simon-m07-hw-q01-sas-oracle.sas][m07-hw-q01-sas-oracle.sas].
++ [5508-simon-m07-hw-q02-r-sqlite.pdf][m07-hw-q02-r-sqlite.pdf].
++ [5508-simon-m07-hw-q02-r-sqlite.Rmd][m07-hw-q02-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q02-sas-oracle.pdf][m07-hw-q02-sas-oracle.pdf].
++ [5508-simon-m07-hw-q02-sas-oracle.sas][m07-hw-q02-sas-oracle.sas].
++ [5508-simon-m07-hw-q03-r-sqlite.pdf][m07-hw-q03-r-sqlite.pdf].
++ [5508-simon-m07-hw-q03-r-sqlite.Rmd][m07-hw-q03-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q03-sas-oracle.pdf][m07-hw-q03-sas-oracle.pdf].
++ [5508-simon-m07-hw-q03-sas-oracle.sas][m07-hw-q03-sas-oracle.sas].
++ [5508-simon-m07-hw-q04-r-sqlite.pdf][m07-hw-q04-r-sqlite.pdf].
++ [5508-simon-m07-hw-q04-r-sqlite.Rmd][m07-hw-q04-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q04-sas-oracle.pdf][m07-hw-q04-sas-oracle.pdf].
++ [5508-simon-m07-hw-q04-sas-oracle.sas][m07-hw-q04-sas-oracle.sas].
++ [5508-simon-m07-hw-q05-r-sqlite.pdf][m07-hw-q05-r-sqlite.pdf].
++ [5508-simon-m07-hw-q05-r-sqlite.Rmd][m07-hw-q05-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q05-sas-oracle.pdf][m07-hw-q05-sas-oracle.pdf].
++ [5508-simon-m07-hw-q05-sas-oracle.sas][m07-hw-q05-sas-oracle.sas].
++ [5508-simon-m07-hw-q06-r-sqlite.pdf][m07-hw-q06-r-sqlite.pdf].
++ [5508-simon-m07-hw-q06-r-sqlite.Rmd][m07-hw-q06-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q06-sas-oracle.pdf][m07-hw-q06-sas-oracle.pdf].
++ [5508-simon-m07-hw-q06-sas-oracle.sas][m07-hw-q06-sas-oracle.sas].
++ [5508-simon-m07-hw-q07-r-sqlite.pdf][m07-hw-q07-r-sqlite.pdf].
++ [5508-simon-m07-hw-q07-r-sqlite.Rmd][m07-hw-q07-r-sqlite.Rmd].
++ [5508-simon-m07-hw-q07-sas-oracle.pdf][m07-hw-q07-sas-oracle.pdf].
++ [5508-simon-m07-hw-q07-sas-oracle.sas][m07-hw-q07-sas-oracle.sas].
 
-This file was automatically generated by create-module-resources.Rmd and was last updated on 2021-08-20. On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+This file was automatically generated by create-module-resources.Rmd and was last updated on 2021-08-22. On my github site, you can find [this file][thisf] and [links to other important files][mygit].
 
 <!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-07-resources.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
 
-<!---pdf_h--->
-[5508-simon-m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
-[5508-simon-m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
-[5508-simon-m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
-[5508-simon-m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
+<!---pdf_v--->
+[m07-video-counting-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pdf
+[m07-video-mismatches-duplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pdf
+[m07-video-mismatches-triplicate.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pdf
+[m07-video-mismatches.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pdf
 
 <!---ppt_v--->
-[]: https://github.com/pmean/introduction-to-sql/blob/master/results/
-
-<!---rmd_h--->
-[5508-simon-m07-hw-q01-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-r-sqlite.Rmd
-[5508-simon-m07-hw-q02-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-r-sqlite.Rmd
-[5508-simon-m07-hw-q03-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-r-sqlite.Rmd
-[5508-simon-m07-hw-q04-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-r-sqlite.Rmd
-[5508-simon-m07-hw-q05-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-r-sqlite.Rmd
-[5508-simon-m07-hw-q06-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-r-sqlite.Rmd
-[5508-simon-m07-hw-q07-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-r-sqlite.Rmd
+[m07-video-counting-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-counting-mismatches.pptx
+[m07-video-mismatches-duplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-duplicate.pptx
+[m07-video-mismatches-triplicate.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches-triplicate.pptx
+[m07-video-mismatches.pptx]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-video-mismatches.pptx
 
 <!---rmd_o--->
-[]: https://github.com/pmean/introduction-to-sql/blob/master/src/
+[m07-hw-q01-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q01-r-sqlite.pdf
+[m07-hw-q02-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q02-r-sqlite.pdf
+[m07-hw-q03-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q03-r-sqlite.pdf
+[m07-hw-q04-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q04-r-sqlite.pdf
+[m07-hw-q05-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q05-r-sqlite.pdf
+[m07-hw-q06-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q06-r-sqlite.pdf
+[m07-hw-q07-r-sqlite.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/results/5508-simon-m07-hw-q07-r-sqlite.pdf
+
+<!---rmd_h--->
+[m07-hw-q01-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-r-sqlite.Rmd
+[m07-hw-q02-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-r-sqlite.Rmd
+[m07-hw-q03-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-r-sqlite.Rmd
+[m07-hw-q04-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-r-sqlite.Rmd
+[m07-hw-q05-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-r-sqlite.Rmd
+[m07-hw-q06-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-r-sqlite.Rmd
+[m07-hw-q07-r-sqlite.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-r-sqlite.Rmd
 
 <!---rmd_v--->
-[5508-simon-m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
-[5508-simon-m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
-[5508-simon-m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
+[m07-video-counting-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-counting-mismatches.Rmd
+[m07-video-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-video-mismatches.Rmd
+[m07-videoa-mismatches.Rmd]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-videoa-mismatches.Rmd
 
 <!---sas_h--->
-[5508-simon-m07-hw-q01-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-sas-oracle.sas
-[5508-simon-m07-hw-q02-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-sas-oracle.sas
-[5508-simon-m07-hw-q03-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-sas-oracle.sas
-[5508-simon-m07-hw-q04-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-sas-oracle.sas
-[5508-simon-m07-hw-q05-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-sas-oracle.sas
-[5508-simon-m07-hw-q06-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-sas-oracle.sas
-[5508-simon-m07-hw-q07-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-sas-oracle.sas
+[m07-hw-q01-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-sas-oracle.sas
+[m07-hw-q02-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-sas-oracle.sas
+[m07-hw-q03-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-sas-oracle.sas
+[m07-hw-q04-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-sas-oracle.sas
+[m07-hw-q05-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-sas-oracle.sas
+[m07-hw-q06-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-sas-oracle.sas
+[m07-hw-q07-sas-oracle.sas]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-sas-oracle.sas
 
 <!---sas_o--->
-[5508-simon-m07-hw-q01-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-sas-oracle.pdf
-[5508-simon-m07-hw-q02-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-sas-oracle.pdf
-[5508-simon-m07-hw-q03-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-sas-oracle.pdf
-[5508-simon-m07-hw-q04-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-sas-oracle.pdf
-[5508-simon-m07-hw-q05-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-sas-oracle.pdf
-[5508-simon-m07-hw-q06-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-sas-oracle.pdf
-[5508-simon-m07-hw-q07-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-sas-oracle.pdf
+[m07-hw-q01-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q01-sas-oracle.pdf
+[m07-hw-q02-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q02-sas-oracle.pdf
+[m07-hw-q03-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q03-sas-oracle.pdf
+[m07-hw-q04-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q04-sas-oracle.pdf
+[m07-hw-q05-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q05-sas-oracle.pdf
+[m07-hw-q06-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q06-sas-oracle.pdf
+[m07-hw-q07-sas-oracle.pdf]: https://github.com/pmean/introduction-to-sql/blob/master/src/5508-simon-m07-hw-q07-sas-oracle.pdf
