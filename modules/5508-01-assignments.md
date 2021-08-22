@@ -10,6 +10,10 @@ Graded: 3 points, 1 point deduction if late.
 
 Please briefly introduce yourself. Tell us a bit about yourself professionally, and optionally tell us one thing that is not related to your work or your career. Also optional, but greatly appreciated, would be a picture of yourself.
 
+Graded: 3 points, one point deduction if late.
+
+Summarize one of the readings for this module. What was the most interesting point, what surprised you about the article, or what did you learn from this article. Keep your summary short (one to two paragraphs). Please check the discussion board before you submit and do not comment on an article that another student has already commented on.
+
 #### HW01, Practice using the SELECT statement
 
 Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.

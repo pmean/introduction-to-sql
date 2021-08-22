@@ -45,7 +45,16 @@ prefix <- 'https://github.com/pmean/introduction-to-sql/blob/master/'
 ```
 
 ```{r write-module-resources}
-for (module in modules) {
+resources_intro <- NULL
+resources_readings <- NULL
+resources_slides_1 <- NULL
+resources_slides_2 <- NULL
+resources_homework_1 <- NULL
+resources_homework_2 <- NULL
+resources_conclusion <- NULL
+
+for (i in 1:length(modules)) {
+  module <- modules[i]
   module_num <- paste0("Module", module)
   pdf_v %>% str_subset(paste0("-m", module, "-")) -> pdf_v_subset
   ppt_v %>% str_subset(paste0("-m", module, "-")) -> ppt_v_subset
@@ -58,33 +67,71 @@ for (module in modules) {
 
   vlist <- sort(c(pdf_v_subset, ppt_v_subset, rmd_v_subset))
   hlist <- sort(c(rmd_h_subset, rmd_o_subset, sas_h_subset, sas_o_subset))
+
+  # resources_intro
   readLines("create-module-resources.txt") %>%
     paste0(collapse="\n")  %>%
     str_replace("Module", module_num) %>%
     str_replace ("the individual modules", module_num) %>%
-
     paste0("\n\n### Resources for ") %>%
-    paste0(module_num) %>%
+    paste0(module_num) -> resources_intro[i]
 
+  # resources_readings
+  readings_filename <- paste0("../modules/5508-", module, "-readings.md")
+  readLines(con=readings_filename)[-(1:6)] %>%
+    paste0(collapse="\n") %>%
+    paste0("<!--resources-readings-1-->\n", .) -> resources_readings[i]
+    
+  
+  # resources_slides
+  paste0("<!--resources-slides-1-->\n") %>%
     paste0("\n\n ") %>%
     paste0("Slides used in the videos\n") %>%
-    paste0("\n", bullet(vlist)) -> resource_text
+    paste0("\n", bullet(vlist)) -> resources_slides_1[i]
     
-    if (length(hlist) > 0) {
-      resource_text %>%
-        paste0("\n\n ") %>%
-        paste0("Homework solutions, code and output\n") %>%
-        paste0("Compare your code to ours, ") %>%
-        paste0("but only after submitting your work.\n") %>%
-        paste0("\n", bullet(hlist)) -> resource_text
-    }
+  paste0("\n\n<!---pdf_v--->") %>%
+    paste0("\n", add_links(pdf_v_subset, "pdf", "results/")) %>%
+
+    paste0("\n\n<!---ppt_v--->") %>%
+    paste0("\n", add_links(ppt_v_subset, "ppt", "results/")) %>%
+    
+    paste0("\n\n<!---rmd_v--->") %>%
+    paste0("\n", add_links(rmd_v_subset, "md", "src/")) -> resources_slides_2[i]
+
+  # resources_homework
+  resources_homework_1[i] <- "<!--resources-homework-1-->"
+  resources_homework_2[i] <- "<!--resources-homework-2-->"
+  if (length(hlist) > 0) {
+    resources_homework_1[i] %>%
+      paste0("\n\n ") %>%
+      paste0("Homework solutions, code and output ") %>%
+      paste0("from the previous module.\n\n")
+      paste0("Compare your code to ours, ") %>%
+      paste0("but only after submitting your work.\n") %>%
+      paste0("\n", bullet(hlist)) -> resources_homework_1[i]
+    
+    resources_homework_2[i] %>%
+      paste0("\n\n<!---rmd_o--->") %>%
+      paste0("\n", add_links(rmd_o_subset, "pdf", "results/")) %>%
+    
+      paste0("\n\n<!---rmd_h--->") %>%
+      paste0("\n", add_links(rmd_h_subset, "md", "src/")) %>%
+    
+      paste0("\n\n<!---sas_h--->") %>%
+      paste0("\n", add_links(sas_h_subset, "sas", "src/")) %>%
+
+      paste0("\n\n<!---sas_o--->") %>%
+      paste0("\n", add_links(sas_o_subset, "sas", "src/")) -> resources_homework_1[i]
+  }
   
-    resource_text %>%
-    paste0("\n\nThis file was automatically generated") %>%
-    paste0(" by create-module-resources.Rmd") %>%
-    paste0(" and was last updated on ", Sys.Date()) %>%
-    paste0(". On my github site, you can find [this file][thisf]") %>%
-    paste0(" and [links to other important files][mygit].") %>%
+  paste0("This information is also available on ") %>%
+    paste0("[my github site][thisf].\n\n") %>%
+    paste0("This file was automatically generated ") %>%
+    paste0("by create-module-resources.Rmd") %>%
+    paste0("and was last updated on ", Sys.Date()) %>%
+    paste0(".\n\n") %>%
+    paste0("The readme.md file on my github site has ") %>%
+    paste0("[links to other important files][mygit].") %>%
       
     paste0("\n\n<!---my git--->") %>%
     paste0("\n[thisf]: ") %>%
@@ -95,32 +142,18 @@ for (module in modules) {
     
     paste0("\n[mygit]: ") %>%
     paste0(prefix) %>%
-    paste0("README.md") %>%
+    paste0("README.md") -> resources_conclusion[i]
 
-    paste0("\n\n<!---pdf_v--->") %>%
-    paste0("\n", add_links(pdf_v_subset, "pdf", "results/")) %>%
-
-    paste0("\n\n<!---ppt_v--->") %>%
-    paste0("\n", add_links(ppt_v_subset, "ppt", "results/")) %>%
-    
-    paste0("\n\n<!---rmd_o--->") %>%
-    paste0("\n", add_links(rmd_o_subset, "pdf", "results/")) %>%
-    
-    paste0("\n\n<!---rmd_h--->") %>%
-    paste0("\n", add_links(rmd_h_subset, "md", "src/")) %>%
-    
-    paste0("\n\n<!---rmd_v--->") %>%
-    paste0("\n", add_links(rmd_v_subset, "md", "src/")) %>%
-    
-    paste0("\n\n<!---sas_h--->") %>%
-    paste0("\n", add_links(sas_h_subset, "sas", "src/")) %>%
-
-    paste0("\n\n<!---sas_o--->") %>%
-    paste0("\n", add_links(sas_o_subset, "sas", "src/")) -> resource_text
+  resources_intro %>% 
+    paste0(resources_readings[i]) %>%
+    paste0(resources_slides_1[i]) %>%
+    paste0(resources_homework_1[i-1]) %>%
+    paste0(resources_conclusion[i]) %>%
+    paste0(resources_slides_1[i]) %>%
+    paste0(resources_homework_1[i-1]) -> resources_text
   
-  resource_text %>% cat
-  resource_text %>%
-    writeLines(filename)
+  resources_text %>% cat
+  resources_text %>% writeLines(filename)
 }
 ```
 
