@@ -57,7 +57,7 @@ for (i in 1:length(modules)) {
   readLines("create-module-answers.txt") %>%
     paste0(collapse="\n")  %>%
     str_replace("xx", module) %>%
-    paste0("\n\n### Homework answers for ") %>%
+    paste0("\n\n#### Homework answers for ") %>%
     paste0(module_num) %>%
     paste("\n\n") -> resources_intro
 
