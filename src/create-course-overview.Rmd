@@ -18,10 +18,13 @@ list.files(path="../modules", pattern="\\.md") -> md_files
 
 keywords <- c(
   "Announcements",
-  "Overview",
+  "Answers",
+  "Assignments",
   "Objectives",
-  "Assignments", 
-  "Answers")
+  "Readings", 
+  "Resources",
+  "Synopsis",
+  "Videos")
 
 readLines("create-course-overview.txt") %>%
   paste0(collapse="\n") -> course_overview
