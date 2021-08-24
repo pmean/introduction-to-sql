@@ -9,15 +9,11 @@ output: html_document
 
 These readings provide some general background on how databases work (or don't work) in the real world. You will be asked to summarize one of these articles in a later module.
 
-Michael Barbaro, Tom Zeller Jr. A Face Is Exposed for AOL Searcher No. 4417749. The New York Times 2006-08-09. Available in [html format][barb].
-
-Brian Barrett. How a 'NULL' License Plate Landed One Hacker in Ticket Hell. Wired 2019-08.13. Available in [html format][barr]
-
-Charles Duhigg. How companies learn your secrets. The New York Times 2012-02-16. Available in [html format][duhi]
-
-William Kent. A Simple Guide to Five Normal Forms in Relational Database Theory. Communications of the ACM 1093-02-01. Available in [pdf format][kent].
-
-Julia Lane, Victoria Stodden. What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. AMSTAT News 2013-12-01. Available in [html format][lane].
++ Michael Barbaro, Tom Zeller Jr. A Face Is Exposed for AOL Searcher No. 4417749. The New York Times 2006-08-09. Available in [html format][barb].
++ Brian Barrett. How a 'NULL' License Plate Landed One Hacker in Ticket Hell. Wired 2019-08.13. Available in [html format][barr]
++ Charles Duhigg. How companies learn your secrets. The New York Times 2012-02-16. Available in [html format][duhi]
++ William Kent. A Simple Guide to Five Normal Forms in Relational Database Theory. Communications of the ACM 1093-02-01. Available in [pdf format][kent].
++ Julia Lane, Victoria Stodden. What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. AMSTAT News 2013-12-01. Available in [html format][lane].
 
 This information is also available on [my github site][thisf].
 

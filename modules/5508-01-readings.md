@@ -9,9 +9,8 @@ output: html_document
 
 These readings provide some technical background on the inner workings of databases. Read these for your own interest, but you will not be tested on any of this material.
 
-Elisa Bertino, Sushil Jajodia, Pierangela Samarati. Database security: Research and practice. Available in [pdf format][bert]
-
-E.F. Codd. Relational database: a practical foundation for productivity. Communications of the ACM 1982-02-01. Available in [pdf format][codd].
++ Elisa Bertino, Sushil Jajodia, Pierangela Samarati. Database security: Research and practice. Available in [pdf format][bert]
++ E.F. Codd. Relational database: a practical foundation for productivity. Communications of the ACM 1982-02-01. Available in [pdf format][codd].
 
 This information is also available on [my github site][thisf].
 
