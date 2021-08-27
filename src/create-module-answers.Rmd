@@ -92,7 +92,7 @@ for (i in 1:length(modules)) {
   paste0("This information is also available on ") %>%
     paste0("[my github site][thisf].\n\n") %>%
     paste0("This file was automatically generated ") %>%
-    paste0("by create-module-resources.Rmd") %>%
+    paste0("by create-module-resources.Rmd ") %>%
     paste0("and was last updated on ", Sys.Date()) %>%
     paste0(".\n\n") %>%
     paste0("The readme.md file on my github site has ") %>%

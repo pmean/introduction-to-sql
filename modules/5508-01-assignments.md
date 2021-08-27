@@ -36,7 +36,9 @@ Please review the videos in this module before taking this quiz.
 + What symbol is used to separate field names in a query that selects more than one field?
 + What keyword is used to change the name of a field?
 
-On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+This information is also available on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 
 <!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-assignments.md

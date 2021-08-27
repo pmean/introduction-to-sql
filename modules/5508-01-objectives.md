@@ -41,7 +41,9 @@ There are other excellent free databases out there. MySQL is a free database tha
 + from
 + select
 
-On my github site, you can find [this file][thisf] and [links to other important files][mygit].
+This information is also available on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 
 <!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-objectives.md
