@@ -8,11 +8,11 @@ title: "MEDB 5508, Introduction to SQL, Module04, Synopsis"
 
 Synopsis is not yet available.
 
+<!---my git--->
 You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
 
 Here are [links to other important files][mygit] on my github site.
 
-<!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-04-synopsis.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
-
+<!---my git--->

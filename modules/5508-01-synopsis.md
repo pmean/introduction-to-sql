@@ -14,12 +14,11 @@ There are at least three methods to access SQL, and they all have been tested by
 
 **It is VERY important for you to start the homework right away. About a quarter of the students in the class will have great difficulty successfully running even the simple program asked for in this module. It's not their fault. It is almost always some incompatibilities on their computer systems that need to get resolved. If you are having difficulty, talk to us now. If you wait, then you will fall far enough behind that you may not be able to catch up.**
 
-
+<!---my git--->
 This information is also available on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 
-<!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-synopsis.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
-
+<!---my git--->

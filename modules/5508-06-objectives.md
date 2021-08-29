@@ -25,3 +25,11 @@ title: "MEDB 5508, Introduction to SQL, Module06, Objectives"
 + outer join (Oracle), no equivalent in SQLite
 + right join (Oracle), no equivalent in SQLite
 
+<!---my git--->
+This information is also available on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-06-objectives.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->

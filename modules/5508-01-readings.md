@@ -12,13 +12,14 @@ These readings provide some technical background on the inner workings of databa
 + Elisa Bertino, Sushil Jajodia, Pierangela Samarati. Database security: Research and practice. Available in [pdf format][bert]
 + E.F. Codd. Relational database: a practical foundation for productivity. Communications of the ACM 1982-02-01. Available in [pdf format][codd].
 
+<!---my git--->
 This information is also available on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 
-<!---my git--->
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-01-handouts.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
 
 <!--links-->
 [bert]: https://courses.cs.washington.edu/courses/cse590q/03au/jajodia-is-95.pdf

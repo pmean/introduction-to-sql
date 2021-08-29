@@ -45,3 +45,11 @@ title: "MEDB 5508, Introduction to SQL, Module04, Objectives"
 + trunc
 + upper
 
+<!---my git--->
+This information is also available on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-04-objectives.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
