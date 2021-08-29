@@ -1,4 +1,4 @@
-* m04-q02-simon-oracle.sas
+* 5508-simon-m04-hw-q02-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-12;
 
@@ -20,7 +20,7 @@
 * [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
 
 
-ods pdf file="q:/introduction-to-sql/results/m04-q02-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m04-hw-q02-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

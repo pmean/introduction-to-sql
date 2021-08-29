@@ -1,6 +1,6 @@
 *************************************************
 
-m05-q03-simon-sas-oracle.sas
+5508-simon-m05-hw-q03-sas-oracle.sas
 Author: Steve Simon
 Creation date: 2021-07-01
 
@@ -23,7 +23,7 @@ The statistician being honored in this code is
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m05-q03-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m05-hw-q03-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

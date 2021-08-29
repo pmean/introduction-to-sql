@@ -1,4 +1,4 @@
-* m02-q01-simon-sas-oracle.sas
+* 5508-simon-m02-hw-q01-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-22
 
@@ -18,7 +18,7 @@
 * famous statisticians. The statistician being honored in this code is 
 * [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale).;
 
-ods pdf file="q:/introduction-to-sql/results/m02-q01-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m02-hw-q01-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

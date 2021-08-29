@@ -1,5 +1,5 @@
 *************************************************
-m07-q07-simon-sas-oracle
+5508-simon-m07-hw-q07-sas-oracle
 author: Steve Simon
 creation date: 2020-07-27
 
@@ -28,7 +28,7 @@ The statistician being honored in this code is
 [Helen Walker](https://en.wikipedia.org/wiki/Helen_M._Walker).
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m07-q07-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m07-hw-q07-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

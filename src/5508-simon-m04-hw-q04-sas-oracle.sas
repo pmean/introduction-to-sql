@@ -1,4 +1,4 @@
-* m04-q04-simon-sas-oracle.sas
+* 5508-simon-m04-hw-q04-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-12;
 
@@ -18,7 +18,7 @@
 * The statistician being honored in this code is 
 * [George W. Snedecor](https://en.wikipedia.org/wiki/George_W._Snedecor).;
 
-ods pdf file="q:/introduction-to-sql/results/m04-q04-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m04-hw-q04-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

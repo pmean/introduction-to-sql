@@ -1,6 +1,6 @@
 *************************************************
 
-m05-q02-simon.sas.oracle.sas
+5508-simon-m05-hw-q02.sas.oracle.sas
 Author: Steve Simon
 Creation date: 2020-07-12
 
@@ -11,7 +11,7 @@ available.
 Purpose: Answer M05-Q2. Use the hospital table
 in the ehr database. Convert null values of 
 teaching_ind to -1 and print the values only 
-for  census_reg = "˜West".
+for  census_reg = "?West".
 
 Hint: Use coalesce function.
 
@@ -26,7 +26,7 @@ The statistician being honored in this code is
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m05-q02-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m05-hw-q02-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

@@ -1,4 +1,4 @@
-* m02-q02-simon-sas-oracle.sas
+* 5508-simon-m02-hw-q02-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-24
 
@@ -18,7 +18,7 @@
 * The statistician being honored in this code is 
 * [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes).;
 
-ods pdf file="q:/introduction-to-sql/results/m02-q02-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m02-hw-q02-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 

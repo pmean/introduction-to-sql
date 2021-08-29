@@ -1,4 +1,4 @@
-* m01-q02-simon-sas-oracle.sas
+* 5508-simon-m01-hw-q02-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-01-31
 
@@ -16,7 +16,7 @@
 * famous statisticians. The statistician being honored in this code is 
 * [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).;
 
-ods pdf file="q:/introduction-to-sql/results/m01-q02-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m01-hw-q02-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

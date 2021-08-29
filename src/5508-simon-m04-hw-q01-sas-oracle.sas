@@ -1,4 +1,4 @@
-* m04-q01-simon-sas-oracle.sas
+* 5508-simon-m04-hw-q01-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2021-02-22;
 
@@ -21,7 +21,7 @@
 * The statistician being honored in this code is
 * [John Tukey](https://en.wikipedia.org/wiki/John_Tukey).;
 
-ods pdf file="q:/introduction-to-sql/m04-q01-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/5508-simon-m04-hw-q01-sas-oracle.pdf";
 
 %include "q:/sql files/super-secret.sas";
 

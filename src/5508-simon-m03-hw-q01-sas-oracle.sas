@@ -1,4 +1,4 @@
-* m03-q01-simon-sas-oracle.sas
+* 5508-simon-m03-hw-q01-sas-oracle.sas
 * written by Steve Simon
 * creation date: 2020-07-06
 
@@ -17,7 +17,7 @@
 
 ;
 
-ods pdf file="q:/introduction-to-sql/results/m03-q01-simon-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m03-hw-q01-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

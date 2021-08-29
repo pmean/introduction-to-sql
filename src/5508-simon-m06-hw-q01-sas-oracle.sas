@@ -1,6 +1,6 @@
 *************************************************
 
-m06-q01-simon-sas-oracle.sas
+5508-simon-m06-hw-q01-sas-oracle.sas
 author: Steve Simon
 creation date: 2020-07-25
 
@@ -25,7 +25,7 @@ and acupuncture_migraine_labels tables.
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m06-q01-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m06-hw-q01-sas-oracle.pdf";
 
 
 

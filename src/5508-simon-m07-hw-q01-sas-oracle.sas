@@ -1,5 +1,5 @@
 *************************************************
-m07-q01-simon-sas-oracle
+5508-simon-m07-hw-q01-sas-oracle
 author: Steve Simon
 creation date: 2020-07-27
 
@@ -30,7 +30,7 @@ The statistician being honored in this code is
 [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m07-q01-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m07-hw-q01-simon-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname

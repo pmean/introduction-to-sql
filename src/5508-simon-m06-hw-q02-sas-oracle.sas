@@ -1,6 +1,6 @@
 *************************************************
 
-m06-q02-simon-sas-oracle.sas
+5508-simon-m06-hw-q02-sas-oracle.sas
 author: Steve Simon
 creation date: 2020-07-25
 
@@ -26,7 +26,7 @@ code.
 
 *************************************************;
 
-ods pdf file="q:/introduction-to-sql/results/m06-q02-simon-sas-oracle.pdf";
+ods pdf file="q:/introduction-to-sql/results/5508-simon-m06-hw-q02-sas-oracle.pdf";
 
 %include 'q:/sql files/super-secret.sas';
 libname
