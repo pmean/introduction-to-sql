@@ -36,13 +36,14 @@ Please review the videos in this module before taking this quiz.
 + What does SAS convert NULL values to? ...
 + What actions can help to maintain security for a database? ...
 
-You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
-
-Here are [links to other important files][mygit] on my github site.
-
 <!---my git--->
+This information is available both in Canvas and on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-03-assignments.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
 
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md

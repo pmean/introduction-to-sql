@@ -37,13 +37,14 @@ Please review the videos in this module before taking this quiz.
 + What company developed SQL in the early 1970s?
 + The rows of a database are also called ...
 
-You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
-
-Here are [links to other important files][mygit] on my github site.
-
 <!---my git--->
+This information is available both in Canvas and on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
 [thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-02-assignments.md
 [mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
 
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/all-data.md
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md

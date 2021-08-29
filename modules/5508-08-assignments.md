@@ -26,6 +26,15 @@ Masic I, Milinovic K. On-line biomedical databases-the best source for quick sea
 
 NIH. Frequently Asked Questions (FAQs), Data Sharing. Available in [html format][nih1]
 
+<!---my git--->
+This information is available both in Canvas and on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-08-assignments.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
+
 [bar1]: https://www.nytimes.com/2006/08/09/technology/09aol.html
 [bar2]: https://www.wired.com/story/null-license-plate-landed-one-hacker-ticket-hell/
 [ber1]: https://courses.cs.washington.edu/courses/cse590q/03au/jajodia-is-95.pdf

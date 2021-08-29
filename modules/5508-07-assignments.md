@@ -30,6 +30,16 @@ Q6. Compute the union of the ids from acupuncture_baseline_results and acupunctu
 Q7. In a previous question, you were asked to list the first ten ids that were in acupuncture_baseline_results but not in acupuncture_one_year_results. Use the set operator “minus” to achieve the same goal. Note: for SQLite, use “except” instead of “minus”. Print the ids only for values of 130 or less.
 
 Warning! The names of the various acupuncture tables and the names of the fields (columns/variables) in each table are tricky and inconsistent. For example, some fields use the abbreviation "grp" and others spell it out completely as "group". Refer to [this page][git1] for a description of the data files. 
+
+<!---my git--->
+This information is available both in Canvas and on [my github site][thisf].
+
+If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
+
+[thisf]: https://github.com/pmean/introduction-to-sql/blob/master/modules/5508-07-assignments.md
+[mygit]: https://github.com/pmean/introduction-to-sql/blob/master/README.md
+<!---my git--->
+
 [git1]: https://github.com/pmean/introduction-to-sql/blob/master/data/acupuncture-data-dictionary.md
 
 [gra1]: https://github.com/pmean/classes/blob/master/software-engineering/src/grading-rubric.md
