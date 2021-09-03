@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module02, Synopsis"
 
 ### Synopsis
 
-Thee where keyword allows you to limit the number of records retrieved by a database. You can restrict your query for the first few records, but the code is different for every SQL implementation. You can also restrict by a logical condition or by a partial match to a string.
+Thee where keyword allows you to limit the number of records retrieved by a database. You can restrict by a logical condition or by a partial match to a string. You can also restrict your query for the first few records, but the code is different for every SQL implementation.
 
 <!---my git--->
 This information is also available on [my github site][thisf].
