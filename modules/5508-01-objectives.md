@@ -42,7 +42,7 @@ There are other excellent free databases out there. MySQL is a free database tha
 + select
 
 <!---my git--->
-This information is also available on [my github site][thisf].
+This information is available both in Canvas and on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 

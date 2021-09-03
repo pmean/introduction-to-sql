@@ -30,7 +30,7 @@ Chao Huang, Yu Fu. Top 10 Most Powerful Functions for PROC SQL. SAS Global Forum
 MONOTONIC function in PROC SQL. SAS Communities Library, 2018-07-05. Available in [html format][scl1]
 
 <!---my git--->
-This information is also available on [my github site][thisf].
+This information is available both in Canvas and on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 

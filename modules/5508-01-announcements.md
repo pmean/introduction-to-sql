@@ -76,7 +76,7 @@ If you are missing more than two or three assignments, however, you should talk 
 
 Every time we teach this class, we introduce small improvements. This sometimes includes improvements to the homework assignments. Unfortunately, this can sometimes cause confusion, such as when the Panopto video from a couple of years ago refers to a slightly different version of your homework assignment. if there is a discrepancy between what a video describes as your homework and what you see on the Canvas site, please rely on the Canvas site. This discrepancy is especially notable in Module07, but you may see inconsistencies in any Module.
 
-This information is also available on [my github site][thisf].
+This information is available both in Canvas and on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 

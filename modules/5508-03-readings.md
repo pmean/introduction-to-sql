@@ -16,7 +16,7 @@ These readings provide some general background on how databases work (or don't w
 + Julia Lane, Victoria Stodden. What? Me Worry? What to Do About Privacy, Big Data, and Statistical Research. AMSTAT News 2013-12-01. Available in [html format][lane].
 
 <!---my git--->
-This information is also available on [my github site][thisf].
+This information is available both in Canvas and on [my github site][thisf].
 
 If there is a discrepancy, the Canvas site takes precedence. The [readme.md file][mygit] on my github site has links to other important files for this class.
 
