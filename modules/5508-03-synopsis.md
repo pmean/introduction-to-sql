@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module03, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+As a researcher, you are not responsible for setting up database security, but you do need to know the concerns about security that every database administrator needs to worry about. You'll get a broad overview of security issues. You will also learn what null values are and how to detect them.
 
 <!---my git--->
 This information is available both in Canvas and on [my github site][thisf].
