@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module05, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+SQL has conditional functions which allow you to make choices based on logical comparisons. These functions are especially useful for manipulating null values. You will also see how to get information from a database that has multiple tables.
 
 You can also find this information on [my github site][thisf]. If there is a discrepancy, the Canvas site takes precedence. 
 

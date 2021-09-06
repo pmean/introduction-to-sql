@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module04, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+SQL has single row functions, which manipulate your data a single row at a time. It also has statistical summary functions, which combine information from part or all of a table. You'll see a list of these functions as well as some practical applications of them.
 
 <!---my git--->
 This information is available both in Canvas and on [my github site][thisf].

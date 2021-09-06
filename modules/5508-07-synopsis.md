@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module07, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+In this module, you will see some practical ways to handle mismatches during various join operations. You will also see how SQL can work with common set operations.
 
 <!---my git--->
 This information is available both in Canvas and on [my github site][thisf].

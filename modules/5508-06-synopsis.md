@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module06, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+There are many ways to combine information from two different tables, and you will learn some of the subtle distinctions among these. You will also see a practical example of adding labels to a table containing categorical data with numeric codes.
 
 <!---my git--->
 This information is available both in Canvas and on [my github site][thisf].

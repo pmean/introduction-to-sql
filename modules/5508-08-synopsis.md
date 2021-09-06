@@ -6,7 +6,7 @@ title: "MEDB 5508, Introduction to SQL, Module08, Synopsis"
 
 ### Synopsis
 
-Synopsis is not yet available.
+Subqueries allow you to embed one SQL query inside another. These can appear in several places and allow you to create complex queries using relatively simple code. You will also see how to manipulate longitudinal data, gathering all the values into a single field or spreading them out across multiple fields.
 
 <!---my git--->
 This information is available both in Canvas and on [my github site][thisf].
