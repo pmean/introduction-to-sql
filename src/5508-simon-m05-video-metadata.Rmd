@@ -88,6 +88,30 @@ Very powerful but sometimes dangerous
 
 </div>
 
+### Warning about SAS
+
++ SAS has a "libname" statement.
+  + Information about where to find the data.
+  
+```{}
+libname
+  any_name
+  oracle
+  user='simons'
+  password=&pw
+  path='@CHIHFPRD, BUFFSIZE=9000'
+  schema='sys';
+```
+
++ Any table from SYS needs a two part name
+  + Example: any_name.all_table
+
+<div class="notes">
+
+
+
+</div>
+
 ### Summary
 
 + Most real-world databases have multiple tables. Get the table names using
@@ -96,22 +120,6 @@ Very powerful but sometimes dangerous
 + Get information about an individual table using
   +	all_tab_columns (Oracle)
   +	pragma tablejnfo (SQLite)
-
-<div class="notes">
-
-
-
-</div>
-
-### Your homework
-
-+ Pick a database (any database)
-  +	Use one of the approaches shown above to list all the table names.
-+ Pick a table (any table)
-  +	Use one of the approaches shown above to list all the field names.
-+ Do an Internet search on a database other than Oracle and SQLite.
-  +	Document how you get a list of all the table names in that database.
-+ Submit your results in a single PDF file.
 
 <div class="notes">
 

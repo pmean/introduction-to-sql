@@ -17,7 +17,7 @@ Please keep your answers brief. You are welcome to say something generic like "I
 
 Grading rubric is available on [my Github site][gra1]. One point deduction if submitted after the due date.
 
-Q1. Use the various acupuncture tables. List id and migraine_label for the first ten records after joining the acupuncture_results_table and acupuncture_migraine_table.
+Q1. Use the various acupuncture tables. List id and migraine_label for the first ten records after joining the acupuncture_baseline_results table and acupuncture_migraine_labels table.
 
 Q2. Get a count of the number of records in the database in the control group and the treatment group from the acupuncture_demographics table. Use the label for group (found in the acupuncture_group_labels table) and not the number code.
 
