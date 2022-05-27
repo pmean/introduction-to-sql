@@ -14,7 +14,7 @@ Special note for SAS users. SAS uses a different syntax for the round function, 
 
 Q2. Use the hospital table in the ehr database. The variable ACUTE_NONACUTE has the values Acute and Non-Acute. Use the substr function to convert these two values to the first letter (A or N). Print out the first ten values only.
 
-Q3. Use the titanic table in the melange database. Run a query that counts the number of male and female children (Age <= 18)
+Q3. Use the titanic table in the melange database. Run a query that counts the number of male and children and the number of female children (Age <= 18).
 
 Q4. Use the titanic table in the melange database. Run a query that identifies the ages of the youngest and oldest patients in each passenger class.
 
