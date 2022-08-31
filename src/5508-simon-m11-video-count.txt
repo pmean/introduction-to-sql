@@ -1,0 +1,9 @@
+/* 
+    Title: Sample program for module11 video
+    Programmer: Steve Simon
+    Date: Created 2022-08-31
+    Purpose: To count rows in deid_death
+*/
+
+select count(*) as n
+  from deid_death

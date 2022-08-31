@@ -1,0 +1,10 @@
+/* 
+    Title: Sample program for module11 video
+    Programmer: Steve Simon
+    Date: Created 2022-08-31
+    Purpose: To select limited records and fields from deid_death
+*/
+
+select patid, death_date
+  from deidentified_pcornet_cdm.cdm_2022_july.deid_death
+  limit 4
