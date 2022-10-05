@@ -1,0 +1,27 @@
+---
+title: "Basic SQL code"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2022-10-05"
+output: 
+  powerpoint_presentation: 
+    reference_doc: ../results/wide-screen-template.pptx
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "../results", output_format = "all") })  
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+### URL for Snowflake
+
+https://jl41563.us-east-2.aws.snowflakecomputing.com/
+
+https://pcornet.org/wp-content/uploads/2022/01/PCORnet-Common-Data-Model-v60-2020_10_221.pdf
+
+### Description of the death table
++ See pages 114 and 115 of the Common Data Model specification
