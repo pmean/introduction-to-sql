@@ -1,0 +1,42 @@
+---
+title: "Module07, Q1"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+This file was created on 2020-07-24 and last modified on `r Sys.Date()`.
+
+Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Hirotugu Akaike](https://en.wikipedia.org/wiki/Hirotugu_Akaike).
+
+Q1. Count the number of records after an inner join of acupuncture_baseline_results and acupuncture_one_year_results. Count the number of records after a left join of acupuncture_baseline_results and acupuncture_one_year_results. Why are these numbers different?
+
+```{r hirotugu_akaike}
+library(sqldf)
+akaike <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+hirotugu_inner <- dbGetQuery(conn=akaike,  "
+    select count(*) as n
+      from acupuncture_baseline_results as b
+      join acupuncture_one_year_results as o
+      on b.id=o.id
+")
+hirotugu_inner
+hirotugu_left <- dbGetQuery(conn=akaike,  "
+    select count(*) as n
+      from acupuncture_baseline_results as b
+      left join acupuncture_one_year_results as o
+      on b.id=o.id
+")
+hirotugu_left
+dbDisconnect(conn=akaike)
+```

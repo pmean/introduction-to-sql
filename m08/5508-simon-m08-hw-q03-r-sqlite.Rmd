@@ -1,0 +1,42 @@
+---
+title: "Module06 homework Q3"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+Dates: This file was created on 2020-07-14 and last modified on `r Sys.Date()`.
+
+Purpose: Answer Homework questions from module06
+
+This solution uses R and SQLite. An alternate solution using SAS and Oracle is also available. 
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [Robert V. Hogg](https://en.wikipedia.org/wiki/Robert_V._Hogg).
+
+3. Get a count of the numbers of males and females where you restrict age to be less than 40. Use the label for sex, but convert it to all uppercase.
+
+```{r robert_hogg}
+library(sqldf)
+hogg <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+robert <- dbGetQuery(conn=hogg,  "
+    select 
+        upper(s.sex_label) as sex,
+        count(*) as n
+      from acupuncture_demographics as d
+      join acupuncture_sex_labels as s
+        on d.sex=s.sex_code
+      where age < 40
+      group by d.sex
+")
+robert
+
+dbDisconnect(conn=hogg)
+```

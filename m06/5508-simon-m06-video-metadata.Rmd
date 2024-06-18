@@ -1,0 +1,128 @@
+---
+title: "Managing multiple tables in SQL"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2020-07-13"
+output: powerpoint_presentation
+---
+
+### Most databases have multiple related tables
+
+Why multiple tables?
+  +	Only possible storage option
+  +	Efficiency of storage
+  +	Improved data quality
+  +	Flexibility in getting information
+Very powerful but sometimes dangerous
+  +	Complexity multiplies exponentially
+  +	Mistakes can be costly in computer time
+
+
+<div class="notes">
+
+
+
+</div>
+
+### List all the tables in a database
++	Inconsistent across databases
+  +	Relies on metadata (internal structural information)
+  +	Sometimes hampered by security considerations
++	Oracle syntax (schema='SYS')
+  + select table_name from all_tables where owner='EHR'
++	SQLite syntax
+  + select tbl_name from sqlite_master
++	Please note the inconsistencies
+  +	all_tables versus sqlite_master
+  +	table_name versus tbl_name
+  +	Other databases have other inconsistencies
+
+<div class="notes">
+
+
+
+</div>
+
+### Variations
+
++ Oracle
+  +	Try dba_tables, user_tables instead
+  +	Try with/without "where owner="
++ SQLite
+  +	Type .tables from the command line interface
+  +	Table names shown automatically in SQLite Server
++ SAS
+  +	proc contents data=or_link._all_; run;
++ R
+  +	dbListTables(conn=db)
++ Last resort-ask for help from DBA
+
+<div class="notes">
+
+
+
+</div>
+
+### List information about a specific table
+
++	Oracle syntax (use schema='SYS')
+  + select column_name from all_tab_columns where table_name=1your-table-name1
++	SQLite syntax
+  + pragma table_info(your-table-name)
+
+<div class="notes">
+
+
+
+</div>
+
+### Variations
+
++ SAS
+  + proc contents data=or_link.your-table-name; run;
++ R
+  + dbListFields(conn=db, name="your-table-name")
+
+<div class="notes">
+
+
+
+</div>
+
+### Warning about SAS
+
++ SAS has a "libname" statement.
+  + Information about where to find the data.
+  
+```{}
+libname
+  any_name
+  oracle
+  user='simons'
+  password=&pw
+  path='@CHIHFPRD, BUFFSIZE=9000'
+  schema='sys';
+```
+
++ Any table from SYS needs a two part name
+  + Example: any_name.all_table
+
+<div class="notes">
+
+
+
+</div>
+
+### Summary
+
++ Most real-world databases have multiple tables. Get the table names using
+  +	all_tables (Oracle)
+  +	sqlite_master (SQLite)
++ Get information about an individual table using
+  +	all_tab_columns (Oracle)
+  +	pragma tablejnfo (SQLite)
+
+<div class="notes">
+
+
+
+</div>

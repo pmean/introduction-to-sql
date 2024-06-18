@@ -1,0 +1,35 @@
+---
+title: "Module01 homework, Q1"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })                                                                                                                            
+---
+
+Dates: This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
+
+Purpose: Answer M01-Q01. Use the patient_type table in EHR Datamart. Read all the fields and all 12 records from this table.
+
+Permissions: This program is in the public domain and anyone can use the code in any way they wish without asking permission.
+
+Notes: You will be able to view this code after you have submitted your assignment. If you are having trouble getting your program to work, compare what you did to my code. If you are still having problems after viewing my code, please contact me. This solution uses R and SQLite. An alternate solution using SAS and Oracle is also available. Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians. The statistician being honored in this code is [Gertrude Mary Cox](https://en.wikipedia.org/wiki/Gertrude_Mary_Cox).
+
+```{r}
+library(sqldf)
+cox <- dbConnect(SQLite(),
+  dbname="../data/ehr.sqlite")
+
+gertrude <- dbGetQuery(conn=cox,  "
+    select *
+    from patient_type
+")
+
+gertrude
+dbDisconnect(conn=cox)
+```
+
+A listing of all fields and all 12 records appears above.

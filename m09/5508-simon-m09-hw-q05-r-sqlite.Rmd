@@ -1,0 +1,39 @@
+---
+title: "Module07, Q5"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+This file was created on 2020-07-24 and last modified on `r Sys.Date()`.
+
+Note: this solution uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+
+Note: Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is  
+[Helen Walker](https://en.wikipedia.org/wiki/Helen_M._Walker).
+
+Q5. Compute the intersection of the ids from acupuncture_baseline_results and acupuncture_one_year_results.
+
+```{r helen_walker}
+library(sqldf)
+walker <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+helen_q5 <- dbGetQuery(conn=walker,  "
+    select id
+      from acupuncture_baseline_results
+    intersect
+    select id
+      from acupuncture_one_year_results
+")
+
+helen_q5
+dbDisconnect(conn=walker)
+```
+

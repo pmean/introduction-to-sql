@@ -1,0 +1,45 @@
+---
+title: "Module01 homework, Q02"
+author: "Steve Simon"
+output:
+  pdf_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, 
+    encoding=encoding,
+    output_dir = "../results", 
+    output_format = "all") })  
+---
+
+Dates: This file was created on 2020-01-31 and last modified on `r Sys.Date()`.
+
+Purpose: Answer M01-Q02. Use the table crawling. Run a query that changes Temperature to Temperature_F and displays all three fields and all records.
+
+Permissions: This program is in the public domain and anyone can use the code in any way they wish without asking permission.
+
+Note: You will be able to view this code after you have submitted your assignment. If you are having trouble getting your program to work, compare what you did to my code. If you are still having problems after viewing my code, please contact me.
+
+These solutions uses R and SQLite. An alternate solution using SAS and Oracle is also available.
+
+Some of the names used in this code are arbitrary and you can choose whatever names you want. To emphasize which names can be modified at your discretion, I am using names of famous statisticians.
+
+The statistician being honored in this code is [William Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming).
+
+```{r}
+library(sqldf)
+deming <- dbConnect(SQLite(),
+  dbname="../data/melange.sqlite")
+
+edwards <- dbGetQuery(conn=deming, "
+    select
+      Birth_month,
+      Temperature as Temperature_F,
+      avg_crawling_age
+      from crawling
+")
+
+edwards
+
+dbDisconnect(conn=deming)
+```
+
+Shown above is a listing of all three fields and all records.

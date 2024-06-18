@@ -1,0 +1,626 @@
+---
+title: "Sorting and restricting data"
+author: "Suman Sahil, Steve Simon"
+date: "Creation date: 2019-08-09"
+output: powerpoint_presentation
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressMessages(suppressWarnings(library(knitr)))
+suppressMessages(suppressWarnings(library(magrittr)))
+suppressMessages(suppressWarnings(library(sqldf)))
+```
+
+### Description of the fat database
++ The fat database
+  + Single table, fat
+  + Two measures of percentage body fat
+  + Compare to various body dimensions
++ You can find a description of this data set at
+  + http://jse.amstat.org/datasets/body.txt
+  
+<div class="notes">
+
+We will work with the database fat.sqlite. The name of the database is the same as the name of the only table in the database.
+
+</div>
+
+### Selecting a limited number of records (1/2)
++ SQL code (SQLite)
+```
+select * from fat
+  limit 5
+```
++ SQL code (Oracle)
+```
+select * from fat
+  where rownum <= 5
+```
++ SAS interface to any SQL database
+```
+select * from fat
+  where monotonic() <= 5
+
+```
+
+<div class="notes">
+
+Selecting a limited number of records is one area where different databases use different approaches. SQLite uses a limit statement. Oracle uses a rownum variable in the where statement. Other databases use a keyword like top or first.
+
+This is just one example of where the standards committees have not caught up with the database designers.
+
+One oddity is that the SAS interface to any SQL database will override the approach that you might use with a SAS approach. SAS defines the function "monotonic" to equal the row number of a query. So to limit the number of records if you are using SAS and PROC SQL, and the statement
+
+where monotonic() <= 5
+
+</div>
+
+### Selecting a limited number of records (2/2)
+
+```{r limit}
+library(sqldf)
+db <- dbConnect(SQLite(), 
+  dbname="../../data/fat.sqlite")
+first_five_records <- dbGetQuery(conn=db,
+  "select case_number, age, bmi  
+    from fat
+    limit 5")
+first_five_records
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Warning!!!
++ Order of records in a database is arbitrary
++ You may prefer a random sample
+
+<div class="notes">
+
+Now the order in which the records are stored in a database is somewhat arbitrary and there is no guarantee that you will get the exact same rows, especially if the database is being regularly updated.
+
+It does help to pick the first few records to get a rough idea of what your data table looks like, but there is a serious risk here. Often in a database, the weird or unusual records either float to the top of a table or sink to the bottom. You have no guarantee that there is any resemblance between the first few records and the parts of the table beyond the first few records.
+
+You may, at times, prefer to select a random sample of records. You'll see how to do this in a future lecture.
+
+</div>
+
+### Select a specific record (1/2)
+```{r specific-cases}
+sql_code <- 
+"select case_number, age, bmi 
+  from fat
+  where case_number=3"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+The fat dataset has a primary key, case_number, that is a sequential number starting at 1 and going to the last record (252). This is a nice thing to have, but you may not have it in most databases. It makes it very easy to pick out a specific record like the third one.
+
+</div>
+
+### Select a specific record (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Select a range of records (1/2)
+```{r ragne-of-cases}
+sql_code <- 
+"select case_number, age, bmi 
+  from fat
+  where case_number BETWEEN 110 and 113"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+You can select a range of values with the BETWEEN keyword.
+
+</div>
+
+### Select a range of records (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Select a mix of records (1/2)
+```{r multiple-values}
+sql_code <- 
+"SELECT case_number, age, bmi 
+  FROM fat
+  WHERE case_number IN (207, 209, 214)"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+You can use the IN keyword to select from a non-contiguous list of values.
+
+</div>
+
+### Select a mix of records (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Select on other variables (1/2)
+
+```{r select-senior-citizens}
+sql_code <- 
+"SELECT case_number, age, bmi 
+  FROM fat
+  WHERE age >= 72"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+You can select on any variable, not just the case_number
+
+</div>
+
+### Select on other variables (2/2)
+
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Selections with Boolean logic (1/2)
+```{r boolean}
+sql_code <- 
+"SELECT case_number, age, bmi 
+  FROM fat
+  WHERE
+    age >= 72 AND
+    bmi >= 30"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+You can use standard Boolean logic with keywords like AND, OR, and NOT
+
+</div>
+
+### Selections with Boolean logic (2/2)
+
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. Notice that there is only one record because the "and" requires both statements to be true before a record is selected.
+
+</div>
+
+```{r shut-down-gracefully}
+dbDisconnect(conn=db)
+```
+
+### Selections involving character data
++ Re-introduce airlines data set
+  + Airline is a variable width character data type.
+
+<div class="notes">
+
+The fat data set has all numeric data. Selection using character data has a few distinctions.
+
+</div>
+
+### Remember what the full table looks like
+
+```{r select-star}
+library(sqldf)
+db <- dbConnect(SQLite(), 
+  dbname="../../data/airlines_db.sqlite")
+airlines_data <- dbGetQuery(conn=db,
+ "select * 
+    from airlines_table")
+airlines_data
+```
+
+<div class="notes">
+
+This is a table small enough that you can view everything on a single slide.
+
+</div>
+
+### Selecting a specific string (1/2)
+
+```{r specific-string}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline = 'UNITED'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+Selecting a specific string is pretty easy. Just be sure to use quote marks. You can use single quotes or double quotes, but you can not use the so-called "Smart" quotes that slant differently at the beginning than at the end.
+
+</div>
+
+### Selecting a specific string (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Selecting a range of strings (1/2)
+
+```{r range-of-strings}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline between 'E' and 'J'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+You can use the BETWEEN keyword for character strings. Note that 'J' excluded 'JETBLUE' which comes after 'J' in alphabetical order.
+
+</div>
+
+### Selecting a range of strings (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Sorting the results (1/2)
+
+```{r sorting}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline between 'E' and 'J'
+  order by Airline"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+If you'd like the records listed in order, use the ORDER BY statement.
+
+</div>
+
+### Sorting the results (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here are the results.
+
+</div>
+
+### Sorting the results in reverse order (1/2)
+
+```{r reverse-sorting}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  order by r2017 desc"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+If you'd like the records listed in order, add the DESC keyword. This particular code arranges the data so that the airline with the highest bump rate in 2017 appears at the top.
+
+</div>
+
+### Sorting the results in reverse order (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here are the results.
+
+</div>
+
+### Sorting on multiple fields
++ SQL code
+```
+  order by sex, age
+```
+
+<div class="notes">
+
+You can sort by mutliple values. The data is sorted by the first field, and among those values that are tied on the first field, you break those ties using the values in the second field. So the example shown above places the females first and then the males. Among the females the data is sorted from young to old and among the males the data is sorted from young to old.
+
+You could reverse this and you'd get a different pattern. Everyone is sorted by age with the youngest at the beginning. If two or more records are tied on age, then the females are listed first followed by the males.
+
+There may be settings where you might extend this to a third or fourth field, and it works pretty much the same way. The third field only becomes important for those records which are tied on both the first and second fields.
+
+</div>
+
+### Warning
++ What is between may not always be intuitive.
+  + Is "w" between "U" and "Z"?
+  + Where do numbers fit in?
+  + How do special codes fit in (e.g, tabs versus spaces)?
+  + How do accented characters fit in?
+  
+<div class="notes">
+
+Ranges can be tricky. If you use this approach, run a few tests first so you know what you are getting. Do lower case letters fit in right next to their upper case counterparts? Where do the numbers fit in? There are certain things like tabs that can foul you up because they look just like spaces, but they have a different location in the order of things. If you have accented characters, which can occur easily for foreign names, make sure you know where they fit in as well. This is something that might depend on what country your computer resides in. European computers might produce different results than American computers for some of these queries.
+
+</div>
+
+### Selecting a random sample (1/2)
+```{r sample-oracle}
+sql_code <- 
+"SELECT select Airline, r2016, r2017
+  from airlines_table
+  sample(25)"
+```
++ SQL code (Oracle) NOTE: an approximate sample proportion
+```
+`r sql_code`
+```
+```{r sample-sqlite}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  order by random()
+  limit 4"
+```
++ SQL code (SQLite)
+```
+`r sql_code`
+```
++ SQL code (others)
+```
+???
+```
+
+<div class="notes">
+
+Every database has a different way to select a random sample. There are also multiple ways to select random samples.
+
+The Oracle approach gives a sample that is approximately 25%. What Oracle does is to generate for every record a random number between 0 and 1. If that random number is less than or equal to 0.25, Oracle includes the record and if the random number is greater than 0.25, Oracle excludes that record. This means that in a database of 100 records, the SAMPLE(25) could easily produce a sample as small as 19 records or as large as 31 records.
+
+It turns out that trying to get exactly 25% of the records takes a bit more work, and for very large databases, the extra work could mean the difference between waiting a few seconds and waiting a few hours.
+
+The SQLITE approach gives an exact number of records, but it requires a sort of the entire database.
+
+</div>
+
+### Selecting a random sample (2/2)
+
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like.
+
+</div>
+
+### Warnings about sampling
++ No data on performance of the sampling
+  + Potential for bias
+  + Potential for lack of security
++ Okay for informal uses
++ Consider sampling within R or SAS
+
+<div class="notes">
+
+You should be cautious about the sampling algorithms used in these database packages. As far as I know, no one has done formal testing to see if these systems perform well. They are probably okay for informal applications. Where there may be concerns include settings where a biased sample might compromise the research, such as in a prospective clinical trial. It might also be a concern if there is a need to keep the actual random values securely hidden. Many random number generators allow you to easily predict what the next random number would be even after just reviewing a handful of the earlier random numbers.
+
+I suspect that many of the intended uses of sampling in databases are fairly informal. In these settings, it's not worth worrying about. But if there is need for high quality and security, you may be better off doing the sampling within a statistical pacakge like R or SAS.
+
+</div>
+
+### Selecting based on part of a string (1/6)
+
+```{r like-front}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline like 'JET%'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+If you are searching for just part of a string, use the keyword LIKE and include a percent sign for the portion of the string that you can leave open ended. The code shown above looks for an airline that has the letters J-E-T followed by anything (or nothing).
+
+</div>
+
+### Selecting based on part of a string (2/6)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Selecting based on part of a string (3/6)
+
+```{r like-back}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline like '%JET'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+The code here looks similar, but %JET means that you can start with anything, but you have to end with J-E-T
+
+</div>
+
+### Selecting based on part of a string (4/6)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Selecting based on part of a string (5/6)
+
+```{r like-middle}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline like '%A%'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+Here's the code that looks for the single letter A either in the middle or in the beginning or the end.
+
+</div>
+
+### Selecting based on part of a string (6/6)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Selecting using NOT (1/2)
+
+```{r not-like}
+sql_code <- 
+"select Airline, r2016, r2017
+  from airlines_table
+  where Airline not like '%A%'"
+```
++ SQL code
+```
+`r sql_code`
+```
+
+<div class="notes">
+
+The NOT keyword is useful for finding things that fail a particular match.
+
+</div>
+
+### Selecting using NOT (2/2)
+```{r}
+dbGetQuery(conn=db, sql_code)
+```
+
+<div class="notes">
+
+Here's what the results looks like. 
+
+</div>
+
+### Your homework
++ The cigarettes database
+  + Single table, cigarettes
+  + Tar, nicotine, and carbon monoxide levels (mg)
+  + Weight of cigarette in grams
++ You can find a description of this data set at
+  + http://jse.amstat.org/datasets/cigarettes.txt
++ Find the records for cigarettes that have an ampersand (&) in their name
++ Find the records for cigarettes that are a single word brand name (no spaces)
++ Put your code and output in a single pdf file 
+
+<div class="notes">
+
+You will have a different data set for your homework. This data set measures all the bad things that you can find in a cigarette: tar, nicotine, and carbon monoxide. Find and print the records of any cigarettes whose brand name includes an ampersand. Also, find and print cigarettes whose brand names include just a single word. You'll need the NOT keyword here. Put all your results in a single PDF file.
+
+</div>
+
